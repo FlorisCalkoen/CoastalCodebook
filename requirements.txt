@@ -1,4 +1,12 @@
 jupyter-book
-matplotlib
-numpy
 ghp-import
+numpy
+matplotlib
+pandas
+geopandas
+pyogrio
+pygeos
+xarray
+rioxarray
+hvplot
+
