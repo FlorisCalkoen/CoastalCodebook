@@ -3,7 +3,16 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
+parts:
+  - caption: About this book
+    chapters:
+      - file: markdown
+      - file: markdown-notebooks
+      - file: LICENSE
+
+  - caption: Assignments
+    chapters:
+      - file: assignments/01_introduction.ipynb
+      - file: assignments/02_coastal_classification
+      - file: assignments/03_tidal_constituents
+      - file: assignments/04_tidal_inlets
