@@ -14,9 +14,5 @@ import sys
 cwd = pathlib.Path().resolve()
 sys.path.append(str(cwd.parent))
 
-
-# In[2]:
-
-
 from utils.geometries import geo_bbox
 
