@@ -1,6 +1,6 @@
 # CoastalCodeBook
 
-Tutorial notebooks for CDelft Technical University Coastal Systems
+Tutorial notebooks for Delft University of Technology Coastal Systems
 
 ## Usage
 
