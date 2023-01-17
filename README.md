@@ -48,7 +48,9 @@ faster successor [mamba](https://mamba.readthedocs.io/en/latest/installation.htm
    The Jupyter software can be installed using the following few steps: 
    1. Open a bash shell or conda prompt
    2. Now update the `conda [base]` environment with the packages listed in
-      [environment-jupyterlab.yml](environment-jupyterlab.yml) by running 
+      [environment-jupyterlab.yml](environment-jupyterlab.yml). **Note**, running the command below may change your base environment if you are already
+      using `conda`. Those users might better update the packages in their base
+      environment manually. The command to update the base environment is:  
       ```bash
       conda env update --name base --file environment-jupyterlab.yml --prune
       ```
