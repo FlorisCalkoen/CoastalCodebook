@@ -8,12 +8,13 @@ parts:
     chapters:
       - file: markdown
       - file: markdown-notebooks
-      - file: LICENSE
+      - file: content
+
   - caption: Introduction
     chapters:
-      - file: introduction/01_basics.ipynb
-      - file: introduction/02_loops_and_functions.ipynb
-      - file: introduction/03_markdown.ipynb
+      - file: introduction/01_basics
+      - file: introduction/02_loops_and_functions
+      - file: introduction/03_markdown
 
   - caption: Assignments
     chapters:

@@ -21,14 +21,14 @@ get_ipython().run_line_magic('config', "InlineBackend.figure_formats = ['png2x']
 # In[2]:
 
 
-import coiled
+# import coiled
 import distributed
 import dask
 import pystac_client
 import planetary_computer as pc
 import ipyleaflet
 import IPython.display as dsp
-import geogif
+# import geogif
 import stackstac
 
 
@@ -39,15 +39,15 @@ import stackstac
 # In[3]:
 
 
-cluster = coiled.Cluster(
-    name="stackstac-eu",
-    n_workers=20,
-    package_sync=True,
-    backend_options={"region": "eu-central-1"},
-    # ^ Coiled doesn't yet support Azure's West Europe region, so instead we'll run on a nearby AWS data center in Frankfurt
-)
-client = distributed.Client(cluster)
-client
+# cluster = coiled.Cluster(
+#     name="stackstac-eu",
+#     n_workers=20,
+#     package_sync=True,
+#     backend_options={"region": "eu-central-1"},
+#     # ^ Coiled doesn't yet support Azure's West Europe region, so instead we'll run on a nearby AWS data center in Frankfurt
+# )
+# client = distributed.Client(cluster)
+# client
 
 
 # Interactively pick the area of interest from a map. Just move the map around and re-run all cells to generate the timeseries somewhere else!
@@ -106,7 +106,9 @@ dsp.GeoJSON(items.to_dict())
 # In[9]:
 
 
-get_ipython().run_cell_magic('time', '', 'stack = stackstac.stack(items, bounds_latlon=bbox)\nstack\n')
+# %%time
+# stack = stackstac.stack(items, bounds_latlon=bbox)
+# stack
 
 
 # And that's it for stackstac! Everything from here on is just standard xarray operations.
@@ -114,9 +116,9 @@ get_ipython().run_cell_magic('time', '', 'stack = stackstac.stack(items, bounds_
 # In[10]:
 
 
-# use common_name for bands
-stack = stack.assign_coords(band=stack.common_name.fillna(stack.band).rename("band"))
-stack.band
+# # use common_name for bands
+# stack = stack.assign_coords(band=stack.common_name.fillna(stack.band).rename("band"))
+# stack.band
 
 
 # See how much input data there is for just RGB. This is the amount of data we'll end up processing
@@ -124,7 +126,7 @@ stack.band
 # In[11]:
 
 
-stack.sel(band=["red", "green", "blue"])
+# stack.sel(band=["red", "green", "blue"])
 
 
 # ## Mask cloudy pixels using the QA band
@@ -136,29 +138,28 @@ stack.sel(band=["red", "green", "blue"])
 # In[12]:
 
 
-# Make a bitmask---when we bitwise-and it with the data, it leaves just the 4 bits we care about
-mask_bitfields = [1, 2, 3, 4]  # dilated cloud, cirrus, cloud, cloud shadow
-bitmask = 0
-for field in mask_bitfields:
-    bitmask |= 1 << field
+# # Make a bitmask---when we bitwise-and it with the data, it leaves just the 4 bits we care about
+# mask_bitfields = [1, 2, 3, 4]  # dilated cloud, cirrus, cloud, cloud shadow
+# bitmask = 0
+# for field in mask_bitfields:
+#     bitmask |= 1 << field
 
-bin(bitmask)
+# bin(bitmask)
 
 
 # In[13]:
 
 
-qa = stack.sel(band="QA_PIXEL").astype("uint16")
-bad = qa & bitmask  # just look at those 4 bits
-
-good = stack.where(bad == 0)  # mask pixels where any one of those bits are set
+# qa = stack.sel(band="QA_PIXEL").astype("uint16")
+# bad = qa & bitmask  # just look at those 4 bits
+# good = stack.where(bad == 0)  # mask pixels where any one of those bits are set
 
 
 # In[14]:
 
 
-# What's the typical interval between scenes?
-good.time.diff("time").dt.days.plot.hist();
+# # What's the typical interval between scenes?
+# good.time.diff("time").dt.days.plot.hist();
 
 
 # ## Make biannual median composites
@@ -170,9 +171,9 @@ good.time.diff("time").dt.days.plot.hist();
 # In[15]:
 
 
-# Make biannual median composites (`2Q` means 2 quarters)
-composites = good.resample(time="2Q").median("time")
-composites
+# # Make biannual median composites (`2Q` means 2 quarters)
+# composites = good.resample(time="2Q").median("time")
+# composites
 
 
 # Pick the red-green-blue bands to make a true-color image.
@@ -180,8 +181,8 @@ composites
 # In[16]:
 
 
-rgb = composites.sel(band=["red", "green", "blue"])
-rgb
+# rgb = composites.sel(band=["red", "green", "blue"])
+# rgb
 
 
 # Some final cleanup to make a nicer-looking animation:
@@ -192,7 +193,7 @@ rgb
 # In[17]:
 
 
-cleaned = rgb.ffill("time")[1:]
+# cleaned = rgb.ffill("time")[1:]
 
 
 # ## Render the GIF
@@ -202,24 +203,31 @@ cleaned = rgb.ffill("time")[1:]
 # In[18]:
 
 
-client.wait_for_workers(20)
+# client.wait_for_workers(20)
 
 
 # In[19]:
 
 
-get_ipython().run_cell_magic('time', '', 'gif_img = geogif.dgif(cleaned).compute()\n')
+# %%time
+# gif_img = geogif.dgif(cleaned).compute()
 
 
 # In[20]:
 
 
 # we turned ~7GiB of data into a 4MB GIF!
-dask.utils.format_bytes(len(gif_img.data))
+# dask.utils.format_bytes(len(gif_img.data))
 
 
 # In[21]:
 
 
-gif_img
+# gif_img
+
+
+# In[ ]:
+
+
+
 
