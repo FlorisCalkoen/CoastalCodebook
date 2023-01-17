@@ -1,6 +1,8 @@
 # Coastal Systems Open Codebook
 
-Tutorial notebooks for Delft University of Technology Coastal Systems course. 
+Tutorial notebooks for Delft University of Technology Coastal Systems course. The book is
+available [online](https://floriscalkoen.github.io/CoastalCodebook/intro.html) in both
+PDF and markdown. 
 
 ## Usage
 
