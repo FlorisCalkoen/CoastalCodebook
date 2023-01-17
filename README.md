@@ -1,4 +1,4 @@
-# CoastalCodeBook
+# Coastal Systems Open Codebook
 
 Tutorial notebooks for Delft University of Technology Coastal Systems course. 
 
@@ -18,11 +18,12 @@ first.
    instructions](https://github.com/git-guides/install-git) to install git using the
    command line.
 2. Clone [the repository](https://github.com/FlorisCalkoen/CoastalCodebook) to your local
-   computer. 
+   computer using either of the following options. 
    
-   - **GitHub client**: Browse to the [webpage](https://github.com/FlorisCalkoen/CoastalCodebook), click on the green "Code" button and
+   1. **GitHub client**: Browse to the [webpage](https://github.com/FlorisCalkoen/CoastalCodebook), click on the green "Code" button and
    select "Open with GitHub Desktop".
-   - **Bash shell**: If you have a bash terminal available, provided that git [is
+
+   2. **Bash shell**: If you have a bash terminal available, provided that git [is
      configured](https://docs.github.com/en/get-started/getting-started-with-git), you can simply run: `
    git clone https://github.com/FlorisCalkoen/CoastalCodebook.git`. 
 ### Mamba/Conda
@@ -37,13 +38,23 @@ faster successor [mamba](https://mamba.readthedocs.io/en/latest/installation.htm
 
 1. Please refer to [Conda
    documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/install/windows.html)
-   to install Miniconda. Make sure to follow the instructions for your OS.  
-2. Activate your base environment by `mamba activate base` and install the packages
-   listed in `environment-jupyterlab.yml` into this base environment. You can verify this by running `jupyter lab`. You should be able
-   to run a Juypter server. Please refer to [this
-   introduction](https://earth-env-data-science.github.io/lectures/environment/intro_to_jupyterlab.html)
-   for more information about Jupyterlab. 
-3. Create a new environment with the software packages that we will need for the tutorial
+   to install Miniconda. Optionally you can also just install
+   [mamba](https://mamba.readthedocs.io/en/latest/installation.). Make sure to follow the
+   instructions for your OS.  
+2. Change to the directory where you cloned the repository `cd </path/to/local/repo>`.
+   Note, depending on your OS you have to user either forward or backward slashes.  
+2. Install Juypter software in your base environment. If you're unfamiliar with Jupyter, please refer to [this
+   introduction](https://earth-env-data-science.github.io/lectures/environment/intro_to_jupyterlab.html).
+   The Jupyter software can be installed using the following few steps: 
+   1. Open a bash shell or conda prompt
+   2. Now update the `conda [base]` environment with the packages listed in
+      [environment-jupyterlab.yml](environment-jupyterlab.yml) by running 
+      ```bash
+      conda env update --name base--file environment-jupyterlab.yml --prune
+      ```
+   3. Verify if you have Jupyter services available by running `juypter lab` from your base
+      environment. 
+4. Create a new environment with the software packages that we will need for the tutorial
    sessions. 
     1. Open a conda or bash terminal
     2. Change to the directory where you cloned the repository `cd </path/to/local/repo>`
@@ -51,7 +62,7 @@ faster successor [mamba](https://mamba.readthedocs.io/en/latest/installation.htm
    ```bash
     mamba env create -n coastal -f environment.yml
    ```
-4. Now we can open a interactive computing environment and run the code in the notebooks. 
+5. Now we can open a interactive computing environment and run the code in the notebooks. 
    1. Open a conda or bash terminal
    2. Change to the directory where you cloned the repository `cd </path/to/local/repo>`
    3. In the root directory run `jupyter lab` to launch a jupyter server. 
@@ -81,6 +92,16 @@ A fully-rendered HTML version of the book will be built in `coastalcodebook/_bui
 Please see the [Jupyter Book documentation](https://jupyterbook.org/publish/web.html) to discover options for deploying a book online using services such as GitHub, GitLab, or Netlify.
 
 For GitHub and GitLab deployment specifically, the [cookiecutter-jupyter-book](https://github.com/executablebooks/cookiecutter-jupyter-book) includes templates for, and information about, optional continuous integration (CI) workflow files to help easily and automatically deploy books online with GitHub or GitLab. For example, if you chose `github` for the `include_ci` cookiecutter option, your book template was created with a GitHub actions workflow file that, once pushed to GitHub, automatically renders and pushes your book to the `gh-pages` branch of your repo and hosts it on GitHub Pages when a push or pull request is made to the main branch. -->
+
+## Questions
+
+If you have a question about the installation process or notebooks, feel free to open an issue in the [GitHub
+repository](https://github.com/FlorisCalkoen/CoastalCodebook). If that's your first time,
+have a look at [these
+instructions](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue).
+We choose to use the GitHub issue-tracker because your fellow students probably have
+similar problems. We will not troubleshoot the tutorial notebooks by email. 
+
 
 ## Contributors
 
