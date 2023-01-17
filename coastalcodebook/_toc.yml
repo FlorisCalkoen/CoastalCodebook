@@ -9,10 +9,14 @@ parts:
       - file: markdown
       - file: markdown-notebooks
       - file: LICENSE
+  - caption: Introduction
+    chapters:
+      - file: introduction/01_basics.ipynb
+      - file: introduction/02_loops_and_functions.ipynb
+      - file: introduction/03_markdown.ipynb
 
   - caption: Assignments
     chapters:
-      - file: assignments/01_introduction.ipynb
-      - file: assignments/02_coastal_classification
-      - file: assignments/03_tidal_constituents
-      - file: assignments/04_tidal_inlets
+      - file: assignments/01_coastal_classification
+      - file: assignments/02_tidal_constituents
+      - file: assignments/03_tidal_inlets
