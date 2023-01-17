@@ -50,7 +50,7 @@ faster successor [mamba](https://mamba.readthedocs.io/en/latest/installation.htm
    2. Now update the `conda [base]` environment with the packages listed in
       [environment-jupyterlab.yml](environment-jupyterlab.yml) by running 
       ```bash
-      conda env update --name base--file environment-jupyterlab.yml --prune
+      conda env update --name base --file environment-jupyterlab.yml --prune
       ```
    3. Verify if you have Jupyter services available by running `juypter lab` from your base
       environment. 
