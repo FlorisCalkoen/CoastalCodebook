@@ -1,0 +1,24 @@
+name: base
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - mamba==1.0.0
+  - conda
+  - pip
+  - ca-certificates
+  - certifi
+  - openssl
+  - jupyterlab
+  - nb_conda_kernels
+  - jupyterlab_vim
+  - jupyterlab_code_formatter
+  - jupyterlab-git
+  - jupyter_contrib_nbextensions
+  - dask-labextension
+  - jupyter-panel-proxy
+  - jupyter-resource-usage
+  - nb_conda
+  - black
+  - isort
