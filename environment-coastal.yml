@@ -1,0 +1,77 @@
+name: coastal
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip>=20
+  - ipykernel
+  - ipywidgets #  ipywidgets here and jupyterlab_widgets in jupyterlab env
+  - ipyleaflet # not sure if these have to be installed in both base and project env
+  - adlfs
+  - awscli
+  - azure-data-tables
+  - boto3
+  - cartopy
+  - cfgrib
+  - click
+  - dask-cloudprovider
+  - azure-identity
+  - dask==2022.11.1 # until https://github.com/geopandas/dask-geopandas/pull/230 is merged
+  - distributed
+  - dask-geopandas
+  - dask-ml
+  - datacube
+  - datashader
+  - descartes
+  - eccodes>=2.24.2
+  - earthengine-api
+  - folium
+  - fsspec
+  - gcsfs
+  - geopandas>=0.11.0
+  - geoviews
+  - h5netcdf
+  - h5py
+  - holoviews
+  - hvplot
+  - intake
+  - intake-esm
+  - intake-geopandas
+  - intake-xarray
+  - matplotlib
+  - numpy
+  - pyviz::panel
+  - pandas
+  - planetary-computer
+  - pyarrow
+  - pyogrio
+  - scikit-image
+  - scikit-learn
+  - scipy
+  - seaborn
+  - stac-vrt
+  - stac-geoparquet
+  - stackstac
+  - zarr
+  - s3fs
+  - rasterio
+  - mapclassify
+  - rioxarray
+  - bandit
+  - isort
+  - black
+  - zarr
+  - h5py
+  - fiona
+  - geojson
+  - spatialpandas
+  - astropy
+  - python-dotenv
+  - pydantic
+  - xarray-spatial
+  - beautifulsoup4
+  - lxml
+  - pooch
+  - tqdm
+  # - jupyter_server>=2.2.0 # lower jupyter_server break dask distributed https://github.com/dask/distributed/issues/7515
