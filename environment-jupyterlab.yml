@@ -1,4 +1,4 @@
-name: base
+name: lab
 channels:
   - conda-forge
   - defaults
@@ -11,13 +11,24 @@ dependencies:
   - certifi
   - openssl
   - jupyterlab
+  - nodejs
+  - panel # needs to be in base to connect to widgets
   - nb_conda_kernels
+  - ipykernel
+  # - ipywidgets # jupyterlab_widgets here and ipywidgets in project env
+  - ipyleaflet
+  # - voila  # downgrades jupyter_server to 1.23.5 which breaks dask
   - jupyterlab_code_formatter
+  - jupyterlab_widgets
+  # - jupyter-resource-usage  # downgrades jupyter_server to 1.23.5 which breaks dask
+  # - jupyter-panel-proxy  # not sure if this one is really useful
+  - jupyterlab-lsp # breaks tab complete if python-lsp-server not installed
+  - python-lsp-server
   - jupyterlab-git
-  - jupyter_contrib_nbextensions
+  - jupyterlab_execute_time
   - dask-labextension
-  - jupyter-panel-proxy
-  - jupyter-resource-usage
-  - nb_conda
+  - jupyterlab-spellchecker
+  - nbgitpuller
+  # - lckr-jupyterlab-variableinspector
   - black
   - isort

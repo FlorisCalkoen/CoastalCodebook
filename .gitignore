@@ -133,3 +133,6 @@ dmypy.json
 .pyre/
 .virtual_documents/notebooks
 notebooks/dask-worker-space
+.virtual_documents/*
+data/01_earthquakes.parquet
+
