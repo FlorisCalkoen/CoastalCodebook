@@ -102,7 +102,7 @@ tutorials.
    create a Jupyterlab environment by running: 
    
    ```bash
-   mamba env create -f environment-coastal.yml`
+   mamba env create -f environment-jupyterlab.yml
    ```
 
    And then create the coastal environment by running: 
