@@ -91,7 +91,7 @@ tutorials.
 3. Now that mambaforge is installed, navigate in the Miniforge prompt to the directory
    where you cloned the GitHub CoastalCodeBook repository. **Windows**: if you are on
    Windows and you installed the GitHub client using their default settings you can
-   simply run `cd %userprofile\Documents\GitHub\CoastalCodeBook%` **Linux/Mac**: change
+   simply run `cd %userprofile%\Documents\GitHub\CoastalCodeBook` **Linux/Mac**: change
    to the directory where you cloned the GitHub repository. This will be something like
    `cd ~/path/to/github/repository`. 
 4. The CoastalCodeBook root directory contains two yaml files, that describe the software
@@ -102,7 +102,7 @@ tutorials.
    create a Jupyterlab environment by running: 
    
    ```bash
-   mamba env create -f environment-coastal.yml`
+   mamba env create -f environment-jupyterlab.yml
    ```
 
    And then create the coastal environment by running: 
