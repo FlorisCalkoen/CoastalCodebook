@@ -14,7 +14,6 @@ parts:
     chapters:
       - file: introduction/01_basics
       - file: introduction/02_loops_and_functions
-      - file: introduction/03_markdown
 
   - caption: Assignments
     chapters:
