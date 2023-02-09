@@ -19,4 +19,5 @@ parts:
     chapters:
       - file: assignments/01_coastal_classification
       - file: assignments/02_tidal_constituents
-      - file: assignments/03_tidal_inlets
+      - file: assignments/03_pacific_basin
+      - file: assignments/09_tidal_inlets
