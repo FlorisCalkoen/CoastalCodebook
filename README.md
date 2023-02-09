@@ -20,12 +20,12 @@ first.
    install the GitHub client, or see [these
    instructions](https://github.com/git-guides/install-git) to install git using the
    command line.
-2. Clone [the repository](https://github.com/FlorisCalkoen/CoastalCodebook) to your local
+2. Clone this repository to your local
    computer using either of the following options. 
    
    1. **GitHub client**: Browse to the
    [webpage](https://github.com/FlorisCalkoen/CoastalCodebook), click on the green "Code"
-   button and select "Open with GitHub Desktop".
+   button and select "Open with GitHub Desktop", or paste the URL into the GitHub client.
 
    2. **Bash shell**: If you have a bash terminal available, provided that git [is
      configured](https://docs.github.com/en/get-started/getting-started-with-git), you
@@ -36,11 +36,11 @@ If you're not familiar with managing Python environments, please have a look at 
 [introduction](https://earth-env-data-science.github.io/lectures/environment/python_environments.html?highlight=conda)
 first. The bottom line is that it is good practice to manage your software environments
 to avoid dependency conflicts. For the tutorial notebooks,  we recommend to use the
-lightweight package manager
-[mambaforge](https://mamba.readthedocs.io/en/latest/installation.html). The instructions
-to install this package manager can be found in their documentation, where they refer to
-the [Conda Forge GitHub](https://github.com/conda-forge/miniforge#mambaforge) page to
-download the software. 
+lightweight package manager `mambaforge`. The instructions to install this package
+manager can be found in [their
+documentation](https://mamba.readthedocs.io/en/latest/installation.html), where they
+refer to the [Conda Forge GitHub](https://github.com/conda-forge/miniforge#mambaforge)
+page to download the software. 
 
 ### Windows
 
@@ -54,9 +54,10 @@ client.
    shell by opening the start window and search for "Miniforge". 
 ### Unix like - Mac and Linux
 1. We recommend to install Mambaforge on Linux and Mac using a terminal. The commands to
-   install the package manager are found in their documentation and are: 
+   install the package manager can be found in their documentation and are: 
    ```bash
-
+   curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
+   bash Mambaforge-$(uname)-$(uname -m).sh
 
    ```
 2. Accept the user agreements, and allow the installation script to edit your profile
@@ -96,7 +97,7 @@ tutorials.
    `cd ~/path/to/github/repository`. 
 4. The CoastalCodeBook root directory contains two yaml files, that describe the software
    dependencies. The first one, [environment-jupyterlab.yml](environment-coastal.yml)
-   contains some packages and several extensions to built an interactive Jupyter
+   contains some packages and several extensions to build an interactive Jupyter
    environment. The other one, [environment-coastal.yml](environment-coastal.yml), is a
    specification for required software that we will use in the tutorial notebooks. First
    create a Jupyterlab environment by running: 
@@ -110,7 +111,11 @@ tutorials.
    mamba env create -f environment-coastal.yml
    ``` 
    Depending on whether this is the first time to install this kind of software on your
-   machine, this might take a few minutes to complete. 
+   machine, this might take a few minutes to complete. If you want to give other names to
+   the environments you can do so by adding a `-n` or `--name` flag, i.e., 
+   ```bash
+   mamba env create -n testenv -f environment-jupyterlab.yml
+   ``` 
 
 ## Running the tutorial notebooks 
 Now that you have access to the code (cloning this Github repository), installed a
