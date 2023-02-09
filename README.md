@@ -35,8 +35,44 @@ If you're not familiar with managing Python environments, please have a look at 
 introduction](https://earth-env-data-science.github.io/lectures/environment/python_environments.html?highlight=conda)
 first. The bottom line is that it is good practice to manage your software environments
 to avoid dependency conflicts. 
-We recommend to use the lightweight package manager [miniconda](https://conda.io/miniconda.html), or, even better, its
-faster successor [mamba](https://mamba.readthedocs.io/en/latest/installation.html).  
+We recommend to use the lightweight package manager
+[mambaforge](https://mamba.readthedocs.io/en/latest/installation.html). In the
+installation instructions on that page they refer to their
+[GitHub](https://github.com/conda-forge/miniforge#mambaforge) page to download the
+software. 
+
+### Windows
+
+1. Download the mambaforge executable file for Windows from [Miniforge GitHub page](https://github.com/conda-forge/miniforge#mambaforge) make sure you download the `mambaforge` executable file for Windows. Install
+the executable by clicking on it; you can stay with the default settings by just
+clicking next through the installation. 
+2. Now that mambaforge is installed, you can open a `Miniforge Prompt` . You can find the
+   software by opening the start window and searching for "Miniforge". You can check if
+   mamba was installed by running `mamba --version` in
+   the terminal. It should output something like: 
+
+```console
+~ base ❯ mamba --version
+mamba 1.1.0
+conda 22.9.0
+```
+3. Now that mambaforge is installed, navigate in the Miniforge prompt to the directory
+   where you cloned the GitHub CoastalCodeBook repository. If you are on Windows,
+   installed the GitHub client using default settings you can simply run `cd
+   %userprofile\Documents\GitHub\CoastalCodeBook%`
+4. The CoastalCodeBook root directory contains
+   [environment-coastal.yml](environment-coastal.yml), which is a specification for
+   required software that we will use in the tutorial notebooks. Create a coastal virtual
+   environment by running: 
+   `mamba env create -f environment-coastal.yml`. This may take a few minutes to
+   complete. 
+
+
+
+### Unix like
+
+
+
 
 1. Please refer to [Conda
    documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/install/windows.html)
