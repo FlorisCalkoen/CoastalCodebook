@@ -12,23 +12,26 @@ dependencies:
   - openssl
   - jupyterlab
   - nodejs
-  - panel # needs to be in base to connect to widgets
+  - pyviz::panel # needs to be in base to connect to widgets, not sure iff it has to be from pyviz channel
   - nb_conda_kernels
   - ipykernel
   # - ipywidgets # jupyterlab_widgets here and ipywidgets in project env
   - ipyleaflet
-  # - voila  # downgrades jupyter_server to 1.23.5 which breaks dask
+  - voila
   - jupyterlab_code_formatter
+    # - jupyterlab_vim
   - jupyterlab_widgets
-  # - jupyter-resource-usage  # downgrades jupyter_server to 1.23.5 which breaks dask
-  # - jupyter-panel-proxy  # not sure if this one is really useful
+  - jupyter-resource-usage
+  - jupyter-panel-proxy # not sure if this one is really useful
   - jupyterlab-lsp # breaks tab complete if python-lsp-server not installed
   - python-lsp-server
   - jupyterlab-git
-  # - jupyterlab_execute_time  # breaks installation on windows using mamba
+    # - jupyterlab_execute_time # breaks env on windows installation
   - dask-labextension
   - jupyterlab-spellchecker
   - nbgitpuller
-  # - lckr-jupyterlab-variableinspector
+  # - lckr-jupyterlab-variableinspector  # doesn't work on my machine yet
   - black
   - isort
+  - gh-scoped-creds # check if useful
+  - nbstripout
