@@ -140,28 +140,9 @@ introduction](https://earth-env-data-science.github.io/lectures/environment/intr
       [01_introduction.ipynb](coastalcodebook/assignments/01_introduction.ipynb).
 6. Once the notebook is open you can activate the `coastal` environment in the
       upper-right corner; change `Python 3 (ipykernel)` to `Python [conda env:coastal]`.  
+7. Now you can run the cells and do some interactive coastal analysis!
 
 
-5. Please refer to [Conda
-   documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/install/windows.html)
-   to install Miniconda. Optionally you can also just install
-   [mamba](https://mamba.readthedocs.io/en/latest/installation.). Make sure to follow the
-   instructions for your OS.  
-6. Change to the directory where you cloned the repository `cd </path/to/local/repo>`.
-   Note, depending on your OS you have to user either forward or backward slashes.  
-7. Install Juypter software in your base environment. If you're unfamiliar with Jupyter,
-   please refer to [this
-   introduction](https://earth-env-data-science.github.io/lectures/environment/intro_to_jupyterlab.html).
-   The Jupyter software can be installed using the following few steps: 
-   1. Open a bash shell or conda prompt Optionally you can also install the Jupyterlab
-   packages in your `base` environment. It really doens't make a big difference, but then
-  you don't have to activate your environment upon opening a fresh terminal. To update
-  your base environment with the packages listed in
-  [environment-jupyterlab.yml](environment-jupyterlab.yml) run :  
-      ```bash
-      conda env update --name base --file environment-jupyterlab.yml --prune
-      ```
-  
 
 <!-- ### Building the book
 
