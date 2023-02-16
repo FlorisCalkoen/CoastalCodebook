@@ -19,7 +19,7 @@ dependencies:
   - ipyleaflet
   - voila
   - jupyterlab_code_formatter
-    # - jupyterlab_vim
+    # - jupyterlab_vim  # for vim users ^^
   - jupyterlab_widgets
   - jupyter-resource-usage
   - jupyter-panel-proxy # not sure if this one is really useful
