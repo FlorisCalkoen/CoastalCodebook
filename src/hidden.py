@@ -3,6 +3,20 @@
 # @DANIEL: Put your code for the questions here
 
 
+# you could also consider to put it in if/else with a WrongAnswer exception or something like that?
+# or just try to use the nbgrader :-)
+# class WrongAnswer(Exception):
+#     print("The answer is incorrect. ")
+
+# score = 0
+# if ans1 == "A":
+#     score += 1
+#     print("Answer 1: \t Well done!")
+# else:
+#     raise WrongAnswer
+
+
+# TODO: in future use https://github.com/jupyter/nbgrader instead
 # Function for cheking the first exercise:
 def Check1(ans1, ans2, ans3, ans4, ans5):
     c = 0
