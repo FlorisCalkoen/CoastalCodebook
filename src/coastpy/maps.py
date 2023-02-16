@@ -3,10 +3,10 @@ from ipyleaflet import Map, Marker, ScaleControl, basemaps
 from ipywidgets import HTML
 
 
-def plot_coastal_system(
+def plot_esri_basemap(
     lon: float, lat: float, zoom: int, name: str
 ) -> ipyleaflet.leaflet.Map:
-    """_summary_
+    """Plot IPyleaflet map with ESRI basemap tiles.
 
     Args:
         lon (float): Longitude in degrees.
@@ -25,7 +25,6 @@ def plot_coastal_system(
     m.zoom = zoom
     m.layout.height = "800px"
     m.add_control(ScaleControl(position="bottomleft"))
-
     title = HTML()
     title.value = name
     marker.popup = title
