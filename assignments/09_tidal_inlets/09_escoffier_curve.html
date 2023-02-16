@@ -1,0 +1,808 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coastal Systems Notebook 3 (week 9): Escoffier curve &#8212; CoastalCodeBook</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CoastalCodeBook</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to Coastal Systems Codebook
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About this book
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown-notebooks.html">
+   Notebooks with MyST Markdown
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content.html">
+   Content in Coastal Systems Codebook
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_coastal_classification.html">
+   Characterization of Coastal Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_the_tide.html">
+   Coastal Systems Notebook 2 (week 3): The Tide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_pacific_basin.html">
+   Part 1: compute relative tidal range with respect to waves
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/floriscalkoen/CoastalCodeBook/main?urlpath=tree/docs/assignments/09_tidal_inlets/09_escoffier_curve.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/floriscalkoen/CoastalCodeBook"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/floriscalkoen/CoastalCodeBook/issues/new?title=Issue%20on%20page%20%2Fassignments/09_tidal_inlets/09_escoffier_curve.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/assignments/09_tidal_inlets/09_escoffier_curve.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-an-escoffier-curve">
+   1. Creating an Escoffier curve
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions">
+   2. Questions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#channel-stability">
+     Channel stability
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#escoffier-curve-types">
+     Escoffier curve “types”
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#theory">
+     Theory
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Coastal Systems Notebook 3 (week 9): Escoffier curve</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-an-escoffier-curve">
+   1. Creating an Escoffier curve
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions">
+   2. Questions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#channel-stability">
+     Channel stability
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#escoffier-curve-types">
+     Escoffier curve “types”
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#theory">
+     Theory
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="coastal-systems-notebook-3-week-9-escoffier-curve">
+<h1>Coastal Systems Notebook 3 (week 9): Escoffier curve<a class="headerlink" href="#coastal-systems-notebook-3-week-9-escoffier-curve" title="Permalink to this headline">#</a></h1>
+<p>In chapter 9 of the book and slides, we learned about tidal inlets and their stability. Tidal inlets are very dynamic and their stability depend on a lot of factors. Escoffier was the first to study the stability of tidal inlets. More specifically, he studied the cross-sectional area of tidal inlets as they change throughout the tidal cycle. From his studies, Escoffier developed the now well-known Escoffier curve. In this notebook we will use an interactive approach to better understand the Escoffier curve. Afterwards you are tasked to answer some questions to verify your knowledge on the topic.</p>
+<p>Before starting this notebook, make sure you followed the lectures on chapter 9 (or read the slides) and read section 9.5.1 of the book. Also, run the code below to import and check the necessary packages.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="c1"># make coastpy library importable by appending root to path</span>
+<span class="n">cwd</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">()</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+<span class="n">proj_dir</span> <span class="o">=</span> <span class="n">cwd</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span>  <span class="c1"># this is the root of the CoastalCodeBook</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">proj_dir</span> <span class="o">/</span> <span class="s2">&quot;src&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">interact_manual</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+
+<span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">proj_dir</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="creating-an-escoffier-curve">
+<h2>1. Creating an Escoffier curve<a class="headerlink" href="#creating-an-escoffier-curve" title="Permalink to this headline">#</a></h2>
+<p>Escoffier’s curve is a so-called closure curve and describes the relationship between maximum channel velocity <span class="math notranslate nohighlight">\(u_e\)</span> and the parameter <span class="math notranslate nohighlight">\(X\)</span>, which is primarily, but not solely, a function of the channel cross-section. If we consider a sinusoidal tidal velocity signal:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{aligned}
+u_e = \hat{u}_e = \frac{\pi P}{A_e T}
+\end{aligned}
+\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\hat{u}_e\)</span> is the tidal signal amplitude, <span class="math notranslate nohighlight">\(P\)</span> the tidal prism, <span class="math notranslate nohighlight">\(A_e\)</span> the channel cross-section and <span class="math notranslate nohighlight">\(T\)</span> the tidal period (see Intermezzo 9.4 of the book, equation 9.5).</p>
+<p>The process that leads to the Escoffier curve is explained in the book. In this notebook we provide a short visualisation, see the interactive plot below. We start with an imaginary channel cross-section that is very small, close to point A, such that the tidal difference in the estuary is smaller than the tidal range. Increasing the cross-section (<span class="math notranslate nohighlight">\(A_e\)</span>) results in an increase of the tidal prism (<span class="math notranslate nohighlight">\(P\)</span>) so large that <span class="math notranslate nohighlight">\(u_e\)</span> increases too (recall eq. 9.5). At some point the tidal difference in the estuary is equal to the tidal range and we reach the peak of the closure curve. A larger cross-section now reduces <span class="math notranslate nohighlight">\(u_e\)</span> as <span class="math notranslate nohighlight">\(P\)</span> remains constant (again, recall eq. 9.5).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">=&gt;</span> <span class="nd">@DANIEL</span><span class="p">:</span> <span class="n">Please</span> <span class="n">insert</span> <span class="n">the</span> <span class="n">interactive</span> <span class="n">plot</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">codeblock</span> <span class="n">below</span><span class="o">.</span> <span class="n">You</span> <span class="n">can</span> <span class="n">find</span> <span class="n">the</span> <span class="n">figures</span> <span class="n">necessary</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">folder</span> <span class="n">of</span> <span class="n">this</span> <span class="n">assignment</span><span class="o">.</span> <span class="n">The</span> <span class="n">idea</span> <span class="ow">is</span> <span class="n">to</span> <span class="n">simply</span> <span class="n">display</span> <span class="n">a</span> <span class="n">figure</span> <span class="n">using</span> <span class="n">a</span> <span class="n">slider</span> <span class="n">widget</span><span class="o">.</span> <span class="n">So</span> <span class="ow">in</span> <span class="n">essence</span> <span class="n">you</span> <span class="n">shouldn</span><span class="s1">&#39;t have to code anything to create the graphs of the figure, just display the right image when the slider is moved. I suggest to use ipywidgets, see https://github.com/jupyter-widgets/ipywidge</span>
+<span class="n">ts</span><span class="c1">#readme. Importing the package is done above. I got an error when importing the package because it wasn&#39;t installed in the environment. I installed it using Anaconda prompt, activating the environment and running &#39;pip install ipywidgets&#39;.</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from dash import dcc, html, Input, Output,Dash</span>
+
+<span class="c1"># external_stylesheets = [&#39;https://codepen.io/chriddyp/pen/bWLwgP.css&#39;]</span>
+
+<span class="c1"># app = Dash(__name__, external_stylesheets=external_stylesheets)</span>
+
+<span class="c1"># app.layout = html.Div([</span>
+<span class="c1">#     dcc.Slider(0, 20, 5,</span>
+<span class="c1">#                value=10,</span>
+<span class="c1">#                id=&#39;my-slider&#39;</span>
+<span class="c1">#     ),</span>
+<span class="c1">#     html.Div(id=&#39;slider-output-container&#39;)</span>
+<span class="c1"># ])</span>
+
+<span class="c1"># @app.callback(</span>
+<span class="c1">#     Output(&#39;slider-output-container&#39;, &#39;children&#39;),</span>
+<span class="c1">#     Input(&#39;my-slider&#39;, &#39;value&#39;))</span>
+<span class="c1"># def update_output(value):</span>
+<span class="c1">#     return &#39;You have selected &quot;{}&quot;&#39;.format(value)</span>
+
+<span class="c1"># if __name__ == &#39;__main__&#39;:</span>
+<span class="c1">#     app.run_server(debug=True)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @DANIEL: this is the codeblock for the interactive plot</span>
+<span class="o">%</span><span class="k">matplotlib</span> notebook
+<span class="c1"># %%capture</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">widgets</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">from</span> <span class="nn">skimage.morphology</span> <span class="kn">import</span> <span class="n">disk</span>
+<span class="kn">from</span> <span class="nn">skimage.filters</span> <span class="kn">import</span> <span class="n">rank</span>
+<span class="kn">from</span> <span class="nn">skimage.color</span> <span class="kn">import</span> <span class="n">rgb2gray</span>
+<span class="kn">import</span> <span class="nn">skimage.data</span>
+
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">Median_Size</span><span class="p">):</span>
+    <span class="n">selem</span> <span class="o">=</span> <span class="n">disk</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Median_Size</span><span class="p">))</span>
+    <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+        <span class="n">img_median</span> <span class="o">=</span> <span class="n">rank</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">img_gray</span><span class="p">,</span> <span class="n">selem</span><span class="o">=</span><span class="n">selem</span><span class="p">)</span> 
+
+    <span class="n">ax_neu</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_median</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+
+<span class="n">image</span> <span class="o">=</span>  <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;../09_tidal_inlets/Figures/Ch9_Escoffier_interactive_3.png&quot;</span><span class="p">)</span>  <span class="c1">#skimage.data.camera()</span>
+<span class="n">img_gray</span> <span class="o">=</span> <span class="n">rgb2gray</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax_orig</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span> 
+<span class="n">ax_neu</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span> 
+
+<span class="n">ax_orig</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_gray</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">ax_neu</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_gray</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x13cb918a0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/09_escoffier_curve_6_1.png" src="../../_images/09_escoffier_curve_6_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">Median_Size</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "94f901fd8ff34708b5068221ee59b320"}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">root</span> <span class="o">=</span> <span class="n">Tk</span><span class="p">()</span>
+<span class="n">root</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Photo Slider&#39;</span><span class="p">)</span>
+<span class="n">root</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="s1">&#39;630x400&#39;</span><span class="p">)</span>
+<span class="n">root</span><span class="o">.</span><span class="n">resizable</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">on_next</span><span class="p">():</span>
+    <span class="n">image_show_box_photo</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;Figures/Ch9_Escoffier_interactive_1.png&#39;</span><span class="p">)</span>
+    <span class="n">next_button_label</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s2">&quot;&lt;Button&gt;&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">:</span><span class="n">onclick_back</span><span class="p">())</span>
+
+<span class="k">def</span> <span class="nf">onclick_back</span><span class="p">():</span>
+    <span class="n">image_show_box_photo</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;Figures/Ch9_Escoffier_interactive_2.png&#39;</span><span class="p">)</span>
+    <span class="n">back_button_label</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s2">&quot;&lt;Button&gt;&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">:</span><span class="n">on_next</span><span class="p">())</span>
+
+<span class="c1"># back image button</span>
+<span class="n">back_button_fig</span> <span class="o">=</span> <span class="n">PhotoImage</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;Figures/Back.png&#39;</span><span class="p">)</span>
+<span class="n">back_button_label</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">back_button_fig</span><span class="p">,</span> <span class="n">border</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">back_button_label</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># next image button</span>
+<span class="n">next_button_fig</span> <span class="o">=</span> <span class="n">PhotoImage</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;Figures/Next.png&#39;</span><span class="p">)</span>
+<span class="n">next_button_label</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">next_button_fig</span><span class="p">,</span> <span class="n">border</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">next_button_label</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1">#image show box</span>
+<span class="n">image_show_box_photo</span> <span class="o">=</span> <span class="n">PhotoImage</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;Figures/Ch9_Escoffier_interactive_1.png&#39;</span><span class="p">)</span>
+<span class="n">image_show_box_label</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">image_show_box_photo</span><span class="p">)</span>
+<span class="n">image_show_box_label</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="c1">#label bind</span>
+<span class="n">back_button_label</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s2">&quot;&lt;Button&gt;&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">:</span><span class="n">on_next</span><span class="p">())</span>
+<span class="n">next_button_label</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s2">&quot;&lt;Button&gt;&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">:</span><span class="n">onclick_back</span><span class="p">())</span>
+
+
+<span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The next step is to determine an equilibrium channel velocity <span class="math notranslate nohighlight">\(u_{eq}\)</span> below which no erosion of the channel occurs. This velocity is only slightly dependent on the cross-section and can be approximated as just a function of sediment size. Larger sediment size leads to a larger <span class="math notranslate nohighlight">\(u_{eq}\)</span> and vice versa.</p>
+<p>The closure curve and a value for u_eq leads to the well-known Escoffier curve as depicted in Figure 9.22 in the book.</p>
+<p><img alt="" src="../../_images/Ch9_Escoffier_type_1.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">=&gt;</span> <span class="nd">@DANIEL</span><span class="p">:</span> <span class="n">Insert</span> <span class="n">image</span> <span class="s2">&quot;Escoffier_curve_typical.png&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="questions">
+<h2>2. Questions<a class="headerlink" href="#questions" title="Permalink to this headline">#</a></h2>
+<p>Now that you know how an Escoffier curve is created and some of the physical processes behind it, it’s time to test your understanding. Try to answer the questions below and give your answers in the corresponding codeblock. Run the codeblock to validate your answers and view your feedback.</p>
+<div class="section" id="channel-stability">
+<h3>Channel stability<a class="headerlink" href="#channel-stability" title="Permalink to this headline">#</a></h3>
+<p>Consider the Escoffier curve below with points A, B, C, D and E. What happens to the channel cross-section (<span class="math notranslate nohighlight">\(X\)</span>) at locations 1, 2, 3, 4 and 5? Where does it move to, point A, B, C, D, E or neither (N)? ):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">=&gt;</span> <span class="nd">@DANIEL</span><span class="p">:</span> <span class="n">Insert</span> <span class="n">image</span> <span class="s2">&quot;Escoffier_curve_Qstability.png&quot;</span>
+</pre></div>
+</div>
+<p><img alt="" src="../../_images/Ch9_Escoffier_stability_1.png" /></p>
+<p>Put your answers here:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>=&gt; @DANIEL: Can you code the processing of the answers? Students give their answers below and run the block. Depending on their answer (correct or incorrect) they get to see a message. If correct something like &quot;That is correct!&quot;. If incorrect each question should have some specific feedback, or if we want more detailed feedback each incorrect answer has some specific feedback. Feedback text is provided at the bottom of the notebook.
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ans0</span> <span class="o">=</span> <span class="s1">&#39;N&#39;</span>  <span class="c1"># Example answer</span>
+
+<span class="n">ans1</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span>  <span class="c1"># Your answer for point 1</span>
+<span class="n">ans2</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span>  <span class="c1"># Your answer for point 2</span>
+<span class="n">ans3</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span>  <span class="c1"># Your answer for point 3</span>
+<span class="n">ans4</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span>  <span class="c1"># Your answer for point 4</span>
+<span class="n">ans5</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span>  <span class="c1"># Your answer for point 5</span>
+
+<span class="n">Check1</span><span class="p">(</span><span class="n">ans1</span><span class="p">,</span><span class="n">ans2</span><span class="p">,</span><span class="n">ans3</span><span class="p">,</span><span class="n">ans4</span><span class="p">,</span><span class="n">ans5</span><span class="p">)</span> <span class="c1"># Example function to run to validate answers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">ans4</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span>  <span class="c1"># Your answer for point 4</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">ans5</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span>  <span class="c1"># Your answer for point 5</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">Check1</span><span class="p">(</span><span class="n">ans1</span><span class="p">,</span><span class="n">ans2</span><span class="p">,</span><span class="n">ans3</span><span class="p">,</span><span class="n">ans4</span><span class="p">,</span><span class="n">ans5</span><span class="p">)</span> <span class="c1"># Example function to run to validate answers</span>
+
+<span class="ne">NameError</span>: name &#39;Check1&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="escoffier-curve-types">
+<h3>Escoffier curve “types”<a class="headerlink" href="#escoffier-curve-types" title="Permalink to this headline">#</a></h3>
+<p>Below three Escoffier curves are shown. So far we have only considered the scenario where <span class="math notranslate nohighlight">\(u_{eq}\)</span> is lower than point C (scenario I). However, two other scenarios can also exist: II where point C coincides with <span class="math notranslate nohighlight">\(u_{eq}\)</span> and III where point C is below <span class="math notranslate nohighlight">\(u_{eq}\)</span>. Similar to the previous question, what happens now at locations 1 and 2 for scenarios II and III?</p>
+<p><img alt="" src="../../_images/Ch9_Escoffier_type_1.png" /></p>
+<p><img alt="" src="../../_images/Ch9_Escoffier_type_2.png" /></p>
+<p><img alt="" src="../../_images/Ch9_Escoffier_type_3.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">=&gt;</span> <span class="nd">@DANIEL</span><span class="p">:</span> <span class="n">Insert</span> <span class="n">image</span> <span class="s2">&quot;Escoffier_curve_Qtypes.png&quot;</span>
+</pre></div>
+</div>
+<p>Put your answers here:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ansII_1</span>  <span class="o">=</span> <span class="s1">&#39;C&#39;</span>  <span class="c1"># Your answer for point 1 scenario II</span>
+<span class="n">ansII_2</span>  <span class="o">=</span> <span class="s1">&#39;A&#39;</span>  <span class="c1"># Your answer for point 2 scenario II</span>
+<span class="n">ansIII_1</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span>  <span class="c1"># Your answer for point 1 scenario III</span>
+<span class="n">ansIII_2</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span>  <span class="c1"># Your answer for point 2 scenario III</span>
+
+<span class="n">Check2</span><span class="p">(</span><span class="n">ansII_1</span><span class="p">,</span><span class="n">ansII_2</span><span class="p">,</span><span class="n">ansIII_1</span><span class="p">,</span><span class="n">ansIII_2</span><span class="p">)</span> <span class="c1"># Example function to run to validate answers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Answer 1: 	 Ops! The answer is incorrect.
+Answer 2: 	 Ops! The answer is incorrect.
+Answer 3: 	 Ops! The answer is incorrect.
+Answer 4: 	 Ops! The answer is incorrect.
+Mmm... I think you should check the section about this topic again.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="theory">
+<h3>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">#</a></h3>
+<p>Answer the questions below and explain your reasoning.</p>
+<ol class="simple">
+<li><p>What would happen if <span class="math notranslate nohighlight">\(X\)</span> becomes really large?</p></li>
+<li><p>Can <span class="math notranslate nohighlight">\(X\)</span> go to inifinity?</p></li>
+<li><p>How can you modify the Escoffier curve through engineering?</p></li>
+<li><p>Can the (closure) curve vary in Time?</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Check3() # Example function to run to validate answers</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function for cheking the third exercise:</span>
+<span class="k">def</span> <span class="nf">Check3</span><span class="p">(</span><span class="n">ans1</span><span class="p">,</span><span class="n">ans2</span><span class="p">,</span><span class="n">ans3</span><span class="p">,</span><span class="n">ans4</span><span class="p">):</span>
+    <span class="n">c</span><span class="o">=</span><span class="mi">0</span>
+    <span class="c1"># Checking answer 1:</span>
+    <span class="k">if</span> <span class="n">ans1</span><span class="o">==</span><span class="s1">&#39;A&#39;</span><span class="p">:</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="o">+</span><span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Answer 1: </span><span class="se">\t</span><span class="s1"> Well done!&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ans1</span><span class="o">!=</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Answer 1: </span><span class="se">\t</span><span class="s1"> Ops! The answer is incorrect.&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Checking answer 2:</span>
+    <span class="k">if</span> <span class="n">ans2</span><span class="o">==</span><span class="s1">&#39;C&#39;</span><span class="p">:</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="o">+</span><span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Answer 2: </span><span class="se">\t</span><span class="s1"> Well done!&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ans2</span><span class="o">!=</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Answer 2: </span><span class="se">\t</span><span class="s1"> Ops! The answer is incorrect.&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Checking answer 3:</span>
+    <span class="k">if</span> <span class="n">ans3</span><span class="o">==</span><span class="s1">&#39;D&#39;</span><span class="p">:</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="o">+</span><span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Answer 3: </span><span class="se">\t</span><span class="s1"> Well done!&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ans3</span><span class="o">!=</span><span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Answer 3: </span><span class="se">\t</span><span class="s1"> Ops! The answer is incorrect.&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Checking answer 4:</span>
+    <span class="k">if</span> <span class="n">ans4</span><span class="o">==</span><span class="s1">&#39;D&#39;</span><span class="p">:</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="o">+</span><span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Answer 4: </span><span class="se">\t</span><span class="s1"> Well done!&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ans4</span><span class="o">!=</span><span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Answer 4: </span><span class="se">\t</span><span class="s1"> Ops! The answer is incorrect.&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">c</span><span class="o">==</span><span class="mi">4</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nice! You have understood this topic&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">c</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mmm... I think you should check the section about this topic again.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-env-coastal-py"
+        },
+        kernelOptions: {
+            name: "conda-env-coastal-py",
+            path: "./assignments/09_tidal_inlets"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-coastal-py'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Floris Calkoen<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

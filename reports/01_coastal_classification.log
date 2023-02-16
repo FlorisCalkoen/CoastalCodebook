@@ -1,4 +1,15 @@
 Traceback (most recent call last):
+  File "/Users/calkoen/mambaforge/envs/codebook/lib/python3.10/site-packages/nbclient/client.py", line 730, in _async_poll_for_reply
+    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
+  File "/Users/calkoen/mambaforge/envs/codebook/lib/python3.10/site-packages/nbclient/util.py", line 96, in ensure_async
+    result = await obj
+  File "/Users/calkoen/mambaforge/envs/codebook/lib/python3.10/site-packages/jupyter_client/channels.py", line 315, in get_msg
+    raise Empty
+_queue.Empty
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
   File "/Users/calkoen/mambaforge/envs/codebook/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
     executenb(
   File "/Users/calkoen/mambaforge/envs/codebook/lib/python3.10/site-packages/nbclient/client.py", line 1204, in execute
@@ -11,30 +22,18 @@ Traceback (most recent call last):
     return future.result()
   File "/Users/calkoen/mambaforge/envs/codebook/lib/python3.10/site-packages/nbclient/client.py", line 663, in async_execute
     await self.async_execute_cell(
-  File "/Users/calkoen/mambaforge/envs/codebook/lib/python3.10/site-packages/nbclient/client.py", line 965, in async_execute_cell
-    await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/Users/calkoen/mambaforge/envs/codebook/lib/python3.10/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
-    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
-nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
-------------------
-import coiled
-import distributed
-import dask
-import pystac_client
-import planetary_computer as pc
-import ipyleaflet
-import IPython.display as dsp
-import geogif
-import stackstac
-------------------
-
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[2], line 1[0m
-[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mcoiled[39;00m
-[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mdistributed[39;00m
-[1;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mdask[39;00m
-
-[0;31mModuleNotFoundError[0m: No module named 'coiled'
-ModuleNotFoundError: No module named 'coiled'
+  File "/Users/calkoen/mambaforge/envs/codebook/lib/python3.10/site-packages/nbclient/client.py", line 949, in async_execute_cell
+    exec_reply = await self.task_poll_for_reply
+  File "/Users/calkoen/mambaforge/envs/codebook/lib/python3.10/site-packages/nbclient/client.py", line 754, in _async_poll_for_reply
+    await self._async_handle_timeout(timeout, cell)
+  File "/Users/calkoen/mambaforge/envs/codebook/lib/python3.10/site-packages/nbclient/client.py", line 801, in _async_handle_timeout
+    raise CellTimeoutError.error_from_timeout_and_cell(
+nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
+The message was: Cell execution timed out.
+Here is a preview of the cell contents:
+-------------------
+['import warnings', '', 'os.environ["USE_PYGEOS"] = "0"  # use shapely 2.0 instead of PYGEOS and silence warnings', '', 'import colorcet as cc']
+...
+['warnings.filterwarnings("ignore", category=RuntimeWarning)', 'warnings.filterwarnings("ignore", category=UserWarning)', '', 'DATA_DIR = proj_dir / "data"', 'coastal_systems_fp = DATA_DIR / "01_coastal_systems.gpkg"']
+-------------------
 
