@@ -7,7 +7,7 @@ PDF and markdown.
 ## Usage
 
 For the tuturial sessions we will use an interactive computing environment, that is built
-on the [Jupyter]() ecosystem and use software packages that are by the [Pangeo
+on the [Jupyter]() ecosystem and use software packages that are endorsed by the [Pangeo
 community](https://pangeo.io/quickstart.html). 
 
 ### Git
