@@ -102,58 +102,84 @@ df.head()
 # In[4]:
 
 
-# enable widget indexing
-dfi = df.interactive()
-
+pn.extension()
+title_bar = pn.Row(
+    pn.pane.Markdown(
+        "## Exercise 1: Plate tectonics & first-order coastal features",
+        style={"color": "black"},
+        width=800,
+        sizing_mode="fixed",
+        margin=(10, 5, 10, 15),
+    ),
+    pn.Spacer(),
+)
 
 # define widgets that can be used to index the data
-mag_subrange = pn.widgets.RangeSlider(name="Magnitude", start=0.1, end=10)
-depth_subrange = pn.widgets.RangeSlider(name="Depth", start=0.1, end=650)
-date_subrange = pn.widgets.DateRangeSlider(
+magnitude_slider = pn.widgets.RangeSlider(
+    name="Earthquake magnitude [Richter]", start=0.1, end=10
+)
+depth_slider = pn.widgets.RangeSlider(name="Earthquake depth [km]", start=0.1, end=650)
+date_slider = pn.widgets.DateRangeSlider(
     name="Date", start=df.index[0], end=df.index[-1]
 )
 column_types = pn.widgets.Select(options=["mag", "depth"])
 
-# interactive dataframe, indexed using the widgets
-dfi_filtered = dfi[
-    (dfi.mag > mag_subrange.param.value_start)
-    & (dfi.mag < mag_subrange.param.value_end)
-    & (dfi.depth > depth_subrange.param.value_start)
-    & (dfi.depth < depth_subrange.param.value_end)
-    & (dfi.index >= date_subrange.param.value_start)
-    & (dfi.index <= date_subrange.param.value_end)
-]
+
+@pn.depends(
+    magnitude_slider.param.value_start,
+    magnitude_slider.param.value_end,
+    depth_slider.param.value_start,
+    depth_slider.param.value_end,
+    date_slider.param.value_start,
+    date_slider.param.value_end,
+    column_types.param.value
+    
+)
+def plot_earthquake_panel(
+    magnitude_start, magnitude_end, depth_start, depth_end, date_start, date_end, column_type
+):
+    panel = df[(df.mag > magnitude_start) & (df.mag < magnitude_end)]
+
+    panel = df[
+        (df.mag > magnitude_start)
+        & (df.mag < magnitude_end)
+        & (df.depth > depth_start)
+        & (df.depth < depth_end)
+        & (df.index >= date_start)
+        & (df.index <= date_end)
+    ]
+    # inverted fire colormap from colorcet
+    cmap = cc.CET_L4[::-1]  
+    colorbar_labels = {"mag": "Magnitude [Richter]", "depth": "Earthquake depth [km]"}
+    
+    return panel.hvplot.points(
+        x= "longitude",
+        y="latitude",
+        geo=True,
+        color=column_type,
+        global_extent=True,
+        tiles="ESRI",
+        frame_width=900,
+        ylabel="Latitude [deg]",
+        xlabel="Longitude [deg]",
+        cmap=cmap,
+        tools=["tap"],
+        hover_cols=["place", "time"],
+        logz=True,
+        clim=(1, None),
+        clabel=colorbar_labels[column_type]
+    )
 
 cmap = cc.CET_L4[::-1]  # inverted fire colormap from colorcet
 
-# TODO: update labels of colorbars
-# df.opts(colorbar_opts={"title": colorbar_labels[column_types.value]})
-# colorbar_labels = {"mag": "Magnitude [Richter]", "depth": "Earthquake depth [m]"}
-
-# interactive earthquake visualization
-dfi_plot = dfi_filtered.hvplot(
-    x="longitude",
-    y="latitude",
-    color=column_types,
-    kind="points",
-    geo=True,
-    cmap=cmap,
-    tools=["tap"],
-    hover_cols=["place", "time"],
-    logz=True,
-    clim=(1, None),
-    frame_width=800,
+earthquake_panel = pn.Column(
+    title_bar,
+    pn.Row(column_types),
+    pn.Row(pn.Column(magnitude_slider, depth_slider)),
+    pn.Row(depth_slider),
+    pn.Row(date_slider),
+    pn.Row(plot_earthquake_panel),
 )
-
-# base layer from satellite imagery
-tiles = gvts.EsriImagery()
-
-# plot the earthquakes plot over the baselayer
-earthquakes_plot = tiles * dfi_plot
-
-dashboard_title = pn.panel("## Global distribution of Earthquakes (USGS Data)")
-header = pn.Row(dashboard_title)
-panel = pn.Column(header, earthquakes_plot)
 
 
 # **If the visualization is too slow, please follow the instructions in loading the data for taking a sample.**
@@ -163,18 +189,18 @@ panel = pn.Column(header, earthquakes_plot)
 # In[5]:
 
 
-panel
+earthquake_panel
 
 
 # ### Explore the earthquake data & questions
 # 
-# 1) How do the earthquake magnitude and earthquake depth relate to the coasts that we see? (Hint: See Figure 2.3 in the textbook and consider how deep under the ground the plates are moving.)
+# 1) How do the earthquake magnitude and earthquake depth relate to the coasts that we see? (Hint: See Figure 2.3 in the textbook and consider how deep under the ground the plates are moving. Extra hint: How do earthquake magnitude and depth differ for convergent and divergent plate boundaries?)
 # 
-# 2) Earthquake data support one of the most fundamental processes in the geology: plate tectonics. Although plate tectonics is a relatively slow process that acts on the [geological time scale](https://cdn.britannica.com/67/73167-050-B9A74092/chart.jpg), it has had an enormous impact on the formation of coastlines and determines the broadest features of the coast. What are two important inherited aspects of this process? 
+# 2) Earthquake data support one of the most fundamental processes in the geology: plate tectonics. Although plate tectonics is a relatively slow process that acts on the [geological time scale](https://cdn.britannica.com/67/73167-050-B9A74092/chart.jpg), it has had an enormous impact on the formation of coastlines and determines the broadest features of the coast. What are two important inherited aspects of this process? (Hint: see Figure 2.10 and Sec. 2.3.3 in the textbook.) 
 # 
 # 3) In 1971 Inman, D. L. & Nordstrom, C. E. used plate tectonics to classify the coast. Explain the classification that they introduced. What are the three different classes that they distinguish? How do they match with the earthquake data as you can explore in the panel? 
 # 
-# 4) Can you identify or predict areas around the world where you will find these coasts? What kind of coasts do you have in Chili? And how are they different to the east coast of the USA? And what is characteristic about the East China sea? 
+# 4) Can you identify or predict areas around the world where you will find the coasts that are distinguished by Inman, D. L. & Nordstrom, C. E.? For instance, what kind of coasts do you have in Chili? And how are they different to the east coast of the USA? And what is characteristic about the East China sea? 
 # 
 # 5) Inman, D. L. & Nordstrom (1971) further distinguish Afro-trailing-edge coasts and Amero-trailing-edge coasts based on differences in sediment supplies. What is the main cause of these differences in sediment supply? And how do you expect the differences in sediment input to show in the coastal geomorphology?
 
@@ -215,6 +241,7 @@ coastal_systems_slider = pn.widgets.Select(
     name="Coastal system", options=options, value=np.random.choice(options)
 )
 
+
 @pn.depends(coastal_systems_slider.param.value)
 def plot_coastal_system(name):
     system = coastal_systems.loc[coastal_systems["name"] == name].copy()
@@ -223,7 +250,7 @@ def plot_coastal_system(name):
     ].values.flatten()
 
     return system.hvplot.points(
-        x= "lon",
+        x="lon",
         y="lat",
         geo=True,
         color="red",
@@ -232,8 +259,8 @@ def plot_coastal_system(name):
         ylim=(south, north),
         tiles="ESRI",
         frame_width=1100,
-        ylabel="Latitude [deg]", 
-        xlabel="Longitude [deg]", 
+        ylabel="Latitude [deg]",
+        xlabel="Longitude [deg]",
     )
 
 

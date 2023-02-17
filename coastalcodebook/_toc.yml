@@ -14,7 +14,7 @@ parts:
     chapters:
       - file: assignments/01_coastal_classification
       - file: assignments/02_the_tide
-      - file: assignments/03_pacific_basin
+      # - file: assignments/03_pacific_basin
 
   # - caption: Background
   #   chapters:
