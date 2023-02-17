@@ -132,11 +132,16 @@ column_types = pn.widgets.Select(options=["mag", "depth"])
     depth_slider.param.value_end,
     date_slider.param.value_start,
     date_slider.param.value_end,
-    column_types.param.value
-    
+    column_types.param.value,
 )
 def plot_earthquake_panel(
-    magnitude_start, magnitude_end, depth_start, depth_end, date_start, date_end, column_type
+    magnitude_start,
+    magnitude_end,
+    depth_start,
+    depth_end,
+    date_start,
+    date_end,
+    column_type,
 ):
     panel = df[(df.mag > magnitude_start) & (df.mag < magnitude_end)]
 
@@ -149,11 +154,11 @@ def plot_earthquake_panel(
         & (df.index <= date_end)
     ]
     # inverted fire colormap from colorcet
-    cmap = cc.CET_L4[::-1]  
+    cmap = cc.CET_L4[::-1]
     colorbar_labels = {"mag": "Magnitude [Richter]", "depth": "Earthquake depth [km]"}
-    
+
     return panel.hvplot.points(
-        x= "longitude",
+        x="longitude",
         y="latitude",
         geo=True,
         color=column_type,
@@ -167,8 +172,9 @@ def plot_earthquake_panel(
         hover_cols=["place", "time"],
         logz=True,
         clim=(1, None),
-        clabel=colorbar_labels[column_type]
+        clabel=colorbar_labels[column_type],
     )
+
 
 cmap = cc.CET_L4[::-1]  # inverted fire colormap from colorcet
 
@@ -290,6 +296,80 @@ app
 # 12. The Albufeira Lagoon in Portugal opens and closes seasonally. In the image shown, is it open or closed? When and how might it open or close? 
 # 13. Find examples of heavily urbanized estuaries. How might these human interventions influence the natural processes there?
 # 14. Based on these satellite images, which is the most beautiful site? Taking a moment to appreciate the beauty of these natural systems is an important part of your job as coastal engineers.
+
+# In[8]:
+
+
+from coastpy.maps import plot_esri_basemap
+
+
+# In[9]:
+
+
+m = plot_esri_basemap(-9.181333, 38.510379, 13, "Lagoa de Albufeira")
+m
+
+
+# In[10]:
+
+
+bbox = geo_bbox(m.west, m.south, m.east, m.north)
+
+
+# In[11]:
+
+
+bbox.explore()
+
+
+# In[12]:
+
+
+m.west, m.south, m.east, m.north
+
+
+# In[13]:
+
+
+import shapely
+albufeira = {
+    "name": "Lagoa de Albofeira",
+    "lon": -9.181333,
+    "lat": 38.510379,
+    "zoom": 13,
+    "west": -9.276924133300783,
+    "south": 38.483560395392516,
+    "east": -9.085865020751955,
+    "north": 38.53729004998249,
+    "geometry": shapely.geometry.point.Point([-9.181333, 38.510379])
+}
+albufeira = gpd.GeoDataFrame([albufeira], crs=4326)
+
+
+# In[14]:
+
+
+coastal_systems = pd.concat([albufeira, coastal_systems])
+coastal_systems = coastal_systems[coastal_systems["name"]!="Albufeira"]
+
+
+# In[15]:
+
+
+coastal_systems.drop_duplicates().to_file(38.53729004998249)
+
+
+# In[51]:
+
+
+coastal_systems2
+
+
+# In[50]:
+
+
+coastal_systems2.explore()
+
 
 # In[ ]:
 
