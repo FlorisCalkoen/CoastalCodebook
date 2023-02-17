@@ -10,14 +10,13 @@ parts:
       - file: markdown-notebooks
       - file: content
 
-  - caption: Introduction
-    chapters:
-      - file: introduction/01_basics
-      - file: introduction/02_loops_and_functions
-
   - caption: Assignments
     chapters:
       - file: assignments/01_coastal_classification
-      - file: assignments/02_tidal_constituents
+      - file: assignments/02_the_tide
       - file: assignments/03_pacific_basin
-      - file: assignments/09_tidal_inlets
+
+  # - caption: Background
+  #   chapters:
+  #     - file: introduction/01_basics
+  #     - file: introduction/02_loops_and_functions
