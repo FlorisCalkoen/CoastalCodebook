@@ -1,15 +1,4 @@
 Traceback (most recent call last):
-  File "/Users/calkoen/mambaforge/envs/codebook/lib/python3.10/site-packages/nbclient/client.py", line 730, in _async_poll_for_reply
-    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
-  File "/Users/calkoen/mambaforge/envs/codebook/lib/python3.10/site-packages/nbclient/util.py", line 96, in ensure_async
-    result = await obj
-  File "/Users/calkoen/mambaforge/envs/codebook/lib/python3.10/site-packages/jupyter_client/channels.py", line 315, in get_msg
-    raise Empty
-_queue.Empty
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
   File "/Users/calkoen/mambaforge/envs/codebook/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
     executenb(
   File "/Users/calkoen/mambaforge/envs/codebook/lib/python3.10/site-packages/nbclient/client.py", line 1204, in execute
@@ -22,18 +11,77 @@ Traceback (most recent call last):
     return future.result()
   File "/Users/calkoen/mambaforge/envs/codebook/lib/python3.10/site-packages/nbclient/client.py", line 663, in async_execute
     await self.async_execute_cell(
-  File "/Users/calkoen/mambaforge/envs/codebook/lib/python3.10/site-packages/nbclient/client.py", line 949, in async_execute_cell
-    exec_reply = await self.task_poll_for_reply
-  File "/Users/calkoen/mambaforge/envs/codebook/lib/python3.10/site-packages/nbclient/client.py", line 754, in _async_poll_for_reply
-    await self._async_handle_timeout(timeout, cell)
-  File "/Users/calkoen/mambaforge/envs/codebook/lib/python3.10/site-packages/nbclient/client.py", line 801, in _async_handle_timeout
-    raise CellTimeoutError.error_from_timeout_and_cell(
-nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
-The message was: Cell execution timed out.
-Here is a preview of the cell contents:
--------------------
-['import warnings', '', 'os.environ["USE_PYGEOS"] = "0"  # use shapely 2.0 instead of PYGEOS and silence warnings', '', 'import colorcet as cc']
-...
-['warnings.filterwarnings("ignore", category=RuntimeWarning)', 'warnings.filterwarnings("ignore", category=UserWarning)', '', 'DATA_DIR = proj_dir / "data"', 'coastal_systems_fp = DATA_DIR / "01_coastal_systems.gpkg"']
--------------------
+  File "/Users/calkoen/mambaforge/envs/codebook/lib/python3.10/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/calkoen/mambaforge/envs/codebook/lib/python3.10/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+coastal_systems.drop_duplicates().to_file(38.53729004998249)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[15], line 1[0m
+[0;32m----> 1[0m [43mcoastal_systems[49m[38;5;241;43m.[39;49m[43mdrop_duplicates[49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43mto_file[49m[43m([49m[38;5;241;43m38.53729004998249[39;49m[43m)[49m
+
+File [0;32m~/mambaforge/envs/codebook/lib/python3.10/site-packages/geopandas/geodataframe.py:1203[0m, in [0;36mGeoDataFrame.to_file[0;34m(self, filename, driver, schema, index, **kwargs)[0m
+[1;32m   1120[0m [38;5;250m[39m[38;5;124;03m"""Write the ``GeoDataFrame`` to a file.[39;00m
+[1;32m   1121[0m 
+[1;32m   1122[0m [38;5;124;03mBy default, an ESRI shapefile is written, but any OGR data source[39;00m
+[0;32m   (...)[0m
+[1;32m   1199[0m [38;5;124;03m>>> gdf.to_file('dataframe.shp', mode="a")  # doctest: +SKIP[39;00m
+[1;32m   1200[0m [38;5;124;03m"""[39;00m
+[1;32m   1201[0m [38;5;28;01mfrom[39;00m [38;5;21;01mgeopandas[39;00m[38;5;21;01m.[39;00m[38;5;21;01mio[39;00m[38;5;21;01m.[39;00m[38;5;21;01mfile[39;00m [38;5;28;01mimport[39;00m _to_file
+[0;32m-> 1203[0m [43m_to_file[49m[43m([49m[38;5;28;43mself[39;49m[43m,[49m[43m [49m[43mfilename[49m[43m,[49m[43m [49m[43mdriver[49m[43m,[49m[43m [49m[43mschema[49m[43m,[49m[43m [49m[43mindex[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+
+File [0;32m~/mambaforge/envs/codebook/lib/python3.10/site-packages/geopandas/io/file.py:535[0m, in [0;36m_to_file[0;34m(df, filename, driver, schema, index, mode, crs, engine, **kwargs)[0m
+[1;32m    532[0m     df [38;5;241m=[39m df[38;5;241m.[39mreset_index(drop[38;5;241m=[39m[38;5;28;01mFalse[39;00m)
+[1;32m    534[0m [38;5;28;01mif[39;00m driver [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m--> 535[0m     driver [38;5;241m=[39m [43m_detect_driver[49m[43m([49m[43mfilename[49m[43m)[49m
+[1;32m    537[0m [38;5;28;01mif[39;00m driver [38;5;241m==[39m [38;5;124m"[39m[38;5;124mESRI Shapefile[39m[38;5;124m"[39m [38;5;129;01mand[39;00m [38;5;28many[39m([[38;5;28mlen[39m(c) [38;5;241m>[39m [38;5;241m10[39m [38;5;28;01mfor[39;00m c [38;5;129;01min[39;00m df[38;5;241m.[39mcolumns[38;5;241m.[39mtolist()]):
+[1;32m    538[0m     warnings[38;5;241m.[39mwarn(
+[1;32m    539[0m         [38;5;124m"[39m[38;5;124mColumn names longer than 10 characters will be truncated when saved to [39m[38;5;124m"[39m
+[1;32m    540[0m         [38;5;124m"[39m[38;5;124mESRI Shapefile.[39m[38;5;124m"[39m,
+[1;32m    541[0m         stacklevel[38;5;241m=[39m[38;5;241m3[39m,
+[1;32m    542[0m     )
+
+File [0;32m~/mambaforge/envs/codebook/lib/python3.10/site-packages/geopandas/io/file.py:444[0m, in [0;36m_detect_driver[0;34m(path)[0m
+[1;32m    442[0m     [38;5;28;01mpass[39;00m
+[1;32m    443[0m [38;5;28;01mtry[39;00m:
+[0;32m--> 444[0m     [38;5;28;01mreturn[39;00m _EXTENSION_TO_DRIVER[[43mPath[49m[43m([49m[43mpath[49m[43m)[49m[38;5;241m.[39msuffix[38;5;241m.[39mlower()]
+[1;32m    445[0m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyError[39;00m:
+[1;32m    446[0m     [38;5;66;03m# Assume it is a shapefile folder for now. In the future,[39;00m
+[1;32m    447[0m     [38;5;66;03m# will likely raise an exception when the expected[39;00m
+[1;32m    448[0m     [38;5;66;03m# folder writing behavior is more clearly defined.[39;00m
+[1;32m    449[0m     [38;5;28;01mreturn[39;00m [38;5;124m"[39m[38;5;124mESRI Shapefile[39m[38;5;124m"[39m
+
+File [0;32m~/mambaforge/envs/codebook/lib/python3.10/pathlib.py:960[0m, in [0;36mPath.__new__[0;34m(cls, *args, **kwargs)[0m
+[1;32m    958[0m [38;5;28;01mif[39;00m [38;5;28mcls[39m [38;5;129;01mis[39;00m Path:
+[1;32m    959[0m     [38;5;28mcls[39m [38;5;241m=[39m WindowsPath [38;5;28;01mif[39;00m os[38;5;241m.[39mname [38;5;241m==[39m [38;5;124m'[39m[38;5;124mnt[39m[38;5;124m'[39m [38;5;28;01melse[39;00m PosixPath
+[0;32m--> 960[0m [38;5;28mself[39m [38;5;241m=[39m [38;5;28;43mcls[39;49m[38;5;241;43m.[39;49m[43m_from_parts[49m[43m([49m[43margs[49m[43m)[49m
+[1;32m    961[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39m_flavour[38;5;241m.[39mis_supported:
+[1;32m    962[0m     [38;5;28;01mraise[39;00m [38;5;167;01mNotImplementedError[39;00m([38;5;124m"[39m[38;5;124mcannot instantiate [39m[38;5;132;01m%r[39;00m[38;5;124m on your system[39m[38;5;124m"[39m
+[1;32m    963[0m                               [38;5;241m%[39m ([38;5;28mcls[39m[38;5;241m.[39m[38;5;18m__name__[39m,))
+
+File [0;32m~/mambaforge/envs/codebook/lib/python3.10/pathlib.py:594[0m, in [0;36mPurePath._from_parts[0;34m(cls, args)[0m
+[1;32m    589[0m [38;5;129m@classmethod[39m
+[1;32m    590[0m [38;5;28;01mdef[39;00m [38;5;21m_from_parts[39m([38;5;28mcls[39m, args):
+[1;32m    591[0m     [38;5;66;03m# We need to call _parse_args on the instance, so as to get the[39;00m
+[1;32m    592[0m     [38;5;66;03m# right flavour.[39;00m
+[1;32m    593[0m     [38;5;28mself[39m [38;5;241m=[39m [38;5;28mobject[39m[38;5;241m.[39m[38;5;21m__new__[39m([38;5;28mcls[39m)
+[0;32m--> 594[0m     drv, root, parts [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_parse_args[49m[43m([49m[43margs[49m[43m)[49m
+[1;32m    595[0m     [38;5;28mself[39m[38;5;241m.[39m_drv [38;5;241m=[39m drv
+[1;32m    596[0m     [38;5;28mself[39m[38;5;241m.[39m_root [38;5;241m=[39m root
+
+File [0;32m~/mambaforge/envs/codebook/lib/python3.10/pathlib.py:578[0m, in [0;36mPurePath._parse_args[0;34m(cls, args)[0m
+[1;32m    576[0m     parts [38;5;241m+[39m[38;5;241m=[39m a[38;5;241m.[39m_parts
+[1;32m    577[0m [38;5;28;01melse[39;00m:
+[0;32m--> 578[0m     a [38;5;241m=[39m [43mos[49m[38;5;241;43m.[39;49m[43mfspath[49m[43m([49m[43ma[49m[43m)[49m
+[1;32m    579[0m     [38;5;28;01mif[39;00m [38;5;28misinstance[39m(a, [38;5;28mstr[39m):
+[1;32m    580[0m         [38;5;66;03m# Force-cast str subclasses to str (issue #21127)[39;00m
+[1;32m    581[0m         parts[38;5;241m.[39mappend([38;5;28mstr[39m(a))
+
+[0;31mTypeError[0m: expected str, bytes or os.PathLike object, not float
+TypeError: expected str, bytes or os.PathLike object, not float
 
