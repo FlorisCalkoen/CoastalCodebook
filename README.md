@@ -1,4 +1,6 @@
+![](https://github.com/FlorisCalkoen/CoastalCodebook/blob/main/coastalcodebook/imgs/waves_angola.jpeg)
 # Coastal Systems Open Codebook
+
 
 Tutorial notebooks for Delft University of Technology Coastal Systems course. The book is
 available [online](https://floriscalkoen.github.io/CoastalCodebook/intro.html) in both
