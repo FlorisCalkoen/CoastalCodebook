@@ -1,8 +1,3 @@
-# This is a test cell that should not be displayed because it has the tag "remove-cell".
-#
-# @DANIEL: Put your code for the questions here
-
-
 # you could also consider to put it in if/else with a WrongAnswer exception or something like that?
 # or just try to use the nbgrader :-)
 # class WrongAnswer(Exception):
@@ -23,42 +18,60 @@ def Check1(ans1, ans2, ans3, ans4, ans5):
     # Checking answer 1:
     if ans1 == "A":
         c = c + 1
-        print("Answer 1: \t Well done!")
-    if ans1 != "A":
-        print("Answer 1: \t Ops! The answer is incorrect.")
+        print("Answer 1: \t Correct! The channel velocity is too small to keep the inlet open. Sedimentation leads to closure of the inlet.")
+    if ans1 == "B":
+        print("Answer 1: \t Are you sure that point B is a stable point?")
+    if ((ans1 == "C") & (ans1 == "D")):
+        print("Answer 1: \t Is it possible for a tidal inlet to naturally pass point B from location 1?")
+    if ans1 == "E":
+        print("Answer1: \t Wow! Talking about over compensation... I suggest you rethink your answer")
 
     # Checking answer 2:
-    if ans2 == "C":
+    if ans2 == "D":
         c = c + 1
-        print("Answer 2: \t Well done!")
-    if ans2 != "C":
-        print("Answer 2: \t Ops! The answer is incorrect.")
+        print("Answer 2: \t Correct! Although we are close to point B, an unstable equilibrium, the channel velocity is large enough to increase the channel cross-section. It grows towards point C, passes it, and eventually reach point D, a stable equilibrium.")
+    if ans2 == "C":
+        print("Answer 2: \t Almost! The cross-section grows towards point C, but does it stop there?")
+    if ((ans2 != "D") & (ans2 != "C")):
+        print("Answer 2: \t Location 2 lies between an unstable equilibrium (point B) and stable equilbrium (point D). The unstable equilibrium \"pushes\" away and the stable equilibrium \"attracts\". It can't really go anywhere else but...?")
 
     # Checking answer 3:
     if ans3 == "D":
         c = c + 1
-        print("Answer 3: \t Well done!")
-    if ans3 != "D":
-        print("Answer 3: \t Ops! The answer is incorrect.")
+        print("Answer 3: \t Correct! The channel velocity is still too large. Through erosion the channel moves to point D.")
+    if ans3 == "C":
+        print("Answer 3: \t Almost! The channel velocity is larger than the equilibrium velocity. The channel is eroding, thus moving towards?")
+    if ((ans3 != "D") & (ans3 != "C")):
+        print("Answer 3: \t Location 3 lies between an unstable equilibrium (point B) and stable equilbrium (point D). The unstable equilibrium \"pushes\" away and the stable equilibrium \"attracts\". It can't really go anywhere else but...?")
 
     # Checking answer 4:
     if ans4 == "D":
         c = c + 1
-        print("Answer 4: \t Well done!")
-    if ans4 != "D":
-        print("Answer 4: \t Ops! The answer is incorrect.")
+        print("Answer 4: \t Correct! The channel velocity is too small and the cross-section too large. Sedimentation occurs and we move towards point D")
+    if ((ans4 == "C") | (ans4 == 'B')):
+        print("Answer 4: \t Hmmm, are you sure we can move past point D?")
+    if (ans4 == "A"):
+        print("Answer 4: \t Oh no! Where are you going, come back!")
+    if (ans4 == "E"):
+        print("Answer 4: \t A channel cross-section that is actually too large will grow even more. Are you sure about that?")
 
     # Checking answer 5:
     if ans5 == "D":
         c = c + 1
-        print("Answer 5: \t Well done!")
-    if ans5 != "D":
-        print("Answer 5: \t Ops! The answer is incorrect.")
+        print("Answer 5: \t Correct!")
+    if ans5 == "E":
+        print("Answer 5: \t A channel cross-section that is actually too large will grow even more. Are you sure about that?")
+    if ((ans5 != "D") & (ans5 != "E")):
+        print("Answer 5: \t Hmmm, are you sure we can move past point D?")
+    if (ans5 == "A"):
+        print("Answer 4: \t Oh no! Where are you going, come back!")
 
     if c == 5:
-        print("Nice! You have understood this topic")
+        print("Well done! You are a master of understanding the Escoffier curve. But what about other scenarios? Go to Part 2 and find out.")
     if c == 0:
-        print("Mmm... I think you should check the section about this topic again.")
+        print("Mmm... I think you should read the section about this topic again. If you can't figure it out, discuss with your peers or ask us for help.")
+    if ((c > 0) & (c < 5)):
+        print("Some of your answers are incorrect. Retrhink your answers or dicuss with your peers what the correct answers should be.")
 
 
 # Function for cheking the second exercise:
@@ -69,28 +82,28 @@ def Check2(ans1, ans2, ans3, ans4):
         c = c + 1
         print("Answer 1: \t Well done!")
     if ans1 != "A":
-        print("Answer 1: \t Ops! The answer is incorrect.")
+        print("Answer 1: \t Oops! The answer is incorrect.")
 
     # Checking answer 2:
     if ans2 == "C":
         c = c + 1
         print("Answer 2: \t Well done!")
     if ans2 != "C":
-        print("Answer 2: \t Ops! The answer is incorrect.")
+        print("Answer 2: \t Oops! The answer is incorrect.")
 
     # Checking answer 3:
     if ans3 == "D":
         c = c + 1
         print("Answer 3: \t Well done!")
     if ans3 != "D":
-        print("Answer 3: \t Ops! The answer is incorrect.")
+        print("Answer 3: \t Oops! The answer is incorrect.")
 
     # Checking answer 4:
     if ans4 == "D":
         c = c + 1
         print("Answer 4: \t Well done!")
     if ans4 != "D":
-        print("Answer 4: \t Ops! The answer is incorrect.")
+        print("Answer 4: \t Oops! The answer is incorrect.")
 
     if c == 4:
         print("Nice! You have understood this topic")
@@ -106,28 +119,28 @@ def Check3(ans1, ans2, ans3, ans4):
         c = c + 1
         print("Answer 1: \t Well done!")
     if ans1 != "A":
-        print("Answer 1: \t Ops! The answer is incorrect.")
+        print("Answer 1: \t Oops! The answer is incorrect.")
 
     # Checking answer 2:
     if ans2 == "C":
         c = c + 1
         print("Answer 2: \t Well done!")
     if ans2 != "C":
-        print("Answer 2: \t Ops! The answer is incorrect.")
+        print("Answer 2: \t Oops! The answer is incorrect.")
 
     # Checking answer 3:
     if ans3 == "D":
         c = c + 1
         print("Answer 3: \t Well done!")
     if ans3 != "D":
-        print("Answer 3: \t Ops! The answer is incorrect.")
+        print("Answer 3: \t Oops! The answer is incorrect.")
 
     # Checking answer 4:
     if ans4 == "D":
         c = c + 1
         print("Answer 4: \t Well done!")
     if ans4 != "D":
-        print("Answer 4: \t Ops! The answer is incorrect.")
+        print("Answer 4: \t Oops! The answer is incorrect.")
 
     if c == 4:
         print("Nice! You have understood this topic")
