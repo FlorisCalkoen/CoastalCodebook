@@ -43,7 +43,7 @@ dependencies:
   - intake-xarray
   - matplotlib-base
   - numpy
-  - pyviz::panel
+  - panel
   - param
   - pandas
   - planetary-computer

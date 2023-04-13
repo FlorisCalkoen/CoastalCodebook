@@ -12,7 +12,7 @@ dependencies:
   - openssl
   - jupyterlab
   - nodejs
-  - pyviz::panel # needs to be in base to connect to widgets, not sure iff it has to be from pyviz channel
+  - panel # needs to be in base to connect to widgets, not sure iff it has to be from pyviz channel
   - nb_conda_kernels
   - ipykernel
   # - ipywidgets # jupyterlab_widgets here and ipywidgets in project env
