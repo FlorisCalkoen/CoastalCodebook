@@ -25,7 +25,7 @@ dependencies:
   - jupyter-panel-proxy # not sure if this one is really useful
   - jupyterlab-lsp # breaks tab complete if python-lsp-server not installed
   - python-lsp-server
-  - jupyterlab-git
+    # - jupyterlab-git  # causes warning when git not on os
     # - jupyterlab_execute_time # breaks env on windows installation
   - dask-labextension
   - jupyterlab-spellchecker
