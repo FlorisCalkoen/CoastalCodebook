@@ -8,7 +8,6 @@ PDF and markdown.
 
 ## Usage
 
-Some change
 For the tuturial sessions we will use an interactive computing environment, that is built
 on the [Jupyter]() ecosystem and use software packages that are endorsed by the [Pangeo
 community](https://pangeo.io/quickstart.html). We will communicate the tutorial content
