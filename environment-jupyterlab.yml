@@ -27,7 +27,7 @@ dependencies:
   - python-lsp-server
     # - jupyterlab-git  # causes warning when git not on os
     # - jupyterlab_execute_time # breaks env on windows installation
-  - dask-labextension
+    # - dask-labextension  # causes slow startup on windows
   - jupyterlab-spellchecker
   - nbgitpuller
   # - lckr-jupyterlab-variableinspector  # doesn't work on my machine yet
