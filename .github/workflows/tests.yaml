@@ -51,5 +51,6 @@ jobs:
           micromamba info
           python -c "import coastalcodebook; print(coastalcodebook.__version__)"
 
-      - name: Test with pytest
-        run: pytest --no-warnings
+      # We currently do not have any tests yet
+      # - name: Test with pytest
+      #   run: pytest
