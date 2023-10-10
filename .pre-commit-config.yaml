@@ -7,17 +7,23 @@ repos:
     rev: v4.4.0
     hooks:
       - id: trailing-whitespace
+        exclude: ^jupyterbook/
       - id: debug-statements
+        exclude: ^jupyterbook/
       - id: check-yaml
+        exclude: ^jupyterbook/
       - id: check-added-large-files
+        exclude: ^jupyterbook/
 
   - repo: https://github.com/psf/black
     rev: 23.7.0
     hooks:
       - id: black
         language_version: python3.11
+        exclude: ^jupyterbook/
 
   - repo: https://github.com/kynan/nbstripout
     rev: 0.6.1
     hooks:
       - id: nbstripout
+        exclude: ^jupyterbook/
