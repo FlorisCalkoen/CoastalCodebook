@@ -9,72 +9,70 @@ dependencies:
   - ipywidgets #  ipywidgets here and jupyterlab_widgets in jupyterlab env
   - ipyleaflet
   - adlfs
+  - astropy
   - awscli
   - azure-data-tables
+  - azure-identity
+  - bandit
+  - beautifulsoup4
+  - black
   - boto3
   - cartopy
   - cfgrib
   - click
-  - dask-cloudprovider
-  - azure-identity
   - dask
-  - distributed
+  - dask-cloudprovider
   - dask-geopandas
-  - dask-ml
-  - dask-gateway
   - datacube
   - datashader
   - descartes
-  - eccodes>=2.24.2
   - earthengine-api
+  - eccodes>=2.24.2
+  - fiona
   - folium
   - fsspec
   - gcsfs
+  - geojson
   - geopandas>=0.11.0
   - geoviews-core
   - h5netcdf
   - h5py
+  - h5py
   - holoviews
   - hvplot
+  - ipyml
   - intake
   - intake-esm
   - intake-geopandas
   - intake-stac
   - intake-xarray
+  - isort
+  - lxml
+  - mapclassify
   - matplotlib-base
+  - numcodecs
   - numpy
+  - pandas
   - panel
   - param
-  - pandas
   - planetary-computer
+  - pooch
+  - pre-commit
   - pyarrow=10 # check if higher versions still bring cudatoolkit
+  - pydantic
   - pyogrio
+  - python-dotenv
+  - rasterio
+  - rioxarray
+  - s3fs
   - scikit-image
   - scikit-learn
   - scipy
   - seaborn
-  - stac-vrt
-  - stac-geoparquet
-  - stackstac
-  - zarr
-  - numcodecs
-  - s3fs
-  - rasterio
-  - mapclassify
-  - rioxarray
-  - bandit
-  - isort
-  - black
-  - zarr
-  - h5py
-  - fiona
-  - geojson
   - spatialpandas
-  - astropy
-  - python-dotenv
-  - pydantic
-  - xarray-spatial
-  - beautifulsoup4
-  - lxml
-  - pooch
+  - stac-geoparquet
+  - stac-vrt
+  - stackstac
   - tqdm
+  - xarray-spatial
+  - zarr

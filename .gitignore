@@ -131,8 +131,18 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-.virtual_documents/notebooks
-notebooks/dask-worker-space
-.virtual_documents/*
-data/01_earthquakes.parquet
 
+# no dask logs
+notebooks/dask-worker-space
+
+# location for data
+data/*
+
+# virtual docs
+*virtual_documents*
+
+# don't add tarbals
+dist*
+
+# don't add ruff cache
+*.ruff_cache*
