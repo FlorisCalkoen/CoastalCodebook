@@ -52,4 +52,4 @@ jobs:
           python -c "import coastalcodebook; print(coastalcodebook.__version__)"
 
       - name: Test with pytest
-        run: pytest
+        run: pytest --no-warnings
