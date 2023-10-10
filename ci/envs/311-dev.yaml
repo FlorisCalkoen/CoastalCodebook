@@ -1,0 +1,15 @@
+name: test
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - cython
+  - toml
+  - pyyaml
+  - pytest
+  - pystac
+  - geopandas
+  - xarray
+  - rioxarray
+  - pyarrow
+  - pooch

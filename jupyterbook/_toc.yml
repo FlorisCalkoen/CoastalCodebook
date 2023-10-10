@@ -1,0 +1,22 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: About this book
+    chapters:
+      - file: markdown
+      - file: markdown-notebooks
+      - file: content
+
+  - caption: Assignments
+    chapters:
+      - file: assignments/01_coastal_classification
+      - file: assignments/02_the_tide
+      # - file: assignments/03_pacific_basin
+
+  # - caption: Background
+  #   chapters:
+  #     - file: introduction/01_basics
+  #     - file: introduction/02_loops_and_functions
