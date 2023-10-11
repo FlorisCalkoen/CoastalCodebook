@@ -54,6 +54,7 @@ dependencies:
   - ipyleaflet
   - ipympl
   - ipywidgets
+  - jupyter_bokeh
   - matplotlib-base
   - panel
   - param
