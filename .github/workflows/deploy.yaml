@@ -1,7 +1,7 @@
 name: Deploy JupyterBook to GitHub pages
 
 on:
-  pull_request:
+  push:
     branches: [main]
     paths:
       - "notebooks/**"
@@ -37,9 +37,11 @@ jobs:
       - name: Build JupyterBook
         run: |
           jupyter-book build book/
+
+
       - name: Deploy html files
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages # default: gh-pages
+          publish_branch: gh-pages
           publish_dir: book/_build/html
