@@ -41,6 +41,10 @@ dependencies:
   # - dask-labextension  # causes slow startup on windows
   # - lckr-jupyterlab-variableinspector  # doesn't work on my machine yet
 
+  # Jupyterbook dev tools
+  - jupyter-book
+  - nbformat
+
   # interactive vizualization libraries
   - bokeh
   - folium

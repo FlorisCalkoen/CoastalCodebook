@@ -1,0 +1,18 @@
+name: 311-book
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - jupyter-book
+  - holoviews
+  - hvplot
+  - ipyleaflet
+  - ipywidgets
+  - panel
+  - cartopy
+  - dask
+  - geopandas>=0.11.0
+  - numpy
+  - pandas
+  - rioxarray
+  - tqdm
