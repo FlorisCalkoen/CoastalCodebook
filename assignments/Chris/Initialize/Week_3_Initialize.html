@@ -1,0 +1,1199 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>General settings &#8212; CoastalCodeBook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/Chris/Initialize/Week_3_Initialize';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Welcome to Coastal Systems Codebook
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About this book</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../content.html">Content in Coastal Systems Codebook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../01_coastal_classification.html">Characterization of Coastal Systems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/floriscalkoen/CoastalCodeBook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/floriscalkoen/CoastalCodeBook/issues/new?title=Issue%20on%20page%20%2Fassignments/Chris/Initialize/Week_3_Initialize.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/assignments/Chris/Initialize/Week_3_Initialize.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>General settings</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">General settings</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-functions">Basic functions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q1">Q1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q2">Q2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q3">Q3</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q4">Q4</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q5">Q5</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
+<span class="kn">import</span> <span class="nn">matplotlib.animation</span> <span class="k">as</span> <span class="nn">animation</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">MultipleLocator</span>
+<span class="kn">from</span> <span class="nn">matplotlib.animation</span> <span class="kn">import</span> <span class="n">FuncAnimation</span>
+
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">shuffle</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">uniform</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Packages succesfully loaded&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Packages succesfully loaded
+</pre></div>
+</div>
+</div>
+</div>
+<section id="general-settings">
+<h1>General settings<a class="headerlink" href="#general-settings" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># change the width of the cells on screen </span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;style&gt;.container { width:99% !important; }&lt;/style&gt;&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>.container { width:99% !important; }</style></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">css_results</span> <span class="o">=</span> <span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;&lt;style&gt;</span>
+<span class="s2">.Broad_widget {width: 600px !important;}</span>
+<span class="s2">.Small_widget {width: 250px !important;}</span>
+<span class="s2">&lt;/style&gt;&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="basic-functions">
+<h1>Basic functions<a class="headerlink" href="#basic-functions" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dispersion</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">h</span><span class="p">):</span> <span class="c1"># calculate omega</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">9.81</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">h</span><span class="p">))</span><span class="o">**</span><span class="mf">0.5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wave_length</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">h</span><span class="p">):</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="mf">9.81</span><span class="o">*</span><span class="n">T</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+    <span class="n">L_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">L</span><span class="p">]</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1500</span><span class="p">):</span>
+        <span class="n">L</span> <span class="o">=</span> <span class="mf">9.81</span><span class="o">*</span><span class="n">T</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">h</span><span class="o">/</span><span class="n">L</span><span class="p">)</span>
+        <span class="n">L_all</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">L_all</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">L_all</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">0.0005</span><span class="p">:</span>
+            <span class="k">break</span>
+    
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="mi">13</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">general_text_widget</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">widget_text</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span> <span class="n">text</span><span class="p">)</span>
+    <span class="n">widget_text</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">margin</span> <span class="o">=</span> <span class="s1">&#39;-10px 0 -10px 0&#39;</span><span class="c1"># remove distance above and below</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">widget_text</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Numerical_question_body</span><span class="p">(</span><span class="n">Question</span><span class="p">,</span> <span class="n">units</span><span class="p">,</span> <span class="n">answer</span><span class="p">):</span>
+    
+    <span class="c1"># makes the widgets</span>
+    <span class="n">question_widget</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span> <span class="n">Question</span><span class="p">)</span>
+    <span class="n">unit_widget</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span> <span class="s1">&#39;Answer:&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;50px&#39;</span><span class="p">))</span>
+    <span class="n">num_widget</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">step</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;80px&#39;</span><span class="p">))</span>
+    <span class="n">widget_unit</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span> <span class="n">units</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;30px&#39;</span><span class="p">))</span>
+    
+    <span class="n">submit_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Check&#39;</span><span class="p">,)</span>
+    
+    <span class="n">output_widget</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">value</span><span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">placeholder</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Feedback:&#39;</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;500px&#39;</span><span class="p">))</span>
+    <span class="c1">#output_widget.add_class(&#39;Broad_widget&#39;)</span>
+    
+    <span class="n">HBox1</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">unit_widget</span><span class="p">,</span> <span class="n">num_widget</span><span class="p">,</span> <span class="n">widget_unit</span><span class="p">,</span> <span class="n">output_widget</span><span class="p">])</span>
+    <span class="c1">#HBox.layout.justify_content = &#39;flex-start&#39; # dont adjust the layout on the window </span>
+
+    <span class="c1">#place all the horizontal boxes in one vertical box, and display it.</span>
+    <span class="n">quiz_widget</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">question_widget</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">HBox1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">submit_button</span><span class="p">])</span>
+    <span class="n">quiz_widget</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">flex</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span>
+    
+    <span class="n">display</span><span class="p">(</span><span class="n">quiz_widget</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">check_answers</span><span class="p">(</span><span class="n">button</span><span class="p">,</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">answer</span><span class="p">):</span>
+        
+        <span class="c1"># get value from widget and check if this corresponds with the answer</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">num_widget</span><span class="o">.</span><span class="n">value</span>
+
+        <span class="k">if</span> <span class="n">response</span> <span class="o">==</span> <span class="n">answer</span><span class="p">:</span> <span class="c1"># if the answer is correct</span>
+            <span class="n">output_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="s1">&#39;Good job, this is correct&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span> <span class="c1"># the answer is wrong</span>
+            <span class="n">output_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="s1">&#39;Incorrect, the answer should be &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">units</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;, please try again.&#39;</span><span class="p">)</span>
+            
+    <span class="n">submit_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">check_answers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="q1">
+<h1>Q1<a class="headerlink" href="#q1" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Q1</span><span class="p">():</span>
+    
+    <span class="n">text_general</span> <span class="o">=</span> <span class="s1">&#39;The wavelength can be determined in three different ways: an iterative approach, through tables (Appendix B, table B-3 of the book) and via an explicit formula.&#39;</span>
+        
+    <span class="n">T1</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">uniform</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">h1</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+        
+    <span class="n">text_general</span> <span class="o">=</span> <span class="s1">&#39;The questions below asses the wave length in three different ways.&#39;</span>
+    <span class="n">text_general2</span> <span class="o">=</span> <span class="s1">&#39;These are an iterative approach, through tables (Appendix B, table B-3 of the book), and via the formula of Fentom.&#39;</span>
+    <span class="n">text_general3</span> <span class="o">=</span> <span class="s1">&#39;Can you asses the wave length for a wave with a period ($T$) of &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; seconds and a water depth ($h$) of &#39;</span>  <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">h1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; m?&#39;</span>
+    
+    <span class="n">Q1_text</span> <span class="o">=</span> <span class="s1">&#39;Q1a) What is the deep water wave length?&#39;</span>
+    <span class="n">Q1_unit</span> <span class="o">=</span> <span class="s1">&#39; m&#39;</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="mf">9.81</span><span class="o">*</span><span class="n">T1</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+    <span class="n">Answer1</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span> <span class="n">L</span> <span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="n">Q2_text</span> <span class="o">=</span> <span class="s1">&#39;Q1b) If you use the dispersion relation expressed in the wave length, what is the wave length in the first iteration?&#39;</span>
+    <span class="n">Q2_unit</span> <span class="o">=</span> <span class="s1">&#39; m&#39;</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="mf">9.81</span><span class="o">*</span><span class="n">T1</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">h1</span><span class="o">/</span><span class="n">L</span><span class="p">)</span>
+    <span class="n">Answer2</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="n">Q3_text</span> <span class="o">=</span> <span class="s1">&#39;Q1c) To what wave length does this iteration converge?&#39;</span>
+    <span class="n">Q3_unit</span> <span class="o">=</span> <span class="s1">&#39; m&#39;</span>
+    <span class="n">Answer3</span> <span class="o">=</span> <span class="nb">round</span> <span class="p">(</span><span class="n">wave_length</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span><span class="n">h1</span><span class="p">)</span> <span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    
+    <span class="n">Q4_text</span> <span class="o">=</span> <span class="s1">&#39;Q2a) Following table B-3 of the book, what is the ratio of h/L0? (Use 3 decimal numbers in this question)&#39;</span>
+    <span class="n">Q4_unit</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">L0</span> <span class="o">=</span> <span class="mf">9.81</span><span class="o">*</span><span class="n">T1</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+    <span class="n">Answer4</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">h1</span><span class="o">/</span><span class="n">L0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    
+    <span class="n">Q5_text</span> <span class="o">=</span> <span class="s1">&#39;Q2b) What is the ratio of h/L, you can linear interpolate. (Use 3 decimal numbers in this question)&#39;</span>
+    <span class="n">Q5_unit</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    
+    <span class="c1"># data from table B-3, page 536, of the book CD1</span>
+    <span class="n">h_L0_serie</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.002</span><span class="p">,</span><span class="mf">0.004</span><span class="p">,</span><span class="mf">0.006</span><span class="p">,</span><span class="mf">0.008</span><span class="p">,</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.015</span><span class="p">,</span><span class="mf">0.02</span><span class="p">,</span><span class="mf">0.025</span><span class="p">,</span><span class="mf">0.03</span><span class="p">,</span><span class="mf">0.035</span><span class="p">,</span><span class="mf">0.04</span><span class="p">,</span><span class="mf">0.045</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.055</span><span class="p">,</span><span class="mf">0.06</span><span class="p">,</span><span class="mf">0.065</span><span class="p">,</span><span class="mf">0.07</span><span class="p">,</span><span class="mf">0.075</span><span class="p">,</span><span class="mf">0.08</span><span class="p">,</span><span class="mf">0.085</span><span class="p">,</span><span class="mf">0.09</span><span class="p">,</span><span class="mf">0.095</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.11</span><span class="p">,</span><span class="mf">0.12</span><span class="p">,</span><span class="mf">0.13</span><span class="p">,</span><span class="mf">0.14</span><span class="p">,</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.16</span><span class="p">,</span><span class="mf">0.17</span><span class="p">,</span><span class="mf">0.18</span><span class="p">,</span><span class="mf">0.19</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.21</span><span class="p">,</span><span class="mf">0.22</span><span class="p">,</span><span class="mf">0.23</span><span class="p">,</span><span class="mf">0.24</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.26</span><span class="p">,</span><span class="mf">0.27</span><span class="p">,</span><span class="mf">0.28</span><span class="p">,</span><span class="mf">0.29</span><span class="p">,</span><span class="mf">0.30</span><span class="p">,</span><span class="mf">0.31</span><span class="p">,</span><span class="mf">0.32</span><span class="p">,</span><span class="mf">0.33</span><span class="p">,</span><span class="mf">0.34</span><span class="p">,</span><span class="mf">0.35</span><span class="p">,</span><span class="mf">0.36</span><span class="p">,</span><span class="mf">0.37</span><span class="p">,</span><span class="mf">0.38</span><span class="p">,</span><span class="mf">0.39</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.41</span><span class="p">,</span><span class="mf">0.42</span><span class="p">,</span><span class="mf">0.43</span><span class="p">,</span><span class="mf">0.44</span><span class="p">,</span><span class="mf">0.45</span><span class="p">,</span><span class="mf">0.46</span><span class="p">,</span><span class="mf">0.47</span><span class="p">,</span><span class="mf">0.48</span><span class="p">,</span><span class="mf">0.49</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">h_L_serie</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0179</span><span class="p">,</span><span class="mf">0.0253</span><span class="p">,</span><span class="mf">0.0311</span><span class="p">,</span><span class="mf">0.0360</span><span class="p">,</span><span class="mf">0.0403</span><span class="p">,</span><span class="mf">0.0496</span><span class="p">,</span><span class="mf">0.0576</span><span class="p">,</span><span class="mf">0.0648</span><span class="p">,</span><span class="mf">0.0713</span><span class="p">,</span><span class="mf">0.0775</span><span class="p">,</span><span class="mf">0.0833</span><span class="p">,</span><span class="mf">0.0888</span><span class="p">,</span><span class="mf">0.0942</span><span class="p">,</span><span class="mf">0.0993</span><span class="p">,</span><span class="mf">0.104</span><span class="p">,</span><span class="mf">0.109</span><span class="p">,</span><span class="mf">0.114</span><span class="p">,</span><span class="mf">0.119</span><span class="p">,</span><span class="mf">0.123</span><span class="p">,</span><span class="mf">0.128</span><span class="p">,</span><span class="mf">0.132</span><span class="p">,</span><span class="mf">0.137</span><span class="p">,</span><span class="mf">0.141</span><span class="p">,</span><span class="mf">0.150</span><span class="p">,</span><span class="mf">0.158</span><span class="p">,</span><span class="mf">0.167</span><span class="p">,</span><span class="mf">0.175</span><span class="p">,</span><span class="mf">0.183</span><span class="p">,</span><span class="mf">0.192</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.208</span><span class="p">,</span><span class="mf">0.217</span><span class="p">,</span><span class="mf">0.225</span><span class="p">,</span><span class="mf">0.234</span><span class="p">,</span><span class="mf">0.242</span><span class="p">,</span><span class="mf">0.251</span><span class="p">,</span><span class="mf">0.259</span><span class="p">,</span><span class="mf">0.268</span><span class="p">,</span><span class="mf">0.277</span><span class="p">,</span><span class="mf">0.285</span><span class="p">,</span><span class="mf">0.294</span><span class="p">,</span><span class="mf">0.303</span><span class="p">,</span><span class="mf">0.312</span><span class="p">,</span><span class="mf">0.321</span><span class="p">,</span><span class="mf">0.330</span><span class="p">,</span><span class="mf">0.339</span><span class="p">,</span><span class="mf">0.349</span><span class="p">,</span><span class="mf">0.358</span><span class="p">,</span><span class="mf">0.367</span><span class="p">,</span><span class="mf">0.377</span><span class="p">,</span><span class="mf">0.386</span><span class="p">,</span><span class="mf">0.395</span><span class="p">,</span><span class="mf">0.405</span><span class="p">,</span><span class="mf">0.415</span><span class="p">,</span><span class="mf">0.424</span><span class="p">,</span><span class="mf">0.434</span><span class="p">,</span><span class="mf">0.433</span><span class="p">,</span><span class="mf">0.453</span><span class="p">,</span><span class="mf">0.463</span><span class="p">,</span><span class="mf">0.472</span><span class="p">,</span><span class="mf">0.482</span><span class="p">,</span><span class="mf">0.492</span><span class="p">,</span><span class="mf">0.502</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+    
+    <span class="c1"># read the table</span>
+    <span class="n">id_lower</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">h_L0_serie</span> <span class="o">&lt;=</span> <span class="n">h1</span><span class="o">/</span><span class="n">L0</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="c1"># get the (last) id where the value is below h/L0</span>
+    <span class="n">h_L_lower</span> <span class="o">=</span> <span class="n">h_L_serie</span><span class="p">[</span><span class="n">id_lower</span><span class="p">]</span> <span class="c1"># use this id to get the new ratio H/L, the lower boundary</span>
+    <span class="n">h_L_upper</span> <span class="o">=</span> <span class="n">h_L_serie</span><span class="p">[</span><span class="n">id_lower</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># the upper boundary</span>
+    
+    <span class="c1"># linear interpolate</span>
+    <span class="n">slope</span> <span class="o">=</span> <span class="p">(</span><span class="n">h_L_upper</span> <span class="o">-</span> <span class="n">h_L_lower</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">h_L0_serie</span><span class="p">[</span><span class="n">id_lower</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span> <span class="n">h_L0_serie</span><span class="p">[</span><span class="n">id_lower</span><span class="p">])</span>
+    <span class="n">h_L</span> <span class="o">=</span> <span class="n">h_L_lower</span> <span class="o">+</span> <span class="n">slope</span> <span class="o">*</span> <span class="p">(</span><span class="n">h1</span><span class="o">/</span><span class="n">L0</span><span class="o">-</span> <span class="n">h_L0_serie</span><span class="p">[</span><span class="n">id_lower</span><span class="p">])</span>
+    
+    <span class="c1">#print(h1/L0, id_lower, h_L_lower, h_L_upper, h_L)</span>
+    <span class="n">Answer5</span> <span class="o">=</span> <span class="nb">round</span> <span class="p">(</span><span class="n">h_L</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    
+    <span class="n">Q6_text</span> <span class="o">=</span> <span class="s1">&#39;Q2c) While using the answer of the previous question, what is the wave length?&#39;</span>
+    <span class="n">Q6_unit</span> <span class="o">=</span> <span class="s1">&#39; m&#39;</span>
+    <span class="n">Answer6</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">h1</span><span class="o">/</span><span class="n">h_L</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    
+    
+    <span class="n">Q7_text</span> <span class="o">=</span> <span class="s1">&#39;Q2d) What is the value tanh(kh), you can linear interpolate. (Use 3 decimal numbers in this question)&#39;</span>
+    <span class="n">Q7_unit</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    
+    <span class="c1"># data from table B-3</span>
+    <span class="n">tanh_kh_serie</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.112</span><span class="p">,</span><span class="mf">0.158</span><span class="p">,</span><span class="mf">0.193</span><span class="p">,</span><span class="mf">0.222</span><span class="p">,</span><span class="mf">0.248</span><span class="p">,</span><span class="mf">0.302</span><span class="p">,</span><span class="mf">0.347</span><span class="p">,</span><span class="mf">0.386</span><span class="p">,</span><span class="mf">0.420</span><span class="p">,</span><span class="mf">0.452</span><span class="p">,</span><span class="mf">0.48</span><span class="p">,</span><span class="mf">0.507</span><span class="p">,</span><span class="mf">0.531</span><span class="p">,</span><span class="mf">0.554</span><span class="p">,</span><span class="mf">0.575</span><span class="p">,</span><span class="mf">0.595</span><span class="p">,</span><span class="mf">0.614</span><span class="p">,</span><span class="mf">0.632</span><span class="p">,</span><span class="mf">0.649</span><span class="p">,</span><span class="mf">0.665</span><span class="p">,</span><span class="mf">0.681</span><span class="p">,</span><span class="mf">0.695</span><span class="p">,</span><span class="mf">0.681</span><span class="p">,</span><span class="mf">0.695</span><span class="p">,</span><span class="mf">0.709</span><span class="p">,</span><span class="mf">0.735</span><span class="p">,</span><span class="mf">0.759</span><span class="p">,</span><span class="mf">0.780</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.818</span><span class="p">,</span><span class="mf">0.835</span><span class="p">,</span><span class="mf">0.85</span><span class="p">,</span><span class="mf">0.864</span><span class="p">,</span><span class="mf">0.877</span><span class="p">,</span><span class="mf">0.888</span><span class="p">,</span><span class="mf">0.899</span><span class="p">,</span><span class="mf">0.909</span><span class="p">,</span><span class="mf">0.918</span><span class="p">,</span><span class="mf">0.926</span><span class="p">,</span><span class="mf">0.933</span><span class="p">,</span><span class="mf">0.940</span><span class="p">,</span><span class="mf">0.946</span><span class="p">,</span><span class="mf">0.952</span><span class="p">,</span><span class="mf">0.957</span><span class="p">,</span><span class="mf">0.961</span><span class="p">,</span><span class="mf">0.965</span><span class="p">,</span><span class="mf">0.969</span><span class="p">,</span><span class="mf">0.972</span><span class="p">,</span><span class="mf">0.975</span><span class="p">,</span><span class="mf">0.978</span><span class="p">,</span><span class="mf">0.980</span><span class="p">,</span><span class="mf">0.983</span><span class="p">,</span><span class="mf">0.984</span><span class="p">,</span><span class="mf">0.986</span><span class="p">,</span><span class="mf">0.988</span><span class="p">,</span><span class="mf">0.989</span><span class="p">,</span><span class="mf">0.990</span><span class="p">,</span><span class="mf">0.991</span><span class="p">,</span><span class="mf">0.992</span><span class="p">,</span><span class="mf">0.993</span><span class="p">,</span><span class="mf">0.994</span><span class="p">,</span><span class="mf">0.995</span><span class="p">,</span><span class="mf">0.995</span><span class="p">,</span><span class="mf">0.996</span><span class="p">,</span><span class="mf">0.996</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+    
+    <span class="c1"># read the table</span>
+    <span class="n">id_lower</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">h_L0_serie</span> <span class="o">&lt;=</span> <span class="n">h1</span><span class="o">/</span><span class="n">L0</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="c1"># get the (last) id where the value is below h/L0</span>
+    <span class="n">tanh_kh_lower</span> <span class="o">=</span> <span class="n">tanh_kh_serie</span><span class="p">[</span><span class="n">id_lower</span><span class="p">]</span>
+    <span class="n">tanh_kh_upper</span> <span class="o">=</span> <span class="n">tanh_kh_serie</span><span class="p">[</span><span class="n">id_lower</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+  
+    <span class="c1"># linear interpolate</span>
+    <span class="n">slope</span> <span class="o">=</span> <span class="p">(</span><span class="n">tanh_kh_upper</span> <span class="o">-</span> <span class="n">tanh_kh_lower</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">h_L0_serie</span><span class="p">[</span><span class="n">id_lower</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span> <span class="n">h_L0_serie</span><span class="p">[</span><span class="n">id_lower</span><span class="p">])</span>
+    <span class="n">tanh_kh</span> <span class="o">=</span> <span class="n">tanh_kh_lower</span> <span class="o">+</span> <span class="n">slope</span> <span class="o">*</span> <span class="p">(</span><span class="n">h1</span><span class="o">/</span><span class="n">L0</span><span class="o">-</span> <span class="n">h_L0_serie</span><span class="p">[</span><span class="n">id_lower</span><span class="p">])</span>
+    
+    <span class="n">Answer7</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">tanh_kh</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+    
+    <span class="n">Q8_text</span> <span class="o">=</span> <span class="s1">&#39;Q3a) What is the wave number ($k$), following the explicit formula of Fentom?&#39;</span>
+    <span class="n">Q8_unit</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    
+    <span class="k">def</span> <span class="nf">waveNumber_Fenton</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">d</span><span class="p">):</span> <span class="c1"># made by J.A.ArriagaGarcia (Jaime)</span>
+        <span class="n">g</span><span class="o">=</span><span class="mf">9.81</span>
+        <span class="n">omega</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T</span>
+        <span class="n">k0</span> <span class="o">=</span> <span class="n">omega</span><span class="o">*</span><span class="n">omega</span><span class="o">/</span><span class="n">g</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">k0</span><span class="o">*</span><span class="n">d</span>
+        <span class="n">beta</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">alpha</span><span class="p">))</span><span class="o">**-</span><span class="mf">0.5</span> 
+        <span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="n">alpha</span> <span class="o">+</span> <span class="n">beta</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span><span class="o">**-</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span><span class="o">+</span> <span class="n">beta</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span><span class="o">**-</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">d</span>
+        <span class="k">return</span> <span class="n">k</span>
+    
+    <span class="n">k1</span> <span class="o">=</span> <span class="n">waveNumber_Fenton</span><span class="p">(</span><span class="n">T</span> <span class="o">=</span> <span class="n">T1</span><span class="p">,</span><span class="n">d</span> <span class="o">=</span> <span class="n">h1</span><span class="p">)</span>       
+    <span class="n">Answer8</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="n">Q9_text</span> <span class="o">=</span> <span class="s1">&#39;Q3b) What is the wave length, following the explicit formula of Fentom?&#39;</span>
+    <span class="n">Q9_unit</span> <span class="o">=</span> <span class="s1">&#39; m&#39;</span>
+    <span class="n">Answer9</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">k1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+       
+    <span class="c1"># organise the questions, units, and answers    </span>
+    <span class="n">questions</span> <span class="o">=</span> <span class="p">[</span><span class="n">Q1_text</span><span class="p">,</span> <span class="n">Q2_text</span><span class="p">,</span> <span class="n">Q3_text</span><span class="p">,</span><span class="n">Q4_text</span><span class="p">,</span> <span class="n">Q5_text</span><span class="p">,</span> <span class="n">Q6_text</span><span class="p">,</span> <span class="n">Q7_text</span><span class="p">,</span> <span class="n">Q8_text</span><span class="p">,</span> <span class="n">Q9_text</span><span class="p">]</span>
+    <span class="n">units</span> <span class="o">=</span> <span class="p">[</span><span class="n">Q1_unit</span><span class="p">,</span> <span class="n">Q2_unit</span><span class="p">,</span> <span class="n">Q3_unit</span><span class="p">,</span> <span class="n">Q4_unit</span><span class="p">,</span> <span class="n">Q5_unit</span><span class="p">,</span> <span class="n">Q6_unit</span><span class="p">,</span> <span class="n">Q7_unit</span><span class="p">,</span> <span class="n">Q8_unit</span><span class="p">,</span> <span class="n">Q9_unit</span><span class="p">]</span>
+    <span class="n">Answers</span> <span class="o">=</span> <span class="p">[</span><span class="n">Answer1</span><span class="p">,</span> <span class="n">Answer2</span><span class="p">,</span> <span class="n">Answer3</span><span class="p">,</span> <span class="n">Answer4</span><span class="p">,</span> <span class="n">Answer5</span><span class="p">,</span> <span class="n">Answer6</span><span class="p">,</span> <span class="n">Answer7</span><span class="p">,</span> <span class="n">Answer8</span><span class="p">,</span> <span class="n">Answer9</span><span class="p">]</span>
+    
+    <span class="c1"># make and display tekst widgets</span>
+    <span class="n">general_text_widget</span><span class="p">(</span><span class="n">text_general</span><span class="p">)</span>
+    <span class="n">general_text_widget</span><span class="p">(</span><span class="n">text_general2</span><span class="p">)</span>
+    <span class="n">general_text_widget</span><span class="p">(</span><span class="n">text_general3</span><span class="p">)</span>
+       
+    <span class="c1"># make and display the questions</span>
+    <span class="k">for</span> <span class="n">Question</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">answer</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">questions</span><span class="p">,</span><span class="n">units</span><span class="p">,</span><span class="n">Answers</span><span class="p">):</span>
+        <span class="n">Numerical_question_body</span><span class="p">(</span><span class="n">Question</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">answer</span><span class="p">)</span>
+    
+<span class="c1">#Q1()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="q2">
+<h1>Q2<a class="headerlink" href="#q2" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Q2</span><span class="p">():</span>
+         
+    <span class="n">h</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">uniform</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># m , random value from 2 to 4 (excluding 4)</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">uniform</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># m</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L</span>
+    <span class="n">omega</span> <span class="o">=</span> <span class="n">dispersion</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">h</span><span class="p">)</span>
+    
+    <span class="n">Ans0</span> <span class="o">=</span> <span class="n">T</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">omega</span> <span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">Q0</span> <span class="o">=</span> <span class="s1">&#39;What is the wave period ($T$) for a wave with a length ($L$) of &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; meter when the depth ($h$) is &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; meters?&#39;</span>
+    <span class="n">unit0</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span>
+          
+    <span class="n">h</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">uniform</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># m</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">uniform</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># m</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L</span>
+    <span class="n">omega</span> <span class="o">=</span> <span class="n">dispersion</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">h</span><span class="p">)</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">omega</span>
+    
+    <span class="n">Ans1</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">L</span><span class="o">/</span><span class="n">T</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">Q1</span> <span class="o">=</span> <span class="s1">&#39;What is the wave celerity ($c$) for waves with a length ($L$) of &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; meter when the depth ($h$) is &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; meters?&#39;</span>
+    <span class="n">unit1</span> <span class="o">=</span> <span class="s1">&#39;m/s&#39;</span>
+    
+    <span class="n">h</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">uniform</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># m</span>
+    <span class="n">omega</span> <span class="o">=</span> <span class="n">dispersion</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">h</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">)</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">omega</span>
+    
+    <span class="n">Ans2</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">L</span><span class="o">/</span><span class="n">T</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">Q2</span> <span class="o">=</span> <span class="s1">&#39;What is the wave celerity ($c$) for waves with a length ($L$) of &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; meter when the depth ($h$) is &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; meters?&#39;</span>
+    <span class="n">unit2</span> <span class="o">=</span> <span class="s1">&#39;m/s&#39;</span>
+    
+    
+    <span class="n">h</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">uniform</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">wave_length</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">h</span><span class="p">)</span>
+    <span class="n">Ans3</span> <span class="o">=</span> <span class="nb">round</span> <span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">Q3</span> <span class="o">=</span> <span class="s1">&#39;What is the wave length ($L$) for a wave with a period ($T$) of &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; seconds when the depth ($h$) is &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; meters?&#39;</span>
+    <span class="n">unit3</span> <span class="o">=</span> <span class="s1">&#39;m&#39;</span>
+      
+    <span class="n">h</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">uniform</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># km</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="mi">500000</span><span class="c1"># m</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L</span>
+    <span class="n">omega</span> <span class="o">=</span> <span class="n">dispersion</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">h</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span> <span class="c1"># m to km</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">omega</span>
+    <span class="n">Ans4</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">L</span><span class="o">/</span><span class="n">T</span> <span class="o">/</span><span class="mi">1000</span><span class="o">*</span><span class="mi">3600</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">Q4</span> <span class="o">=</span> <span class="s1">&#39;What is the propagation speed ($c$) of a tsunami wave train with ($L$) of 500 km in the deep ocean with a depth ($h$) of &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; km?&#39;</span>
+    <span class="n">unit4</span> <span class="o">=</span> <span class="s1">&#39;km/h&#39;</span>
+    
+    <span class="n">h</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">uniform</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># km</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">uniform</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">38</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># min</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">wave_length</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="mi">60</span><span class="p">,</span><span class="n">h</span><span class="p">)</span>
+    <span class="n">Ans5</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">L</span><span class="o">/</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">/</span><span class="mi">1000</span><span class="o">*</span><span class="mi">60</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">Q5</span> <span class="o">=</span> <span class="s1">&#39;What is the propagation speed of a tsunami wave train with a period ($T$) of &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">+</span>  <span class="s1">&#39; minutes in the deep ocean with a depth ($h$) of &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; km?&#39;</span>
+    <span class="n">unit5</span> <span class="o">=</span> <span class="s1">&#39;km/h&#39;</span>
+    
+    <span class="c1"># organize the questions, units, and answers</span>
+    <span class="n">questions</span> <span class="o">=</span> <span class="p">[</span><span class="n">Q0</span><span class="p">,</span> <span class="n">Q1</span><span class="p">,</span> <span class="n">Q2</span><span class="p">,</span> <span class="n">Q3</span><span class="p">,</span> <span class="n">Q4</span><span class="p">,</span> <span class="n">Q5</span><span class="p">]</span>
+    <span class="n">units</span> <span class="o">=</span> <span class="p">[</span><span class="n">unit0</span><span class="p">,</span> <span class="n">unit1</span><span class="p">,</span> <span class="n">unit2</span><span class="p">,</span> <span class="n">unit3</span><span class="p">,</span> <span class="n">unit4</span><span class="p">,</span> <span class="n">unit5</span><span class="p">]</span>
+    <span class="n">answers</span> <span class="o">=</span> <span class="p">[</span><span class="n">Ans0</span><span class="p">,</span> <span class="n">Ans1</span><span class="p">,</span> <span class="n">Ans2</span><span class="p">,</span> <span class="n">Ans3</span><span class="p">,</span> <span class="n">Ans4</span><span class="p">,</span> <span class="n">Ans5</span><span class="p">]</span>
+
+    <span class="c1"># change the order randomly</span>
+    <span class="n">order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">questions</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">shuffle</span><span class="p">(</span><span class="n">order</span><span class="p">)</span>
+
+    <span class="c1"># display the questions</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">order</span><span class="p">):</span>
+        <span class="n">Numerical_question_body</span><span class="p">(</span><span class="n">questions</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">units</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">answers</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    
+<span class="c1">#Q2()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="q3">
+<h1>Q3<a class="headerlink" href="#q3" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dispersion</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">h</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">9.81</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">h</span><span class="p">))</span><span class="o">**</span><span class="mf">0.5</span>
+
+<span class="k">def</span> <span class="nf">wave_celerity</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">L3</span><span class="p">):</span>
+    <span class="o">%</span><span class="k">matplotlib</span> inline
+    <span class="c1"># bed profile</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">700</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># cross-shore coordinate [m]</span>
+    <span class="n">slope</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="mf">30.</span>                <span class="c1"># bed slope [-]</span>
+    <span class="n">d0</span> <span class="o">=</span> <span class="mf">20.</span>                        <span class="c1"># offshore water depth [m]</span>
+    <span class="n">zbed</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">d0</span> <span class="o">-</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>        <span class="c1"># bed elevation [m]</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="o">-</span><span class="n">zbed</span>                       <span class="c1"># still water depth [m]</span>
+    <span class="n">h</span><span class="p">[</span><span class="n">h</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># no negative depths</span>
+    
+    <span class="c1"># w is zero when h is 0, causes a divide by zero.</span>
+    <span class="n">x0_id</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">h</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># first location where water depth = 0</span>
+    <span class="n">h_water</span> <span class="o">=</span> <span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">x0_id</span><span class="p">]</span>
+    <span class="n">x_water</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">x0_id</span><span class="p">]</span>
+    
+    <span class="c1">#velocity profile</span>
+    <span class="n">c1</span> <span class="o">=</span> <span class="n">L1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">dispersion</span><span class="p">(</span><span class="n">k</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L1</span><span class="p">,</span><span class="n">h</span><span class="o">=</span><span class="n">h_water</span><span class="p">))</span> <span class="c1"># c = L/T, T = 2 pi / omega</span>
+    <span class="n">c2</span> <span class="o">=</span> <span class="n">L2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">dispersion</span><span class="p">(</span><span class="n">k</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L2</span><span class="p">,</span><span class="n">h</span><span class="o">=</span><span class="n">h_water</span><span class="p">))</span>
+    <span class="n">c3</span> <span class="o">=</span> <span class="n">L3</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">dispersion</span><span class="p">(</span><span class="n">k</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L3</span><span class="p">,</span><span class="n">h</span><span class="o">=</span><span class="n">h_water</span><span class="p">))</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">zbed</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Bed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">x</span><span class="p">[</span><span class="n">x0_id</span><span class="p">]],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Still water surface&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x [m]&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y [m]&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;cross-section&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span>  <span class="o">=</span> <span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Wave celerity for 3 waves&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_water</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;wave 1&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_water</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;wave 2&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_water</span><span class="p">,</span> <span class="n">c3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;wave 3&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x-coordinate [m]&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Celerity&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+
+<span class="k">def</span> <span class="nf">Q3</span><span class="p">():</span>
+    <span class="c1"># Create interactive widgets</span>
+    <span class="n">L1</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;L1 [m]&#39;</span><span class="p">)</span>
+    <span class="n">L2</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;L2 [m]&#39;</span><span class="p">)</span>
+    <span class="n">L3</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;L3 [m]&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Use the interactive function to update the plot</span>
+    <span class="n">Plot</span> <span class="o">=</span> <span class="n">interact</span><span class="p">(</span><span class="n">wave_celerity</span><span class="p">,</span> <span class="n">L1</span><span class="o">=</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="o">=</span><span class="n">L2</span><span class="p">,</span> <span class="n">L3</span><span class="o">=</span><span class="n">L3</span><span class="p">);</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">Plot</span><span class="p">);</span>
+
+<span class="c1">#Q3()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="q4">
+<h1>Q4<a class="headerlink" href="#q4" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Q4</span><span class="p">():</span>
+    
+    <span class="n">h1</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">h2</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">)</span>
+    <span class="n">h3</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="n">h4</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="n">h5</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.91</span><span class="p">)</span>
+    
+    <span class="n">L1</span> <span class="o">=</span> <span class="n">h1</span> <span class="o">/</span> <span class="n">uniform</span><span class="p">(</span><span class="mf">0.025</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span><span class="c1"># shallow water</span>
+    <span class="n">L2</span> <span class="o">=</span> <span class="n">h2</span> <span class="o">/</span> <span class="n">uniform</span><span class="p">(</span><span class="mf">0.051</span><span class="p">,</span> <span class="mf">0.49</span><span class="p">)</span> <span class="c1"># intermediate water</span>
+    <span class="n">L3</span> <span class="o">=</span> <span class="n">h3</span> <span class="o">/</span> <span class="n">uniform</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">)</span> <span class="c1"># deep water</span>
+    <span class="n">L4</span> <span class="o">=</span> <span class="n">h4</span> <span class="o">/</span> <span class="n">uniform</span><span class="p">(</span><span class="mf">0.025</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">)</span> <span class="c1"># shallow or intermediate water</span>
+    <span class="n">L5</span> <span class="o">=</span> <span class="n">h5</span> <span class="o">/</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">)</span> <span class="c1"># intermediate water or deep water</span>
+    
+    <span class="n">L_serie</span> <span class="o">=</span> <span class="p">[</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">L3</span><span class="p">,</span> <span class="n">L4</span><span class="p">,</span> <span class="n">L5</span><span class="p">]</span>
+    <span class="n">h_serie</span> <span class="o">=</span> <span class="p">[</span><span class="n">h1</span><span class="p">,</span> <span class="n">h2</span><span class="p">,</span> <span class="n">h3</span><span class="p">,</span> <span class="n">h4</span> <span class="p">,</span> <span class="n">h5</span><span class="p">]</span>
+        
+    <span class="n">Questions</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">correct_answers_id</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span> <span class="n">L</span><span class="p">,</span><span class="n">h</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">L_serie</span><span class="p">,</span> <span class="n">h_serie</span><span class="p">):</span>
+        <span class="n">L</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">Questions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;L = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; m, h = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; m&#39;</span><span class="p">)</span>
+                
+        <span class="n">ratio</span> <span class="o">=</span> <span class="n">h</span><span class="o">/</span><span class="n">L</span>
+        
+        <span class="k">if</span> <span class="n">ratio</span> <span class="o">&lt;=</span> <span class="mf">0.05</span><span class="p">:</span>
+            <span class="n">correct_answers_id</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ratio</span> <span class="o">&gt;</span> <span class="mf">0.05</span> <span class="ow">and</span> <span class="n">ratio</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">correct_answers_id</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ratio</span> <span class="o">&gt;=</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">correct_answers_id</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        
+    <span class="c1">#print(&#39;For debuging, 0-based answers: &#39; + str(correct_answers_id))</span>
+    <span class="n">answers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Shallow&#39;</span><span class="p">,</span> <span class="s1">&#39;Intermediate&#39;</span><span class="p">,</span> <span class="s1">&#39;Deep&#39;</span><span class="p">]</span>
+    
+    <span class="n">text_widget</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span> <span class="s1">&#39;Select if the wave described on the right experiences shallow, intermediate, or deep water.&#39;</span><span class="p">)</span>
+    
+    <span class="n">Hboxes</span> <span class="o">=</span><span class="p">[]</span>
+    <span class="n">toggle_widgets</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Questions</span><span class="p">)):</span>
+            <span class="n">question_widget</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span> <span class="n">Questions</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;175px&#39;</span><span class="p">))</span>
+            <span class="c1">#question_widget.add_class(&#39;Small_widget&#39;)</span>
+            <span class="n">toggle_widget</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">ToggleButtons</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">answers</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>   
+            <span class="n">HBox1</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">question_widget</span><span class="p">,</span> <span class="n">toggle_widget</span><span class="p">])</span>
+            <span class="n">Hboxes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">HBox1</span><span class="p">)</span>
+            <span class="n">toggle_widgets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">toggle_widget</span><span class="p">)</span>        
+    
+    <span class="n">shuffle</span><span class="p">(</span><span class="n">Hboxes</span><span class="p">)</span>
+    
+    <span class="n">submit_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Submit&#39;</span><span class="p">,)</span>
+    <span class="n">output_widget</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">value</span><span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">placeholder</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Verify:&#39;</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;230px&#39;</span><span class="p">))</span>
+    <span class="n">output_widget</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s1">&#39;Broad_widget&#39;</span><span class="p">)</span>
+    
+    <span class="n">HBox_check</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">submit_button</span><span class="p">,</span> <span class="n">output_widget</span><span class="p">])</span>
+
+    <span class="n">VBox</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">text_widget</span><span class="p">]</span> <span class="o">+</span> <span class="n">Hboxes</span> <span class="o">+</span> <span class="p">[</span><span class="n">HBox_check</span><span class="p">])</span>
+    <span class="n">VBox</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">flex</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">VBox</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">check_answers</span><span class="p">(</span><span class="n">button</span><span class="p">):</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="mi">0</span>
+        
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Questions</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">toggle_widgets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">answers</span><span class="p">[</span> <span class="n">correct_answers_id</span><span class="p">[</span><span class="n">i</span><span class="p">]]:</span>
+                <span class="n">score</span> <span class="o">+=</span> <span class="mi">1</span>
+            
+        <span class="c1">#print(toggle_widget.value)</span>
+        <span class="n">output_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;Your score is &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">score</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/5.&#39;</span>
+        
+            
+    <span class="n">submit_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">check_answers</span><span class="p">)</span>
+    
+<span class="c1">#Q4()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="q5">
+<h1>Q5<a class="headerlink" href="#q5" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">group_stats</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k2</span><span class="p">,</span><span class="n">w1</span><span class="p">,</span><span class="n">w2</span><span class="p">):</span>
+    <span class="n">Delta_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">k2</span><span class="o">-</span><span class="n">k1</span><span class="p">)</span>
+    <span class="n">Delta_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">w2</span><span class="o">-</span><span class="n">w1</span><span class="p">)</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">Delta_k</span><span class="o">*</span><span class="mi">2</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">Delta_w</span><span class="o">*</span><span class="mi">2</span>
+    <span class="n">cg</span> <span class="o">=</span> <span class="n">Delta_w</span><span class="o">/</span><span class="n">Delta_k</span>
+    <span class="k">return</span> <span class="n">L</span><span class="p">,</span><span class="n">T</span><span class="p">,</span> <span class="n">cg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">harmonic_components</span><span class="p">():</span><span class="c1"># manual set interval between frames in secondes</span>
+    <span class="o">%</span><span class="k">matplotlib</span> notebook
+    <span class="c1"># manual set interval between frames in secondes</span>
+    <span class="n">delta_t</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+    <span class="c1"># Define parameters and widgets</span>
+    <span class="n">a1</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;a [m]&#39;</span><span class="p">);</span>
+    <span class="n">a2</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;a [m]&#39;</span><span class="p">);</span>
+
+    <span class="n">T1</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;T [s]&#39;</span><span class="p">)</span>
+    <span class="n">T2</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">5.3</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;T [s]&#39;</span><span class="p">)</span>
+
+    <span class="n">depth</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">7.5</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;h [m]&#39;</span><span class="p">)</span>
+    <span class="n">n_waves</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;$n_</span><span class="si">{waves}</span><span class="s1">$&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># Calculate initial values</span>
+    <span class="n">L1</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">wave_length</span><span class="p">(</span><span class="n">T1</span><span class="o">.</span><span class="n">value</span><span class="p">,</span><span class="n">depth</span><span class="o">.</span><span class="n">value</span><span class="p">),</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;L [m]&#39;</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">L2</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">wave_length</span><span class="p">(</span><span class="n">T2</span><span class="o">.</span><span class="n">value</span><span class="p">,</span><span class="n">depth</span><span class="o">.</span><span class="n">value</span><span class="p">),</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;L [m]&#39;</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        
+    <span class="n">L_group</span><span class="p">,</span> <span class="n">T_group</span><span class="p">,</span> <span class="n">c_g</span> <span class="o">=</span> <span class="n">group_stats</span><span class="p">(</span><span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L1</span><span class="o">.</span><span class="n">value</span><span class="p">,</span><span class="n">k2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L2</span><span class="o">.</span><span class="n">value</span><span class="p">,</span><span class="n">w1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T1</span><span class="o">.</span><span class="n">value</span><span class="p">,</span><span class="n">w2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T2</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="c1"># setup linear mesh (x) and duration before time (t) is reset</span>
+    <span class="n">x_max</span> <span class="o">=</span> <span class="n">L_group</span><span class="o">*</span><span class="n">n_waves</span><span class="o">.</span><span class="n">value</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="n">delta_t</span><span class="p">)</span>
+    
+    <span class="c1"># Setup widget layout (User Interface) and display</span>
+    <span class="n">vbox1</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">widgets</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s1">&#39;Wave 1&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">align_self</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)),</span><span class="n">a1</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">L1</span><span class="p">])</span>
+    <span class="n">vbox2</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">widgets</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s1">&#39;Wave 2&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">align_self</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)),</span><span class="n">a2</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">L2</span><span class="p">])</span>
+    <span class="n">vbox3</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">widgets</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s1">&#39;General&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">align_self</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)),</span><span class="n">depth</span><span class="p">,</span> <span class="n">n_waves</span><span class="p">])</span>
+
+    <span class="n">ui</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">vbox1</span><span class="p">,</span> <span class="n">vbox2</span><span class="p">,</span> <span class="n">vbox3</span><span class="p">])</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">ui</span><span class="p">)</span>
+        
+    <span class="c1"># Create figure, set structure and initial layout</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>   
+    <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">411</span><span class="p">)</span> <span class="c1"># axs[0] rather than ax1 could also be used</span>
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">412</span><span class="p">)</span>
+    <span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">413</span><span class="p">)</span>
+    <span class="n">ax4</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">414</span><span class="p">)</span>   
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span><span class="c1"># Add some extra space for the axis at the bottom</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span><span class="c1"># Add some space for the labels</span>
+    
+    <span class="c1"># set grid</span>
+    <span class="n">grid_x</span> <span class="o">=</span> <span class="n">MultipleLocator</span><span class="p">(</span><span class="n">base</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+    <span class="n">grid_y</span> <span class="o">=</span> <span class="n">MultipleLocator</span><span class="p">(</span><span class="n">base</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">grid_x</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">grid_y</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="s1">&#39;0.5&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">grid_x</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">grid_y</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="s1">&#39;0.5&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">grid_x</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">grid_y</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="s1">&#39;0.5&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">grid_x</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">grid_y</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="s1">&#39;0.5&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+    
+    <span class="c1"># change the axis when related parameters change</span>
+    <span class="k">def</span> <span class="nf">update_axis</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+        <span class="n">L_group</span><span class="p">,</span> <span class="n">T_group</span><span class="p">,</span> <span class="n">c_g</span> <span class="o">=</span> <span class="n">group_stats</span><span class="p">(</span><span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L1</span><span class="o">.</span><span class="n">value</span><span class="p">,</span><span class="n">k2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L2</span><span class="o">.</span><span class="n">value</span><span class="p">,</span><span class="n">w1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T1</span><span class="o">.</span><span class="n">value</span><span class="p">,</span><span class="n">w2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T2</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="n">x_max</span> <span class="o">=</span> <span class="n">L_group</span> <span class="o">*</span> <span class="n">n_waves</span><span class="o">.</span><span class="n">value</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x_max</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x_max</span><span class="p">)</span>
+        <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x_max</span><span class="p">)</span>
+        <span class="n">ax4</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x_max</span><span class="p">)</span>
+        
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+        
+        <span class="n">grid_x</span> <span class="o">=</span> <span class="n">MultipleLocator</span><span class="p">(</span><span class="n">base</span><span class="o">=</span><span class="n">x_max</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">grid_x</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">grid_x</span><span class="p">)</span>
+        <span class="n">ax3</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">grid_x</span><span class="p">)</span>
+        <span class="n">ax4</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">grid_x</span><span class="p">)</span>
+        
+        <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="s1">&#39;0.5&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="s1">&#39;0.5&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+        <span class="n">ax3</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="s1">&#39;0.5&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+        <span class="n">ax4</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="s1">&#39;0.5&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+    
+                
+    <span class="n">n_waves</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">update_axis</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">update_y_axis</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+        <span class="c1"># adjust the boundaries of the plot</span>
+        <span class="n">amp</span> <span class="o">=</span> <span class="n">a1</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span><span class="n">a2</span><span class="o">.</span><span class="n">value</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="n">amp</span><span class="o">*</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">amp</span><span class="o">*</span><span class="mf">1.1</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="n">amp</span><span class="o">*</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">amp</span><span class="o">*</span><span class="mf">1.1</span><span class="p">)</span>
+        <span class="n">ax3</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="n">amp</span><span class="o">*</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">amp</span><span class="o">*</span><span class="mf">1.1</span><span class="p">)</span>
+        <span class="n">ax4</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="n">amp</span><span class="o">*</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">amp</span><span class="o">*</span><span class="mf">1.1</span><span class="p">)</span>
+    
+    <span class="n">a1</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">update_y_axis</span><span class="p">)</span>
+    <span class="n">a2</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">update_y_axis</span><span class="p">)</span>
+    
+    <span class="c1"># change the values of L, T of wave components and wave group parameters when T or depth changes      </span>
+    <span class="k">def</span> <span class="nf">update_param</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+        <span class="n">L1</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">wave_length</span><span class="p">(</span><span class="n">T1</span><span class="o">.</span><span class="n">value</span><span class="p">,</span><span class="n">h</span> <span class="o">=</span> <span class="n">depth</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="n">L2</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">wave_length</span><span class="p">(</span><span class="n">T2</span><span class="o">.</span><span class="n">value</span><span class="p">,</span><span class="n">h</span> <span class="o">=</span> <span class="n">depth</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="n">L_group</span><span class="p">,</span> <span class="n">T_group</span><span class="p">,</span> <span class="n">c_g</span> <span class="o">=</span> <span class="n">group_stats</span><span class="p">(</span><span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L1</span><span class="o">.</span><span class="n">value</span><span class="p">,</span><span class="n">k2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L2</span><span class="o">.</span><span class="n">value</span><span class="p">,</span><span class="n">w1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T1</span><span class="o">.</span><span class="n">value</span><span class="p">,</span><span class="n">w2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T2</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        
+        <span class="n">update_axis</span><span class="p">(</span><span class="n">change</span><span class="p">)</span>
+        
+        <span class="c1"># debug</span>
+        <span class="c1">#ax1.text(0.02, 0.8, L_group, transform=ax1.transAxes, fontsize=8, bbox={&#39;facecolor&#39;: &#39;white&#39;})</span>
+        <span class="c1">#ax1.text(0.02, 0.50, T_group, transform=ax1.transAxes, fontsize=8, bbox={&#39;facecolor&#39;: &#39;white&#39;})</span>
+        <span class="c1">#ax1.text(0.02, 0.2, c_g, transform=ax1.transAxes, fontsize=8, bbox={&#39;facecolor&#39;: &#39;white&#39;})</span>
+    
+    <span class="n">T1</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">update_param</span><span class="p">)</span>
+    <span class="n">T2</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">update_param</span><span class="p">)</span>
+    <span class="n">depth</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">update_param</span><span class="p">)</span>     
+    
+    
+    <span class="c1"># Initialize</span>
+    <span class="n">update_param</span><span class="p">(</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
+    <span class="n">update_axis</span><span class="p">(</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
+    <span class="n">update_y_axis</span><span class="p">(</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
+          
+    <span class="c1"># set labels</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x [m]&#39;</span><span class="p">)</span>
+    
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$\eta_1$&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$\eta_2$&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$\eta_1$ + $\eta_2$&#39;</span><span class="p">)</span>
+       
+    <span class="c1"># remove ticks in upper graphs</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    
+    <span class="c1"># Compute initial displacement</span>
+    <span class="n">eta</span> <span class="o">=</span>  <span class="n">a1</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L1</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">a2</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L2</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">eta1</span> <span class="o">=</span> <span class="n">a1</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L1</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">eta2</span> <span class="o">=</span> <span class="n">a2</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L2</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="n">k_bar</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L1</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L2</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+    <span class="n">car_wave</span> <span class="o">=</span> <span class="p">(</span><span class="n">a1</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="n">a2</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">k_bar</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="n">k_dif</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L1</span><span class="o">.</span><span class="n">value</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L2</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="c1"># Delta k</span>
+    <span class="n">var_amp</span> <span class="o">=</span> <span class="p">(</span><span class="n">a1</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="n">a2</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="o">-</span><span class="n">k_dif</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="c1"># Plot initial wave</span>
+    <span class="n">line1</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">eta1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;$</span><span class="se">\u03B7</span><span class="s1">_1$ (wave 1)&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;#0b5394&#39;</span><span class="p">)</span>
+    <span class="n">line2</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">eta2</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;$</span><span class="se">\u03B7</span><span class="s1">_2$ (wave 2)&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;#0b5394&#39;</span><span class="p">)</span><span class="c1">#03396c</span>
+    <span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;$</span><span class="se">\u03B7</span><span class="s1">$ (wave 1+2)&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">line_carrier</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax4</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">car_wave</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Carrier wave [m]&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="c1">#line_var, =  ax3.plot(x, var_amp, label = &#39;Variable amplitude&#39;, color = &#39;gray&#39;)</span>
+    <span class="n">line_var2</span><span class="p">,</span> <span class="o">=</span>  <span class="n">ax4</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">var_amp</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Variable amplitude [-]&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;#0b5394&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># layout line</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+    <span class="n">line_carrier</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+    <span class="n">line_var2</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+    
+    <span class="c1"># make legend of axis 4</span>
+    <span class="n">legend4</span> <span class="o">=</span> <span class="n">ax4</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">legend4</span><span class="o">.</span><span class="n">get_texts</span><span class="p">():</span>
+        <span class="n">text</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>  <span class="c1"># Set individual legend item text size</span>
+    
+    <span class="c1"># update the graph each frame</span>
+    <span class="k">def</span> <span class="nf">update2</span><span class="p">(</span><span class="n">frame</span><span class="p">):</span>
+        <span class="n">x_max</span> <span class="o">=</span> <span class="n">L_group</span> <span class="o">*</span> <span class="n">n_waves</span><span class="o">.</span><span class="n">value</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+        
+        <span class="c1"># get current time</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">delta_t</span> <span class="o">*</span> <span class="n">frame</span>
+
+        <span class="c1"># calculate sea surface elevation</span>
+        <span class="n">eta</span> <span class="o">=</span> <span class="n">a1</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T1</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="n">t</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L1</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">a2</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T2</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="n">t</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L2</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">eta1</span> <span class="o">=</span> <span class="n">a1</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T1</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="n">t</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L1</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">eta2</span> <span class="o">=</span> <span class="n">a2</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T2</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="n">t</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L2</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+        
+        <span class="n">omega_bar</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T1</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T2</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+        <span class="n">k_bar</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L1</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L2</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+        <span class="n">carrier</span> <span class="o">=</span> <span class="p">(</span><span class="n">a1</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="n">a2</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega_bar</span><span class="o">*</span><span class="n">t</span><span class="o">-</span><span class="n">k_bar</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+        
+        <span class="n">omega_dif</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T1</span><span class="o">.</span><span class="n">value</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T2</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="n">k_dif</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L1</span><span class="o">.</span><span class="n">value</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L2</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="n">var_amp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega_dif</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="n">k_dif</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="c1">#(a1.value + a2.value)</span>
+
+        <span class="c1"># adjust sea surface elevation (line) in plot</span>
+        <span class="n">line</span><span class="o">.</span><span class="n">set_ydata</span><span class="p">(</span><span class="n">eta</span><span class="p">)</span>
+        <span class="n">line_carrier</span><span class="o">.</span><span class="n">set_ydata</span><span class="p">(</span><span class="n">carrier</span><span class="p">)</span>
+        <span class="n">line_var2</span><span class="o">.</span><span class="n">set_ydata</span><span class="p">(</span><span class="n">var_amp</span><span class="p">)</span>
+        
+        <span class="n">line</span><span class="o">.</span><span class="n">set_xdata</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">line_carrier</span><span class="o">.</span><span class="n">set_xdata</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">line_var2</span><span class="o">.</span><span class="n">set_xdata</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+        <span class="c1"># adjust line of wave component or set thinkness to 0 (not visible) if amplitude is zero</span>
+        <span class="k">if</span> <span class="n">a1</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">line1</span><span class="o">.</span><span class="n">set_xdata</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">line1</span><span class="o">.</span><span class="n">set_ydata</span><span class="p">(</span><span class="n">eta1</span><span class="p">)</span>
+            <span class="n">line1</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">line1</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">a2</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">line2</span><span class="o">.</span><span class="n">set_xdata</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">line2</span><span class="o">.</span><span class="n">set_ydata</span><span class="p">(</span><span class="n">eta2</span><span class="p">)</span>
+            <span class="n">line2</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">line2</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            
+
+    <span class="c1"># Create/call animation and show it</span>
+    <span class="n">anim</span> <span class="o">=</span> <span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update2</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">interval</span><span class="o">=</span><span class="n">delta_t</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+    <span class="k">return</span> <span class="n">anim</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">T1</span><span class="p">,</span><span class="n">T2</span><span class="p">,</span><span class="n">L1</span><span class="p">,</span><span class="n">L2</span><span class="p">,</span> <span class="n">depth</span> <span class="c1"># animation is required to prevent freezing of the picture, a1 is the widget, exporting a1.value will result in not updating the widget value</span>
+
+<span class="k">def</span> <span class="nf">Q5</span><span class="p">():</span>
+    <span class="n">anim_5</span> <span class="o">=</span> <span class="n">harmonic_components</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">anim_5</span>
+
+<span class="c1">#anim_5 = Q5()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./assignments/Chris/Initialize"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">General settings</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-functions">Basic functions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q1">Q1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q2">Q2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q3">Q3</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q4">Q4</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q5">Q5</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Floris Calkoen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

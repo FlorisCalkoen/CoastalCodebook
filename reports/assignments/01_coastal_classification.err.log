@@ -1,0 +1,62 @@
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/311-book/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/runner/micromamba/envs/311-book/lib/python3.11/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba/envs/311-book/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 173, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba/envs/311-book/lib/python3.11/asyncio/base_events.py", line 653, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba/envs/311-book/lib/python3.11/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/home/runner/micromamba/envs/311-book/lib/python3.11/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/runner/micromamba/envs/311-book/lib/python3.11/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import warnings
+
+os.environ["USE_PYGEOS"] = "0"  # use shapely 2.0 instead of PYGEOS and silence warnings
+
+import colorcet as cc
+import dask.dataframe as dd
+import geopandas as gpd
+import holoviews as hv
+import hvplot.pandas  # noqa: API import
+import hvplot.xarray  # noqa: API import
+import ipyleaflet
+import numpy as np
+import pandas as pd
+import panel as pn
+from geoviews import tile_sources as gvts
+from ipyleaflet import Map, Marker, ScaleControl, basemaps
+from ipywidgets import HTML
+
+pn.extension()
+
+from coastalcodebook.geometries import geo_bbox
+
+# definitly not a best practice, but a workaround to avoid many warnings triggered by shapely 2.0 release
+warnings.filterwarnings("ignore", category=RuntimeWarning)
+warnings.filterwarnings("ignore", category=UserWarning)
+
+DATA_DIR = proj_dir / "data"
+coastal_systems_fp = DATA_DIR / "01_coastal_systems.gpkg"
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[2], line 15[0m
+[1;32m     13[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
+[1;32m     14[0m [38;5;28;01mimport[39;00m [38;5;21;01mpanel[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpn[39;00m
+[0;32m---> 15[0m [38;5;28;01mfrom[39;00m [38;5;21;01mgeoviews[39;00m [38;5;28;01mimport[39;00m tile_sources [38;5;28;01mas[39;00m gvts
+[1;32m     16[0m [38;5;28;01mfrom[39;00m [38;5;21;01mipyleaflet[39;00m [38;5;28;01mimport[39;00m Map, Marker, ScaleControl, basemaps
+[1;32m     17[0m [38;5;28;01mfrom[39;00m [38;5;21;01mipywidgets[39;00m [38;5;28;01mimport[39;00m HTML
+
+[0;31mModuleNotFoundError[0m: No module named 'geoviews'
+

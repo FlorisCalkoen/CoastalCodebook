@@ -1,47 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chapter 2: Loops &amp; Functions &#8212; CoastalCodeBook</title>
-    
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    <title>Chapter 2: Loops &amp; Functions &#8212; CoastalCodeBook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -49,61 +62,100 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'introduction/02_loops_and_functions';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">CoastalCodeBook</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -112,544 +164,252 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  About this book
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About this book</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../markdown.html">
-   Markdown Files
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../markdown-notebooks.html">
-   Notebooks with MyST Markdown
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content.html">
-   Content in Coastal Systems Codebook
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content.html">Content in Coastal Systems Codebook</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Assignments
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/01_coastal_classification.html">
-   Characterization of Coastal Systems
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/02_the_tide.html">
-   Coastal Systems Notebook 2 (week 3): The Tide
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/01_coastal_classification.html">Characterization of Coastal Systems</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/floriscalkoen/CoastalCodeBook/main?urlpath=tree/docs/introduction/02_loops_and_functions.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/floriscalkoen/CoastalCodeBook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/floriscalkoen/CoastalCodeBook/issues/new?title=Issue%20on%20page%20%2Fintroduction/02_loops_and_functions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/introduction/02_loops_and_functions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/floriscalkoen/CoastalCodeBook"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/floriscalkoen/CoastalCodeBook/issues/new?title=Issue%20on%20page%20%2Fintroduction/02_loops_and_functions.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/introduction/02_loops_and_functions.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chapter-learning-objectives">
-   Chapter Learning Objectives
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#for-loops">
-   1.
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     for
-    </span>
-   </code>
-   Loops
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#while-loops">
-   2.
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     while
-    </span>
-   </code>
-   loops
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#comprehensions">
-   3. Comprehensions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#try-except">
-   4.
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     try
-    </span>
-   </code>
-   /
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     except
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#functions">
-   5. Functions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#side-effects-local-variables">
-     Side Effects &amp; Local Variables
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#null-return-type">
-     Null Return Type
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#optional-required-arguments">
-     Optional &amp; Required Arguments
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#multiple-return-values">
-     Multiple Return Values
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#functions-with-arbitrary-number-of-arguments">
-     Functions with Arbitrary Number of Arguments
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#functions-as-a-data-type">
-   6. Functions as  a Data Type
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#anonymous-functions">
-   7. Anonymous Functions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dry-principle-designing-good-functions">
-   8. DRY Principle, Designing Good Functions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#designing-good-functions">
-     Designing Good Functions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#generators">
-   9. Generators
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#docstrings">
-   10. Docstrings
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#docstring-structure">
-     Docstring Structure
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#docstrings-with-optional-arguments">
-     Docstrings with Optional Arguments
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#type-hints">
-     Type Hints
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Chapter 2: Loops & Functions</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chapter-learning-objectives">
-   Chapter Learning Objectives
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#for-loops">
-   1.
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     for
-    </span>
-   </code>
-   Loops
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#while-loops">
-   2.
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     while
-    </span>
-   </code>
-   loops
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#comprehensions">
-   3. Comprehensions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#try-except">
-   4.
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     try
-    </span>
-   </code>
-   /
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     except
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#functions">
-   5. Functions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#side-effects-local-variables">
-     Side Effects &amp; Local Variables
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#null-return-type">
-     Null Return Type
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#optional-required-arguments">
-     Optional &amp; Required Arguments
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#multiple-return-values">
-     Multiple Return Values
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#functions-with-arbitrary-number-of-arguments">
-     Functions with Arbitrary Number of Arguments
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#functions-as-a-data-type">
-   6. Functions as  a Data Type
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#anonymous-functions">
-   7. Anonymous Functions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dry-principle-designing-good-functions">
-   8. DRY Principle, Designing Good Functions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#designing-good-functions">
-     Designing Good Functions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#generators">
-   9. Generators
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#docstrings">
-   10. Docstrings
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#docstring-structure">
-     Docstring Structure
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#docstrings-with-optional-arguments">
-     Docstrings with Optional Arguments
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#type-hints">
-     Type Hints
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 2: Loops & Functions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-learning-objectives">Chapter Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">1. <code class="docutils literal notranslate"><span class="pre">for</span></code> Loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">2. <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comprehensions">3. Comprehensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-except">4. <code class="docutils literal notranslate"><span class="pre">try</span></code> / <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">5. Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#side-effects-local-variables">Side Effects &amp; Local Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#null-return-type">Null Return Type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-required-arguments">Optional &amp; Required Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-return-values">Multiple Return Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-with-arbitrary-number-of-arguments">Functions with Arbitrary Number of Arguments</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-as-a-data-type">6. Functions as  a Data Type</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymous-functions">7. Anonymous Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dry-principle-designing-good-functions">8. DRY Principle, Designing Good Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#designing-good-functions">Designing Good Functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generators">9. Generators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docstrings">10. Docstrings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docstring-structure">Docstring Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docstrings-with-optional-arguments">Docstrings with Optional Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-hints">Type Hints</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <p><img alt="" src="../_images/banner.png" /></p>
-<div class="tex2jax_ignore mathjax_ignore section" id="chapter-2-loops-functions">
-<h1>Chapter 2: Loops &amp; Functions<a class="headerlink" href="#chapter-2-loops-functions" title="Permalink to this headline">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="chapter-2-loops-functions">
+<h1>Chapter 2: Loops &amp; Functions<a class="headerlink" href="#chapter-2-loops-functions" title="Permalink to this heading">#</a></h1>
 <h2>Chapter Outline<span class="tocSkip"></span></h2>
 <hr>
-<div class="toc"><ul class="toc-item"><li><span><a href="#1.-for-Loops" data-toc-modified-id="1.-for-Loops-1">1. <code>for</code> Loops</a></span></li><li><span><a href="#2.-while-loops" data-toc-modified-id="2.-while-loops-2">2. <code>while</code> loops</a></span></li><li><span><a href="#3.-Comprehensions" data-toc-modified-id="3.-Comprehensions-3">3. Comprehensions</a></span></li><li><span><a href="#4.-try-/-except" data-toc-modified-id="4.-try-/-except-4">4. <code>try</code> / <code>except</code></a></span></li><li><span><a href="#5.-Functions" data-toc-modified-id="5.-Functions-5">5. Functions</a></span></li><li><span><a href="#6.-Functions-as--a-data-type" data-toc-modified-id="6.-Functions-as--a-data-type-6">6. Functions as  a data type</a></span></li><li><span><a href="#7.-Anonymous-functions" data-toc-modified-id="7.-Anonymous-functions-7">7. Anonymous functions</a></span></li><li><span><a href="#8.-DRY-principle,-designing-good-functions" data-toc-modified-id="8.-DRY-principle,-designing-good-functions-8">8. DRY principle, designing good functions</a></span></li><li><span><a href="#9.-Generators" data-toc-modified-id="9.-Generators-9">9. Generators</a></span></li><li><span><a href="#10.-Docstrings" data-toc-modified-id="10.-Docstrings-10">10. Docstrings</a></span></li></ul></div><div class="section" id="chapter-learning-objectives">
-<h2>Chapter Learning Objectives<a class="headerlink" href="#chapter-learning-objectives" title="Permalink to this headline">#</a></h2>
+<div class="toc"><ul class="toc-item"><li><span><a href="#1.-for-Loops" data-toc-modified-id="1.-for-Loops-1">1. <code>for</code> Loops</a></span></li><li><span><a href="#2.-while-loops" data-toc-modified-id="2.-while-loops-2">2. <code>while</code> loops</a></span></li><li><span><a href="#3.-Comprehensions" data-toc-modified-id="3.-Comprehensions-3">3. Comprehensions</a></span></li><li><span><a href="#4.-try-/-except" data-toc-modified-id="4.-try-/-except-4">4. <code>try</code> / <code>except</code></a></span></li><li><span><a href="#5.-Functions" data-toc-modified-id="5.-Functions-5">5. Functions</a></span></li><li><span><a href="#6.-Functions-as--a-data-type" data-toc-modified-id="6.-Functions-as--a-data-type-6">6. Functions as  a data type</a></span></li><li><span><a href="#7.-Anonymous-functions" data-toc-modified-id="7.-Anonymous-functions-7">7. Anonymous functions</a></span></li><li><span><a href="#8.-DRY-principle,-designing-good-functions" data-toc-modified-id="8.-DRY-principle,-designing-good-functions-8">8. DRY principle, designing good functions</a></span></li><li><span><a href="#9.-Generators" data-toc-modified-id="9.-Generators-9">9. Generators</a></span></li><li><span><a href="#10.-Docstrings" data-toc-modified-id="10.-Docstrings-10">10. Docstrings</a></span></li></ul></div><section id="chapter-learning-objectives">
+<h2>Chapter Learning Objectives<a class="headerlink" href="#chapter-learning-objectives" title="Permalink to this heading">#</a></h2>
 <hr><ul class="simple">
 <li><p>Write <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops in Python.</p></li>
 <li><p>Identify iterable datatypes which can be used in <code class="docutils literal notranslate"><span class="pre">for</span></code> loops.</p></li>
@@ -662,9 +422,9 @@ title="Print to PDF"
 <li><p>Assess whether a function has side effects.</p></li>
 <li><p>Write a docstring for a function that describes parameters, return values, behaviour and usage.</p></li>
 </ul>
-</div>
-<div class="section" id="for-loops">
-<h2>1. <code class="docutils literal notranslate"><span class="pre">for</span></code> Loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="for-loops">
+<h2>1. <code class="docutils literal notranslate"><span class="pre">for</span></code> Loops<a class="headerlink" href="#for-loops" title="Permalink to this heading">#</a></h2>
 <hr><p>For loops allow us to execute code a specific number of times.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -923,9 +683,9 @@ Item 2: DSCI 511, is naptime!
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="while-loops">
-<h2>2. <code class="docutils literal notranslate"><span class="pre">while</span></code> loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="while-loops">
+<h2>2. <code class="docutils literal notranslate"><span class="pre">while</span></code> loops<a class="headerlink" href="#while-loops" title="Permalink to this heading">#</a></h2>
 <hr><p>We can also use a <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#while"><code class="docutils literal notranslate"><span class="pre">while</span></code> loop</a> to excute a block of code several times. But beware! If the conditional expression is always <code class="docutils literal notranslate"><span class="pre">True</span></code>, then you’ve got an infintite loop!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1050,9 +810,9 @@ Blast off!
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="comprehensions">
-<h2>3. Comprehensions<a class="headerlink" href="#comprehensions" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="comprehensions">
+<h2>3. Comprehensions<a class="headerlink" href="#comprehensions" title="Permalink to this heading">#</a></h2>
 <hr><p>Comprehensions allow us to build lists/tuples/sets/dictionaries in one convenient, compact line of code. I use these quite a bit! Below is a standard <code class="docutils literal notranslate"><span class="pre">for</span></code> loop you might use to iterate over an iterable and create a list:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1170,14 +930,14 @@ Blast off!
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object &lt;genexpr&gt; at 0x106855a80&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object &lt;genexpr&gt; at 0x7ff7b4359e50&gt;
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="try-except">
-<h2>4. <code class="docutils literal notranslate"><span class="pre">try</span></code> / <code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#try-except" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="try-except">
+<h2>4. <code class="docutils literal notranslate"><span class="pre">try</span></code> / <code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#try-except" title="Permalink to this heading">#</a></h2>
 <hr><p><img alt="" src="../_images/bsod.jpg" /></p>
 <p>Above: the <a class="reference external" href="https://en.wikipedia.org/wiki/Blue_Screen_of_Death">Blue Screen of Death</a> at a Nine Inch Nails concert! Source: <a class="reference external" href="https://www.cnet.com/news/nine-inch-nails-depresses-with-a-big-blue-screen-of-death/">cnet.com</a>.</p>
 <p>If something goes wrong, we don’t want our code to crash - we want it to <strong>fail gracefully</strong>. In Python, this can be accomplished using <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code>. Here is a basic example:</p>
@@ -1316,9 +1076,9 @@ I&#39;m printing anyway!
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="functions">
-<h2>5. Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="functions">
+<h2>5. Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h2>
 <hr><p>A <a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#defining-functions">function</a> is a reusable piece of code that can accept input parameters, also known as “arguments”. For example, let’s define a function called <code class="docutils literal notranslate"><span class="pre">square</span></code> which takes one input parameter <code class="docutils literal notranslate"><span class="pre">n</span></code> and returns the square <code class="docutils literal notranslate"><span class="pre">n**2</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1366,8 +1126,8 @@ I&#39;m printing anyway!
 </div>
 </div>
 <p>Functions begin with the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword, then the function name, arguments in parentheses, and then a colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>). The code executed by the function is defined by indentation. The output or “return” value of the function is specified using the <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword.</p>
-<div class="section" id="side-effects-local-variables">
-<h3>Side Effects &amp; Local Variables<a class="headerlink" href="#side-effects-local-variables" title="Permalink to this headline">#</a></h3>
+<section id="side-effects-local-variables">
+<h3>Side Effects &amp; Local Variables<a class="headerlink" href="#side-effects-local-variables" title="Permalink to this heading">#</a></h3>
 <p>When you create a variable inside a function, it is local, which means that it only exists inside the function. For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1428,9 +1188,9 @@ I&#39;m printing anyway!
 </div>
 </div>
 <p>If your function has side effects like this, you must mention it in the documentation (which we’ll touch on later in this chapter).</p>
-</div>
-<div class="section" id="null-return-type">
-<h3>Null Return Type<a class="headerlink" href="#null-return-type" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="null-return-type">
+<h3>Null Return Type<a class="headerlink" href="#null-return-type" title="Permalink to this heading">#</a></h3>
 <p>If you do not specify a return value, the function returns <code class="docutils literal notranslate"><span class="pre">None</span></code> when it terminates:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1448,9 +1208,9 @@ I&#39;m printing anyway!
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="optional-required-arguments">
-<h3>Optional &amp; Required Arguments<a class="headerlink" href="#optional-required-arguments" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="optional-required-arguments">
+<h3>Optional &amp; Required Arguments<a class="headerlink" href="#optional-required-arguments" title="Permalink to this heading">#</a></h3>
 <p>Sometimes it is convenient to have <em>default values</em> for some arguments in a function. Because they have default values, these arguments are optional, and are hence called “optional arguments”. For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1534,7 +1294,10 @@ I&#39;m printing anyway!
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 2 3 4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 2 3 4
 </pre></div>
 </div>
 </div>
@@ -1618,9 +1381,9 @@ I&#39;m printing anyway!
 </div>
 </div>
 <p>Specifying keyword arguments before non-keyword arguments (this throws an error):</p>
-</div>
-<div class="section" id="multiple-return-values">
-<h3>Multiple Return Values<a class="headerlink" href="#multiple-return-values" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="multiple-return-values">
+<h3>Multiple Return Values<a class="headerlink" href="#multiple-return-values" title="Permalink to this heading">#</a></h3>
 <p>In many programming languages, functions can only return one object. That is technically true in Python too, but there is a “workaround”, which is to return a tuple.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1727,9 +1490,9 @@ I&#39;m printing anyway!
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="functions-with-arbitrary-number-of-arguments">
-<h3>Functions with Arbitrary Number of Arguments<a class="headerlink" href="#functions-with-arbitrary-number-of-arguments" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="functions-with-arbitrary-number-of-arguments">
+<h3>Functions with Arbitrary Number of Arguments<a class="headerlink" href="#functions-with-arbitrary-number-of-arguments" title="Permalink to this heading">#</a></h3>
 <p>You can also call/define functions that accept an arbitrary number of positional or keyword arguments using <code class="docutils literal notranslate"><span class="pre">*args</span></code> and <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1779,10 +1542,10 @@ I&#39;m printing anyway!
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="functions-as-a-data-type">
-<h2>6. Functions as  a Data Type<a class="headerlink" href="#functions-as-a-data-type" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="functions-as-a-data-type">
+<h2>6. Functions as  a Data Type<a class="headerlink" href="#functions-as-a-data-type" title="Permalink to this heading">#</a></h2>
 <hr><p>In Python, functions are actually a data type:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1811,7 +1574,7 @@ I&#39;m printing anyway!
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function do_nothing at 0x106884790&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function do_nothing at 0x7ff7b654dda0&gt;
 </pre></div>
 </div>
 </div>
@@ -1845,9 +1608,9 @@ I&#39;m printing anyway!
 <li><p><code class="docutils literal notranslate"><span class="pre">fun(x+1)</span></code> becomes <code class="docutils literal notranslate"><span class="pre">square(5+1)</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">square(6)</span></code> becomes <code class="docutils literal notranslate"><span class="pre">36</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="anonymous-functions">
-<h2>7. Anonymous Functions<a class="headerlink" href="#anonymous-functions" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="anonymous-functions">
+<h2>7. Anonymous Functions<a class="headerlink" href="#anonymous-functions" title="Permalink to this heading">#</a></h2>
 <hr><p>There are two ways to define functions in Python. The way we’ve beenusing up until now:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1920,9 +1683,9 @@ I&#39;m printing anyway!
 <li><p>Then, the function and the integer <code class="docutils literal notranslate"><span class="pre">5</span></code> are passed into <code class="docutils literal notranslate"><span class="pre">evaluate_function_on_x_plus_1</span></code></p></li>
 <li><p>At which point the anonymous function is evaluated on <code class="docutils literal notranslate"><span class="pre">5+1</span></code>, and we get <code class="docutils literal notranslate"><span class="pre">36</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="dry-principle-designing-good-functions">
-<h2>8. DRY Principle, Designing Good Functions<a class="headerlink" href="#dry-principle-designing-good-functions" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="dry-principle-designing-good-functions">
+<h2>8. DRY Principle, Designing Good Functions<a class="headerlink" href="#dry-principle-designing-good-functions" title="Permalink to this heading">#</a></h2>
 <hr><p>DRY stands for <strong>Don’t Repeat Yourself</strong>. See the relevant <a class="reference external" href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">Wikipedia article</a> for more about this principle.</p>
 <p>As an example, consider the task of turning each element of a list into a palindrome.</p>
 <div class="cell docutils container">
@@ -1963,7 +1726,7 @@ I&#39;m printing anyway!
 </div>
 </div>
 <p>The code above is gross, terrible, yucky code for several reasons:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>It only works for a list with 3 elements;</p></li>
 <li><p>It only works for a list named <code class="docutils literal notranslate"><span class="pre">names</span></code>;</p></li>
 <li><p>If we want to change its functionality, we need to change 3 similar lines of code (Don’t Repeat Yourself!!);</p></li>
@@ -2041,8 +1804,8 @@ I&#39;m printing anyway!
 </div>
 </div>
 </div>
-<div class="section" id="designing-good-functions">
-<h3>Designing Good Functions<a class="headerlink" href="#designing-good-functions" title="Permalink to this headline">#</a></h3>
+<section id="designing-good-functions">
+<h3>Designing Good Functions<a class="headerlink" href="#designing-good-functions" title="Permalink to this heading">#</a></h3>
 <p>How far you go and how you choose to apply the DRY principle is up to you and the programming context. These decisions are often ambiguous. Should <code class="docutils literal notranslate"><span class="pre">make_palindromes()</span></code> be a function if I’m only ever doing it once? Twice? Should the loop be inside the function, or outside? Should there be TWO functions, one that loops over the other?</p>
 <p>In my personal opinion, <code class="docutils literal notranslate"><span class="pre">make_palindromes()</span></code> does a bit too much to be understandable. I prefer this:</p>
 <div class="cell docutils container">
@@ -2086,10 +1849,10 @@ I&#39;m printing anyway!
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="generators">
-<h2>9. Generators<a class="headerlink" href="#generators" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="generators">
+<h2>9. Generators<a class="headerlink" href="#generators" title="Permalink to this heading">#</a></h2>
 <hr><p>Recall list comprehension from earlier in the chapter:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2111,7 +1874,7 @@ I&#39;m printing anyway!
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object &lt;genexpr&gt; at 0x1068a8120&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object &lt;genexpr&gt; at 0x7ff7b435a190&gt;
 </pre></div>
 </div>
 </div>
@@ -2220,9 +1983,9 @@ I&#39;m printing anyway!
 </div>
 </div>
 <p>Below is some real-world motivation of a case where a generator might be useful. Say we want to create a list of dictionaries containing information about houses in Canada.</p>
-</div>
-<div class="section" id="docstrings">
-<h2>10. Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="docstrings">
+<h2>10. Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this heading">#</a></h2>
 <hr><p>One problem we never really solved when talking about writing good functions was: “4. It is hard to understand what it does just by looking at it”. This brings up the idea of function documentation, called “docstrings”. The <a class="reference external" href="https://www.python.org/dev/peps/pep-0257/">docstring</a> goes right after the <code class="docutils literal notranslate"><span class="pre">def</span></code> line and is wrapped in <strong>triple quotes</strong> <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2250,10 +2013,10 @@ I&#39;m printing anyway!
 </div>
 </div>
 </div>
-<div class="section" id="docstring-structure">
-<h3>Docstring Structure<a class="headerlink" href="#docstring-structure" title="Permalink to this headline">#</a></h3>
+<section id="docstring-structure">
+<h3>Docstring Structure<a class="headerlink" href="#docstring-structure" title="Permalink to this heading">#</a></h3>
 <p>General docstring convention in Python is described in <a class="reference external" href="https://www.python.org/dev/peps/pep-0257/">PEP 257 - Docstring Conventions</a>. There are many different docstring style conventions used in Python. The exact style you use can be important for helping you to render your documentation, or for helping your IDE parse your documentation. Common styles include:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><strong>Single-line</strong>: If it’s short, then just a single line describing the function will do (as above).</p></li>
 <li><p><strong>reST style</strong>: see <a class="reference external" href="https://www.python.org/dev/peps/pep-0287/">here</a>.</p></li>
 <li><p><strong>NumPy style</strong>: see <a class="reference external" href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html">here</a>. (RECOMMENDED! and MDS-preferred)</p></li>
@@ -2328,9 +2091,9 @@ I&#39;m printing anyway!
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="docstrings-with-optional-arguments">
-<h3>Docstrings with Optional Arguments<a class="headerlink" href="#docstrings-with-optional-arguments" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="docstrings-with-optional-arguments">
+<h3>Docstrings with Optional Arguments<a class="headerlink" href="#docstrings-with-optional-arguments" title="Permalink to this heading">#</a></h3>
 <p>When specifying function arguments, we specify the defaults for optional arguments:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2361,9 +2124,9 @@ I&#39;m printing anyway!
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="type-hints">
-<h3>Type Hints<a class="headerlink" href="#type-hints" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="type-hints">
+<h3>Type Hints<a class="headerlink" href="#type-hints" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://docs.python.org/3/library/typing.html">Type hinting</a> is exactly what it sounds like, it hints at the data type of function arguments. You can indicate the type of an argument in a function using the syntax <code class="docutils literal notranslate"><span class="pre">argument</span> <span class="pre">:</span> <span class="pre">dtype</span></code>, and the type of the return value using <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">func()</span> <span class="pre">-&gt;</span> <span class="pre">dtype</span></code>. Let’s see an example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2405,9 +2168,9 @@ I&#39;m printing anyway!
 <p>Most IDE’s are clever enough to even read your type hinting and warn you if you’re using a different dtype in the function, e.g., this VScode screenshot:</p>
 <p><img alt="" src="../_images/type_hint_1.png" />
 <img alt="" src="../_images/type_hint_2.png" /></p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2429,36 +2192,108 @@ I&#39;m printing anyway!
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-learning-objectives">Chapter Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">1. <code class="docutils literal notranslate"><span class="pre">for</span></code> Loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">2. <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comprehensions">3. Comprehensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-except">4. <code class="docutils literal notranslate"><span class="pre">try</span></code> / <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">5. Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#side-effects-local-variables">Side Effects &amp; Local Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#null-return-type">Null Return Type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-required-arguments">Optional &amp; Required Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-return-values">Multiple Return Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-with-arbitrary-number-of-arguments">Functions with Arbitrary Number of Arguments</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-as-a-data-type">6. Functions as  a Data Type</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymous-functions">7. Anonymous Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dry-principle-designing-good-functions">8. DRY Principle, Designing Good Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#designing-good-functions">Designing Good Functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generators">9. Generators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docstrings">10. Docstrings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docstring-structure">Docstring Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docstrings-with-optional-arguments">Docstrings with Optional Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-hints">Type Hints</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Floris Calkoen<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Floris Calkoen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
