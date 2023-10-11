@@ -1,0 +1,39 @@
+name: Build JupyterBook
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "notebooks/**"
+      - "book/**"
+      - "ci/envs/311-book.yaml"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash -l {0}
+
+jobs:
+  BuildBook:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Micromamba
+        uses: mamba-org/setup-micromamba@v1
+        with:
+          environment-file: ci/envs/311-book.yaml
+
+      # Copy notebooks to book assignments directory
+      - name: Prepare notebooks for book
+        run: |
+          rsync -av --delete notebooks/ book/assignments/
+
+      # Build the JupyterBook
+      - name: Build JupyterBook
+        run: |
+          jupyter-book build book/
