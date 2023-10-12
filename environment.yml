@@ -111,6 +111,7 @@ dependencies:
   - stac-vrt
   - stackstac
   - tqdm
+  - toml
   - xarray-spatial
   - zarr
 
