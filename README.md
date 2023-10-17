@@ -120,19 +120,11 @@ tutorials.
    create a Jupyterlab environment by running:
 
    ```bash
-   mamba env create -f environment-jupyterlab.yml
+   mamba env create -f environment.yml
+   ```
+   
    ```
 
-   And then create the coastal environment by running:
-   ```
-   mamba env create -f environment-coastal.yml
-   ```
-   Depending on whether this is the first time to install this kind of software on your
-   machine, this might take a few minutes to complete. If you want to give other names to
-   the environments you can do so by adding a `-n` or `--name` flag, i.e.,
-   ```bash
-   mamba env create -n testenv -f environment-jupyterlab.yml
-   ```
 
 ### Running the tutorial notebooks
 Now that you have access to the code (cloning this Github repository), installed a
@@ -145,7 +137,7 @@ introduction](https://earth-env-data-science.github.io/lectures/environment/intr
    Note, on Windows you should use backslashes.
 3. Activate your Jupyterlab environment by running:
    ```bash
-   mamba activate lab
+   mamba activate coastal
    ```
 4. Open Jupyterlab by running the following command:
    ```bash
