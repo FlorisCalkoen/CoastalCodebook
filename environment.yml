@@ -18,6 +18,7 @@ dependencies:
   - bandit
   - pydantic
   - pre-commit
+  - poetry
 
   # Jupyterlab and lab extensions/packages
   - jupyterlab>=4
