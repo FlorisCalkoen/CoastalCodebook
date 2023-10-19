@@ -38,6 +38,12 @@ first.
 By these steps, the files that are hosted at GitHub are "pulled" to your machine.
 But we can't we do anything with the files yet, as we don't have the software that can
 understand the code, so continue with installing a package manager.
+
+3. GitHub client does not install the underlying git software on your machine. Follow [these
+   instructions](https://learn.microsoft.com/en-us/devops/develop/git/install-and-set-up-git)
+   to install git on your machine.
+
+
 ### 2. Mamba package manager
 
 If you're not familiar with managing Python environments, please have a look at this
@@ -112,27 +118,17 @@ tutorials.
    simply run `cd %userprofile%\Documents\GitHub\CoastalCodeBook`.
    - **Linux/Mac**: change to the directory where you cloned the GitHub repository. This
      will be something like `cd ~/path/to/github/repository`.
-4. The CoastalCodeBook root directory contains two yaml files, that describe the software
-   dependencies. The first one, [environment-jupyterlab.yml](environment-coastal.yml)
-   contains some packages and several extensions to build an interactive Jupyter
-   environment. The other one, [environment-coastal.yml](environment-coastal.yml), is a
-   specification for required software that we will use in the tutorial notebooks. First
-   create a Jupyterlab environment by running:
+4. The CoastalCodeBook root directory contains an [environment.yml](environment.yml) file that describes the software
+   dependencies. This environment contains several packages and extension to build an
+   interactive Jupyter lab environment that you can use to run the tutorial notebooks.
 
+   You can create the software environment using this command:
    ```bash
-   mamba env create -f environment-jupyterlab.yml
+   mamba env create -f environment.yml
    ```
 
-   And then create the coastal environment by running:
    ```
-   mamba env create -f environment-coastal.yml
-   ```
-   Depending on whether this is the first time to install this kind of software on your
-   machine, this might take a few minutes to complete. If you want to give other names to
-   the environments you can do so by adding a `-n` or `--name` flag, i.e.,
-   ```bash
-   mamba env create -n testenv -f environment-jupyterlab.yml
-   ```
+
 
 ### Running the tutorial notebooks
 Now that you have access to the code (cloning this Github repository), installed a
@@ -143,18 +139,18 @@ introduction](https://earth-env-data-science.github.io/lectures/environment/intr
 1. Open a terminal or Miniforge prompt.
 2. Change to the directory where you cloned the repository `cd </path/to/local/repo>`.
    Note, on Windows you should use backslashes.
-3. Activate your Jupyterlab environment by running:
+3. Activate your environment by running:
    ```bash
-   mamba activate lab
+   mamba activate coastal
    ```
 4. Open Jupyterlab by running the following command:
    ```bash
    jupyter lab
    ```
    This will open a Jupyterlab client in your browser.
-5. In the jupyterlab you browse to the `coastalcodebook/assignments` directory and open
+5. In the jupyterlab you browse to the `notebooks` directory and open
       one of the notebooks, for instance,
-      [01_introduction.ipynb](coastalcodebook/assignments/01_introduction.ipynb).
+      [01_coastal_classification.ipynb](notebooks/01_coastal_classification.ipynb).
 6. Once the notebook is open you can activate the `coastal` environment in the
       upper-right corner; change `Python 3 (ipykernel)` to `Python [conda env:coastal]`.
 7. Now you can run the cells and do some interactive coastal analysis!
