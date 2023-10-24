@@ -1,0 +1,121 @@
+name: coastal
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  # Python version, pip, and other very generic libraries
+  - python=3.11
+  - pip>=20
+  - ca-certificates
+  - certifi
+  - openssl
+
+    # Development Tools
+  - black
+  - isort
+  - click
+  - bandit
+  - pydantic
+  - pre-commit
+  - poetry
+
+  # Jupyterlab and lab extensions/packages
+  - jupyterlab>=4
+  - gh-scoped-creds # check if useful
+  - ipykernel
+  - jupyter-panel-proxy # not sure if this one is really useful
+  - jupyter-resource-usage
+  - jupyterlab_code_formatter
+  - jupyterlab_widgets
+  - jupyterlab-lsp # breaks tab complete if python-lsp-server not installed
+  - jupyterlab-spellchecker
+  - nb_conda_kernels
+  - nbgitpuller
+  - nbstripout
+  - nodejs
+  - python-lsp-server
+  - voila
+  # - jupyterlab_vim  # for vim users ^^
+  # - jupyterlab-git  # causes warning when git not on os
+  # - jupyterlab_execute_time # breaks env on windows installation
+  # - dask-labextension  # causes slow startup on windows
+  # - lckr-jupyterlab-variableinspector  # doesn't work on my machine yet
+
+  # Jupyterbook dev tools
+  - jupyter-book
+  - nbformat
+
+  # interactive vizualization libraries
+  - bokeh
+  - folium
+  - geoviews-core
+  - holoviews
+  - hvplot
+  - ipyleaflet
+  - ipympl
+  - ipywidgets
+  - jupyter_bokeh
+  - matplotlib-base
+  - panel
+  - param
+
+  # Data Science libraries
+  - adlfs
+  - astropy
+  - awscli
+  - azure-data-tables
+  - azure-identity
+  - beautifulsoup4
+  - boto3
+  - cartopy
+  - cfgrib
+  - dask
+  - dask-cloudprovider
+  - dask-geopandas
+  - datacube
+  - datashader
+  - descartes
+  - earthengine-api
+  - eccodes>=2.24.2
+  - fiona
+  - fsspec
+  - gcsfs
+  - geojson
+  - geopandas>=0.11.0
+  - h5netcdf
+  - h5py
+  - intake
+  - intake-esm
+  - intake-geopandas
+  - intake-stac
+  - intake-xarray
+  - lxml
+  - mapclassify
+  - numcodecs
+  - numpy
+  - pandas
+  - planetary-computer
+  - pooch
+  - pyarrow=10 # check if higher versions still bring cudatoolkit
+  - pyogrio
+  - python-dotenv
+  - rasterio
+  - rioxarray
+  - s3fs
+  - scikit-image
+  - scikit-learn
+  - scipy
+  - seaborn
+  - spatialpandas
+  - stac-geoparquet
+  - stac-vrt
+  - stackstac
+  - tqdm
+  - toml
+  - xarray-spatial
+  - zarr
+
+  # This is when you want the CoastalCodeBook package to be installed in dev mode
+  # - pip:
+  #     - -e .
