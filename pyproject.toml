@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "coastalcodebook"
-version = "0.1.1"
-description = "Jupyterbook for Coastal Systems"
+name = "coastalbook"
+version = "0.1.2"
+description = "Jupyterbook for Delft Technical University Coastal Systems"
 authors = ["Floris Calkoen"]
 license = "MIT"
 readme = "README.md"
