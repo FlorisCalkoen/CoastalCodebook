@@ -9,8 +9,7 @@ PDF and markdown.
 ## Usage
 
 For the tuturial sessions we will use an interactive computing environment, that is built
-on the [Jupyter]() ecosystem and use software packages that are endorsed by the [Pangeo
-community](https://pangeo.io/quickstart.html). We will communicate the tutorial content
+on the [Jupyter]() ecosystem and mostly rely on software that is supported by numfocus. We will communicate the tutorial content
 using `git` version control and provide instructions on how to do so using the GitHub client. In the subsections
 that follow we talk you through the three configurations steps.
 
@@ -29,20 +28,23 @@ first.
 
    1. **GitHub client**: Browse to the
    [webpage](https://github.com/FlorisCalkoen/CoastalCodebook), click on the green "Code"
-   button and select "Open with GitHub Desktop", or paste the URL into the GitHub client.
+   button and select "Open with GitHub Desktop"; or simply paste the URL into the GitHub
+   client "clone repository" menu.
 
-   2. **Bash shell**: If you have a bash terminal available, provided that git [is
+   2. **Bash shell**: If you have a bash terminal available, assuming that git [is
      configured](https://docs.github.com/en/get-started/getting-started-with-git), you
    can simply run: ` git clone https://github.com/FlorisCalkoen/CoastalCodebook.git`.
-
-By these steps, the files that are hosted at GitHub are "pulled" to your machine.
-But we can't we do anything with the files yet, as we don't have the software that can
-understand the code, so continue with installing a package manager.
 
 3. GitHub client does not install the underlying git software on your machine. Follow [these
    instructions](https://learn.microsoft.com/en-us/devops/develop/git/install-and-set-up-git)
    to install git on your machine.
 
+
+By these steps, the files that are hosted at GitHub are "pulled" to your machine. You can
+check that by opening a file explorer and going to the path where you cloned the
+directory. The files that you find there should reflect what's on the GitHub page.
+But we can't we do anything with the files yet, as we don't have the software that can
+understand the code, so we will continue with installing a package manager.
 
 ### 2. Mamba package manager
 
@@ -70,6 +72,7 @@ client.
 **Known issues**: Some users have their firewalls configured in such way that the
 mambaforge installation is blocked. If you have trouble installing mambaforge, please make
 sure to temporarily disable your firewall.
+
 #### Unix like - Mac and Linux
 1. We recommend to install Mambaforge on Linux and Mac using a terminal. On Mac, you can
    open a terminal by searching for "terminal" or "iterm". On Linux the hotkey to open a
@@ -103,14 +106,16 @@ tutorials.
 2. You can check if mamba was installed by running the following command in the terminal:
    ```bash
    mamba --version
-   ````
+
+   ```
    It should output something like:
 
    ```console
-   ~ base ❯ mamba --version
+   ~ (base) mamba --version
    mamba 1.1.0
    conda 22.9.0
    ```
+
 3. Now that mambaforge is installed, navigate in the terminal to the directory
    where you cloned the GitHub CoastalCodeBook repository. You can navigate the terminal
    using `cd`, which stands for "change directory".
@@ -123,10 +128,9 @@ tutorials.
    interactive Jupyter lab environment that you can use to run the tutorial notebooks.
 
    You can create the software environment using this command:
+
    ```bash
    mamba env create -f environment.yml
-   ```
-
    ```
 
 
@@ -138,7 +142,7 @@ introduction](https://earth-env-data-science.github.io/lectures/environment/intr
 
 1. Open a terminal or Miniforge prompt.
 2. Change to the directory where you cloned the repository `cd </path/to/local/repo>`.
-   Note, on Windows you should use backslashes.
+   Note, on Windows you should use backslashes (see sec 2).
 3. Activate your environment by running:
    ```bash
    mamba activate coastal
@@ -148,21 +152,12 @@ introduction](https://earth-env-data-science.github.io/lectures/environment/intr
    jupyter lab
    ```
    This will open a Jupyterlab client in your browser.
-5. In the jupyterlab you browse to the `notebooks` directory and open
+5. In the JupyterLab IDE you can browse to the `notebooks` directory and open
       one of the notebooks, for instance,
       [01_coastal_classification.ipynb](notebooks/01_coastal_classification.ipynb).
 6. Once the notebook is open you can activate the `coastal` environment in the
       upper-right corner; change `Python 3 (ipykernel)` to `Python [conda env:coastal]`.
 7. Now you can run the cells and do some interactive coastal analysis!
-
-
-
-
-<!-- ### Hosting the book
-
-Please see the [Jupyter Book documentation](https://jupyterbook.org/publish/web.html) to discover options for deploying a book online using services such as GitHub, GitLab, or Netlify.
-
-For GitHub and GitLab deployment specifically, the [cookiecutter-jupyter-book](https://github.com/executablebooks/cookiecutter-jupyter-book) includes templates for, and information about, optional continuous integration (CI) workflow files to help easily and automatically deploy books online with GitHub or GitLab. For example, if you chose `github` for the `include_ci` cookiecutter option, your book template was created with a GitHub actions workflow file that, once pushed to GitHub, automatically renders and pushes your book to the `gh-pages` branch of your repo and hosts it on GitHub Pages when a push or pull request is made to the main branch. --> -->
 
 ## Questions
 
@@ -180,11 +175,10 @@ If you'd like to develop and/or build the CoastalCodeBook book, you should:
 1. Clone this repository
 2. Run `mamba env create -f environment-coastal.yml`
 3. Run `mamba activate coastal`
-4. Run `mamba install jupyter-book`
-5. Run 'jupyter-book build coastalcodebook'
+5. Run `jupyter-book build book`
 
 A fully-rendered HTML version of the book will be built in
-`coastalcodebook/_build/html/`.
+`book/_build/html/`.
 
 **Known issues**: If you use `nb_conda_kernels` to expose your environments, you might run
 into kernelspec errors when building the book. Until
@@ -203,7 +197,4 @@ tab](https://github.com/floriscalkoen/coastalcodebook/graphs/contributors).
 
 This project is created using the excellent open source [Jupyter Book
 project](https://jupyterbook.org/) and the [executablebooks/cookiecutter-jupyter-book
-template](https://github.com/executablebooks/cookiecutter-jupyter-book). We would also
-like to acknowledge the [Introduction to Earth and Environmental Data
-Science](https://earth-env-data-science.github.io/intro.html) for their excellent
-tutorials and inspiration.
+template](https://github.com/executablebooks/cookiecutter-jupyter-book).
