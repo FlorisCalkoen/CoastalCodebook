@@ -13,3 +13,4 @@ dependencies:
   - xarray
   - rioxarray
   - toml
+  - python-semantic-release
