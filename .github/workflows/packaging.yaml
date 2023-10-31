@@ -35,7 +35,7 @@ jobs:
       # Publish to TestPyPI first
       - name: Publish to TestPyPI
         run: |
-          poetry publish --repository testpypi -u __token__ -p ${{ secrets.TEST_PYPI_API_TOKEN }}
+          poetry publish --repository https://test.pypi.org/legacy/ -u __token__ -p ${{ secrets.TEST_PYPI_API_TOKEN }}
 
       # Test install from TestPyPI
       - name: Test install from TestPyPI
