@@ -24,7 +24,7 @@ jobs:
       - name: Set up Micromamba
         uses: mamba-org/setup-micromamba@v1
         with:
-          environment-file: ci/envs/311-dev.yaml
+          environment-file: ci/envs/311-package.yaml
 
       - name: Build package
         run: |
