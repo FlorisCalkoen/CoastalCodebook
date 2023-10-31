@@ -1,0 +1,15 @@
+name: 311-package
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - poetry
+  - geopandas>=0.11.0
+  - ipyleaflet
+  - ipywidgets
+  - numpy
+  - pandas
+  - panel
+  - xarray
+  - rioxarray
+  - toml
