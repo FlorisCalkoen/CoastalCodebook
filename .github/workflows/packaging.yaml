@@ -32,21 +32,6 @@ jobs:
           poetry install
           poetry build
 
-      - name: Check for version update using semantic-release dry-run
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          NEXT_VERSION=$(poetry run semantic-release version --dry-run)
-          CURRENT_VERSION=$(poetry version -s)
-          echo "NEXT_VERSION=$NEXT_VERSION" >> $GITHUB_ENV
-          echo "CURRENT_VERSION=$CURRENT_VERSION" >> $GITHUB_ENV
-          if [ "$NEXT_VERSION" == "$CURRENT_VERSION" ]; then
-            echo "No version change detected. Exiting workflow."
-            exit 1
-          fi
-
       - name: Use Python Semantic Release to prepare release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
