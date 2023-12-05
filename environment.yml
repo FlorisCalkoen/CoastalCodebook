@@ -59,6 +59,7 @@ dependencies:
   - matplotlib-base
   - panel
   - param
+  - streamz
 
   # Data Science libraries
   - adlfs
