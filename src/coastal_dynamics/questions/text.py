@@ -1,7 +1,7 @@
 import panel as pn
 
 
-class NumericQuestion:
+class TextQuestion:
     """
     A class to create and manage a numeric answer question widget.
 
@@ -21,21 +21,19 @@ class NumericQuestion:
     Args:
         question_name: (str): The name for the question widget.
         question_text: (str): The question.
-        question_answer: (float): The answer for the question,
+        question_answer: (str): The answer for the question,
     """
 
     def __init__(
         self,
         question_name: str,
         question_text: str,
-        question_answer: float,
-        precision: int = 0,
+        question_answer: str,
         **kwargs,
     ):
         self.name: str = question_name
         self.question_text: str = question_text
-        self.precision: int = precision
-        self.correct_answer: float = round(float(question_answer), self.precision)
+        self.correct_answer: str = str(question_answer).lower()
         self.create_widgets()
 
     def create_widgets(self) -> None:
@@ -43,7 +41,9 @@ class NumericQuestion:
         self.question_widget = pn.widgets.StaticText(
             name=self.name, value=self.question_text
         )
-        self.answer_input = pn.widgets.FloatInput(name="Your Answer")
+        self.answer_input = pn.widgets.TextInput(
+            placeholder="Enter your answer here..."
+        )
         self.submit_button = pn.widgets.Button(name="Submit")
         self.feedback_widget = pn.widgets.StaticText()
         self.submit_button.on_click(self.check_answer)
@@ -51,7 +51,8 @@ class NumericQuestion:
     def check_answer(self, event) -> None:
         """Check the submitted answer against the correct answer."""
         try:
-            user_answer = round(float(self.answer_input.value), self.precision)
+            user_answer = str(self.answer_input.value).lower()
+
             if user_answer == self.correct_answer:
                 self.feedback_widget.value = "Correct!"
             else:
@@ -72,14 +73,12 @@ class NumericQuestion:
 if __name__ == "__main__":
     question_data = {
         "question": "What is the relative importance of S2 vs M2?",
-        "answer": 0.33,
-        "kwargs": {"precision": 2},
+        "answer": "Some answer",
     }
 
-    nq = NumericQuestion(
-        question_name="Q3: Simple numeric question",
+    tq = TextQuestion(
+        question_name="Q3: Simple textual question",
         question_text=question_data["question"],
         question_answer=question_data["answer"],
-        **question_data["kwargs"],
     )
     print("done")
