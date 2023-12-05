@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - "src/coastalbook/**"
+      - "src/coastal_dynamics/**"
   workflow_dispatch:
 
 concurrency:
@@ -45,11 +45,11 @@ jobs:
       #     pip install \
       #     --index-url https://test.pypi.org/simple/ \
       #     --extra-index-url https://pypi.org/simple \
-      #     coastalbook
+      #     coastal-dynamics
 
       # Publish to PyPI
       - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
-         user: __token__
-         password: ${{ secrets.PYPI_API_TOKEN }}
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}

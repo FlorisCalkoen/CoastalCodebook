@@ -41,7 +41,7 @@ jobs:
         with:
           environment-file: ${{ matrix.env }}
 
-      - name: Install coastalbook as editable package
+      - name: Install coastal dynamics as editable package
         run: |
           python -m pip install -e .
 
@@ -49,7 +49,7 @@ jobs:
         run: |
           python -V
           micromamba info
-          python -c "import coastalbook; print(coastalbook.__version__)"
+          python -c "import coastal_dynamics; print(coastal_dynamics.__version__)"
 
       # We currently do not have any tests yet
       # - name: Test with pytest
