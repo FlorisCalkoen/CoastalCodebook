@@ -22,18 +22,26 @@ class MultipleSelectionQuestion:
         options_inverse (Dict[str, str]): Inverse mapping of options for easy lookup.
 
     Args:
-        question_data (Dict[str, any]): The data for the question, including text, options, and the answer.
-        name (str): The name for the question widget.
+        question_name: (str): The name for the question widget.
+        question_text: (str): The question.
+        question_options: (str): The options for the question,
+        question_answers: (str): The answer for the question,
     """
 
-    def __init__(self, question_data: dict[str, any], name: str, **kwargs):
-        """Inits MultipleSelectionQuestion with question data and a name."""
-        self.question_text: str = question_data["question"]
-        self.options: dict[str, str] = question_data["options"]
+    def __init__(
+        self,
+        question_name: str,
+        question_text: str,
+        question_options: dict[str, str],
+        question_answers: list[str],
+        **kwargs,
+    ):
+        self.name: str = question_name
+        self.question_text: str = question_text
+        self.options: dict[str, str] = question_options
         self.correct_answers: list[str] = [
-            self._encode_answer(ans) for ans in question_data["answers"]
+            self._encode_answer(ans) for ans in question_answers
         ]
-        self.name: str = name
         self.create_widgets()
         self.options_inverse: dict[str, str] = {v: k for k, v in self.options.items()}
 
@@ -81,7 +89,6 @@ class MultipleSelectionQuestion:
 
 
 if __name__ == "__main__":
-    # Example Usage
     question_data = {
         "question": "Select all features commonly found along a coastline",
         "options": {
@@ -93,5 +100,10 @@ if __name__ == "__main__":
         "answers": ["a", "c"],  # Multiple correct answers
     }
 
-    mcq = MultipleSelectionQuestion(question_data, "Coastline Features Quiz")
+    mcq = MultipleSelectionQuestion(
+        question_name="Q1: Coastline Features Quiz",
+        question_text=question_data["question"],
+        question_options=question_data["options"],
+        question_answers=question_data["answers"],
+    )
     print("done")
