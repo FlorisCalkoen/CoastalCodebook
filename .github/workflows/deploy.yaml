@@ -7,6 +7,7 @@ on:
       - "notebooks/**"
       - "book/**"
       - "ci/envs/311-book.yaml"
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -37,7 +38,6 @@ jobs:
       - name: Build JupyterBook
         run: |
           jupyter-book build book/
-
 
       - name: Deploy html files
         uses: peaceiris/actions-gh-pages@v3

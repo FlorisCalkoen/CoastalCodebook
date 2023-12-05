@@ -1,0 +1,55 @@
+name: Publish package to pypi
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/coastal_dynamics/**"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash -l {0}
+
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Micromamba
+        uses: mamba-org/setup-micromamba@v1 # It's advisable to also pin this action to a specific version.
+        with:
+          environment-file: ci/envs/311-package.yaml
+
+      - name: Build package
+        run: |
+          poetry install
+          poetry build
+
+      - name: Publish package distributions to TestPyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: __token__
+          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+          repository-url: https://test.pypi.org/legacy/
+
+      # # Test install from TestPyPI
+      # - name: Test install from TestPyPI
+      #   run: |
+      #     pip install \
+      #     --index-url https://test.pypi.org/simple/ \
+      #     --extra-index-url https://pypi.org/simple \
+      #     coastal-dynamics
+
+      # Publish to PyPI
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
