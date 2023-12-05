@@ -1,9 +1,12 @@
+import geoviews.tile_sources as gvts
+import hvplot.pandas  # noqa: F401
 import panel as pn
 import requests
 
 from coastal_dynamics.questions.multiple_choice import MultipleChoiceQuestion
 from coastal_dynamics.questions.multiple_selection import MultipleSelectionQuestion
 from coastal_dynamics.questions.numeric import NumericQuestion
+from coastal_dynamics.visualization import DynamicWavePlot
 
 
 def fetch_questions(url):
@@ -58,6 +61,11 @@ def create_question_widget(question_data, name):
 
 
 def main():
+    import warnings
+
+    warnings.filterwarnings(
+        "ignore", category=FutureWarning, module="holoviews.core.data"
+    )
     url = (
         "https://coclico.blob.core.windows.net/coastal-dynamics/questions/template.json"
     )
@@ -72,8 +80,39 @@ def main():
         question_panel = question_widget.serve()
         all_questions_panel.append(question_panel)
 
-    # Serve the complete set of questions
-    all_questions_panel.show()
+    # Create a wave plot and a base plot
+    wave_plot = DynamicWavePlot(
+        amplitude_range=(1, 3, 0.5), wavelength_range=(5, 20, 0.1)
+    )
+    base_plot = gvts.EsriImagery(width=900, height=500)
+
+    # Combine all components into a single dashboard
+    dashboard = pn.Column(
+        pn.pane.Markdown("# Questions"),
+        all_questions_panel,
+        pn.pane.Markdown("# Coastal Dynamics Interactive Dashboard"),
+        base_plot,
+        wave_plot.__panel__(),  # Assuming DynamicWavePlot has a __panel__ method
+        sizing_mode="stretch_width",
+    )
+
+    # Serve the complete dashboard
+    dashboard.show()
+    # # Create a Panel column to hold all question widgets
+    # all_questions_panel = pn.Column(sizing_mode="stretch_width")
+
+    # # Add each question's panel to the main Panel column
+    # for key, question_data in questions.items():
+    #     question_widget = create_question_widget(question_data, key)
+    #     question_panel = question_widget.serve()
+    #     all_questions_panel.append(question_panel)
+    # wave_plot = DynamicWavePlot(
+    #     amplitude_range=(1, 3, 0.5), wavelength_range=(5, 20, 0.1)
+    # )
+    # base_plot = gvts.EsriImagery(width=900, height=500)
+
+    # # Serve the complete set of questions
+    # all_questions_panel.show()
 
 
 if __name__ == "__main__":
