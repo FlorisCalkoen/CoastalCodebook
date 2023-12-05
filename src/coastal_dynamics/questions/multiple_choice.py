@@ -21,15 +21,24 @@ class MultipleChoiceQuestion:
         feedback_widget (pn.widgets.StaticText): The widget to display feedback.
 
     Args:
-        question_data (Dict[str, any]): The data for the question, including text, options, and the answer.
-        name (str): The name for the question widget.
+        question_name: (str): The name for the question widget.
+        question_text: (str): The question.
+        question_options: (str): The options for the question,
+        question_answerL: (str): The answer for the question,
     """
 
-    def __init__(self, question_data: dict[str, any], name: str, **kwargs):
-        self.question_text: str = question_data["question"]
-        self.options: dict[str, str] = question_data["options"]
-        self.correct_answer: str = self._encode_answer(question_data["answer"])
-        self.name: str = name
+    def __init__(
+        self,
+        question_name: str,
+        question_text: str,
+        question_options: dict[str, str],
+        question_answer: str,
+        **kwargs
+    ):
+        self.question_text: str = question_text
+        self.options: dict[str, str] = question_options
+        self.correct_answer: str = self._encode_answer(question_answer)
+        self.name: str = question_name
         self.question_widget: pn.widgets.StaticText
         self.options_widget: pn.widgets.RadioBoxGroup
         self.submit_button: pn.widgets.Button
@@ -96,3 +105,26 @@ class MultipleChoiceQuestion:
             self.submit_button,
             self.feedback_widget,
         )
+
+
+if __name__ == "__main__":
+    question_data = {
+        "question": (
+            "Which coastal system do you typically find in tide-dominated coasts?"
+        ),
+        "options": {
+            "a": "Mudflats",
+            "b": "Open coasts",
+            "c": "Cliffed coasts",
+            "d": "Mixed sand and gravel beaches",
+        },
+        "answer": "a",  # Multiple correct answers
+    }
+
+    mcq = MultipleChoiceQuestion(
+        question_name="Q1: Coastline Features Quiz",
+        question_text=question_data["question"],
+        question_options=question_data["options"],
+        question_answer=question_data["answer"],
+    )
+    print("done")

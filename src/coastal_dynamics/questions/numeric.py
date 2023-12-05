@@ -24,11 +24,18 @@ class NumericQuestion:
         precision (int): The precision for rounding the numeric answer.
     """
 
-    def __init__(self, question_data: dict[str, any], name: str, precision: int = 0):
-        self.question_text: str = question_data["question"]
-        self.correct_answer: float = float(question_data["answer"])
+    def __init__(
+        self,
+        question_name: str,
+        question_text: str,
+        question_answer: float,
+        precision: int = 0,
+        **kwargs,
+    ):
+        self.name: str = question_name
+        self.question_text: str = question_text
         self.precision: int = precision
-        self.name: str = name
+        self.correct_answer: float = round(float(question_answer), self.precision)
         self.create_widgets()
 
     def create_widgets(self) -> None:
@@ -60,3 +67,20 @@ class NumericQuestion:
             self.submit_button,
             self.feedback_widget,
         )
+
+
+if __name__ == "__main__":
+    # Example Usage
+    question_data = {
+        "question": "What is the relative importance of S2 vs M2?",
+        "answer": 0.33,
+        "kwargs": {"precision": 2},
+    }
+
+    nq = NumericQuestion(
+        question_name="Q3: Simple numeric question",
+        question_text=question_data["question"],
+        question_answer=question_data["answer"],
+        **question_data["kwargs"],
+    )
+    print("done")
