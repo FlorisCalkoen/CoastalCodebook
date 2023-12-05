@@ -292,7 +292,7 @@ app
 # In[8]:
 
 
-from coastalcodebook.maps import plot_esri_basemap
+from coastal_dynamics.visualization import plot_esri_basemap
 
 # In[9]:
 
