@@ -1,3 +1,5 @@
+from typing import Literal
+
 import panel as pn
 
 
@@ -29,11 +31,13 @@ class TextQuestion:
         question_name: str,
         question_text: str,
         question_answer: str,
+        question_feedback: dict[Literal["correct", "incorrect"], str],
         **kwargs,
     ):
         self.name: str = question_name
         self.question_text: str = question_text
         self.correct_answer: str = str(question_answer).lower()
+        self.feedback = question_feedback
         self.create_widgets()
 
     def create_widgets(self) -> None:
@@ -54,11 +58,11 @@ class TextQuestion:
             user_answer = str(self.answer_input.value).lower()
 
             if user_answer == self.correct_answer:
-                self.feedback_widget.value = "Correct!"
+                self.feedback_widget.value = self.feedback["correct"]
             else:
-                self.feedback_widget.value = "Incorrect, try again."
+                self.feedback_widget.value = self.feedback["incorrect"]
         except ValueError:
-            self.feedback_widget.value = "Please enter a valid number."
+            self.feedback_widget.value = "Please enter valid text."
 
     def serve(self) -> pn.Column:
         """Serve the question as a Panel column."""
@@ -80,5 +84,9 @@ if __name__ == "__main__":
         question_name="Q3: Simple textual question",
         question_text=question_data["question"],
         question_answer=question_data["answer"],
+        question_feedback={
+            "correct": "Correct! Indeed, ...",
+            "incorrect": "Incorrect. Please consider ...",
+        },
     )
     print("done")
