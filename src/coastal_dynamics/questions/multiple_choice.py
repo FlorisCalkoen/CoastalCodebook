@@ -1,4 +1,5 @@
 import base64
+from typing import Literal
 
 import panel as pn
 
@@ -33,12 +34,14 @@ class MultipleChoiceQuestion:
         question_text: str,
         question_options: dict[str, str],
         question_answer: str,
-        **kwargs
+        question_feedback: dict[Literal["correct", "incorrect"], str],
     ):
+        self.name: str = question_name
         self.question_text: str = question_text
         self.options: dict[str, str] = question_options
+        self.feedback = question_feedback
         self.correct_answer: str = self._encode_answer(question_answer)
-        self.name: str = question_name
+
         self.question_widget: pn.widgets.StaticText
         self.options_widget: pn.widgets.RadioBoxGroup
         self.submit_button: pn.widgets.Button
@@ -67,9 +70,9 @@ class MultipleChoiceQuestion:
         selected_option = self.options_inverse[self.options_widget.value]
         decoded_answer = self._decode_answer(self.correct_answer)
         if selected_option == decoded_answer:
-            self.feedback_widget.value = "Correct!"
+            self.feedback_widget.value = self.feedback["correct"]
         else:
-            self.feedback_widget.value = "Incorrect, try again."
+            self.feedback_widget.value = self.feedback["incorrect"]
 
     def _encode_answer(self, plain_answer: str) -> str:
         """Encode the answer using base64.
@@ -126,5 +129,9 @@ if __name__ == "__main__":
         question_text=question_data["question"],
         question_options=question_data["options"],
         question_answer=question_data["answer"],
+        question_feedback={
+            "correct": "Well done, ...",
+            "incorrect": "Unforunately that is not correct. Please consider...",
+        },
     )
     print("done")

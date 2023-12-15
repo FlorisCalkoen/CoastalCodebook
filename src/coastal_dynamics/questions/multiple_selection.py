@@ -1,4 +1,5 @@
 import base64
+from typing import Literal
 
 import panel as pn
 
@@ -34,6 +35,7 @@ class MultipleSelectionQuestion:
         question_text: str,
         question_options: dict[str, str],
         question_answers: list[str],
+        question_feedback: dict[Literal["correct", "incorrect"], str],
         **kwargs,
     ):
         self.name: str = question_name
@@ -42,6 +44,7 @@ class MultipleSelectionQuestion:
         self.correct_answers: list[str] = [
             self._encode_answer(ans) for ans in question_answers
         ]
+        self.feedback = question_feedback
         self.create_widgets()
         self.options_inverse: dict[str, str] = {v: k for k, v in self.options.items()}
 
@@ -66,9 +69,9 @@ class MultipleSelectionQuestion:
             self._decode_answer(enc_ans) for enc_ans in self.correct_answers
         ]
         if set(selected_options) == set(decoded_answers):
-            self.feedback_widget.value = "Correct!"
+            self.feedback_widget.value = self.feedback["correct"]
         else:
-            self.feedback_widget.value = "Incorrect, try again."
+            self.feedback_widget.value = self.feedback["incorrect"]
 
     def _encode_answer(self, plain_answer: str) -> str:
         """Encodes the answer using base64."""
@@ -100,10 +103,16 @@ if __name__ == "__main__":
         "answers": ["a", "c"],  # Multiple correct answers
     }
 
-    mcq = MultipleSelectionQuestion(
+    msq = MultipleSelectionQuestion(
         question_name="Q1: Coastline Features Quiz",
         question_text=question_data["question"],
         question_options=question_data["options"],
         question_answers=question_data["answers"],
+        question_feedback={
+            "correct": (
+                "Correct! Beaches and estuaries are common features of coastlines."
+            ),
+            "incorrect": "Incorrect! Try again. Please consider..",
+        },
     )
     print("done")

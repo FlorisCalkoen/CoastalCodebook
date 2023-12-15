@@ -1,3 +1,5 @@
+from typing import Literal
+
 import panel as pn
 
 
@@ -29,11 +31,13 @@ class NumericQuestion:
         question_name: str,
         question_text: str,
         question_answer: float,
+        question_feedback: dict[Literal["correct", "incorrect"], str],
         precision: int = 0,
         **kwargs,
     ):
         self.name: str = question_name
         self.question_text: str = question_text
+        self.feedback = question_feedback
         self.precision: int = precision
         self.correct_answer: float = round(float(question_answer), self.precision)
         self.create_widgets()
@@ -53,9 +57,9 @@ class NumericQuestion:
         try:
             user_answer = round(float(self.answer_input.value), self.precision)
             if user_answer == self.correct_answer:
-                self.feedback_widget.value = "Correct!"
+                self.feedback_widget.value = self.feedback["correct"]
             else:
-                self.feedback_widget.value = "Incorrect, try again."
+                self.feedback_widget.value = self.feedback["incorrect"]
         except ValueError:
             self.feedback_widget.value = "Please enter a valid number."
 
@@ -80,6 +84,10 @@ if __name__ == "__main__":
         question_name="Q3: Simple numeric question",
         question_text=question_data["question"],
         question_answer=question_data["answer"],
+        question_feedback={
+            "correct": "Correct!...",
+            "incorrect": "Incorrect, try again. Please consider that...",
+        },
         **question_data["kwargs"],
     )
     print("done")
