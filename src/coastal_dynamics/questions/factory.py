@@ -3,9 +3,10 @@ from typing import Any
 from coastal_dynamics.questions.multiple_choice import MultipleChoiceQuestion
 from coastal_dynamics.questions.multiple_selection import MultipleSelectionQuestion
 from coastal_dynamics.questions.numeric import NumericQuestion
+from coastal_dynamics.questions.text import TextQuestion
 
 
-class QuestionWidgetFactory:
+class QuestionFactory:
     """
     A factory class for creating question widgets based on question data.
 
@@ -18,55 +19,88 @@ class QuestionWidgetFactory:
 
     def __init__(self, question_data: dict[str, Any]):
         self.question_data = question_data
+        self.question_widget = self.create_question_widget()
 
     def create_question_widget(self):
-        """Creates a question widget based on the question data."""
         question_type = self.question_data.get("type")
-        valid_types = ["multiple_choice", "multiple_selection", "numeric"]
+        valid_types = {
+            "multiple_choice": self._create_multiple_choice_question,
+            "multiple_selection": self._create_multiple_selection_question,
+            "numeric": self._create_numeric_question,
+            "text": self._create_text_question,
+        }
 
-        if question_type not in valid_types:
-            raise ValueError(f"Unknown question type: {question_type}")
+        create_func = valid_types.get(question_type)
+        if not create_func:
+            msg = f"Unknown question type: {question_type}"
+            raise ValueError(msg)
 
-        if question_type == "multiple_choice":
-            return self._create_multiple_choice_question()
-        elif question_type == "multiple_selection":
-            return self._create_multiple_selection_question()
-        elif question_type == "numeric":
-            return self._create_numeric_question()
+        return create_func()
 
     def _create_multiple_choice_question(self):
+        required_fields = ["name", "question", "options", "answer", "feedback"]
+        self._validate_required_fields(required_fields)
+
         return MultipleChoiceQuestion(
-            question_name=self.question_data.get("name", ""),
-            question_text=self.question_data.get("question", ""),
-            question_options=self.question_data.get("options", {}),
-            question_answer=self.question_data.get("answer", ""),
-            **self.question_data.get("kwargs", {}),
+            question_name=self.question_data["name"],
+            question_text=self.question_data["question"],
+            question_options=self.question_data["options"],
+            question_answer=self.question_data["answer"],
+            question_feedback=self.question_data["feedback"],
         )
 
     def _create_multiple_selection_question(self):
+        required_fields = ["name", "question", "options", "answers", "feedback"]
+        self._validate_required_fields(required_fields)
+
         return MultipleSelectionQuestion(
-            question_name=self.question_data.get("name", ""),
-            question_text=self.question_data.get("question", ""),
-            question_options=self.question_data.get("options", {}),
-            question_answers=self.question_data.get("answers", []),
-            **self.question_data.get("kwargs", {}),
+            question_name=self.question_data["name"],
+            question_text=self.question_data["question"],
+            question_options=self.question_data["options"],
+            question_answers=self.question_data["answers"],
+            question_feedback=self.question_data["feedback"],
         )
 
     def _create_numeric_question(self):
+        required_fields = ["name", "question", "answer", "feedback"]
+        self._validate_required_fields(required_fields)
+
         return NumericQuestion(
-            question_name=self.question_data.get("name", ""),
-            question_text=self.question_data.get("question", ""),
-            question_answer=self.question_data.get("answer", 0),
-            **self.question_data.get("kwargs", {}),
+            question_name=self.question_data["name"],
+            question_text=self.question_data["question"],
+            question_answer=self.question_data["answer"],
+            question_feedback=self.question_data["feedback"],
+            precision=self.question_data.get(
+                "precision", 0
+            ),  # Handle precision as optional
         )
+
+    def _create_text_question(self):
+        required_fields = ["name", "question", "answer", "feedback"]
+        self._validate_required_fields(required_fields)
+
+        return TextQuestion(
+            question_name=self.question_data["name"],
+            question_text=self.question_data["question"],
+            question_answer=self.question_data["answer"],
+            question_feedback=self.question_data["feedback"],
+        )
+
+    def _validate_required_fields(self, required_fields):
+        for field in required_fields:
+            if field not in self.question_data:
+                raise ValueError(f"Missing required field: {field} in question data")
+
+    def serve(self):
+        return self.question_widget.serve()
 
 
 if __name__ == "__main__":
 
     def example():
         question_data = {
+            "name": "Q1-1",
             "type": "multiple_choice",
-            "name": "q1",
             "question": (
                 "Which of the following is a common along the coast in the middle"
                 " latitudes?"
@@ -78,10 +112,14 @@ if __name__ == "__main__":
                 "d": "Mangrove swamps",
             },
             "answer": "a",
-            "feedback": "...",
-            "hint": "...",
+            "feedback": {
+                "correct": "Well done, ...",
+                "incorrect": "Unforunately that is not correct. Please consider...",
+            },
         }
-        factory = QuestionWidgetFactory(question_data)
+
+        factory = QuestionFactory(question_data)
         return factory.create_question_widget()
 
     widget = example()
+    print("Done")
