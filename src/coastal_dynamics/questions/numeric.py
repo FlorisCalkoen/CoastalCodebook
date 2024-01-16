@@ -2,8 +2,10 @@ from typing import Literal
 
 import panel as pn
 
+from coastal_dynamics.questions.base import Question
 
-class NumericQuestion:
+
+class NumericQuestion(Question):
     """
     A class to create and manage a numeric answer question widget.
 
@@ -11,19 +13,9 @@ class NumericQuestion:
     It supports a question text, numeric answer, and precision for the answer.
 
     Attributes:
-        question_text (str): The text of the question.
         correct_answer (float): The correct numeric answer.
         precision (int): The precision of the numeric answer.
-        name (str): The name of the question widget.
-        question_widget (pn.widgets.StaticText): The widget for displaying the question.
         answer_input (pn.widgets.FloatInput): The widget for inputting the answer.
-        submit_button (pn.widgets.Button): The button to submit the answer.
-        feedback_widget (pn.widgets.StaticText): The widget to display feedback.
-
-    Args:
-        question_name: (str): The name for the question widget.
-        question_text: (str): The question.
-        question_answer: (float): The answer for the question,
     """
 
     def __init__(
@@ -33,23 +25,17 @@ class NumericQuestion:
         question_answer: float,
         question_feedback: dict[Literal["correct", "incorrect"], str],
         precision: int = 0,
-        **kwargs,
     ):
-        self.name: str = question_name
-        self.question_text: str = question_text
-        self.feedback = question_feedback
-        self.precision: int = precision
-        self.correct_answer: float = round(float(question_answer), self.precision)
-        self.create_widgets()
+        self.correct_answer = round(float(question_answer), precision)
+        self.precision = precision
+        self.answer_input: pn.widgets.FloatInput
+
+        super().__init__(question_name, question_text, question_feedback)
 
     def create_widgets(self) -> None:
         """Create and initialize the Panel widgets for the question."""
-        self.question_widget = pn.widgets.StaticText(
-            name=self.name, value=self.question_text
-        )
+        super().create_widgets()
         self.answer_input = pn.widgets.FloatInput(name="Your Answer")
-        self.submit_button = pn.widgets.Button(name="Submit")
-        self.feedback_widget = pn.widgets.StaticText()
         self.submit_button.on_click(self.check_answer)
 
     def check_answer(self, event) -> None:

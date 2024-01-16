@@ -1,10 +1,11 @@
-import base64
 from typing import Literal
 
 import panel as pn
 
+from coastal_dynamics.questions.base import Question
 
-class MultipleChoiceQuestion:
+
+class MultipleChoiceQuestion(Question):
     """A class to create and manage a multiple choice question widget.
 
     This class creates a multiple choice question using Panel widgets.
@@ -12,20 +13,10 @@ class MultipleChoiceQuestion:
     The correct answer is stored in an encrypted format for basic obfuscation.
 
     Attributes:
-        question_text (str): The text of the question.
         options (Dict[str, str]): A dictionary of option keys and their text.
         correct_answer (str): The encrypted correct answer key.
-        name (str): The name of the question widget.
-        question_widget (pn.widgets.StaticText): The widget for displaying the question.
         options_widget (pn.widgets.RadioBoxGroup): The widget for displaying the options.
-        submit_button (pn.widgets.Button): The button to submit the answer.
-        feedback_widget (pn.widgets.StaticText): The widget to display feedback.
-
-    Args:
-        question_name: (str): The name for the question widget.
-        question_text: (str): The question.
-        question_options: (str): The options for the question,
-        question_answerL: (str): The answer for the question,
+        options_inverse (Dict[str, str]): Inverse mapping of options for easy lookup.
     """
 
     def __init__(
@@ -36,37 +27,23 @@ class MultipleChoiceQuestion:
         question_answer: str,
         question_feedback: dict[Literal["correct", "incorrect"], str],
     ):
-        self.name: str = question_name
-        self.question_text: str = question_text
-        self.options: dict[str, str] = question_options
-        self.feedback = question_feedback
-        self.correct_answer: str = self._encode_answer(question_answer)
-
-        self.question_widget: pn.widgets.StaticText
+        self.options = question_options
+        self.correct_answer = self._encode_answer(question_answer)
         self.options_widget: pn.widgets.RadioBoxGroup
-        self.submit_button: pn.widgets.Button
-        self.feedback_widget: pn.widgets.StaticText
-        self.options_inverse: dict[str, str] = {v: k for k, v in self.options.items()}
-        self.create_widgets()
+        self.options_inverse = {v: k for k, v in self.options.items()}
+
+        super().__init__(question_name, question_text, question_feedback)
 
     def create_widgets(self) -> None:
         """Create and initialize the Panel widgets for the question."""
-        self.question_widget = pn.widgets.StaticText(
-            name=self.name, value=self.question_text
-        )
+        super().create_widgets()
         self.options_widget = pn.widgets.RadioBoxGroup(
             name="Options", options=list(self.options.values())
         )
-        self.submit_button = pn.widgets.Button(name="Submit")
-        self.feedback_widget = pn.widgets.StaticText()
         self.submit_button.on_click(self._check_answer)
 
     def _check_answer(self, event: pn.widgets.Button) -> None:
-        """Check the selected answer against the correct answer.
-
-        Args:
-            event (pn.widgets.Button): The event triggered by the submit button.
-        """
+        """Check the selected answer against the correct answer."""
         selected_option = self.options_inverse[self.options_widget.value]
         decoded_answer = self._decode_answer(self.correct_answer)
         if selected_option == decoded_answer:
@@ -74,34 +51,8 @@ class MultipleChoiceQuestion:
         else:
             self.feedback_widget.value = self.feedback["incorrect"]
 
-    def _encode_answer(self, plain_answer: str) -> str:
-        """Encode the answer using base64.
-
-        Args:
-            plain_answer (str): The plain text answer to encode.
-
-        Returns:
-            str: The encoded answer.
-        """
-        return base64.b64encode(plain_answer.encode()).decode()
-
-    def _decode_answer(self, encoded_answer: str) -> str:
-        """Decode the encoded answer.
-
-        Args:
-            encoded_answer (str): The encoded answer to decode.
-
-        Returns:
-            str: The decoded answer.
-        """
-        return base64.b64decode(encoded_answer.encode()).decode()
-
     def serve(self) -> pn.Column:
-        """Serve the question as a Panel column.
-
-        Returns:
-            pn.Column: The column containing the question and widgets.
-        """
+        """Serve the question as a Panel column."""
         return pn.Column(
             self.question_widget,
             self.options_widget,
