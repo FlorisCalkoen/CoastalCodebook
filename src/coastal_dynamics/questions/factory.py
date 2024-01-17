@@ -17,9 +17,12 @@ class QuestionFactory:
         create_question_widget(): Creates a question widget based on the question data.
     """
 
-    def __init__(self, question_data: dict[str, Any]):
+    def __init__(self, question_data: dict[str, Any], serve=True):
         self.question_data = question_data
         self.question_widget = self.create_question_widget()
+
+        if serve:
+            self.question_widget.serve()
 
     def create_question_widget(self):
         question_type = self.question_data.get("type")
