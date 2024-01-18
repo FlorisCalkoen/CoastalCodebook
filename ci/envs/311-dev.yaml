@@ -13,3 +13,4 @@ dependencies:
   - rioxarray
   - pyarrow
   - pooch
+  - anaconda::panel
