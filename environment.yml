@@ -79,6 +79,7 @@ dependencies:
   - descartes
   - earthengine-api
   - eccodes>=2.24.2
+  - fbriol::pyfes
   - fiona
   - fsspec
   - gcsfs
