@@ -1,9 +1,9 @@
 from typing import Any
 
-from coastal_dynamics.questions.multiple_choice import MultipleChoiceQuestion
-from coastal_dynamics.questions.multiple_selection import MultipleSelectionQuestion
-from coastal_dynamics.questions.numeric import NumericQuestion
-from coastal_dynamics.questions.text import TextQuestion
+from coastal_dynamics.multiple_choice import MultipleChoiceQuestion
+from coastal_dynamics.multiple_selection import MultipleSelectionQuestion
+from coastal_dynamics.numeric import NumericQuestion
+from coastal_dynamics.text import TextQuestion
 
 
 class QuestionFactory:

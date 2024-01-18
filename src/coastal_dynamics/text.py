@@ -2,7 +2,7 @@ from typing import Literal
 
 import panel as pn
 
-from coastal_dynamics.questions.base import Question
+from coastal_dynamics.question import Question
 
 
 class TextQuestion(Question):
