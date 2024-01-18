@@ -1,4 +1,4 @@
-from coastal_dynamics.questions.numeric import NumericQuestion
+from coastal_dynamics.numeric import NumericQuestion
 
 
 def test_numeric_question_correct_answer():
