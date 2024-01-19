@@ -1,4 +1,4 @@
-from coastal_dynamics.questions.multiple_choice import (
+from coastal_dynamics.multiple_choice import (
     MultipleChoiceQuestion,
 )
 
