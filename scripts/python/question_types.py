@@ -3,9 +3,9 @@ import hvplot.pandas  # noqa: F401
 import panel as pn
 import requests
 
-from coastal_dynamics.questions.multiple_choice import MultipleChoiceQuestion
-from coastal_dynamics.questions.multiple_selection import MultipleSelectionQuestion
-from coastal_dynamics.questions.numeric import NumericQuestion
+from coastal_dynamics.multiple_choice import MultipleChoiceQuestion
+from coastal_dynamics.multiple_selection import MultipleSelectionQuestion
+from coastal_dynamics.numeric import NumericQuestion
 from coastal_dynamics.visualization import DynamicWavePlot
 
 
