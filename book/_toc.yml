@@ -6,17 +6,42 @@ root: intro
 parts:
   - caption: About this book
     chapters:
-      - file: markdown
-      - file: markdown-notebooks
-      - file: content
+      - file: about/introduction
+      - file: about/structure
+      - file: about/acknowledgements
 
-  - caption: Assignments
+  - caption: Usage
     chapters:
-      - file: assignments/01_coastal_classification
-      # - file: assignments/02_the_tide
-      # - file: assignments/03_pacific_basin
+      - file: usage/installation
+      - file: usage/getting_started
+      - file: usage/troubleshooting
+      - file: usage/contributing
 
-  # - caption: Background
+  - caption: Week 1
+    chapters:
+      - file: notebooks/1_coastal_classification
+
+  # - caption: Week 2
   #   chapters:
-  #     - file: introduction/01_basics
-  #     - file: introduction/02_loops_and_functions
+  #     - file: assignments/2a_pre_knowledge_waves
+  #     - file: assignments/2b_wave_dispersion_and_grouping
+  #     - file: assignments/2c_theory_equilibrium_tide
+  #     - file: assignments/2d_tidal_constituents
+
+  # - caption: Week 3
+  #   chapters:
+  #     - file: assignments/3a_tidal_environments
+  #     - file: assignments/3b_wave_transformation
+
+  # - caption: Week 4
+  #   chapters:
+  #     - file: assignments/4a_bound_long_wave
+  #     - file: assignments/4b_shallow_water_tides
+
+  # - caption: Week 5
+  #   chapters:
+  #     - file: assignments/5_coastal_impact_beach_states
+
+  # - caption: Week 6
+  #   chapters:
+  #     - file: assignments/6_cross-shore_transport

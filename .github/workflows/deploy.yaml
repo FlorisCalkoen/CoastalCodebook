@@ -29,10 +29,10 @@ jobs:
         with:
           environment-file: ci/envs/311-book.yaml
 
-      # Copy notebooks to book assignments directory
+      # Copy notebooks to book notebooks directory
       - name: Prepare notebooks for book
         run: |
-          rsync -av --delete notebooks/ book/assignments/
+          rsync -av --delete notebooks/ book/notebooks/
 
       # Build the JupyterBook
       - name: Build JupyterBook

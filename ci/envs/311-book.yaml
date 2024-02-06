@@ -1,18 +1,51 @@
 name: 311-book
 channels:
   - conda-forge
+  - defaults
+
 dependencies:
+  # Python version, pip, and other very generic libraries
   - python=3.11
+  - pip>=20
+  - ca-certificates
+  - certifi
+  - openssl
+  - boltons
+  - ciso8601
+  - cattrs
+
+  # Jupyter
+  - ipykernel
   - jupyter-book
-  - holoviews
+
+  # interactive vizualization libraries
+  - bokeh
+  - folium
+  - geoviews
+  - geoviews-core
+  - holoviews=<1.18 # until bug in stream xy is fixed
   - hvplot
   - ipyleaflet
+  - ipympl
   - ipywidgets
+  - jupyter_bokeh
+  - matplotlib-base
   - panel
+  - param
+
+  # Data Science libraries
   - cartopy
   - dask
+  - fiona
+  - fsspec
+  - geojson
   - geopandas>=0.11.0
   - numpy
   - pandas
+  - rasterio
   - rioxarray
   - tqdm
+  - xarray
+
+  - pip:
+      - coastal_dynamics

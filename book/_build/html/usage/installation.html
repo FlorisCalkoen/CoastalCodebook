@@ -1,0 +1,660 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Installation &#8212; CoastalCodeBook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'usage/installation';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Getting started" href="getting_started.html" />
+    <link rel="prev" title="Acknowledgements" href="../about/acknowledgements.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="CoastalCodeBook - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="CoastalCodeBook - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to Coastal Codebook
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About this book</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../about/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/structure.html">Course structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/acknowledgements.html">Acknowledgements</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing (Advanced)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/1_coastal_classification.html">Characterization of Coastal Systems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/floriscalkoen/CoastalCodeBook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/floriscalkoen/CoastalCodeBook/issues/new?title=Issue%20on%20page%20%2Fusage/installation.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/usage/installation.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Installation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git">1. Git</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mamba-package-manager">2. Mamba package manager</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unix-like-mac-and-linux">Unix like - Mac and Linux</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-environments">3. Software environments</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h1>
+<p>For the tuturial sessions we will use an interactive computing environment, that is built
+on the <span class="xref myst">Jupyter</span> ecosystem and mostly rely on software that is supported by numfocus. We will communicate the tutorial content
+using <code class="docutils literal notranslate"><span class="pre">git</span></code> version control and provide instructions on how to do so using the GitHub client. In the subsections
+that follow we talk you through the three configurations steps.</p>
+<section id="git">
+<h2>1. Git<a class="headerlink" href="#git" title="Permalink to this heading">#</a></h2>
+<p>If you are not familiar with using Git, please have a look this short but excellent
+<a class="reference external" href="https://earth-env-data-science.github.io/lectures/environment/intro_to_git.html">introduction</a>
+first.</p>
+<ol class="arabic simple">
+<li><p>Please refer to the <a class="reference external" href="https://desktop.github.com/">GitHub Client documentation</a> to
+install the GitHub client, or see <a class="reference external" href="https://github.com/git-guides/install-git">these
+instructions</a> to install git using the
+command line.</p></li>
+<li><p>Clone this repository to your local
+computer using either of the following options.</p>
+<ol class="arabic simple">
+<li><p><strong>GitHub client</strong>: Browse to the
+<a class="reference external" href="https://github.com/FlorisCalkoen/CoastalCodebook">webpage</a>, click on the green “Code”
+button and select “Open with GitHub Desktop”; or simply paste the URL into the GitHub
+client “clone repository” menu.</p></li>
+<li><p><strong>Bash shell</strong>: If you have a bash terminal available, assuming that git <a class="reference external" href="https://docs.github.com/en/get-started/getting-started-with-git">is
+configured</a>, you
+can simply run: <code class="docutils literal notranslate"> <span class="pre">git clone https://github.com/FlorisCalkoen/CoastalCodebook.git</span></code>.</p></li>
+</ol>
+</li>
+<li><p>GitHub client does not install the underlying git software on your machine. Follow <a class="reference external" href="https://learn.microsoft.com/en-us/devops/develop/git/install-and-set-up-git">these
+instructions</a>
+to install git on your machine.</p></li>
+</ol>
+<p>By these steps, the files that are hosted at GitHub are “pulled” to your machine. You can
+check that by opening a file explorer and going to the path where you cloned the
+directory. The files that you find there should reflect what’s on the GitHub page.
+But we can’t we do anything with the files yet, as we don’t have the software that can
+understand the code, so we will continue with installing a package manager.</p>
+</section>
+<section id="mamba-package-manager">
+<h2>2. Mamba package manager<a class="headerlink" href="#mamba-package-manager" title="Permalink to this heading">#</a></h2>
+<p>If you’re not familiar with managing Python environments, please have a look at this
+<a class="reference external" href="https://earth-env-data-science.github.io/lectures/environment/python_environments.html?highlight=conda">introduction</a>
+first. The bottom line is that it is good practice to manage your software environments
+to avoid dependency conflicts. For the tutorial notebooks,  we recommend to use the
+lightweight package manager <code class="docutils literal notranslate"><span class="pre">mambaforge</span></code>. The instructions to install this package
+manager can be found in <a class="reference external" href="https://mamba.readthedocs.io/en/latest/installation.html">their
+documentation</a>, in which they
+refer to the <a class="reference external" href="https://github.com/conda-forge/miniforge#mambaforge">Conda Forge GitHub</a>
+page to download the software.</p>
+<section id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Download the mambaforge executable file for Windows from <a class="reference external" href="https://github.com/conda-forge/miniforge#mambaforge">Miniforge GitHub
+page</a>. On that page there are also
+binaries for Mac and Linux; and for <code class="docutils literal notranslate"><span class="pre">conda</span></code> package managers, so make sure you download
+the <code class="docutils literal notranslate"><span class="pre">mambaforge</span></code> executable file for Windows. Install the executable by clicking on it;
+you can stay with the default settings by just clicking next through the installation
+client.</p></li>
+<li><p>Now that mambaforge is installed, you can open a <code class="docutils literal notranslate"><span class="pre">Miniforge</span> <span class="pre">Prompt</span></code>. You can open this
+shell by opening the start window and search for “Miniforge”.</p></li>
+</ol>
+<p><strong>Known issues</strong>: Some users have their firewalls configured in such way that the
+mambaforge installation is blocked. If you have trouble installing mambaforge, please make
+sure to temporarily disable your firewall.</p>
+</section>
+<section id="unix-like-mac-and-linux">
+<h3>Unix like - Mac and Linux<a class="headerlink" href="#unix-like-mac-and-linux" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>We recommend to install Mambaforge on Linux and Mac using a terminal. On Mac, you can
+open a terminal by searching for “terminal” or “iterm”. On Linux the hotkey to open a
+terminal is “cntrl + shift + t”. The commands to
+install the package manager are copied from their documentation and can be run by
+copying the commands below over to your terminal and pressing enter:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-L<span class="w"> </span>-O<span class="w"> </span><span class="s2">&quot;https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-</span><span class="k">$(</span>uname<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname<span class="w"> </span>-m<span class="k">)</span><span class="s2">.sh&quot;</span>
+bash<span class="w"> </span>Mambaforge-<span class="k">$(</span>uname<span class="k">)</span>-<span class="k">$(</span>uname<span class="w"> </span>-m<span class="k">)</span>.sh
+</pre></div>
+</div>
+</li>
+<li><p>Accept the user agreements, and allow the installation script to edit your profile
+file. The profile file (<code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> on Linux or possibly <code class="docutils literal notranslate"><span class="pre">~/.zshrc</span></code> on Mac) is the
+first script which is being executed when you open a new terminal. The installation
+script will add a few lines to that file to make the <code class="docutils literal notranslate"><span class="pre">mamba</span></code> command available every
+time open a new terminal.</p></li>
+<li><p>Close the terminal.</p></li>
+</ol>
+</section>
+</section>
+<section id="software-environments">
+<h2>3. Software environments<a class="headerlink" href="#software-environments" title="Permalink to this heading">#</a></h2>
+<p>To run the tutorial notebooks we need several packages. To avoid dependency conflicts it
+is good practice to seperate your environments; that was the reason for installing a
+package manager. Now that we have our package manager we will create the software
+environments. We will create one environment that runs the JupyterLab IDE, including
+several extensions; and another one that contains the packages that we need for the
+tutorials.</p>
+<ol class="arabic">
+<li><p>Now that mambaforge is available on your machine, open a terminal. On Windows you
+should open the Miniforge prompt, which you can find by searching for it in the Start
+window. On Mac you can open a terminal by searching for “terminal” or “iterm”. For
+Linux it’s “cntrl + shift + t”.</p></li>
+<li><p>You can check if mamba was installed by running the following command in the terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>--version
+</pre></div>
+</div>
+<p>It should output something like:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">~ (base) mamba --version</span>
+<span class="go">mamba 1.1.0</span>
+<span class="go">conda 22.9.0</span>
+</pre></div>
+</div>
+</li>
+<li><p>Now that mambaforge is installed, navigate in the terminal to the directory
+where you cloned the GitHub CoastalCodeBook repository. You can navigate the terminal
+using <code class="docutils literal notranslate"><span class="pre">cd</span></code>, which stands for “change directory”.</p>
+<ul class="simple">
+<li><p><strong>Windows</strong>: if you are on Windows and you installed the GitHub client using their default settings you can
+simply run <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">%userprofile%\Documents\GitHub\CoastalCodeBook</span></code>.</p></li>
+<li><p><strong>Linux/Mac</strong>: change to the directory where you cloned the GitHub repository. This
+will be something like <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/path/to/github/repository</span></code>.</p></li>
+</ul>
+</li>
+<li><p>The CoastalCodeBook root directory contains an <span class="xref myst">environment.yml</span> file that describes the software
+dependencies. This environment contains several packages and extension to build an
+interactive Jupyter lab environment that you can use to run the tutorial notebooks.</p>
+<p>You can create the software environment using this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./usage"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../about/acknowledgements.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Acknowledgements</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="getting_started.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Getting started</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git">1. Git</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mamba-package-manager">2. Mamba package manager</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unix-like-mac-and-linux">Unix like - Mac and Linux</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-environments">3. Software environments</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Floris Calkoen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
