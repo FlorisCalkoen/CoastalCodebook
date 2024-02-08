@@ -41,7 +41,7 @@ def load_environment():
 def process_file(storage_options, blob_name):
     """Process a single file."""
     fstem = pathlib.Path(blob_name).stem
-    hashed_blob_name = f"{pathlib.Path(blob_name).parent!s}/{fstem}_hashed.json"
+    hashed_blob_name = f"coastal-dynamics/questions/{fstem}_hashed.json"
 
     questions = cd.read_questions(blob_name, storage_options)
     processed_questions = process_questions(questions)
