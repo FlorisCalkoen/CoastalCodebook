@@ -43,12 +43,12 @@ dependencies:
   - geopandas>=0.11.0
   - numpy
   - pandas
+  - pooch
   - python-dotenv
   - rasterio
   - rioxarray
   - tqdm
   - xarray
-  
 
   - pip:
       - coastal_dynamics
