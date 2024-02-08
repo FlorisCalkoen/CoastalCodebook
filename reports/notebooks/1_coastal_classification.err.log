@@ -49,12 +49,12 @@ questions = cd.read_questions(
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[1], line 7[0m
-[1;32m      5[0m [38;5;28;01mimport[39;00m [38;5;21;01mcolorcet[39;00m [38;5;28;01mas[39;00m [38;5;21;01mcc[39;00m
-[1;32m      6[0m [38;5;28;01mimport[39;00m [38;5;21;01mdask[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdataframe[39;00m [38;5;28;01mas[39;00m [38;5;21;01mdd[39;00m
-[0;32m----> 7[0m [38;5;28;01mimport[39;00m [38;5;21;01mdotenv[39;00m
-[1;32m      8[0m [38;5;28;01mimport[39;00m [38;5;21;01mgeopandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mgpd[39;00m
-[1;32m      9[0m [38;5;28;01mimport[39;00m [38;5;21;01mholoviews[39;00m [38;5;28;01mas[39;00m [38;5;21;01mhv[39;00m
+Cell [0;32mIn[1], line 14[0m
+[1;32m     12[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
+[1;32m     13[0m [38;5;28;01mimport[39;00m [38;5;21;01mpanel[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpn[39;00m
+[0;32m---> 14[0m [38;5;28;01mimport[39;00m [38;5;21;01mpooch[39;00m
+[1;32m     15[0m [38;5;28;01mfrom[39;00m [38;5;21;01mbokeh[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmodels[39;00m [38;5;28;01mimport[39;00m PanTool, WheelZoomTool
+[1;32m     17[0m [38;5;28;01mimport[39;00m [38;5;21;01mcoastal_dynamics[39;00m [38;5;28;01mas[39;00m [38;5;21;01mcd[39;00m
 
-[0;31mModuleNotFoundError[0m: No module named 'dotenv'
+[0;31mModuleNotFoundError[0m: No module named 'pooch'
 
