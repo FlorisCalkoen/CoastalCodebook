@@ -14,3 +14,4 @@ dependencies:
   - rioxarray
   - toml
   - python-semantic-release
+  - adlfs
