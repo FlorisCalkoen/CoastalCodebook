@@ -178,8 +178,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Contributing (Advanced)</a></li>
 </ul>
@@ -358,7 +358,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -374,6 +376,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-book">Building the book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propose-changes">Propose changes</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -385,18 +396,30 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="contributing-advanced">
 <h1>Contributing (Advanced)<a class="headerlink" href="#contributing-advanced" title="Permalink to this heading">#</a></h1>
-<p>If you’d like to develop and/or build the CoastalCodeBook book, you should:</p>
+<section id="building-the-book">
+<h2>Building the book<a class="headerlink" href="#building-the-book" title="Permalink to this heading">#</a></h2>
+<p>If you’d like to build the book yourself you should:</p>
 <ol class="arabic simple">
-<li><p>Clone this repository</p></li>
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">mamba</span> <span class="pre">env</span> <span class="pre">create</span> <span class="pre">-f</span> <span class="pre">environment-coastal.yml</span></code></p></li>
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">mamba</span> <span class="pre">activate</span> <span class="pre">coastal</span></code></p></li>
+<li><p>Fork this repository</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">mamba</span> <span class="pre">env</span> <span class="pre">create</span> <span class="pre">-f</span> <span class="pre">ci/envs/311-book.yml</span></code></p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">mamba</span> <span class="pre">activate</span> <span class="pre">311-book</span></code></p></li>
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">build</span> <span class="pre">book</span></code></p></li>
 </ol>
 <p>A fully-rendered HTML version of the book will be built in
 <code class="docutils literal notranslate"><span class="pre">book/_build/html/</span></code>.</p>
-<p><strong>Known issues</strong>: If you use <code class="docutils literal notranslate"><span class="pre">nb_conda_kernels</span></code> to expose your environments, you might run
-into kernelspec errors when building the book. Until <a class="reference external" href="https://github.com/executablebooks/jupyter-book/issues/1348">this issue</a> is fixed, a workaround is to add the environments manually to the kernselspec: 1. Run <code class="docutils literal notranslate"><span class="pre">mamba</span> <span class="pre">activate</span> <span class="pre">coastal</span></code>
-2. Run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">ipykernel</span> <span class="pre">install</span> <span class="pre">--user</span> <span class="pre">--name</span> <span class="pre">conda-env-coastal-py</span> <span class="pre">--display-name</span>&#160;&#160;&#160; <span class="pre">&quot;conda-env-coastal-py&quot;</span></code></p>
+<p><strong>Known issue</strong>: If you use <code class="docutils literal notranslate"><span class="pre">nb_conda_kernels</span></code> to expose your environments, you might run
+into kernelspec errors when building the book. Until <a class="reference external" href="https://github.com/executablebooks/jupyter-book/issues/1348">this
+issue</a> is fixed, a
+workaround is to add the environments manually to the kernselspec:</p>
+<ol class="arabic simple">
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">mamba</span> <span class="pre">activate</span> <span class="pre">311-book</span></code></p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">ipykernel</span> <span class="pre">install</span> <span class="pre">--user</span> <span class="pre">--name</span> <span class="pre">conda-env-311-book-py</span> <span class="pre">--display-name</span> <span class="pre">&quot;conda-env-311-book-py&quot;</span></code></p></li>
+</ol>
+</section>
+<section id="propose-changes">
+<h2>Propose changes<a class="headerlink" href="#propose-changes" title="Permalink to this heading">#</a></h2>
+<p>We welcome pull requests!</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -454,7 +477,21 @@ into kernelspec errors when building the book. Until <a class="reference externa
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-book">Building the book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propose-changes">Propose changes</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

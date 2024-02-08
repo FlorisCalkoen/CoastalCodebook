@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Getting started &#8212; CoastalCodeBook</title>
+    <title>Getting Started &#8212; CoastalCodeBook</title>
   
   
   
@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Troubleshooting" href="troubleshooting.html" />
-    <link rel="prev" title="Installation" href="installation.html" />
+    <link rel="prev" title="Installation Guide" href="installation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -178,8 +178,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation Guide</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing (Advanced)</a></li>
 </ul>
@@ -371,7 +371,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Getting started</h1>
+    <h1>Getting Started</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -381,7 +381,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-tutorial-notebooks">Running the tutorial notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-the-notebooks">Launching the Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-to-jupyterlab">New to JupyterLab?</a></li>
 </ul>
             </nav>
         </div>
@@ -394,35 +395,42 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="getting-started">
-<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading">#</a></h1>
-<section id="running-the-tutorial-notebooks">
-<h2>Running the tutorial notebooks<a class="headerlink" href="#running-the-tutorial-notebooks" title="Permalink to this heading">#</a></h2>
-<p>Now that you have access to the code (cloning this Github repository), installed a
-package manager and created your environments we can start running the notebooks in
-Jupyterlab. If you are new to JupyterLab we encourage you to have a look at <a class="reference external" href="https://earth-env-data-science.github.io/lectures/environment/intro_to_jupyterlab.html">this
-introduction</a>.</p>
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">#</a></h1>
+<p>This guide will help you get up and running with the course notebooks using JupyterLab, assuming you’ve already installed the necessary software as per our <a class="reference internal" href="installation.html"><span class="doc std std-doc">installation instructions</span></a>.</p>
+<section id="launching-the-notebooks">
+<h2>Launching the Notebooks<a class="headerlink" href="#launching-the-notebooks" title="Permalink to this heading">#</a></h2>
+<p>Follow these steps to start exploring the course content through interactive Jupyter notebooks:</p>
 <ol class="arabic">
-<li><p>Open a terminal or Miniforge prompt.</p></li>
-<li><p>Change to the directory where you cloned the repository <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">&lt;/path/to/local/repo&gt;</span></code>.
-Note, on Windows you should use backslashes (see sec 2).</p></li>
-<li><p>Activate your environment by running:</p>
+<li><p><strong>Access the code</strong>: Ensure you’ve forked the <a class="reference external" href="https://github.com/floriscalkoen/coastalcodebook">GitHub repository</a> to your local
+machine.</p></li>
+<li><p><strong>Open a terminal</strong>: Launch a terminal (or Miniforge prompt on Windows) and navigate
+to your forked repository’s directory using, remember to adjust the path as necessary.
+On Windows you should use backslashes.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>&lt;/path/to/local/repo&gt;
+</pre></div>
+</div>
+</li>
+<li><p><strong>Activate Your Environment</strong>: Activate your coastal environment with the command below. This environment contains all the packages you’ll need.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>activate<span class="w"> </span>coastal
 </pre></div>
 </div>
 </li>
-<li><p>Open Jupyterlab by running the following command:</p>
+<li><p><strong>Start JupyterLab</strong>: JupyterLab is an interactive development environment that allows you to work with
+notebooks and other files. Run the following command to open JupyterLab in your web browser:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>lab
 </pre></div>
 </div>
-<p>This will open a Jupyterlab client in your browser.</p>
 </li>
-<li><p>In the JupyterLab IDE you can browse to the <code class="docutils literal notranslate"><span class="pre">notebooks</span></code> directory and open
-one of the notebooks, for instance,
-<span class="xref myst">01_coastal_classification.ipynb</span>.</p></li>
-<li><p>Once the notebook is open you can activate the <code class="docutils literal notranslate"><span class="pre">coastal</span></code> environment in the
-upper-right corner; change <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3</span> <span class="pre">(ipykernel)</span></code> to <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">[conda</span> <span class="pre">env:coastal]</span></code>.</p></li>
-<li><p>Now you can run the cells and do some interactive coastal analysis!</p></li>
+<li><p><strong>Open a Notebook</strong>: Within JupyterLab, navigate to the notebooks directory, and open a notebook, such as <a class="reference internal" href="../notebooks/1_coastal_classification.html"><span class="doc std std-doc">1_coastal_classification.ipynb</span></a>.</p></li>
+<li><p><strong>Select the Right Kernel</strong>: Before running the notebook, ensure the coastal environment is selected as the kernel. You can change this in the upper-right corner by selecting Python [conda env:coastal] from the kernel dropdown menu.</p></li>
+<li><p><strong>Interact with the Notebook</strong>: You’re now ready to execute the notebook cells and
+engage with the interactive coastal computational notebooks!</p></li>
 </ol>
+</section>
+<section id="new-to-jupyterlab">
+<h2>New to JupyterLab?<a class="headerlink" href="#new-to-jupyterlab" title="Permalink to this heading">#</a></h2>
+<p>If JupyterLab is new to you, or you’d like a refresher, consider browsing through <a class="reference external" href="https://earth-env-data-science.github.io/lectures/environment/intro_to_jupyterlab.html">this
+introductory guide</a>. It provides a comprehensive overview of the JupyterLab interface and features.</p>
 </section>
 </section>
 
@@ -462,7 +470,7 @@ upper-right corner; change <code class="docutils literal notranslate"><span clas
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Installation</p>
+        <p class="prev-next-title">Installation Guide</p>
       </div>
     </a>
     <a class="right-next"
@@ -490,7 +498,8 @@ upper-right corner; change <code class="docutils literal notranslate"><span clas
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-tutorial-notebooks">Running the tutorial notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-the-notebooks">Launching the Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-to-jupyterlab">New to JupyterLab?</a></li>
 </ul>
   </nav></div>
 
