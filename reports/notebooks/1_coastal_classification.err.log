@@ -18,143 +18,31 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-WEB_MERCATOR_LIMITS = (
-    -20037508.342789244,
-    20037508.342789244,
-)  # max polar latitudes that can be handled in World Mercator
+import pathlib
+import sys
 
-df = (
-    dd.read_parquet(DATA_DIR / "01_earthquakes_sample.parquet")
-    .sample(
-        frac=0.1
-    )  # uncomment this line if loading the data takes too long on your computer
-    .set_index("time")
-    .compute()
-    .tz_localize(None)
-    .sort_index()
-)
+import colorcet as cc
+import dask.dataframe as dd
+import geopandas as gpd
+import numpy as np
+import panel as pn
+import pandas as pd
+import holoviews as hv
+import hvplot.pandas  # noqa: API import
+from bokeh.models import PanTool, WheelZoomTool
+import pooch
 
-
-# To save memory we drop most of the columns. Also we drop the polar latitudes that cannot be displayed in the web mercator projection.
-df = df[["mag", "depth", "latitude", "longitude", "place", "type"]][
-    df["northing"] < WEB_MERCATOR_LIMITS[1]
-]
-# df.head()
+import logging
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-File [0;32m~/micromamba/envs/311-book/lib/python3.11/site-packages/dask/backends.py:141[0m, in [0;36mCreationDispatch.register_inplace.<locals>.decorator.<locals>.wrapper[0;34m(*args, **kwargs)[0m
-[1;32m    140[0m [38;5;28;01mtry[39;00m:
-[0;32m--> 141[0m     [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
-[1;32m    142[0m [38;5;28;01mexcept[39;00m [38;5;167;01mException[39;00m [38;5;28;01mas[39;00m e:
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[1], line 13[0m
+[1;32m     11[0m [38;5;28;01mimport[39;00m [38;5;21;01mhvplot[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpandas[39;00m  [38;5;66;03m# noqa: API import[39;00m
+[1;32m     12[0m [38;5;28;01mfrom[39;00m [38;5;21;01mbokeh[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmodels[39;00m [38;5;28;01mimport[39;00m PanTool, WheelZoomTool
+[0;32m---> 13[0m [38;5;28;01mimport[39;00m [38;5;21;01mpooch[39;00m
+[1;32m     15[0m [38;5;28;01mimport[39;00m [38;5;21;01mlogging[39;00m
 
-File [0;32m~/micromamba/envs/311-book/lib/python3.11/site-packages/dask/dataframe/io/parquet/core.py:529[0m, in [0;36mread_parquet[0;34m(path, columns, filters, categories, index, storage_options, engine, use_nullable_dtypes, dtype_backend, calculate_divisions, ignore_metadata_file, metadata_task_size, split_row_groups, blocksize, aggregate_files, parquet_file_extension, filesystem, **kwargs)[0m
-[1;32m    527[0m     blocksize [38;5;241m=[39m [38;5;28;01mNone[39;00m
-[0;32m--> 529[0m read_metadata_result [38;5;241m=[39m [43mengine[49m[38;5;241;43m.[39;49m[43mread_metadata[49m[43m([49m
-[1;32m    530[0m [43m    [49m[43mfs[49m[43m,[49m
-[1;32m    531[0m [43m    [49m[43mpaths[49m[43m,[49m
-[1;32m    532[0m [43m    [49m[43mcategories[49m[38;5;241;43m=[39;49m[43mcategories[49m[43m,[49m
-[1;32m    533[0m [43m    [49m[43mindex[49m[38;5;241;43m=[39;49m[43mindex[49m[43m,[49m
-[1;32m    534[0m [43m    [49m[43muse_nullable_dtypes[49m[38;5;241;43m=[39;49m[43muse_nullable_dtypes[49m[43m,[49m
-[1;32m    535[0m [43m    [49m[43mdtype_backend[49m[38;5;241;43m=[39;49m[43mdtype_backend[49m[43m,[49m
-[1;32m    536[0m [43m    [49m[43mgather_statistics[49m[38;5;241;43m=[39;49m[43mcalculate_divisions[49m[43m,[49m
-[1;32m    537[0m [43m    [49m[43mfilters[49m[38;5;241;43m=[39;49m[43mfilters[49m[43m,[49m
-[1;32m    538[0m [43m    [49m[43msplit_row_groups[49m[38;5;241;43m=[39;49m[43msplit_row_groups[49m[43m,[49m
-[1;32m    539[0m [43m    [49m[43mblocksize[49m[38;5;241;43m=[39;49m[43mblocksize[49m[43m,[49m
-[1;32m    540[0m [43m    [49m[43maggregate_files[49m[38;5;241;43m=[39;49m[43maggregate_files[49m[43m,[49m
-[1;32m    541[0m [43m    [49m[43mignore_metadata_file[49m[38;5;241;43m=[39;49m[43mignore_metadata_file[49m[43m,[49m
-[1;32m    542[0m [43m    [49m[43mmetadata_task_size[49m[38;5;241;43m=[39;49m[43mmetadata_task_size[49m[43m,[49m
-[1;32m    543[0m [43m    [49m[43mparquet_file_extension[49m[38;5;241;43m=[39;49m[43mparquet_file_extension[49m[43m,[49m
-[1;32m    544[0m [43m    [49m[43mdataset[49m[38;5;241;43m=[39;49m[43mdataset_options[49m[43m,[49m
-[1;32m    545[0m [43m    [49m[43mread[49m[38;5;241;43m=[39;49m[43mread_options[49m[43m,[49m
-[1;32m    546[0m [43m    [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mother_options[49m[43m,[49m
-[1;32m    547[0m [43m[49m[43m)[49m
-[1;32m    549[0m [38;5;66;03m# In the future, we may want to give the engine the[39;00m
-[1;32m    550[0m [38;5;66;03m# option to return a dedicated element for `common_kwargs`.[39;00m
-[1;32m    551[0m [38;5;66;03m# However, to avoid breaking the API, we just embed this[39;00m
-[1;32m    552[0m [38;5;66;03m# data in the first element of `parts` for now.[39;00m
-[1;32m    553[0m [38;5;66;03m# The logic below is inteded to handle backward and forward[39;00m
-[1;32m    554[0m [38;5;66;03m# compatibility with a user-defined engine.[39;00m
-
-File [0;32m~/micromamba/envs/311-book/lib/python3.11/site-packages/dask/dataframe/io/parquet/arrow.py:536[0m, in [0;36mArrowDatasetEngine.read_metadata[0;34m(cls, fs, paths, categories, index, use_nullable_dtypes, dtype_backend, gather_statistics, filters, split_row_groups, blocksize, aggregate_files, ignore_metadata_file, metadata_task_size, parquet_file_extension, **kwargs)[0m
-[1;32m    535[0m [38;5;66;03m# Stage 1: Collect general dataset information[39;00m
-[0;32m--> 536[0m dataset_info [38;5;241m=[39m [38;5;28;43mcls[39;49m[38;5;241;43m.[39;49m[43m_collect_dataset_info[49m[43m([49m
-[1;32m    537[0m [43m    [49m[43mpaths[49m[43m,[49m
-[1;32m    538[0m [43m    [49m[43mfs[49m[43m,[49m
-[1;32m    539[0m [43m    [49m[43mcategories[49m[43m,[49m
-[1;32m    540[0m [43m    [49m[43mindex[49m[43m,[49m
-[1;32m    541[0m [43m    [49m[43mgather_statistics[49m[43m,[49m
-[1;32m    542[0m [43m    [49m[43mfilters[49m[43m,[49m
-[1;32m    543[0m [43m    [49m[43msplit_row_groups[49m[43m,[49m
-[1;32m    544[0m [43m    [49m[43mblocksize[49m[43m,[49m
-[1;32m    545[0m [43m    [49m[43maggregate_files[49m[43m,[49m
-[1;32m    546[0m [43m    [49m[43mignore_metadata_file[49m[43m,[49m
-[1;32m    547[0m [43m    [49m[43mmetadata_task_size[49m[43m,[49m
-[1;32m    548[0m [43m    [49m[43mparquet_file_extension[49m[43m,[49m
-[1;32m    549[0m [43m    [49m[43mkwargs[49m[43m,[49m
-[1;32m    550[0m [43m[49m[43m)[49m
-[1;32m    552[0m [38;5;66;03m# Stage 2: Generate output `meta`[39;00m
-
-File [0;32m~/micromamba/envs/311-book/lib/python3.11/site-packages/dask/dataframe/io/parquet/arrow.py:1051[0m, in [0;36mArrowDatasetEngine._collect_dataset_info[0;34m(cls, paths, fs, categories, index, gather_statistics, filters, split_row_groups, blocksize, aggregate_files, ignore_metadata_file, metadata_task_size, parquet_file_extension, kwargs)[0m
-[1;32m   1050[0m [38;5;28;01mif[39;00m ds [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
-[0;32m-> 1051[0m     ds [38;5;241m=[39m [43mpa_ds[49m[38;5;241;43m.[39;49m[43mdataset[49m[43m([49m
-[1;32m   1052[0m [43m        [49m[43mpaths[49m[43m,[49m
-[1;32m   1053[0m [43m        [49m[43mfilesystem[49m[38;5;241;43m=[39;49m[43m_wrapped_fs[49m[43m([49m[43mfs[49m[43m)[49m[43m,[49m
-[1;32m   1054[0m [43m        [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43m_processed_dataset_kwargs[49m[43m,[49m
-[1;32m   1055[0m [43m    [49m[43m)[49m
-[1;32m   1057[0m [38;5;66;03m# Get file_frag sample and extract physical_schema[39;00m
-
-File [0;32m~/micromamba/envs/311-book/lib/python3.11/site-packages/pyarrow/dataset.py:785[0m, in [0;36mdataset[0;34m(source, schema, format, filesystem, partitioning, partition_base_dir, exclude_invalid_files, ignore_prefixes)[0m
-[1;32m    784[0m [38;5;28;01mif[39;00m [38;5;28mall[39m(_is_path_like(elem) [38;5;28;01mfor[39;00m elem [38;5;129;01min[39;00m source):
-[0;32m--> 785[0m     [38;5;28;01mreturn[39;00m [43m_filesystem_dataset[49m[43m([49m[43msource[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
-[1;32m    786[0m [38;5;28;01melif[39;00m [38;5;28mall[39m([38;5;28misinstance[39m(elem, Dataset) [38;5;28;01mfor[39;00m elem [38;5;129;01min[39;00m source):
-
-File [0;32m~/micromamba/envs/311-book/lib/python3.11/site-packages/pyarrow/dataset.py:463[0m, in [0;36m_filesystem_dataset[0;34m(source, schema, filesystem, partitioning, format, partition_base_dir, exclude_invalid_files, selector_ignore_prefixes)[0m
-[1;32m    462[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(source, ([38;5;28mlist[39m, [38;5;28mtuple[39m)):
-[0;32m--> 463[0m     fs, paths_or_selector [38;5;241m=[39m [43m_ensure_multiple_sources[49m[43m([49m[43msource[49m[43m,[49m[43m [49m[43mfilesystem[49m[43m)[49m
-[1;32m    464[0m [38;5;28;01melse[39;00m:
-
-File [0;32m~/micromamba/envs/311-book/lib/python3.11/site-packages/pyarrow/dataset.py:382[0m, in [0;36m_ensure_multiple_sources[0;34m(paths, filesystem)[0m
-[1;32m    381[0m [38;5;28;01melif[39;00m file_type [38;5;241m==[39m FileType[38;5;241m.[39mNotFound:
-[0;32m--> 382[0m     [38;5;28;01mraise[39;00m [38;5;167;01mFileNotFoundError[39;00m(info[38;5;241m.[39mpath)
-[1;32m    383[0m [38;5;28;01melif[39;00m file_type [38;5;241m==[39m FileType[38;5;241m.[39mDirectory:
-
-[0;31mFileNotFoundError[0m: /home/runner/work/CoastalCodebook/CoastalCodebook/book/data/01_earthquakes_sample.parquet
-
-The above exception was the direct cause of the following exception:
-
-[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-Cell [0;32mIn[6], line 7[0m
-[1;32m      1[0m WEB_MERCATOR_LIMITS [38;5;241m=[39m (
-[1;32m      2[0m     [38;5;241m-[39m[38;5;241m20037508.342789244[39m,
-[1;32m      3[0m     [38;5;241m20037508.342789244[39m,
-[1;32m      4[0m )  [38;5;66;03m# max polar latitudes that can be handled in World Mercator[39;00m
-[1;32m      6[0m df [38;5;241m=[39m (
-[0;32m----> 7[0m     [43mdd[49m[38;5;241;43m.[39;49m[43mread_parquet[49m[43m([49m[43mDATA_DIR[49m[43m [49m[38;5;241;43m/[39;49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43m01_earthquakes_sample.parquet[39;49m[38;5;124;43m"[39;49m[43m)[49m
-[1;32m      8[0m     [38;5;241m.[39msample(
-[1;32m      9[0m         frac[38;5;241m=[39m[38;5;241m0.1[39m
-[1;32m     10[0m     )  [38;5;66;03m# uncomment this line if loading the data takes too long on your computer[39;00m
-[1;32m     11[0m     [38;5;241m.[39mset_index([38;5;124m"[39m[38;5;124mtime[39m[38;5;124m"[39m)
-[1;32m     12[0m     [38;5;241m.[39mcompute()
-[1;32m     13[0m     [38;5;241m.[39mtz_localize([38;5;28;01mNone[39;00m)
-[1;32m     14[0m     [38;5;241m.[39msort_index()
-[1;32m     15[0m )
-[1;32m     18[0m [38;5;66;03m# To save memory we drop most of the columns. Also we drop the polar latitudes that cannot be displayed in the web mercator projection.[39;00m
-[1;32m     19[0m df [38;5;241m=[39m df[[[38;5;124m"[39m[38;5;124mmag[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mdepth[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mlatitude[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mlongitude[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mplace[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mtype[39m[38;5;124m"[39m]][
-[1;32m     20[0m     df[[38;5;124m"[39m[38;5;124mnorthing[39m[38;5;124m"[39m] [38;5;241m<[39m WEB_MERCATOR_LIMITS[[38;5;241m1[39m]
-[1;32m     21[0m ]
-
-File [0;32m~/micromamba/envs/311-book/lib/python3.11/site-packages/dask/backends.py:143[0m, in [0;36mCreationDispatch.register_inplace.<locals>.decorator.<locals>.wrapper[0;34m(*args, **kwargs)[0m
-[1;32m    141[0m     [38;5;28;01mreturn[39;00m func([38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs)
-[1;32m    142[0m [38;5;28;01mexcept[39;00m [38;5;167;01mException[39;00m [38;5;28;01mas[39;00m e:
-[0;32m--> 143[0m     [38;5;28;01mraise[39;00m [38;5;28mtype[39m(e)(
-[1;32m    144[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mAn error occurred while calling the [39m[38;5;132;01m{[39;00mfuncname(func)[38;5;132;01m}[39;00m[38;5;124m [39m[38;5;124m"[39m
-[1;32m    145[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mmethod registered to the [39m[38;5;132;01m{[39;00m[38;5;28mself[39m[38;5;241m.[39mbackend[38;5;132;01m}[39;00m[38;5;124m backend.[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m
-[1;32m    146[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mOriginal Message: [39m[38;5;132;01m{[39;00me[38;5;132;01m}[39;00m[38;5;124m"[39m
-[1;32m    147[0m     ) [38;5;28;01mfrom[39;00m [38;5;21;01me[39;00m
-
-[0;31mFileNotFoundError[0m: An error occurred while calling the read_parquet method registered to the pandas backend.
-Original Message: /home/runner/work/CoastalCodebook/CoastalCodebook/book/data/01_earthquakes_sample.parquet
+[0;31mModuleNotFoundError[0m: No module named 'pooch'
 
