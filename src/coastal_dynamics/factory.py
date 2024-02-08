@@ -53,14 +53,14 @@ class QuestionFactory:
         )
 
     def _create_multiple_selection_question(self):
-        required_fields = ["name", "question", "options", "answers", "feedback"]
+        required_fields = ["name", "question", "options", "answer", "feedback"]
         self._validate_required_fields(required_fields)
 
         return MultipleSelectionQuestion(
             question_name=self.question_data["name"],
             question_text=self.question_data["question"],
             question_options=self.question_data["options"],
-            question_answers=self.question_data["answers"],
+            question_answers=self.question_data["answer"],
             question_feedback=self.question_data["feedback"],
         )
 

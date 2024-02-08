@@ -1,28 +1,54 @@
 import json
-from typing import Any
+from typing import Optional
 
+import adlfs
 import fsspec
 
 
-def load_questions(
-    href_or_fp: str, storage_options: dict[str, Any] | None = None
-) -> dict[str, Any]:
+def read_questions(
+    blob_name: str, storage_options: Optional[dict[str, str]] = None
+) -> dict:
     """
-    Loads a JSON file from a given file path or URL using fsspec and returns its content as a dictionary.
+    Reads a JSON file from a local filesystem or Azure Blob storage.
 
     Args:
-        href_or_fp (str): The file path or URL of the JSON file to be loaded.
-        storage_options (Optional[Dict[str, Any]]): Additional options for configuring access to the file system,
-            such as credentials. Defaults to None, which means no additional options are used.
+        blob_name (str): The blob name or local file path.
+        storage_options (Optional[Dict[str, str]]): If given, contains options such as
+            account name and SAS token for Azure Blob storage.
 
     Returns:
-        Dict[str, Any]: A dictionary representing the JSON file's content.
-
-    Raises:
-        JSONDecodeError: If the JSON file is not properly formatted.
-        FileNotFoundError: If the file does not exist at the specified path or URL.
+        Dict: The content of the JSON file.
     """
-    with fsspec.open(href_or_fp, "r", **(storage_options or {})) as f:
+    # Use fsspec to handle both local and Azure Blob storage cases
+    with fsspec.open(blob_name, "r", **(storage_options or {})) as f:
         questions = json.load(f)
-
     return questions
+
+
+# BUG: will not write to cloud storage, but local stoarge. Keep here as template
+# for later work. So this function (using fsspec) will replace write_questions
+# below to make it morge storage agnostic.
+
+# def write_questions(
+#     processed_questions: dict,
+#     blob_name: str,
+#     storage_options: Optional[dict[str, str]] = None,
+# ) -> None:
+#     """
+#     Writes a JSON file to a local filesystem or Azure Blob storage.
+
+#     Args:
+#         processed_questions (dict): The content to be written to the JSON file.
+#         blob_name (str): The blob name or local file path.
+#         storage_options (Optional[Dict[str, str]]): If given, contains options such as
+#             account name and SAS token for Azure Blob storage.
+#     """
+#     # Use fsspec to handle both local and Azure Blob storage cases
+#     with fsspec.open(blob_name, "w", **(storage_options or {})) as f:
+#         json.dump(processed_questions, f, indent=4)
+
+
+def write_questions(processed_questions, blob_name, storage_options):
+    fs = adlfs.AzureBlobFileSystem(**storage_options)
+    with fs.open(f"{blob_name}", mode="w") as f:
+        json.dump(processed_questions, f, indent=4)

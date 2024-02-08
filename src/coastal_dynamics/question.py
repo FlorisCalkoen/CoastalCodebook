@@ -1,7 +1,8 @@
-import base64
 from typing import Literal
 
 import panel as pn
+
+import coastal_dynamics as cd
 
 
 class Question:
@@ -45,10 +46,6 @@ class Question:
         msg = "This method should be implemented by subclasses"
         raise NotImplementedError(msg)
 
-    def _encode_answer(self, plain_answer: str) -> str:
-        """Encode the answer using base64."""
-        return base64.b64encode(plain_answer.encode()).decode()
-
-    def _decode_answer(self, encoded_answer: str) -> str:
-        """Decode the encoded answer."""
-        return base64.b64decode(encoded_answer.encode()).decode()
+    def hash_answer(self, answer, question_type):
+        """Delegate the hashing of an answer to the coastal_dynamics module."""
+        return cd.hash_answer(answer, question_type)

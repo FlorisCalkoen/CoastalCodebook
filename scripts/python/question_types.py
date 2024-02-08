@@ -34,7 +34,7 @@ def create_question_widget(question_data, name):
     elif question_type == "multiple_selection":
         question_name = question_data.get("name", "")
         question_text = question_data.get("question", "")
-        question_answers = question_data.get("answers", "")
+        question_answers = question_data.get("answer", "")
         question_options = question_data.get("options")
         kwargs = question_data.get("kwargs", {})
         return MultipleSelectionQuestion(
