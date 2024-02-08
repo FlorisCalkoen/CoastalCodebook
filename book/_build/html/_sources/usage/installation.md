@@ -1,126 +1,129 @@
-# Installation
+# Installation Guide
 
-For the tuturial sessions we will use an interactive computing environment, that is built
-on the [Jupyter]() ecosystem and mostly rely on software that is supported by numfocus. We will communicate the tutorial content
-using `git` version control and provide instructions on how to do so using the GitHub client. In the subsections
-that follow we talk you through the three configurations steps.
+Welcome to the installation guide for the CoastalCodebook. This document provides the
+steps to set up the interactive computing environment built on the Jupyter ecosystem,
+mostly using software that is maintained by [NumFOCUS](https://numfocus.org). Follow these steps to
+ensure a smooth start with the tutorial sessions.
 
-### 1. Git
+## 1. Setting up Git
 
-If you are not familiar with using Git, please have a look this short but excellent
-[introduction](https://earth-env-data-science.github.io/lectures/environment/intro_to_git.html)
-first.
+Git is a version control system that we use for managing the course materials. If you're
+new to Git, we recommend you to start with [this
+introduction](https://earth-env-data-science.github.io/lectures/environment/intro_to_git.html)
+to Git.
 
-1. Please refer to the [GitHub Client documentation](https://desktop.github.com/) to
-   install the GitHub client, or see [these
-   instructions](https://github.com/git-guides/install-git) to install git using the
-   command line.
-2. Clone this repository to your local
-   computer using either of the following options.
+1. **Install Git software**: 
 
-   1. **GitHub client**: Browse to the
-   [webpage](https://github.com/FlorisCalkoen/CoastalCodebook), click on the green "Code"
-   button and select "Open with GitHub Desktop"; or simply paste the URL into the GitHub
-   client "clone repository" menu.
-
-   2. **Bash shell**: If you have a bash terminal available, assuming that git [is
-     configured](https://docs.github.com/en/get-started/getting-started-with-git), you
-   can simply run: ` git clone https://github.com/FlorisCalkoen/CoastalCodebook.git`.
-
-3. GitHub client does not install the underlying git software on your machine. Follow [these
+   <details>
+   <summary><strong>By GitHub Desktop</strong></summary>
+   
+   1. Follow the [GitHub Client documentation](https://desktop.github.com/) to
+   install the GitHub client. 
+   
+   2. GitHub client does not install the underlying git software on your machine. Follow [these
    instructions](https://learn.microsoft.com/en-us/devops/develop/git/install-and-set-up-git)
    to install git on your machine.
+   </details>
 
 
-By these steps, the files that are hosted at GitHub are "pulled" to your machine. You can
-check that by opening a file explorer and going to the path where you cloned the
-directory. The files that you find there should reflect what's on the GitHub page.
-But we can't we do anything with the files yet, as we don't have the software that can
-understand the code, so we will continue with installing a package manager.
+   <details>
+   <summary><strong>By command line</strong></summary>
 
-### 2. Mamba package manager
+   
+   Follow [these instructions](https://github.com/git-guides/install-git) to install git using the
+   command line.
+   </details>
 
-If you're not familiar with managing Python environments, please have a look at this
+2. **Fork the repository** 
+   <details>
+   <summary><strong>By GitHub Desktop</strong></summary>
+   
+   Browse to the
+   [webpage](https://github.com/FlorisCalkoen/CoastalCodebook), click on the green "Code"
+   button and select "Open with GitHub Desktop"; or simply paste the URL into the GitHub
+   client "fork repository" menu.
+   </details>
+
+   <details>
+   <summary><strong>By command line</strong></summary>
+   In a terminal, run: `git fork https://github.com/FlorisCalkoen/CoastalCodebook.git`. For more info, see [this introduction](https://docs.github.com/en/get-started/getting-started-with-git). 
+
+Following these steps, the repository's files from GitHub are cloned to your machine.
+Verify this by navigating to the cloned directory's path using a file explorer; the
+contents should mirror [those found on GitHub](https://github.com/floriscalkoen/coastalcodebook). However, to interact with and execute the
+code, we need appropriate software, which we will cover during the installation of a package manager.
+
+
+## 2. Installing Mamba Package Manager
+
+Mamba is a lightweight efficient package manager that we recommend to manage Python
+environments. If you're not familiar with managing Python environments, please have a
+look at this
 [introduction](https://earth-env-data-science.github.io/lectures/environment/python_environments.html?highlight=conda)
-first. The bottom line is that it is good practice to manage your software environments
-to avoid dependency conflicts. For the tutorial notebooks,  we recommend to use the
-lightweight package manager `mambaforge`. The instructions to install this package
-manager can be found in [their
-documentation](https://mamba.readthedocs.io/en/latest/installation.html), in which they
-refer to the [Conda Forge GitHub](https://github.com/conda-forge/miniforge#mambaforge)
+first. Detailed installation instructions are available in [the Mamba
+documentation](https://mamba.readthedocs.io/en/latest/installation.html). In those docs,
+they refer to the to the [Conda Forge GitHub](https://github.com/conda-forge/miniforge#mambaforge)
 page to download the software.
 
-#### Windows
+<details>
+<summary><strong>Windows Users</strong></summary>
 
-1. Download the mambaforge executable file for Windows from [Miniforge GitHub
-page](https://github.com/conda-forge/miniforge#mambaforge). On that page there are also
-binaries for Mac and Linux; and for `conda` package managers, so make sure you download
-the `mambaforge` executable file for Windows. Install the executable by clicking on it;
-you can stay with the default settings by just clicking next through the installation
-client.
-2. Now that mambaforge is installed, you can open a `Miniforge Prompt`. You can open this
-   shell by opening the start window and search for "Miniforge".
+1. Download and install Mambaforge from the [Miniforge GitHub page](https://github.com/conda-forge/miniforge#mambaforge). Make sure you download the Windows binaries.
+2. You may install miniforge by double-clicking and just using its default settings.
+3. Access and verify Mamba by opening a Miniforge Prompt from the Start menu. You can
+   test if Mamba was installed by running `mamba --version`
 
-**Known issues**: Some users have their firewalls configured in such way that the
+**Known issue**: Some users have their firewalls configured in such way that the
 mambaforge installation is blocked. If you have trouble installing mambaforge, please make
 sure to temporarily disable your firewall.
 
-#### Unix like - Mac and Linux
-1. We recommend to install Mambaforge on Linux and Mac using a terminal. On Mac, you can
-   open a terminal by searching for "terminal" or "iterm". On Linux the hotkey to open a
-   terminal is "cntrl + shift + t". The commands to
-   install the package manager are copied from their documentation and can be run by
-   copying the commands below over to your terminal and pressing enter:
+</details>
+
+<details>
+
+<summary><strong>Unix-like Systems (Mac and Linux)</strong></summary>
+
+1. Open a terminal. On Mac, search for terminal or iterm in Spotlight. On linux, the
+   hotkey to open a terminal is "cntrl + shift + t". 
+2. The commands to install the package manager are copied from their documentation -
+   double check to see if they are still the corect!  
    ```bash
    curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
    bash Mambaforge-$(uname)-$(uname -m).sh
-
    ```
-2. Accept the user agreements, and allow the installation script to edit your profile
-   file. The profile file (`~/.bashrc` on Linux or possibly `~/.zshrc` on Mac) is the
-   first script which is being executed when you open a new terminal. The installation
-   script will add a few lines to that file to make the `mamba` command available every
-   time open a new terminal.
-3. Close the terminal.
+3. Accept the user agreements, and allow the installation script to edit your profile
+   file because it ensures that the mamba command becomes available in your profile. 
 
-### 3. Software environments
-To run the tutorial notebooks we need several packages. To avoid dependency conflicts it
-is good practice to seperate your environments; that was the reason for installing a
-package manager. Now that we have our package manager we will create the software
-environments. We will create one environment that runs the JupyterLab IDE, including
-several extensions; and another one that contains the packages that we need for the
-tutorials.
+</details>
 
-1. Now that mambaforge is available on your machine, open a terminal. On Windows you
-   should open the Miniforge prompt, which you can find by searching for it in the Start
-   window. On Mac you can open a terminal by searching for "terminal" or "iterm". For
-   Linux it's "cntrl + shift + t".
-2. You can check if mamba was installed by running the following command in the terminal:
-   ```bash
-   mamba --version
+## 3. Creating the software environment
 
-   ```
-   It should output something like:
+The tutorial notebooks require specific packages, which we have bundled in a coastal
+environment to avoid conflicts with other coding projects you may have. In the next steps
+we will create this environment. 
 
-   ```console
-   ~ (base) mamba --version
-   mamba 1.1.0
-   conda 22.9.0
-   ```
+1. **Open a terminal** On windows, open a Miniforge Prompt by searching for that in the
+   task bar. On Mac/Linux you can search for the terminal in Spotlight.
+2. **Navigate to the CoastalCodeBook repository**: You can navigate the terminal using `cd`, which stands for "change directory".
+ 
+   <details> 
+   <summary><strong>Windows</strong></summary>
+   
+      If you are on Windows and you installed the GitHub client using their default settings you can
+      simply run `cd %userprofile%\Documents\GitHub\CoastalCodeBook`.
+   </details>
+ 
+   <details>
+   <summary><strong>Unix-like Systems (Mac and Linux)</strong></summary>
+   Change to the directory where you cloned the GitHub repository. This will be something like `cd ~/path/to/github/repository`.
+   </details>
 
-3. Now that mambaforge is installed, navigate in the terminal to the directory
-   where you cloned the GitHub CoastalCodeBook repository. You can navigate the terminal
-   using `cd`, which stands for "change directory".
-   - **Windows**: if you are on Windows and you installed the GitHub client using their default settings you can
-   simply run `cd %userprofile%\Documents\GitHub\CoastalCodeBook`.
-   - **Linux/Mac**: change to the directory where you cloned the GitHub repository. This
-     will be something like `cd ~/path/to/github/repository`.
-4. The CoastalCodeBook root directory contains an [environment.yml](environment.yml) file that describes the software
-   dependencies. This environment contains several packages and extension to build an
-   interactive Jupyter lab environment that you can use to run the tutorial notebooks.
-
-   You can create the software environment using this command:
-
-   ```bash
-   mamba env create -f environment.yml
-   ```
+3. **Create the environment**: The repository contains
+    [environment.yml](https://github.com/floriscalkoen/coastalcodebook/environment.yml),
+    which is a file that describes the software
+   dependencies. Now create the software environment by running the following command in the
+   terminal/Miniforge prompt:
+   
+```bash
+   mamba env create -f environment.yml -y
+```

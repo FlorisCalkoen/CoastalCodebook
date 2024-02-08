@@ -1,27 +1,43 @@
-# Getting started
+# Getting Started
 
+This guide will help you get up and running with the course notebooks using JupyterLab, assuming you've already installed the necessary software as per our [installation instructions](installation.md).
 
-### Running the tutorial notebooks
-Now that you have access to the code (cloning this Github repository), installed a
-package manager and created your environments we can start running the notebooks in
-Jupyterlab. If you are new to JupyterLab we encourage you to have a look at [this
-introduction](https://earth-env-data-science.github.io/lectures/environment/intro_to_jupyterlab.html).
+## Launching the Notebooks
 
-1. Open a terminal or Miniforge prompt.
-2. Change to the directory where you cloned the repository `cd </path/to/local/repo>`.
-   Note, on Windows you should use backslashes (see sec 2).
-3. Activate your environment by running:
+Follow these steps to start exploring the course content through interactive Jupyter notebooks:
+
+1. **Access the code**: Ensure you've forked the [GitHub repository](https://github.com/floriscalkoen/coastalcodebook) to your local
+   machine.
+
+2. **Open a terminal**: Launch a terminal (or Miniforge prompt on Windows) and navigate
+   to your forked repository's directory using, remember to adjust the path as necessary.
+   On Windows you should use backslashes. 
+
+   ```bash
+   cd </path/to/local/repo>
+   ```
+
+3. **Activate Your Environment**: Activate your coastal environment with the command below. This environment contains all the packages you'll need.
+
    ```bash
    mamba activate coastal
    ```
-4. Open Jupyterlab by running the following command:
+
+4. **Start JupyterLab**: JupyterLab is an interactive development environment that allows you to work with
+   notebooks and other files. Run the following command to open JupyterLab in your web browser:
+
    ```bash
    jupyter lab
    ```
-   This will open a Jupyterlab client in your browser.
-5. In the JupyterLab IDE you can browse to the `notebooks` directory and open
-      one of the notebooks, for instance,
-      [01_coastal_classification.ipynb](notebooks/01_coastal_classification.ipynb).
-6. Once the notebook is open you can activate the `coastal` environment in the
-      upper-right corner; change `Python 3 (ipykernel)` to `Python [conda env:coastal]`.
-7. Now you can run the cells and do some interactive coastal analysis!
+
+
+5. **Open a Notebook**: Within JupyterLab, navigate to the notebooks directory, and open a notebook, such as [1_coastal_classification.ipynb](../notebooks/1_coastal_classification.ipynb).
+
+6. **Select the Right Kernel**: Before running the notebook, ensure the coastal environment is selected as the kernel. You can change this in the upper-right corner by selecting Python [conda env:coastal] from the kernel dropdown menu.
+
+6. **Interact with the Notebook**: You're now ready to execute the notebook cells and
+   engage with the interactive coastal computational notebooks!
+
+## New to JupyterLab?
+If JupyterLab is new to you, or you'd like a refresher, consider browsing through [this
+introductory guide](https://earth-env-data-science.github.io/lectures/environment/intro_to_jupyterlab.html). It provides a comprehensive overview of the JupyterLab interface and features.
