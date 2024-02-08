@@ -3,6 +3,7 @@ Course structure
 
 # Header
 
+Nu werk in browser. Vnauit Github Desktop: open in browser. of url naar github. IN firefoc exditen.
 There are many ways to write content in Jupyter Book. This short section
 covers a few tips for how to do so.
 What happens now? 
