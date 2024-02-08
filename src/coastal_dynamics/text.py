@@ -2,6 +2,7 @@ from typing import Literal
 
 import panel as pn
 
+import coastal_dynamics as cd
 from coastal_dynamics.question import Question
 
 
@@ -24,7 +25,7 @@ class TextQuestion(Question):
         question_answer: str,
         question_feedback: dict[Literal["correct", "incorrect"], str],
     ):
-        self.correct_answer = str(question_answer).lower()
+        self.correct_answer = question_answer
         self.answer_input: pn.widgets.TextInput
 
         super().__init__(question_name, question_text, question_feedback)
@@ -39,7 +40,7 @@ class TextQuestion(Question):
 
     def check_answer(self, event) -> None:
         """Check the submitted answer against the correct answer."""
-        user_answer = str(self.answer_input.value).lower()
+        user_answer = self.hash_answer(str(self.answer_input.value).lower(), "text")
         if user_answer == self.correct_answer:
             self.feedback_widget.value = self.feedback["correct"]
         else:
@@ -64,10 +65,11 @@ if __name__ == "__main__":
     tq = TextQuestion(
         question_name="Q3: Simple textual question",
         question_text=question_data["question"],
-        question_answer=question_data["answer"],
+        question_answer=cd.hash_answer(question_data["answer"], "text"),
         question_feedback={
             "correct": "Correct! Indeed, ...",
             "incorrect": "Incorrect. Please consider ...",
         },
     )
+    tq.serve().show()
     print("done")

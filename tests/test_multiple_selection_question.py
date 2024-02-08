@@ -12,14 +12,14 @@ def test_multiple_selection_question_correct_answer():
             "c": "Estuaries",
             "d": "Mountains",
         },
-        "answers": ["a", "c"],  # Multiple correct answers
+        "answer": ["a", "c"],  # Multiple correct answers
     }
 
     msq = MultipleSelectionQuestion(
         question_name="Q1: Coastline Features Quiz",
         question_text=question_data["question"],
         question_options=question_data["options"],
-        question_answers=question_data["answers"],
+        question_answers=question_data["answer"],
     )
     # Simulate user selecting the correct options
     msq.options_widget.value = ["Beaches", "Estuaries"]
@@ -36,14 +36,14 @@ def test_multiple_selection_question_incorrect_answer():
             "c": "Estuaries",
             "d": "Mountains",
         },
-        "answers": ["a", "c"],  # Multiple correct answers
+        "answer": ["a", "c"],  # Multiple correct answers
     }
 
     msq = MultipleSelectionQuestion(
         question_name="Q1: Coastline Features Quiz",
         question_text=question_data["question"],
         question_options=question_data["options"],
-        question_answers=question_data["answers"],
+        question_answers=question_data["answer"],
     )
     # Simulate user selecting the correct options
     msq.options_widget.value = ["Mountains", "Glaciers"]
@@ -60,14 +60,14 @@ def test_multiple_selection_question_partial_correct_answer():
             "c": "Estuaries",
             "d": "Mountains",
         },
-        "answers": ["a", "c"],  # Multiple correct answers
+        "answer": ["a", "c"],  # Multiple correct answers
     }
 
     msq = MultipleSelectionQuestion(
         question_name="Q1: Coastline Features Quiz",
         question_text=question_data["question"],
         question_options=question_data["options"],
-        question_answers=question_data["answers"],
+        question_answers=question_data["answer"],
     )
     # Simulate user selecting the correct options
     msq.options_widget.value = ["Estuaries"]

@@ -2,6 +2,7 @@ from typing import Literal
 
 import panel as pn
 
+import coastal_dynamics as cd
 from coastal_dynamics.question import Question
 
 
@@ -28,7 +29,7 @@ class MultipleSelectionQuestion(Question):
         question_feedback: dict[Literal["correct", "incorrect"], str],
     ):
         self.options = question_options
-        self.correct_answers = [self._encode_answer(ans) for ans in question_answers]
+        self.correct_answers = question_answers
         self.options_widget: pn.widgets.CheckBoxGroup
         self.options_inverse = {v: k for k, v in self.options.items()}
 
@@ -47,10 +48,10 @@ class MultipleSelectionQuestion(Question):
         selected_options = [
             self.options_inverse[opt] for opt in self.options_widget.value
         ]
-        decoded_answers = [
-            self._decode_answer(enc_ans) for enc_ans in self.correct_answers
-        ]
-        if set(selected_options) == set(decoded_answers):
+
+        if set(cd.hash_answer(selected_options, "multiple_selection")) == set(
+            self.correct_answers
+        ):
             self.feedback_widget.value = self.feedback["correct"]
         else:
             self.feedback_widget.value = self.feedback["incorrect"]
@@ -74,14 +75,14 @@ if __name__ == "__main__":
             "c": "Estuaries",
             "d": "Mountains",
         },
-        "answers": ["a", "c"],  # Multiple correct answers
+        "answer": ["a", "c"],  # Multiple correct answers
     }
 
     msq = MultipleSelectionQuestion(
         question_name="Q1: Coastline Features Quiz",
         question_text=question_data["question"],
         question_options=question_data["options"],
-        question_answers=question_data["answers"],
+        question_answers=cd.hash_answer(question_data["answer"], "multiple_selection"),
         question_feedback={
             "correct": (
                 "Correct! Beaches and estuaries are common features of coastlines."

@@ -1,0 +1,58 @@
+{
+    "Q1-1": {
+        "name": "Q1-1",
+        "type": "multiple_choice",
+        "question": "At what depth do earthquakes along divergent boundaries generally occur?",
+        "options": {
+            "a": "less than 33 km",
+            "b": "between 33 km and 74 km",
+            "c": "between 74 km and 140 km",
+            "d": "more than 140 km "
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, earthquakes at diverging boundaries typically occur at shallower depths",
+            "incorrect": "Incorrect. Note that at diverging boundaries the tectonic plates move away from each other. Magma wells up to (relatively) shallow depths in order to fill the gap. This may cause earthquakes. Where are these earthquakes likeliest to occur?"
+        }
+    },
+    "Q1-2": {
+        "name": "Q1-2",
+        "type": "multiple_selection",
+        "question": "Where do earthquakes with a depth > 250 km typically occur? Multiple answers may be correct.",
+        "options": {
+            "a": "wherever two oceanic plates converge",
+            "b": "at a boundary between an oceanic and continental plate",
+            "c": "at island arcs",
+            "d": "wherever two oceanic plates diverge"
+        },
+        "answer": [
+            "a",
+            "c"
+        ],
+        "feedback": {
+            "correct": "Correct, indeed very deep earthquakes occur  mostly when two ocaenic plates converge, or at an island arc.",
+            "incorrect": "Incorrect. Deep earthquakes occur due to deep processes such as subduction. Due to subduction, island arcs may form (see Figure 2.9 in the book). Where does subduction typically occur?"
+        }
+    },
+    "Q1-3": {
+        "name": "Q1-3",
+        "type": "numeric",
+        "question": "What is the PSU of the global ocean?",
+        "answer": 35,
+        "precision": 0,
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect, ..."
+        }
+    },
+    "Q1-4": {
+        "name": "Q1-4",
+        "type": "text",
+        "question": "What is the name of the force that generates the tide?",
+        "answer": "Differential pull",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect, ..."
+        }
+    }
+}

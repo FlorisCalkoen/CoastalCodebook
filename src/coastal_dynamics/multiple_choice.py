@@ -2,6 +2,7 @@ from typing import Literal
 
 import panel as pn
 
+import coastal_dynamics as cd
 from coastal_dynamics.question import Question
 
 
@@ -28,7 +29,7 @@ class MultipleChoiceQuestion(Question):
         question_feedback: dict[Literal["correct", "incorrect"], str],
     ):
         self.options = question_options
-        self.correct_answer = self._encode_answer(question_answer)
+        self.correct_answer = question_answer
         self.options_widget: pn.widgets.RadioBoxGroup
         self.options_inverse = {v: k for k, v in self.options.items()}
 
@@ -45,8 +46,10 @@ class MultipleChoiceQuestion(Question):
     def _check_answer(self, event: pn.widgets.Button) -> None:
         """Check the selected answer against the correct answer."""
         selected_option = self.options_inverse[self.options_widget.value]
-        decoded_answer = self._decode_answer(self.correct_answer)
-        if selected_option == decoded_answer:
+        if (
+            self.hash_answer(selected_option, question_type="multiple_choice")
+            == self.correct_answer
+        ):
             self.feedback_widget.value = self.feedback["correct"]
         else:
             self.feedback_widget.value = self.feedback["incorrect"]
@@ -72,7 +75,7 @@ if __name__ == "__main__":
             "c": "Cliffed coasts",
             "d": "Mixed sand and gravel beaches",
         },
-        "answer": "a",  # Multiple correct answers
+        "answer": cd.hash_answer("a", "multiple_choice"),  # Multiple correct answers
     }
 
     mcq = MultipleChoiceQuestion(
@@ -85,4 +88,5 @@ if __name__ == "__main__":
             "incorrect": "Unforunately that is not correct. Please consider...",
         },
     )
+    mcq.serve().show()
     print("done")

@@ -2,6 +2,7 @@ from typing import Literal
 
 import panel as pn
 
+import coastal_dynamics as cd
 from coastal_dynamics.question import Question
 
 
@@ -24,9 +25,9 @@ class NumericQuestion(Question):
         question_text: str,
         question_answer: float,
         question_feedback: dict[Literal["correct", "incorrect"], str],
-        precision: int = 0,
+        precision: int | None = None,
     ):
-        self.correct_answer = round(float(question_answer), precision)
+        self.correct_answer = question_answer
         self.precision = precision
         self.answer_input: pn.widgets.FloatInput
 
@@ -41,8 +42,10 @@ class NumericQuestion(Question):
     def check_answer(self, event) -> None:
         """Check the submitted answer against the correct answer."""
         try:
-            user_answer = round(float(self.answer_input.value), self.precision)
-            if user_answer == self.correct_answer:
+            user_answer = float(self.answer_input.value)
+            if self.precision:
+                user_answer = round(user_answer, self.precision)
+            if self.hash_answer(user_answer, "numeric") == self.correct_answer:
                 self.feedback_widget.value = self.feedback["correct"]
             else:
                 self.feedback_widget.value = self.feedback["incorrect"]
@@ -63,17 +66,20 @@ if __name__ == "__main__":
     question_data = {
         "question": "What is the relative importance of S2 vs M2?",
         "answer": 0.33,
-        "kwargs": {"precision": 2},
+        "precision": 2,
     }
 
     nq = NumericQuestion(
         question_name="Q3: Simple numeric question",
         question_text=question_data["question"],
-        question_answer=question_data["answer"],
+        question_answer=cd.hash_answer(
+            round(float(question_data["answer"]), question_data["precision"]), "numeric"
+        ),
         question_feedback={
             "correct": "Correct!...",
             "incorrect": "Incorrect, try again. Please consider that...",
         },
-        **question_data["kwargs"],
+        precision=question_data["precision"],
     )
+    nq.serve().show()
     print("done")
