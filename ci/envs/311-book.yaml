@@ -34,6 +34,7 @@ dependencies:
   - param
 
   # Data Science libraries
+  - adlfs
   - cartopy
   - dask
   - fiona
