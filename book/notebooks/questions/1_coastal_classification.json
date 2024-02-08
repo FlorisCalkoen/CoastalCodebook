@@ -25,7 +25,7 @@
             "c": "at island arcs",
             "d": "wherever two oceanic plates diverge"
         },
-        "answers": [
+        "answer": [
             "a",
             "c"
         ],
@@ -60,7 +60,11 @@
             "c": "earthquake depth",
             "d": "frequency of earthquakes"
         },
-        "answers": [ "a", "c", "d" ],
+        "answer": [
+            "a",
+            "c",
+            "d"
+        ],
         "feedback": {
             "correct": "Correct.",
             "incorrect": "Incorrect. Try to use the sliders in the figure to find out at what depth earthquakes typically occur for different boundary types. By adjusting the date range, you can also check the frequency of earthquakes for different boundaries. Finally, look at the width of the earthquake zone and the magnitude of earthquakes for different types of boundaries. What differences do you observe?"
@@ -76,7 +80,10 @@
             "c": "continental shelf width",
             "d": "sediment supply"
         },
-        "answers": [ "c", "d" ],
+        "answer": [
+            "c",
+            "d"
+        ],
         "feedback": {
             "correct": "Correct.",
             "incorrect": "Incorrect. Read section 2.3.3. from the book, and try the question again."
@@ -160,7 +167,14 @@
             "k": "more volcanic activity",
             "l": "wide continental shelf"
         },
-        "answers": [ "a", "d", "e", "f", "j", "k" ],
+        "answer": [
+            "a",
+            "d",
+            "e",
+            "f",
+            "j",
+            "k"
+        ],
         "feedback": {
             "correct": "Correct.",
             "incorrect": "Incorrect. Read section 2.3.2. and try again."
@@ -184,7 +198,13 @@
             "k": "more volcanic activity",
             "l": "wide continental shelf"
         },
-        "answers": [ "b", "c", "h", "i", "l" ],
+        "answer": [
+            "b",
+            "c",
+            "h",
+            "i",
+            "l"
+        ],
         "feedback": {
             "correct": "Correct.",
             "incorrect": "Incorrect. Read section 2.3.2. and try again."
@@ -208,7 +228,13 @@
             "k": "more volcanic activity",
             "l": "wide continental shelf"
         },
-        "answers": [ "a", "g", "h", "j", "l" ],
+        "answer": [
+            "a",
+            "g",
+            "h",
+            "j",
+            "l"
+        ],
         "feedback": {
             "correct": "Correct.",
             "incorrect": "Incorrect. Read section 2.3.2. and try again."
@@ -284,7 +310,10 @@
             "c": "climate",
             "d": "vegetation type"
         },
-        "answers": [ "a", "c" ],
+        "answer": [
+            "a",
+            "c"
+        ],
         "feedback": {
             "correct": "Correct, topography and climate are indeed the main factors determining the sediment supply.",
             "incorrect": "Incorrect. Read the section on 'sediment availability' from section 2.3.3. from the book and try again."
@@ -300,7 +329,10 @@
             "c": "smaller",
             "d": "larger"
         },
-        "answers": [ "b", "d" ],
+        "answer": [
+            "b",
+            "d"
+        ],
         "feedback": {
             "correct": "Correct.",
             "incorrect": "Incorrect. Read the section on 'sediment availability' from section 2.3.3. from the book and try again."
@@ -318,7 +350,11 @@
             "e": "Brazil",
             "f": "southern Australia"
         },
-        "answers": [ "a", "d", "e" ],
+        "answer": [
+            "a",
+            "d",
+            "e"
+        ],
         "feedback": {
             "correct": "Correct.",
             "incorrect": "Incorrect. What coastal type leads to the largest deltas forming?"
@@ -373,7 +409,10 @@
             "g": "Eurasian Plate",
             "h": "Arabian Plate"
         },
-        "answers": [ "c", "f" ],
+        "answer": [
+            "c",
+            "f"
+        ],
         "feedback": {
             "correct": "Correct.",
             "incorrect": "Incorrect. Use figure 2.2 for an overview of all tectonic plates. Which plate boundary is closest to the Senegal delta? And which plates form that boundary?"
@@ -468,7 +507,11 @@
             "e": "Multiple parallel channels",
             "f": "Extensive tidal flats and/or marshes"
         },
-        "answers": [ "c", "d", "f" ],
+        "answer": [
+            "c",
+            "d",
+            "f"
+        ],
         "feedback": {
             "correct": "Correct.",
             "incorrect": "Incorrect. Read section 2.7.4 from the book and look at figures 2.42 - 2.49. The 'Missisipi system is river-dominated. Which characteristics fit this classification?"
@@ -485,7 +528,10 @@
             "d": "Intertidal flats",
             "e": "Fluvial deposits"
         },
-        "answers": [ "b", "d" ],
+        "answer": [
+            "b",
+            "d"
+        ],
         "feedback": {
             "correct": "Correct.",
             "incorrect": "Incorrect. Note that vegetation is unlikely to occur in highly dynamic conditions."
@@ -616,7 +662,11 @@
             "c": "Tectonic plate setting",
             "d": "Presence of beaches"
         },
-        "answers": [ "a", "c", "d" ],
+        "answer": [
+            "a",
+            "c",
+            "d"
+        ],
         "feedback": {
             "correct": "Correct.",
             "incorrect": "Incorrect. Look at the difference between a sandy system (e.g. Columbia river) and a muddy system (e.g. Yellow river). What differences do you observe."
@@ -648,7 +698,10 @@
             "c": "Most of the sediment from the river is transported in the southern section. (of the river)",
             "d": "Alongshore transport is directed to the south."
         },
-        "answers": [ "a", "d" ],
+        "answer": [
+            "a",
+            "d"
+        ],
         "feedback": {
             "correct": "Correct. You will learn more about alongshore transport in chapter 8.",
             "incorrect": "Incorrect. Have a look at the sattelite images. What is the reason that the dune is able to grow to its current size without being eroded significantly? Also have a look at the features surrounding the dune. Which direction do you think the alongshore transport is directed?"
@@ -712,7 +765,9 @@
             "c": "Severn estuary",
             "d": "Ebro Delta"
         },
-        "answers": [ "b" ],
+        "answer": [
+            "b"
+        ],
         "feedback": {
             "correct": "Correct.",
             "incorrect": "Incorrect. Have a look at the sattelite images for each of the systems. Which systems shows clear rocky features?"
