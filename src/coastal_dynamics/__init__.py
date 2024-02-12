@@ -1,3 +1,7 @@
+"""Tools for interactive teaching and learning with Jupyter notebooks."""
+
+__author__ = """Floris Calkoen"""
+__email__ = "floris@calkoen.nl"
 __version__ = "0.0.5"
 
 from .factory import QuestionFactory
