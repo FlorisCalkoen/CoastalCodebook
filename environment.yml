@@ -71,7 +71,7 @@ dependencies:
 
   # Data Science libraries
   - adlfs
-  - anaconda::pillow
+  # - anaconda::pillow # breaks geoviews on macos
   - anaconda::s3fs
   - beautifulsoup4
   - cartopy
