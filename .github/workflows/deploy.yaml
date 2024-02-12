@@ -30,11 +30,10 @@ jobs:
           environment-file: ci/envs/coastal.yaml
 
       # Step to activate the environment and install the kernel with the name "coastal-env"
-      - name: Install Standard Kernel for CI
+      - name: Rename Standard Kernel name for CI
         run: |
-          mamba activate coastal
-          python -m ipykernel install --user --name coastal --display-name "coastal"
-
+          python -m ipykernel install --user --name coastal --display-name "conda-env-jl-full-py"
+  
       # Copy notebooks to book notebooks directory
       - name: Prepare notebooks for book
         run: |
