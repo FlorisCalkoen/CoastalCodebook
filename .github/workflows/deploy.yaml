@@ -42,7 +42,7 @@ jobs:
       # Build the JupyterBook
       - name: Build JupyterBook
         run: |
-          jupyter-book build book/ 
+          jupyter-book build book/
 
       - name: Deploy html files
         uses: peaceiris/actions-gh-pages@v3
