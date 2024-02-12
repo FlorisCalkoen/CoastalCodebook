@@ -56,7 +56,7 @@ dependencies:
   - ipympl
   - ipywidgets
   - jupyter_bokeh
-  - matplotlib-base
+  - matplotlib-base<2 # don't use matplotlib 2 yet
   - panel
   - param
   - streamz
@@ -117,6 +117,5 @@ dependencies:
   - xarray-spatial
   - zarr
 
-  # This is when you want the CoastalCodeBook package to be installed in dev mode
-  # - pip:
-  #     - -e .
+  - pip:
+      - coastal-dynamics # use a -e flag if you want to install in dev mode
