@@ -1,5 +1,17 @@
 Acknowledgements
 =======================
+## Development team
+
+The team that developed the notebooks consisted of:
+- Judith Bosboom
+- José Álvarez Antolínez
+- Floris Calkoen
+- Stuart Pearson
+- Chris Hoogervorst
+- Mia Pupić Vurilj
+- Jakob Christiaanse
+- Mario van den Berg
+- Kevin de Bruijn
 
 ## Contributors
 
