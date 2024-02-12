@@ -2,7 +2,7 @@ Acknowledgements
 =======================
 ## Development team
 
-The team that developed the notebooks consisted of:
+The team that developed the notebooks consists of:
 - Judith Bosboom
 - José Álvarez Antolínez
 - Floris Calkoen
