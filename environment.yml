@@ -58,7 +58,6 @@ dependencies:
   - colorcet
   - folium
   - geoviews
-  - geoviews-core
   - holoviews=<1.18 # until bug in stream xy is fixed
   - hvplot
   - ipyleaflet
@@ -87,7 +86,6 @@ dependencies:
   - gcsfs
   - geojson
   - geopandas>=0.11.0
-  - math
   - netcdf4
   - numcodecs
   - numpy

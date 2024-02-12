@@ -6,7 +6,7 @@ on:
     paths:
       - "notebooks/**"
       - "book/**"
-      - "ci/envs/coastal.yaml"
+      - "ci/envs/environment.yaml"
   workflow_dispatch:
 
 concurrency:
@@ -27,13 +27,13 @@ jobs:
       - name: Set up Micromamba
         uses: mamba-org/setup-micromamba@v1
         with:
-          environment-file: ci/envs/coastal.yaml
+          environment-file: ci/envs/environment.yaml
 
       # Step to activate the environment and install the kernel with the name "coastal-env"
-      - name: Rename Standard Kernel name for CI
+      - name: Install Jupyter Kernel for CI
         run: |
-          python -m ipykernel install --user --name coastal --display-name "conda-env-jl-full-py"
-  
+          python -m ipykernel install --user --name conda-env-coastal-py --display-name "conda-env-coastal-py"
+
       # Copy notebooks to book notebooks directory
       - name: Prepare notebooks for book
         run: |
@@ -42,7 +42,7 @@ jobs:
       # Build the JupyterBook
       - name: Build JupyterBook
         run: |
-          jupyter-book build book/
+          jupyter-book build book/ --execute --kernel-name "conda-env-coastal-py"
 
       - name: Deploy html files
         uses: peaceiris/actions-gh-pages@v3
