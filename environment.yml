@@ -55,6 +55,7 @@ dependencies:
   # interactive vizualization libraries
   - bokeh
   - datashader
+  - colorcet
   - folium
   - geoviews
   - geoviews-core
@@ -70,8 +71,8 @@ dependencies:
   - streamz
 
   # Data Science libraries
-
   - adlfs
+  - anaconda::pillow
   - anaconda::s3fs
   - beautifulsoup4
   - cartopy
@@ -86,6 +87,7 @@ dependencies:
   - gcsfs
   - geojson
   - geopandas>=0.11.0
+  - math
   - netcdf4
   - numcodecs
   - numpy
