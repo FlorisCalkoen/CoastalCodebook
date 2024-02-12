@@ -6,7 +6,7 @@ on:
     paths:
       - "notebooks/**"
       - "book/**"
-      - "ci/envs/311-book.yaml"
+      - "ci/envs/coastal.yaml"
   workflow_dispatch:
 
 concurrency:
@@ -27,7 +27,7 @@ jobs:
       - name: Set up Micromamba
         uses: mamba-org/setup-micromamba@v1
         with:
-          environment-file: ci/envs/311-book.yaml
+          environment-file: ci/envs/coastal.yaml
 
       # Copy notebooks to book notebooks directory
       - name: Prepare notebooks for book

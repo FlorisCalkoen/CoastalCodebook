@@ -1,4 +1,4 @@
-name: 311-book
+name: coastal
 channels:
   - conda-forge
   - defaults
