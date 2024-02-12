@@ -9,13 +9,29 @@ Follow these steps to start exploring the course content through interactive Jup
 1. **Access the code**: Ensure you've forked the [GitHub repository](https://github.com/floriscalkoen/coastalcodebook) to your local
    machine.
 
-2. **Open a terminal**: Launch a terminal (or Miniforge prompt on Windows) and navigate
-   to your forked repository's directory using, remember to adjust the path as necessary.
-   On Windows you should use backslashes. 
+2. **Navigate to the repository**: 
+   
+   <details>
+   <summary><strong>Windows Users</strong></summary>
 
-   ```bash
-   cd </path/to/local/repo>
-   ```
+   1. On Windows, open a Miniforge Prompt by searching for "miniforge" in the task bar. 
+   2. Change to the directory where you cloned the repository by using `cd
+      <drive:\path\to\dir>`. If you installed the GitHub client using their default
+      settings you may run
+      `cd%userprofile%\Documents\GitHub\CoastalCodeBook`.
+
+   </details>
+
+   <details>
+   <summary><strong>Unix-like Systems (Mac and Linux)</strong></summary>
+
+   1. On Mac, search for terminal or iterm in Spotlight (command + space). On linux, the
+      hotkey to open a terminal is "cntrl + shift + t". 
+   2. You can navigate the terminal using `cd`, which stands for "change directory". So you
+      would do something like `cd ~/path/to/cloned/repository`
+
+   </details>
+
 
 3. **Activate Your Environment**: Activate your coastal environment with the command below. This environment contains all the packages you'll need.
 

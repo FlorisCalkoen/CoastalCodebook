@@ -1,16 +1,17 @@
 # Installation Guide
 
-Welcome to the installation guide for the CoastalCodebook. This document provides the
-steps to set up the interactive computing environment built on the Jupyter ecosystem,
-mostly using software that is maintained by [NumFOCUS](https://numfocus.org). Follow these steps to
+Welcome to the installation guide for the CoastalCodebook! This document provides a
+step-by-step guide to set up your coastal computing environment; that will mostly use the Jupyter
+ecosystem combined with other packages maintained by the [NumFOCUS](https://numfocus.org)
+project to
+provide you with an interactive learning experience. Please follow these steps to
 ensure a smooth start with the tutorial sessions.
 
 ## 1. Setting up Git
 
 Git is a version control system that we use for managing the course materials. If you're
 new to Git, we recommend you to start with [this
-introduction](https://earth-env-data-science.github.io/lectures/environment/intro_to_git.html)
-to Git.
+introduction](https://earth-env-data-science.github.io/lectures/environment/intro_to_git.html).
 
 1. **Install Git software**: 
 
@@ -33,37 +34,52 @@ to Git.
    Follow [these instructions](https://github.com/git-guides/install-git) to install git using the
    command line.
    </details>
+2. **Fork the repository**: 
 
-2. **Fork the repository** 
+   Before you can start working on the project, you'll need to create a fork of the repository. This will give you a copy of the project in your GitHub account, allowing you to make changes without affecting the original project.
+
    <details>
    <summary><strong>By GitHub Desktop</strong></summary>
-   
-   Browse to the
-   [webpage](https://github.com/FlorisCalkoen/CoastalCodebook), click on the green "Code"
-   button and select "Open with GitHub Desktop"; or simply paste the URL into the GitHub
-   client "fork repository" menu.
+
+   1. Go to the [CoastalCodebook repository ](https://github.com/floriscalkoen/coastalcodebook.git) on GitHub.
+   2. Click on the "Fork" button at the top right corner of the page to create a copy of the repository in your account.
+   3. Once the fork is created, open GitHub Desktop.
+   4. Go to File > Clone Repository.
+   Switch to the "URL" tab and paste the URL of your fork of the repository. It will look
+   something like `https://github.com/<yourusername>/CoastalCodebook.git.`, replacing yourusername with your GitHub username. 
+   5. Choose where to clone the repository on your computer and click "Clone".
    </details>
+
 
    <details>
    <summary><strong>By command line</strong></summary>
-   In a terminal, run: `git fork https://github.com/FlorisCalkoen/CoastalCodebook.git`. For more info, see [this introduction](https://docs.github.com/en/get-started/getting-started-with-git). 
+
+   1. Go to the [CoastalCodebook repository ](https://github.com/floriscalkoen/coastalcodebook.git) on GitHub.
+   2. Click on the "Fork" button at the top right corner of the page to create a copy of the repository in your account.
+   3. Once the fork is created, open a terminal on your computer.
+   4. Clone your fork of the repository by running: `git clone https://github.com/<YOURUSERNAME>/CoastalCodebook.git`, replacing yourusername with your GitHub username.
+   5. Navigate into the cloned directory: `cd ~/path/to/CoastalCodebook`
+
+   </details>
+
 
 Following these steps, the repository's files from GitHub are cloned to your machine.
 Verify this by navigating to the cloned directory's path using a file explorer; the
-contents should mirror [those found on GitHub](https://github.com/floriscalkoen/coastalcodebook). However, to interact with and execute the
+contents should mirror those found in the [CoastalCodebook repository](https://github.com/floriscalkoen/coastalcodebook). However, to interact with and execute the
 code, we need appropriate software, which we will cover during the installation of a package manager.
 
 
 ## 2. Installing Mamba Package Manager
 
 Mamba is a lightweight efficient package manager that we recommend to manage Python
-environments. If you're not familiar with managing Python environments, please have a
+environments --- if you're not familiar with managing Python environments, please have a
 look at this
 [introduction](https://earth-env-data-science.github.io/lectures/environment/python_environments.html?highlight=conda)
-first. Detailed installation instructions are available in [the Mamba
-documentation](https://mamba.readthedocs.io/en/latest/installation.html). In those docs,
-they refer to the to the [Conda Forge GitHub](https://github.com/conda-forge/miniforge#mambaforge)
-page to download the software.
+first. Detailed installation instructions for Mamba are available in [the Mamba
+documentation](https://mamba.readthedocs.io/en/latest/installation.html), but here we
+will share the most important links. In their docs,
+they refer to the [Conda Forge GitHub](https://github.com/conda-forge/miniforge#mambaforge)
+page to download the software, so that's where we will download the software as well. 
 
 <details>
 <summary><strong>Windows Users</strong></summary>
@@ -85,8 +101,8 @@ sure to temporarily disable your firewall.
 
 1. Open a terminal. On Mac, search for terminal or iterm in Spotlight. On linux, the
    hotkey to open a terminal is "cntrl + shift + t". 
-2. The commands to install the package manager are copied from their documentation -
-   double check to see if they are still the corect!  
+2. The commands to install the package manager are copied from their documentation ---
+   double check to see if they are still the correct!  
    ```bash
    curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
    bash Mambaforge-$(uname)-$(uname -m).sh
@@ -102,28 +118,47 @@ The tutorial notebooks require specific packages, which we have bundled in a coa
 environment to avoid conflicts with other coding projects you may have. In the next steps
 we will create this environment. 
 
-1. **Open a terminal** On windows, open a Miniforge Prompt by searching for that in the
-   task bar. On Mac/Linux you can search for the terminal in Spotlight.
-2. **Navigate to the CoastalCodeBook repository**: You can navigate the terminal using `cd`, which stands for "change directory".
- 
-   <details> 
-   <summary><strong>Windows</strong></summary>
-   
-      If you are on Windows and you installed the GitHub client using their default settings you can
-      simply run `cd %userprofile%\Documents\GitHub\CoastalCodeBook`.
-   </details>
- 
-   <details>
-   <summary><strong>Unix-like Systems (Mac and Linux)</strong></summary>
-   Change to the directory where you cloned the GitHub repository. This will be something like `cd ~/path/to/github/repository`.
-   </details>
 
-3. **Create the environment**: The repository contains
-    [environment.yml](https://github.com/floriscalkoen/coastalcodebook/environment.yml),
-    which is a file that describes the software
-   dependencies. Now create the software environment by running the following command in the
-   terminal/Miniforge prompt:
+<details>
+<summary><strong>Windows Users</strong></summary>
+
+1. On Windows, open a Miniforge Prompt by searching for "miniforge" in the task bar. 
+2. Change to the directory where you cloned the repository. If you installed the GitHub client using their default settings you run
+   `cd%userprofile%\Documents\GitHub\CoastalCodeBook`. By running `DIR` you can see a
+   list of all files and directories. You can also see this in the file explorer by
+   navigating to this directory. 
+3. The directory contains
+   [environment.yml](https://github.com/floriscalkoen/coastalcodebook/environment.yml),
+   which is a file that describes the software dependencies. Now create the software
+   environment by running the following command in the terminal/Miniforge prompt:
    
-```bash
-   mamba env create -f environment.yml -y
-```
+   ```bash
+      mamba env create -f environment.yml -y
+   ```
+
+</details>
+
+<details>
+<summary><strong>Unix-like Systems (Mac and Linux)</strong></summary>
+
+1. On Mac, search for terminal or iterm in Spotlight (command + space). On linux, the
+   hotkey to open a terminal is "cntrl + shift + t". 
+
+2. You can navigate the terminal using `cd`, which stands for "change directory". So you
+   would do something like `cd ~/path/to/cloned/repository`
+3. The repository contains
+   [environment.yml](https://github.com/floriscalkoen/coastalcodebook/environment.yml),
+   which is a file that describes the software dependencies. Now create the software environment by running the following command in the terminal/Miniforge prompt:
+   
+   ```bash
+      mamba env create -f environment.yml -y
+   ```
+
+</details>
+   
+
+## 4. Running the notebooks
+
+Having successfully installed all necessary content and software on your computer, you're
+ready to move forward. The [following section](getting_started.md) will guide you through
+running thenotebooks!
