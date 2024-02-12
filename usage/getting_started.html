@@ -403,12 +403,25 @@ document.write(`
 <ol class="arabic">
 <li><p><strong>Access the code</strong>: Ensure you’ve forked the <a class="reference external" href="https://github.com/floriscalkoen/coastalcodebook">GitHub repository</a> to your local
 machine.</p></li>
-<li><p><strong>Open a terminal</strong>: Launch a terminal (or Miniforge prompt on Windows) and navigate
-to your forked repository’s directory using, remember to adjust the path as necessary.
-On Windows you should use backslashes.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>&lt;/path/to/local/repo&gt;
-</pre></div>
-</div>
+<li><p><strong>Navigate to the repository</strong>:</p>
+<details>
+<summary><strong>Windows Users</strong></summary>
+<ol class="arabic simple">
+<li><p>On Windows, open a Miniforge Prompt by searching for “miniforge” in the task bar.</p></li>
+<li><p>Change to the directory where you cloned the repository by using <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">&lt;drive:\path\to\dir&gt;</span></code>. If you installed the GitHub client using their default
+settings you may run
+<code class="docutils literal notranslate"><span class="pre">cd%userprofile%\Documents\GitHub\CoastalCodeBook</span></code>.</p></li>
+</ol>
+</details>
+<details>
+<summary><strong>Unix-like Systems (Mac and Linux)</strong></summary>
+<ol class="arabic simple">
+<li><p>On Mac, search for terminal or iterm in Spotlight (command + space). On linux, the
+hotkey to open a terminal is “cntrl + shift + t”.</p></li>
+<li><p>You can navigate the terminal using <code class="docutils literal notranslate"><span class="pre">cd</span></code>, which stands for “change directory”. So you
+would do something like <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/path/to/cloned/repository</span></code></p></li>
+</ol>
+</details>
 </li>
 <li><p><strong>Activate Your Environment</strong>: Activate your coastal environment with the command below. This environment contains all the packages you’ll need.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>activate<span class="w"> </span>coastal

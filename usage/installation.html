@@ -384,6 +384,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-git">1. Setting up Git</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-mamba-package-manager">2. Installing Mamba Package Manager</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-software-environment">3. Creating the software environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-notebooks">4. Running the notebooks</a></li>
 </ul>
             </nav>
         </div>
@@ -397,16 +398,17 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="installation-guide">
 <h1>Installation Guide<a class="headerlink" href="#installation-guide" title="Permalink to this heading">#</a></h1>
-<p>Welcome to the installation guide for the CoastalCodebook. This document provides the
-steps to set up the interactive computing environment built on the Jupyter ecosystem,
-mostly using software that is maintained by <a class="reference external" href="https://numfocus.org">NumFOCUS</a>. Follow these steps to
+<p>Welcome to the installation guide for the CoastalCodebook! This document provides a
+step-by-step guide to set up your coastal computing environment; that will mostly use the Jupyter
+ecosystem combined with other packages maintained by the <a class="reference external" href="https://numfocus.org">NumFOCUS</a>
+project to
+provide you with an interactive learning experience. Please follow these steps to
 ensure a smooth start with the tutorial sessions.</p>
 <section id="setting-up-git">
 <h2>1. Setting up Git<a class="headerlink" href="#setting-up-git" title="Permalink to this heading">#</a></h2>
 <p>Git is a version control system that we use for managing the course materials. If you’re
 new to Git, we recommend you to start with <a class="reference external" href="https://earth-env-data-science.github.io/lectures/environment/intro_to_git.html">this
-introduction</a>
-to Git.</p>
+introduction</a>.</p>
 <ol class="arabic">
 <li><p><strong>Install Git software</strong>:</p>
 <details>
@@ -425,34 +427,48 @@ to install git on your machine.</p></li>
 command line.</p>
 </details>
 </li>
-<li><p><strong>Fork the repository</strong></p>
+<li><p><strong>Fork the repository</strong>:</p>
+<p>Before you can start working on the project, you’ll need to create a fork of the repository. This will give you a copy of the project in your GitHub account, allowing you to make changes without affecting the original project.</p>
 <details>
 <summary><strong>By GitHub Desktop</strong></summary>
-<p>Browse to the
-<a class="reference external" href="https://github.com/FlorisCalkoen/CoastalCodebook">webpage</a>, click on the green “Code”
-button and select “Open with GitHub Desktop”; or simply paste the URL into the GitHub
-client “fork repository” menu.</p>
+<ol class="arabic simple">
+<li><p>Go to the <a class="reference external" href="https://github.com/floriscalkoen/coastalcodebook.git">CoastalCodebook repository </a> on GitHub.</p></li>
+<li><p>Click on the “Fork” button at the top right corner of the page to create a copy of the repository in your account.</p></li>
+<li><p>Once the fork is created, open GitHub Desktop.</p></li>
+<li><p>Go to File &gt; Clone Repository.
+Switch to the “URL” tab and paste the URL of your fork of the repository. It will look
+something like <code class="docutils literal notranslate"><span class="pre">https://github.com/&lt;yourusername&gt;/CoastalCodebook.git.</span></code>, replacing yourusername with your GitHub username.</p></li>
+<li><p>Choose where to clone the repository on your computer and click “Clone”.</p></li>
+</ol>
 </details>
 <details>
 <summary><strong>By command line</strong></summary>
-In a terminal, run: `git fork https://github.com/FlorisCalkoen/CoastalCodebook.git`. For more info, see [this introduction](https://docs.github.com/en/get-started/getting-started-with-git). 
+<ol class="arabic simple">
+<li><p>Go to the <a class="reference external" href="https://github.com/floriscalkoen/coastalcodebook.git">CoastalCodebook repository </a> on GitHub.</p></li>
+<li><p>Click on the “Fork” button at the top right corner of the page to create a copy of the repository in your account.</p></li>
+<li><p>Once the fork is created, open a terminal on your computer.</p></li>
+<li><p>Clone your fork of the repository by running: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/&lt;YOURUSERNAME&gt;/CoastalCodebook.git</span></code>, replacing yourusername with your GitHub username.</p></li>
+<li><p>Navigate into the cloned directory: <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/path/to/CoastalCodebook</span></code></p></li>
+</ol>
+</details>
 </li>
 </ol>
 <p>Following these steps, the repository’s files from GitHub are cloned to your machine.
 Verify this by navigating to the cloned directory’s path using a file explorer; the
-contents should mirror <a class="reference external" href="https://github.com/floriscalkoen/coastalcodebook">those found on GitHub</a>. However, to interact with and execute the
+contents should mirror those found in the <a class="reference external" href="https://github.com/floriscalkoen/coastalcodebook">CoastalCodebook repository</a>. However, to interact with and execute the
 code, we need appropriate software, which we will cover during the installation of a package manager.</p>
 </section>
 <section id="installing-mamba-package-manager">
 <h2>2. Installing Mamba Package Manager<a class="headerlink" href="#installing-mamba-package-manager" title="Permalink to this heading">#</a></h2>
 <p>Mamba is a lightweight efficient package manager that we recommend to manage Python
-environments. If you’re not familiar with managing Python environments, please have a
+environments — if you’re not familiar with managing Python environments, please have a
 look at this
 <a class="reference external" href="https://earth-env-data-science.github.io/lectures/environment/python_environments.html?highlight=conda">introduction</a>
-first. Detailed installation instructions are available in <a class="reference external" href="https://mamba.readthedocs.io/en/latest/installation.html">the Mamba
-documentation</a>. In those docs,
-they refer to the to the <a class="reference external" href="https://github.com/conda-forge/miniforge#mambaforge">Conda Forge GitHub</a>
-page to download the software.</p>
+first. Detailed installation instructions for Mamba are available in <a class="reference external" href="https://mamba.readthedocs.io/en/latest/installation.html">the Mamba
+documentation</a>, but here we
+will share the most important links. In their docs,
+they refer to the <a class="reference external" href="https://github.com/conda-forge/miniforge#mambaforge">Conda Forge GitHub</a>
+page to download the software, so that’s where we will download the software as well.</p>
 <details>
 <summary><strong>Windows Users</strong></summary>
 <ol class="arabic simple">
@@ -470,8 +486,8 @@ sure to temporarily disable your firewall.</p>
 <ol class="arabic">
 <li><p>Open a terminal. On Mac, search for terminal or iterm in Spotlight. On linux, the
 hotkey to open a terminal is “cntrl + shift + t”.</p></li>
-<li><p>The commands to install the package manager are copied from their documentation -
-double check to see if they are still the corect!</p>
+<li><p>The commands to install the package manager are copied from their documentation —
+double check to see if they are still the correct!</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-L<span class="w"> </span>-O<span class="w"> </span><span class="s2">&quot;https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-</span><span class="k">$(</span>uname<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname<span class="w"> </span>-m<span class="k">)</span><span class="s2">.sh&quot;</span>
 bash<span class="w"> </span>Mambaforge-<span class="k">$(</span>uname<span class="k">)</span>-<span class="k">$(</span>uname<span class="w"> </span>-m<span class="k">)</span>.sh
 </pre></div>
@@ -487,29 +503,46 @@ file because it ensures that the mamba command becomes available in your profile
 <p>The tutorial notebooks require specific packages, which we have bundled in a coastal
 environment to avoid conflicts with other coding projects you may have. In the next steps
 we will create this environment.</p>
-<ol class="arabic">
-<li><p><strong>Open a terminal</strong> On windows, open a Miniforge Prompt by searching for that in the
-task bar. On Mac/Linux you can search for the terminal in Spotlight.</p></li>
-<li><p><strong>Navigate to the CoastalCodeBook repository</strong>: You can navigate the terminal using <code class="docutils literal notranslate"><span class="pre">cd</span></code>, which stands for “change directory”.</p>
-<details> 
-<summary><strong>Windows</strong></summary>
-<p>If you are on Windows and you installed the GitHub client using their default settings you can
-simply run <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">%userprofile%\Documents\GitHub\CoastalCodeBook</span></code>.</p>
-</details>
 <details>
-<summary><strong>Unix-like Systems (Mac and Linux)</strong></summary>
-Change to the directory where you cloned the GitHub repository. This will be something like `cd ~/path/to/github/repository`.
-</details>
-</li>
-<li><p><strong>Create the environment</strong>: The repository contains
+<summary><strong>Windows Users</strong></summary>
+<ol class="arabic">
+<li><p>On Windows, open a Miniforge Prompt by searching for “miniforge” in the task bar.</p></li>
+<li><p>Change to the directory where you cloned the repository. If you installed the GitHub client using their default settings you run
+<code class="docutils literal notranslate"><span class="pre">cd%userprofile%\Documents\GitHub\CoastalCodeBook</span></code>. By running <code class="docutils literal notranslate"><span class="pre">DIR</span></code> you can see a
+list of all files and directories. You can also see this in the file explorer by
+navigating to this directory.</p></li>
+<li><p>The directory contains
 <a class="reference external" href="https://github.com/floriscalkoen/coastalcodebook/environment.yml">environment.yml</a>,
-which is a file that describes the software
-dependencies. Now create the software environment by running the following command in the
-terminal/Miniforge prompt:</p></li>
-</ol>
+which is a file that describes the software dependencies. Now create the software
+environment by running the following command in the terminal/Miniforge prompt:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">   </span>mamba<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml<span class="w"> </span>-y
 </pre></div>
 </div>
+</li>
+</ol>
+</details>
+<details>
+<summary><strong>Unix-like Systems (Mac and Linux)</strong></summary>
+<ol class="arabic">
+<li><p>On Mac, search for terminal or iterm in Spotlight (command + space). On linux, the
+hotkey to open a terminal is “cntrl + shift + t”.</p></li>
+<li><p>You can navigate the terminal using <code class="docutils literal notranslate"><span class="pre">cd</span></code>, which stands for “change directory”. So you
+would do something like <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/path/to/cloned/repository</span></code></p></li>
+<li><p>The repository contains
+<a class="reference external" href="https://github.com/floriscalkoen/coastalcodebook/environment.yml">environment.yml</a>,
+which is a file that describes the software dependencies. Now create the software environment by running the following command in the terminal/Miniforge prompt:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">   </span>mamba<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml<span class="w"> </span>-y
+</pre></div>
+</div>
+</li>
+</ol>
+</details>
+</section>
+<section id="running-the-notebooks">
+<h2>4. Running the notebooks<a class="headerlink" href="#running-the-notebooks" title="Permalink to this heading">#</a></h2>
+<p>Having successfully installed all necessary content and software on your computer, you’re
+ready to move forward. The <a class="reference internal" href="getting_started.html"><span class="doc std std-doc">following section</span></a> will guide you through
+running thenotebooks!</p>
 </section>
 </section>
 
@@ -580,6 +613,7 @@ terminal/Miniforge prompt:</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-git">1. Setting up Git</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-mamba-package-manager">2. Installing Mamba Package Manager</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-software-environment">3. Creating the software environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-notebooks">4. Running the notebooks</a></li>
 </ul>
   </nav></div>
 

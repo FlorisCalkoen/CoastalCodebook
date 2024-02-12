@@ -1,14 +1,8 @@
 # Troubleshooting
 
-If you have a question about the installation process or notebooks, feel free to open an
-issue in the . If
-that's your first time, have a look at.
-We choose to use the GitHub issue-tracker because your fellow students probably have
-similar problems. We will not troubleshoot the tutorial notebooks by email.
-
 Do you run into an issue with the installation or notebook execution? Don't worry, it's
-likely that other students have come across similar hurdles. To encourage a collaborative learning
-environment and build a comprehensive knowledge base, we strongly encourage you to share
+likely that other students have come across similar trouble. To encourage a collaborative learning
+environment, we strongly encourage you to share
 your questions or issues by opening an issue on our [GitHub repository](https://github.com/FlorisCalkoen/CoastalCodebook).
 
 ## Why Open an Issue?
@@ -26,4 +20,6 @@ If you're unfamiliar with the process of creating an issue on GitHub, [here is a
 3. Describing the Problem: Provide a clear and concise description of what the issue is,
    including steps to reproduce it, expected outcomes, and any screenshots if applicable.
 
-Please note that we prioritize the GitHub issue tracker for all troubleshooting and support queries. Direct email requests related to tutorial notebooks will not be addressed. This approach ensures transparency, accessibility, and efficiency in resolving issues.
+Please note that we prioritize the GitHub issue tracker for all troubleshooting and
+support. Direct email requests related to tutorial notebooks will not be
+addressed!
