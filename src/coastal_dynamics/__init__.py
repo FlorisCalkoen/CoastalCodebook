@@ -2,7 +2,7 @@
 
 __author__ = """Floris Calkoen"""
 __email__ = "floris@calkoen.nl"
-__version__ = "0.0.5"
+__version__ = "0.0.6"
 
 from .factory import QuestionFactory
 from .io import read_questions, write_questions
