@@ -10,18 +10,23 @@ dependencies:
   - ca-certificates
   - certifi
   - openssl
+  - boltons
+  - ciso8601
+  - cattrs
 
     # Development Tools
-  - black
-  - isort
-  - click
   - bandit
-  - pydantic
+  - black
+  - click
+  - codespell
+  - flake8
+  - isort
+  - mypy
   - pre-commit
-  - poetry
+  - pydantic
+  - pytest
 
   # Jupyterlab and lab extensions/packages
-  - jupyterlab>=4
   - gh-scoped-creds # check if useful
   - ipykernel
   - jupyter-panel-proxy # not sure if this one is really useful
@@ -30,6 +35,7 @@ dependencies:
   - jupyterlab_widgets
   - jupyterlab-lsp # breaks tab complete if python-lsp-server not installed
   - jupyterlab-spellchecker
+  - jupyterlab>=4
   - nb_conda_kernels
   - nbgitpuller
   - nbstripout
@@ -40,7 +46,7 @@ dependencies:
   # - jupyterlab-git  # causes warning when git not on os
   # - jupyterlab_execute_time # breaks env on windows installation
   # - dask-labextension  # causes slow startup on windows
-  # - lckr-jupyterlab-variableinspector  # doesn't work on my machine yet
+  # - lckr-jupyterlab-variableinspector  # issues on MacOS (2023)
 
   # Jupyterbook dev tools
   - jupyter-book
@@ -48,74 +54,57 @@ dependencies:
 
   # interactive vizualization libraries
   - bokeh
+  - datashader
+  - colorcet
   - folium
-  - geoviews-core
-  - holoviews
+  - geoviews
+  - holoviews=<1.18 # until bug in stream xy is fixed
   - hvplot
   - ipyleaflet
   - ipympl
   - ipywidgets
   - jupyter_bokeh
-  - matplotlib-base<2 # don't use matplotlib 2 yet
+  - matplotlib-base # don't use matplotlib 2 yet
   - panel
   - param
   - streamz
 
   # Data Science libraries
   - adlfs
-  - astropy
-  - awscli
-  - azure-data-tables
-  - azure-identity
+  # - anaconda::pillow # breaks geoviews on macos
+  - anaconda::s3fs
   - beautifulsoup4
-  - boto3
   - cartopy
   - cfgrib
+  - contextily
   - dask
-  - dask-cloudprovider
   - dask-geopandas
-  - datacube
-  - datashader
-  - descartes
-  - earthengine-api
+  - distributed
   - eccodes>=2.24.2
   - fiona
   - fsspec
   - gcsfs
   - geojson
   - geopandas>=0.11.0
-  - h5netcdf
-  - h5py
-  - intake
-  - intake-esm
-  - intake-geopandas
-  - intake-stac
-  - intake-xarray
-  - lxml
-  - mapclassify
+  - netcdf4
   - numcodecs
   - numpy
   - pandas
-  - planetary-computer
   - pooch
-  - pyarrow=10 # check if higher versions still bring cudatoolkit
+  - pooch
+  - pyarrow
   - pyogrio
+  - pyproj
   - python-dotenv
+  - pyyaml
   - rasterio
   - rioxarray
-  - s3fs
-  - scikit-image
-  - scikit-learn
   - scipy
-  - seaborn
-  - spatialpandas
-  - stac-geoparquet
-  - stac-vrt
-  - stackstac
-  - tqdm
   - toml
-  - xarray-spatial
+  - tqdm
+  - tqdm
+  - xarray
   - zarr
 
   - pip:
-      - coastal-dynamics # use a -e flag if you want to install in dev mode
+      - coastal-dynamics

@@ -6,7 +6,7 @@ on:
     paths:
       - "notebooks/**"
       - "book/**"
-      - "ci/envs/311-book.yaml"
+      - "ci/envs/environment.yaml"
   workflow_dispatch:
 
 concurrency:
@@ -27,7 +27,12 @@ jobs:
       - name: Set up Micromamba
         uses: mamba-org/setup-micromamba@v1
         with:
-          environment-file: ci/envs/311-book.yaml
+          environment-file: ci/envs/environment.yaml
+
+      # Step to activate the environment and install the kernel with the name "coastal-env"
+      - name: Install Jupyter Kernel for CI
+        run: |
+          python -m ipykernel install --user --name conda-env-coastal-py --display-name "conda-env-coastal-py"
 
       # Copy notebooks to book notebooks directory
       - name: Prepare notebooks for book

@@ -50,7 +50,7 @@ tab](https://github.com/floriscalkoen/coastalcodebook/graphs/contributors).
 
 ## Credits
 
-This project is fully created open source software! Many thanks to [NUMFocus](https://numfocus.org) for
+This project is created by using open source software only! Many thanks to [NUMFocus](https://numfocus.org) for
 supporting and maintaining all these open source initiatives. We used [cookiecutter-jupyter-book
 template](https://github.com/executablebooks/cookiecutter-jupyter-book) as our template
 for the book structure.
