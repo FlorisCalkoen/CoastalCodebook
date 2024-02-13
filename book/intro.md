@@ -1,8 +1,8 @@
 # Welcome to Coastal Codebook 
 
-Coastal Dynamics discusses the interrelation between physical wave, flow, and sediment transport phenomena and the resulting morphodynamics of a wide variety of coastal systems. The objective is to provide insights into the phenomenological and theoretical as well as applied aspects for civil engineering MSc students. It builds upon the BSc and MSc courses treating the dynamics of flow, wave, and sediment transport, and forms the basis for the Coastal Engineering B-module (B1, CIEM3210). 
+This Coastal Dynamics Open Codebook contains interactive exercises that cover material of the [Coastal Dynamics Open Textbook](https://textbooks.open.tudelft.nl/textbooks/catalog/book/37). The interactive exercises of the Coastal Codebook aim at helping the students to reflect on the textbook material and better understand difficult topics. 
 
-Explanation on Coastal Codebook as a workbook with the Coastal Dynamics Open Textbook (link) and the Coastal Systems Course. Explain link to lectures and tutorial at DUT and refer to Brightspace. How to use the workbook to work independently and how to prepare for lectures and tutorials (general, not per week).  
+At TU Delft, The Coastal Textbook and Coastal Codebook supplement the MSc course Coastal and Estuarine Systems (CIEM3110-U1). This course discusses the interrelation between physical wave, flow, and sediment transport phenomena and the resulting morphodynamics of a wide variety of coastal systems. The objective is to provide insights into the phenomenological and theoretical as well as applied aspects for civil engineering MSc students. 
 
 ```{tableofcontents}
 ```
