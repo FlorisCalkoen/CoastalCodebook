@@ -133,7 +133,7 @@ we will create this environment.
    environment by running the following command in the terminal/Miniforge prompt:
    
    ```bash
-      mamba env create -f environment.yml -y
+      mamba env create -f environment.yml
    ```
 
 </details>
@@ -151,7 +151,7 @@ we will create this environment.
    which is a file that describes the software dependencies. Now create the software environment by running the following command in the terminal/Miniforge prompt:
    
    ```bash
-      mamba env create -f environment.yml -y
+      mamba env create -f environment.yml
    ```
 
 </details>
