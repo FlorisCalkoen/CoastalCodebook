@@ -160,9 +160,9 @@ def plot_grav_pull():
 
 # %% plot_timeseries_with_interactive_controls - from 2d
 
-
-import ipywidgets as widgets
 import matplotlib.pyplot as plt
+import ipywidgets as widgets
+import pickle
 
 
 def plot_timeseries_with_interactive_controls(dates, scheveningen, tide_gauge, eta_df):
@@ -283,6 +283,7 @@ def plot_timeseries_with_interactive_controls(dates, scheveningen, tide_gauge, e
 
 
 def questions_2d():
+    import numpy as np
     import ipywidgets as widgets
 
     Answer1 = [14.765, 14.8]
@@ -335,13 +336,13 @@ def questions_2d():
             response = value_widget.value
             if isinstance(answer[0], float):
                 if response >= answer[0] and response <= answer[1]:
-                    output_widget.value = "Correct! Well done."
+                    output_widget.value = str("Correct! Well done.")
                 else:
-                    output_widget.value = "Incorrect, please try again."
+                    output_widget.value = str("Incorrect, please try again.")
             elif response.lower() == answer:  # if the answer is correct
-                output_widget.value = "Correct! Well done."
+                output_widget.value = str("Correct! Well done.")
             else:  # the answer is wrong
-                output_widget.value = "Incorrect, please try again."
+                output_widget.value = str("Incorrect, please try again.")
 
         submit_button.on_click(check_answers)
 
@@ -367,6 +368,7 @@ def questions_2d():
 
 
 def questions_3a():
+    import numpy as np
     import ipywidgets as widgets
 
     Q1_text = "Scheveningen"
@@ -415,9 +417,9 @@ def questions_3a():
             # get value from widget and check if this corresponds with the answer
             response = value_widget.value
             if response.lower() == answer:  # if the answer is correct
-                output_widget.value = "Correct! Well done."
+                output_widget.value = str("Correct! Well done.")
             else:  # the answer is wrong
-                output_widget.value = "Incorrect, please try again."
+                output_widget.value = str("Incorrect, please try again.")
 
         submit_button.on_click(check_answers)
 
@@ -425,7 +427,7 @@ def questions_3a():
     questions = [Q1_text, Q2_text, Q3_text, Q4_text]
     Answers = [Answer1, Answer2, Answer3, Answer4]
 
-    for Question, answer in zip(questions, Answers, strict=False):
+    for Question, answer in zip(questions, Answers):
         question_body(Question, answer)
 
     return None
@@ -436,6 +438,8 @@ def questions_3a():
 
 # %% plot_4timeseries_with_interactive_controls - from 3a
 
+import matplotlib.pyplot as plt
+import ipywidgets as widgets
 from warnings import filterwarnings
 
 
