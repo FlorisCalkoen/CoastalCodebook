@@ -364,26 +364,9 @@ import ipywidgets as widgets
 from warnings import filterwarnings
 
 
-def plot_4timeseries_with_interactive_controls(comps, dates, tide_fes):
+def plot_4timeseries_with_interactive_controls(comps, dates, tide):
     
     locs = ['Scheveningen', 'Valparaiso','Jakarta', 'Galveston']
-    
-
-    with open('../data/02_tide_scheveningen.p', 'rb') as pickle_file:
-        scheveningen = pickle.load(pickle_file)
-    with open('../data/02_tide_galveston.p', 'rb') as pickle_file:
-        galveston = pickle.load(pickle_file)
-    with open('../data/02_tide_jakarta.p', 'rb') as pickle_file:
-        jakarta = pickle.load(pickle_file)
-    with open('../data/02_tide_valparaiso.p', 'rb') as pickle_file:
-        valparaiso = pickle.load(pickle_file)
-        
-        tide_fes = {
-        'Scheveningen': scheveningen,
-        'Valparaiso': valparaiso,
-        'Jakarta': jakarta,
-        'Galveston': galveston,
-    }
         
     # Define a list of checkboxes for component selection and put them in one row
     checkboxes = [widgets.Checkbox(value=(comp in ['M2', 'S2', 'N2', 'K2', 'K1', 'O1', 'P1', 'Q1']), description=comp, layout=widgets.Layout(width='auto')) for comp in comps]
@@ -407,13 +390,13 @@ def plot_4timeseries_with_interactive_controls(comps, dates, tide_fes):
         selected_components = [comp for comp, value in kwargs.items() if value]
 
         # Plot selected components
-        fig, axes = plt.subplots(nrows=4, ncols=2,  figsize=(10, 8), sharex=True, constrained_layout=False)
+        fig, axes = plt.subplots(nrows=4, ncols=2,  figsize=(12, 10), sharex=True, constrained_layout=False)
         
         for comp in selected_components:
-            axes[0, 0].plot(tide_fes[locs[0]][comp.lower()][start_date:end_date], label=comp, linewidth=0.5)
-            axes[0, 1].plot(tide_fes[locs[1]][comp.lower()][start_date:end_date], label=comp, linewidth=0.5)
-            axes[2, 0].plot(tide_fes[locs[2]][comp.lower()][start_date:end_date], label=comp, linewidth=0.5)
-            axes[2, 1].plot(tide_fes[locs[3]][comp.lower()][start_date:end_date], label=comp, linewidth=0.5)
+            axes[0, 0].plot(tide[locs[0]][comp.lower()][start_date:end_date], label=comp, linewidth=0.5)
+            axes[0, 1].plot(tide[locs[1]][comp.lower()][start_date:end_date], label=comp, linewidth=0.5)
+            axes[2, 0].plot(tide[locs[2]][comp.lower()][start_date:end_date], label=comp, linewidth=0.5)
+            axes[2, 1].plot(tide[locs[3]][comp.lower()][start_date:end_date], label=comp, linewidth=0.5)
         l =axes[0, 1].legend(fontsize='small', loc='upper right', bbox_to_anchor=(1.3, 1))
         for line in l.get_lines():
             line.set_linewidth(3)
@@ -425,7 +408,7 @@ def plot_4timeseries_with_interactive_controls(comps, dates, tide_fes):
         # Calculate and plot the sum
         sum_values = [0] * len(locs)        
         for i, loc in enumerate(locs):
-            sum_values[i] = sum(tide_fes[loc][comp.lower()][start_date:end_date] for comp in selected_components)
+            sum_values[i] = sum(tide[loc][comp.lower()][start_date:end_date] for comp in selected_components)
 
         axes[1, 0].plot(sum_values[0].index, sum_values[0], color='darkblue', 
                  label='Sum of selected components', linewidth=0.5)
