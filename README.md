@@ -30,6 +30,9 @@ Install the Python package using pip:
 ```bash
 pip install coastal-dynamics
 ```
+### Architecture
+
+![image](https://github.com/FlorisCalkoen/CoastalCodebook/assets/44444001/40a5112d-e830-42cf-9448-63c6d37fb147)
 
 
 
