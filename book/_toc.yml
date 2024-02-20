@@ -21,6 +21,10 @@ parts:
     chapters:
       - file: notebooks/1_coastal_classification
 
+  - caption: Week 2
+    chapters:
+      - file: notebooks/2c_theory_equilibrium_tide
+
   # - caption: Week 2
   #   chapters:
   #     - file: assignments/2a_pre_knowledge_waves
