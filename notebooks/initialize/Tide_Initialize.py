@@ -140,16 +140,24 @@ def plot_grav_pull():
 import matplotlib.pyplot as plt
 import ipywidgets as widgets
 import pickle
+from datetime import datetime, timedelta
 
-def plot_timeseries_with_interactive_controls(dates, scheveningen, tide_gauge, eta_df):
+
+def plot_timeseries_with_interactive_controls(tide_gauge, eta_df, scheveningen):
     # Define a list of checkboxes for component selection and put them in one row 
-    comps = ['m2', 's2', 'n2', 'k2', 'k1', 'o1', 'p1', 'q1', 'mm', 'mf', 'ssa']
-    checkboxes = [widgets.Checkbox(value=True, description=comp, layout=widgets.Layout(width='auto')) for comp in comps[:-4]]
+    
+    dates = np.array([
+    datetime(2000, 1, 1, 0, 0, 0) + timedelta(seconds=item * 3600)
+    for item in range(24*365) #1 year
+])
+    
+    comps = ['M2', 'S2', 'N2', 'K2', 'K1', 'O1', 'P1', 'Q1', 'MM', 'MF', 'SSA']
+    checkboxes = [widgets.Checkbox(value=(comp == 'M2'), description=comp, layout=widgets.Layout(width='auto')) for comp in comps]
     checkbox_row = widgets.HBox(checkboxes, layout=widgets.Layout(display='flex', flex_flow='row wrap'))
 
     # Plot with interactive slider and checkboxes
     date_range_selector = widgets.SelectionRangeSlider(
-        options=[(date.strftime('%d-%m-%Y %H:%M'), date) for date in dates],
+        options=[(date.strftime('%d/%m %Hh'), date) for date in dates],
         index=(0, len(dates)-1),
         description='Dates',
         orientation='horizontal',
@@ -167,15 +175,19 @@ def plot_timeseries_with_interactive_controls(dates, scheveningen, tide_gauge, e
         # Plot selected components on axes[0]
         fig, axes = plt.subplots(nrows=4, figsize=(10, 8), sharex=True, constrained_layout=False)
         for comp in selected_components:
-            axes[0].plot(scheveningen[comp][start_date:end_date]/100, 
+            axes[0].plot(scheveningen[comp.lower()][start_date:end_date]/100, 
                          label=comp, linewidth=0.5)
-        axes[0].legend(fontsize='small', loc='upper right')
-
+            l = axes[0].legend(fontsize='small', loc='upper right', bbox_to_anchor=(1, 1.2), ncol=11)
+            for line in l.get_lines():
+                line.set_linewidth(3)
+            
         # Calculate and plot the sum on axes[1]
-        sum_values = sum(scheveningen[comp][start_date:end_date] for comp in selected_components)
+        sum_values = sum(scheveningen[comp.lower()][start_date:end_date] for comp in selected_components)
         axes[1].plot(sum_values.index, sum_values/100, color='darkblue', 
                      label='Sum of selected components', linewidth=0.5)
-        axes[1].legend(fontsize='small', loc='upper right')
+        l = axes[1].legend(fontsize='small', loc='upper right', bbox_to_anchor=(1, 1.2), ncol=1)
+        for line in l.get_lines():
+            line.set_linewidth(3)
 
         # Plot total tidal signal and the obtained sum on axes [2]
        
@@ -183,7 +195,9 @@ def plot_timeseries_with_interactive_controls(dates, scheveningen, tide_gauge, e
                      label='Total tidal signal', linewidth=0.5)
         axes[2].plot(sum_values.index, sum_values/100, color='darkblue', 
                      label='Sum of selected components', linewidth=0.5)
-        axes[2].legend(fontsize='small', loc='upper right')
+        l = axes[2].legend(fontsize='small', loc='upper right', bbox_to_anchor=(1, 1.2), ncol=2)
+        for line in l.get_lines():
+            line.set_linewidth(3)
 
 
         # Plot total tidal signal, sum, and observed sea level on axes [3]
@@ -193,7 +207,9 @@ def plot_timeseries_with_interactive_controls(dates, scheveningen, tide_gauge, e
                      label='Total tidal signal', linewidth=0.5)
         axes[3].plot(sum_values.index, sum_values/100, color='darkblue', 
                      label='Sum of selected components', linewidth=0.5)
-        axes[3].legend(fontsize='small', loc='upper right')
+        l = axes[3].legend(fontsize='small', loc='upper right', bbox_to_anchor=(1, 1.2), ncol=3)
+        for line in l.get_lines():
+            line.set_linewidth(3)
 
         # Set labels and legend
         fig.text(-0.03, 0.5, 'Sea level [m]', va='center', rotation='vertical', fontsize=14)
