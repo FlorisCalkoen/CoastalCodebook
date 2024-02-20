@@ -1,0 +1,700 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Coastal Systems Notebook 2c: Theory Equilibrium tide &#8212; CoastalCodeBook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/2c_theory_equilibrium_tide';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="CoastalCodeBook - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="CoastalCodeBook - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to Coastal Codebook
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About this book</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../about/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/structure.html">Course structure</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../about/acknowledgements.html">Acknowledgements</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../usage/installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/contributing.html">Contributing (Advanced)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1_coastal_classification.html">Characterization of Coastal Systems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/floriscalkoen/CoastalCodeBook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/floriscalkoen/CoastalCodeBook/issues/new?title=Issue%20on%20page%20%2Fnotebooks/2c_theory_equilibrium_tide.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/2c_theory_equilibrium_tide.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Coastal Systems Notebook 2c: Theory Equilibrium tide</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="coastal-systems-notebook-2c-theory-equilibrium-tide">
+<h1>Coastal Systems Notebook 2c: Theory Equilibrium tide<a class="headerlink" href="#coastal-systems-notebook-2c-theory-equilibrium-tide" title="Permalink to this heading">#</a></h1>
+<p>In Chapter 3 of the book and slides, we learned that the tide is generated through the interplay between gravitational attraction forces in the Earth-Moon and Earth-Sun systems respectively. In this notebook we will explore these concepts in a more interactive way, with some exercises, visualizations, and code. We will not repeat the whole theory, however, so make sure you have followed the lectures for this week and read the relevant pages in Chapter 3 of the book.</p>
+<p>We will explore the different aspects of the tide through this Jupyter notebook and use python to create figures, make computations, and analyse data. So, please make sure you activate the coastal environment before running the notebook. Then run the cell below, where we import the packages used in this notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">filterwarnings</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">cwd</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">()</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+<span class="n">proj_dir</span> <span class="o">=</span> <span class="n">cwd</span><span class="o">.</span><span class="n">parent</span>  <span class="c1"># this is the root of the CoastalCodeBook</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><br><br></p>
+<p>First we will have a look at the generation of the tide. To start, we are going to look at the gravitational forces between the Earth, Moon, and Sun. As you have learned, the tide is generated by the so-called <b>differential pull</b>, meaning the difference in gravitational pull on water masses at different locations on the Earth as compared to the gravitational pull for the centre of the earth. To make calculations, we first need a function that can compute the gravitational pull between two celestial bodies (e.g. the Earth and Moon).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Functions</span>
+<span class="k">def</span> <span class="nf">grav_pull</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">m2</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function calculates the gravitational pull between two celestial bodies using Newton&#39;s law of universal gravitation.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    m1 (float): mass of the first body in kg.</span>
+<span class="sd">    m2 (float): mass of the second body in kg.</span>
+<span class="sd">    d (float): distance between the two bodies in meters.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    g_pull (float): the gravitational pull between the two bodies in g</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="mf">6.67408e-11</span>                 <span class="c1"># universal gravitational constant</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>                        <span class="c1"># gravitational acceleration on the Earth</span>
+    <span class="n">g_pull</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="p">(</span><span class="n">m1</span> <span class="o">*</span> <span class="n">m2</span><span class="p">)</span> <span class="o">/</span> <span class="n">d</span><span class="o">**</span><span class="mi">2</span>   <span class="c1"># gravitational pull between two bodies</span>
+    
+    <span class="c1"># we divide the GP by g, so we get the gravitational pull in terms of g</span>
+    <span class="k">return</span> <span class="n">g_pull</span> <span class="o">/</span> <span class="n">g</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p><br><br>
+The above function computes the gravitational pull between two celestial bodies. We can now use it to compute the forces between the Earth and the Sun or Moon.
+For this notebook, we will compute the forces that are working on 1kg of Earth mass, to keep it simple. Hence, the mass we will fill in for the Earth will be 1kg. Also, we will express the forces in terms of the Earths own gravitational acceleration (<span class="math notranslate nohighlight">\(g\)</span>), which makes it easier to compare the magnitudes with each other. Run the code cell below to compute the gravitational pull of the moon and sun on the Earth. Compare the values to the ones in the book (section 3.7.2, pp.122-123). Are they equal?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Properties of Earth, Moon, and Sun</span>
+<span class="n">m_earth</span> <span class="o">=</span> <span class="mi">1</span>         <span class="c1"># mass of the earth in kg (we use 1 to compute the gravitational pull per kg of earth mass)</span>
+<span class="n">m_sun</span> <span class="o">=</span> <span class="mf">1.99e30</span>     <span class="c1"># mass of the sun in kg</span>
+<span class="n">m_moon</span> <span class="o">=</span> <span class="mf">7.35e22</span>    <span class="c1"># mass of the moon in kg</span>
+<span class="n">d_sun</span> <span class="o">=</span> <span class="mf">1.5e11</span>      <span class="c1"># distance between the centers of the sun and earth in meters</span>
+<span class="n">d_moon</span> <span class="o">=</span> <span class="mf">3.84e8</span>     <span class="c1"># distance between the centers of the moon and earth in meters</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">6.37e6</span>          <span class="c1"># radius of the Earth in meters</span>
+
+<span class="c1"># Now we compute the gravitational pull and print them</span>
+<span class="n">gp_sun</span> <span class="o">=</span> <span class="n">grav_pull</span><span class="p">(</span><span class="n">m_earth</span><span class="p">,</span> <span class="n">m_sun</span><span class="p">,</span> <span class="n">d_sun</span><span class="p">)</span>
+<span class="n">gp_moon</span> <span class="o">=</span> <span class="n">grav_pull</span><span class="p">(</span><span class="n">m_earth</span><span class="p">,</span> <span class="n">m_moon</span><span class="p">,</span> <span class="n">d_moon</span><span class="p">)</span>
+
+<span class="c1"># Print out results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gravitational pull from the Sun on the center of Earth:  </span><span class="si">%.2E</span><span class="s2"> g&quot;</span> <span class="o">%</span> <span class="n">gp_sun</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gravitational pull from the Moon on the center of Earth: </span><span class="si">%.2E</span><span class="s2"> g&quot;</span> <span class="o">%</span> <span class="n">gp_moon</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gravitational pull from the Sun on the center of Earth:  6.02E-04 g
+Gravitational pull from the Moon on the center of Earth: 3.39E-06 g
+</pre></div>
+</div>
+</div>
+</div>
+<p><br><br>
+As we can see, the gravitational pull of the sun is about two orders of magnitude larger than that of the moon, and both are much smaller than <span class="math notranslate nohighlight">\(g\)</span>. Yet, we know that these forces are somehow responsible for tidal ranges of multiple meters, and that the moon is actually responsible for about 70% of these tides. How come? As we can see in the formula, the gravitational pull is strongly dependent on the distance between the two celestial bodies. Moreover, since the Earth is a sphere, different locations on the Earth’s surface will experience subtle differences in the gravitational pull, as the distance to the Sun/Moon varies slightly over the Earths surface.</p>
+<p>Let’s use the above function to compute the gravitational pull from the sun at 8 different locations around the Earth’s surface (A-H, see the figure below).</p>
+<p><img alt="earth_positions" src="../_images/02_earth_sun_gp.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First we compute the distance between the center of the sun and each position on Earth</span>
+<span class="n">distance</span> <span class="o">=</span> <span class="n">d_sun</span>  <span class="c1"># switch to d_moon to change the computation to moon</span>
+<span class="n">distances</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="n">distance</span><span class="p">,</span>
+    <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">distance</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span>  <span class="c1"># Same as point E</span>
+    <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">45</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span>
+        <span class="o">+</span> <span class="p">(</span><span class="n">distance</span> <span class="o">-</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">45</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="p">),</span>  <span class="c1"># Same as point D</span>
+    <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="n">distance</span> <span class="o">-</span> <span class="n">r</span><span class="p">,</span>
+    <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">45</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span>
+        <span class="o">+</span> <span class="p">(</span><span class="n">distance</span> <span class="o">-</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">45</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="p">),</span>  <span class="c1"># Same as point B</span>
+    <span class="s2">&quot;E&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">distance</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span>  <span class="c1"># Same as point A</span>
+    <span class="s2">&quot;F&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">45</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span>
+        <span class="o">+</span> <span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">45</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span><span class="p">)</span> <span class="o">+</span> <span class="n">distance</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="p">),</span>  <span class="c1"># Same as point H</span>
+    <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="n">distance</span> <span class="o">+</span> <span class="n">r</span><span class="p">,</span>
+    <span class="s2">&quot;H&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">45</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span>
+        <span class="o">+</span> <span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">45</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span><span class="p">)</span> <span class="o">+</span> <span class="n">distance</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="p">),</span>  <span class="c1"># Same as point F</span>
+<span class="p">}</span>
+
+<span class="c1"># Now compute the gravitational pull for each point.</span>
+<span class="n">gp</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="n">distances</span><span class="p">:</span>
+    <span class="n">gp</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">grav_pull</span><span class="p">(</span><span class="n">m_earth</span><span class="p">,</span> <span class="n">m_sun</span><span class="p">,</span> <span class="n">distances</span><span class="p">[</span><span class="n">pos</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gravitational pull at position </span><span class="si">%s</span><span class="s2">: </span><span class="si">%.5E</span><span class="s2"> g&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">gp</span><span class="p">[</span><span class="n">pos</span><span class="p">])</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gravitational pull at position X: 6.01718E-04 g
+Gravitational pull at position A: 6.01718E-04 g
+Gravitational pull at position B: 6.01754E-04 g
+Gravitational pull at position C: 6.01769E-04 g
+Gravitational pull at position D: 6.01754E-04 g
+Gravitational pull at position E: 6.01718E-04 g
+Gravitational pull at position F: 6.01682E-04 g
+Gravitational pull at position G: 6.01667E-04 g
+Gravitational pull at position H: 6.01682E-04 g
+</pre></div>
+</div>
+</div>
+</div>
+<p><br><br>
+As we can see, the differences are very subtle (in the order of 10^-7 <span class="math notranslate nohighlight">\(g\)</span>). We also know that the gravitational pull is responsible for the Earth’s rotation around the Sun. That would imply, however, that the rotation of the Earth varies over its body, along with the gravitational pull. Yet, we know that the Earth rotates around the Sun as a whole. Apparently, the Earth compensates for these subtle differences in gravitational pull so it can rotate around the Sun as one body. The water masses on the surface of the solid Earth, however, can move around and are not as fixed and rigid as the solid land masses. So, while the solid masses of the Earth remain virtually unchanged, its water masses are moved around by these subtle differences in gravitational pull.</p>
+<p>So, let’s visualize these differences. Earth’s rotation is based on the gravitational pull that acts on its center, hence this will be our <strong>reference pull</strong>. For the other locations around the Earth, we will compute the difference from the reference pull, by subtracting the reference pull from the gravitational pull at each location. If we do this with the actual forces we computed above, we won’t see the difference since they are very small. Therefore, we will visualize the forces out of proportion, i.e., we exaggerate the difference. Next to the difference in magnitude, there are also slight differences in the direction of the forces at different positions, as each force is directed towards the centre of the Sun/Moon. We will also visualize these out of proportion, so we can actually see the difference. Run the code cell below to get a visualization of the forces we talked about above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">initialize.Tide_Initialize</span> <span class="kn">import</span> <span class="n">plot_grav_pull</span>
+
+<span class="n">plot_grav_pull</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0eb45a8e7d4ebf1512b67ef7efbcb8d3732a8caeb91ea6f467b2c214caab1915.png" src="../_images/0eb45a8e7d4ebf1512b67ef7efbcb8d3732a8caeb91ea6f467b2c214caab1915.png" />
+</div>
+</div>
+<br>
+The red arrows indicate the gravitational pull at each individual location around Earth's surface. The black lined, transparent arrows represent the reference pull and are all equal to the black arrow at the center (X). If we subtract the black arrows from the red arrows at each location, we end up with the green arrows in the second plot, which we call the differential pull. Do the green arrows already give you an indication of the shape of the tides?
+<p>Now, let’s compute the actual differential pull at location C, for both the Earth-Sun and the Earth-Moon system. You can also check this calculation written out on page 124 of the book (Ch. 3.7.3, eq 3.29/3.30). Note that in the book an approximation is used, hence the values are slightly different.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dp_C_moon</span> <span class="o">=</span> <span class="n">grav_pull</span><span class="p">(</span><span class="n">m_earth</span><span class="p">,</span> <span class="n">m_moon</span><span class="p">,</span> <span class="n">d_moon</span> <span class="o">-</span> <span class="n">r</span><span class="p">)</span> <span class="o">-</span> <span class="n">grav_pull</span><span class="p">(</span><span class="n">m_earth</span><span class="p">,</span> <span class="n">m_moon</span><span class="p">,</span> <span class="n">d_moon</span><span class="p">)</span>
+<span class="n">dp_C_sun</span> <span class="o">=</span> <span class="n">grav_pull</span><span class="p">(</span><span class="n">m_earth</span><span class="p">,</span> <span class="n">m_sun</span><span class="p">,</span> <span class="n">distances</span><span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">])</span> <span class="o">-</span> <span class="n">grav_pull</span><span class="p">(</span><span class="n">m_earth</span><span class="p">,</span> <span class="n">m_sun</span><span class="p">,</span> <span class="n">d_sun</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Differential pull at C due to the moon: </span><span class="si">%E</span><span class="s2"> g&quot;</span> <span class="o">%</span> <span class="n">dp_C_moon</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Differential pull at C due to the sun : </span><span class="si">%E</span><span class="s2"> g&quot;</span> <span class="o">%</span> <span class="n">dp_C_sun</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Percentage of the total differential pull associated to the moon: </span><span class="si">%.1f%%</span><span class="s2">&quot;</span>
+    <span class="o">%</span> <span class="p">(</span><span class="n">dp_C_moon</span> <span class="o">/</span> <span class="p">(</span><span class="n">dp_C_sun</span> <span class="o">+</span> <span class="n">dp_C_moon</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Percentage of the total differential pull associated to the sun : </span><span class="si">%.1f%%</span><span class="s2">&quot;</span>
+    <span class="o">%</span> <span class="p">(</span><span class="n">dp_C_sun</span> <span class="o">/</span> <span class="p">(</span><span class="n">dp_C_sun</span> <span class="o">+</span> <span class="n">dp_C_moon</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Differential pull at C due to the moon: 1.153713E-07 g
+Differential pull at C due to the sun : 5.110917E-08 g
+Percentage of the total differential pull associated to the moon: 69.3%
+Percentage of the total differential pull associated to the sun : 30.7%
+</pre></div>
+</div>
+</div>
+</div>
+<p><br><br>
+Now we can see that the differential pull is actually larger for the Moon than for the Sun. Can you explain why this is the case (hint: look at equations 3.29/3.30 on page 124 of the book and consider the effect of the distance between the earth and the sun and the earth and the moon)?</p>
+<p>Still, both are several orders of magnitude smaller than the Earth’s own attraction towards its centre, <span class="math notranslate nohighlight">\(g\)</span>. That means, that the component of the differential pull that is in line with Earth’s center (perpendicular to the Earth’s surface) can be neglected, since its magnitude is negligible compared to <span class="math notranslate nohighlight">\(g\)</span>, and will therefore not make a noticable difference. The only thing we are left with then, are the <em>tangential components</em> of the differential pull. These are the forces that generate the tide by moving the water around the surface of the Earth. This results in the two bulges of water at either side of the Earth, in line with the Sun/Moon. Hence, if the Sun and Moon are aligned (full moon and new moon), the forces enhance each other and we get a spring tide (larger tidal range). On the other hand, if they are perpendicular to each other (1st and 3rd quarter moon), the lunar and solar differential pull work against each other and we get a neap tide. In the figure below you can play around with different constellations of the Moon and Sun, to see what the effect is on the total tidal shape.</p>
+<p>The code below visualizes this concept. In the plot, the sun is fixed to the right side of the Earth (see also Figure 3.21 in the book). You can adjust the position of the Moon by setting its angle relative to the position of the sun. So if you set it at 90, the moon will be in a position 90 degrees counterclock-wise from the sun (i.e., they will be perpendicular). In short, this means:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p>Angle</p></th>
+<th class="head"><p>Position</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>0</p></td>
+<td><p>New moon</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>90</p></td>
+<td><p>1st quarter moon</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>180</p></td>
+<td><p>Full moon</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>270</p></td>
+<td><p>3rd quarter moon</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note: the figure only plots the correct total tide for intervals of 90 degrees (0, 90, 180, or 270 degrees)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note: the figure only plots the correct total tide for intervals of 90 degrees (0, 90, 180, or 270 degrees)</span>
+
+<span class="n">angle_moon</span> <span class="o">=</span> <span class="mi">180</span> <span class="c1"># Adjust here the position of the moon</span>
+<span class="n">angle_sun</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Fixed at 0, dont change</span>
+
+<span class="kn">from</span> <span class="nn">initialize.Tide_Initialize</span> <span class="kn">import</span> <span class="n">plot_tide_diagram</span>
+
+<span class="n">plot_tide_diagram</span><span class="p">(</span><span class="n">angle_sun</span><span class="p">,</span> <span class="n">angle_moon</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7dde1cf889a6e0142ab261fa1654767ec1daa2faeacc77eb6be29f9831c86fde.png" src="../_images/7dde1cf889a6e0142ab261fa1654767ec1daa2faeacc77eb6be29f9831c86fde.png" />
+</div>
+</div>
+<p>By adjusting the above figure, we can see how the alignment of the earth, moon, and sun influences the tide experienced by a given point on earth.  If the tidal bulges align, we get a higher high tide, “spring tide”, but if the tidal bulges are out of alignment, we have a reduced high tide, the “neap tide”. The same holds for low waters: low tides are lower when everything is aligned (spring tide), and the low tides at neap are not quite as low.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Floris Calkoen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
