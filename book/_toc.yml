@@ -23,7 +23,10 @@ parts:
 
   - caption: Week 2
     chapters:
+      - file: notebooks/2a_pre_knowledge_waves
+      - file: notebooks/2b_wave_dispersion_and_grouping
       - file: notebooks/2c_theory_equilibrium_tide
+      - file: notebooks/2d_tidal_constituents
 
   # - caption: Week 2
   #   chapters:
