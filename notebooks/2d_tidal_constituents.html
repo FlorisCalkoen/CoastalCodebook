@@ -1,0 +1,895 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Coastal Systems Notebook 2d: Tidal Constituents &#8212; CoastalCodeBook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/2d_tidal_constituents';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="CoastalCodeBook - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="CoastalCodeBook - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to Coastal Codebook
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About this book</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../about/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/structure.html">Course structure</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../about/acknowledgements.html">Acknowledgements</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../usage/installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/contributing.html">Contributing (Advanced)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1_coastal_classification.html">Characterization of Coastal Systems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2c_theory_equilibrium_tide.html">Coastal Systems Notebook 2c: Theory Equilibrium tide</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/floriscalkoen/CoastalCodeBook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/floriscalkoen/CoastalCodeBook/issues/new?title=Issue%20on%20page%20%2Fnotebooks/2d_tidal_constituents.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/2d_tidal_constituents.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Coastal Systems Notebook 2d: Tidal Constituents</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-of-astronomical-constituents">Visualisation of Astronomical Constituents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tidal-amplitudes">Tidal Amplitudes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tidal-propagation">Tidal Propagation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="coastal-systems-notebook-2d-tidal-constituents">
+<h1>Coastal Systems Notebook 2d: Tidal Constituents<a class="headerlink" href="#coastal-systems-notebook-2d-tidal-constituents" title="Link to this heading">#</a></h1>
+<p>In Chapter 3 of the book and slides, we learned that the tide is generated through the interplay between gravitational attraction forces in the Earth-Moon and Earth-Sun systems respectively. In this notebook we will explore these concepts in a more interactive way, with some exercises, visualizations, and code. We will not repeat the whole theory, however, so make sure you have followed the lectures for this week and read the relevant pages in chapter 3 of the book.</p>
+<p>Earth has continents, oceans with varying water depths, and a complex gravitational field, hence the tidal signals we observe around the planet are complex. Fortunately, we can break them down into multiple harmonic components, called <em><strong>tidal constituents</strong></em>. These can either be diurnal, semi-diurnal, short-, or long-period constituents. Each constituent is characterized by an amplitude, frequency and phase, and individually looks like a smooth sin/cosine curve. When we sum up all the individual components we observe signal beating resulting in complex tidal signals with spring-neap cycles, daily inequalities, and longer-term variations.</p>
+<p>A table of principal tidal constituents is provided below (compare Table 3.5 in the book). These components are direclty related to the astronomical forcing and the listed amplitudes are according to equilibrium theory. The period is given with more significant figures than in Table 3.5 to make more accurate calculations of the beating periods possible.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tidal constituents</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Equil. <br> Amplitude [m]</p></th>
+<th class="head"><p>Period [h]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Semi-diurnal</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Principal lunar</p></td>
+<td><p>M2</p></td>
+<td><p>0.24</p></td>
+<td><p>12.4206012</p></td>
+</tr>
+<tr class="row-even"><td><p>Principal solar</p></td>
+<td><p>S2</p></td>
+<td><p>0.11</p></td>
+<td><p>12</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lunar elliptical</p></td>
+<td><p>N2</p></td>
+<td><p>0.046</p></td>
+<td><p>12.65834751</p></td>
+</tr>
+<tr class="row-even"><td><p>Lunar-solar declinational</p></td>
+<td><p>K2</p></td>
+<td><p>0.031</p></td>
+<td><p>11.96723606</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Diurnal</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Lunar-solar declinational</p></td>
+<td><p>K1</p></td>
+<td><p>0.14</p></td>
+<td><p>23.93447213</p></td>
+</tr>
+<tr class="row-odd"><td><p>Principal lunar</p></td>
+<td><p>O1</p></td>
+<td><p>0.10</p></td>
+<td><p>25.81933871</p></td>
+</tr>
+<tr class="row-even"><td><p>Principal solar</p></td>
+<td><p>P1</p></td>
+<td><p>0.047</p></td>
+<td><p>24.06588766</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lunar elliptical</p></td>
+<td><p>Q1</p></td>
+<td><p>0.019</p></td>
+<td><p>26.868350</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Long period</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Fortnightly</p></td>
+<td><p>Mf</p></td>
+<td><p>0.042</p></td>
+<td><p>327.8599387</p></td>
+</tr>
+<tr class="row-even"><td><p>Monthly</p></td>
+<td><p>Mm</p></td>
+<td><p>0.022</p></td>
+<td><p>661.3111655</p></td>
+</tr>
+<tr class="row-odd"><td><p>Semi-annual</p></td>
+<td><p>Ssa</p></td>
+<td><p>0.019</p></td>
+<td><p>4383.076325</p></td>
+</tr>
+</tbody>
+</table>
+<p><br><br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Before running, install &#39;uptide&#39; in the coastal environment as &#39;pip install uptide&#39;</span>
+<span class="c1"># Run this to import modules</span>
+
+<span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">filterwarnings</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">cartopy.feature</span> <span class="k">as</span> <span class="nn">cfeature</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
+<span class="kn">import</span> <span class="nn">pooch</span>
+<span class="kn">import</span> <span class="nn">uptide</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="kn">from</span> <span class="nn">initialize.Tide_Initialize</span> <span class="kn">import</span> <span class="n">plot_timeseries_with_interactive_controls</span><span class="p">,</span> <span class="n">questions_2d</span>
+
+<span class="n">cwd</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">()</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+<span class="n">proj_dir</span> <span class="o">=</span> <span class="n">cwd</span><span class="o">.</span><span class="n">parent</span>  <span class="c1"># this is the root of the CoastalCodeBook</span>
+<span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">proj_dir</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">21</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">import</span> <span class="nn">pooch</span>
+<span class="ne">---&gt; </span><span class="mi">21</span> <span class="kn">import</span> <span class="nn">uptide</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">import</span> <span class="nn">pickle</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="kn">from</span> <span class="nn">initialize.Tide_Initialize</span> <span class="kn">import</span> <span class="n">plot_timeseries_with_interactive_controls</span><span class="p">,</span> <span class="n">questions_2d</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;uptide&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><br> <br></p>
+<section id="visualisation-of-astronomical-constituents">
+<h2>Visualisation of Astronomical Constituents<a class="headerlink" href="#visualisation-of-astronomical-constituents" title="Link to this heading">#</a></h2>
+<p>In this part of the exercise, our aim is to enhance the understanding of tidal constituents by visualising the full observational sea level in comparison to the tidal signal at Scheveningen. To achieve this, we will use two datasets:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://gesla787883612.wordpress.com/">GESLA-3 (Global Extreme Sea Level Analysis)</a> sea level records</p></li>
+<li><p><a class="reference external" href="https://www.aviso.altimetry.fr/en/data/products/auxiliary-products/global-tide-fes/description-fes2014.html">FES2014 Global Tide data</a>, providing amplitude and phase information for 34 tidal constituents, distributed on 1/16˚ grids.</p></li>
+</ul>
+<p><br> Look at the cell below and run it to see how the observed sea level matches up with the tidal signal derived from the available 34 constituents. The tidal constituents include both astronomical constituents (like in the Table above) and non-linear shallow-water tides or overtides. These tidal signals were computed for an arbitrary timeframe spanning from 1977 to 2017, using the <a class="reference external" href="https://github.com/stephankramer/uptide">uptide</a> python package.</p>
+<p>Can you try to explain why the tidal signal doesn’t perfectly match the observed sea level?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Download GESLA tide gauge data for Scheveningen</span>
+
+<span class="n">tide_gauge_fp</span> <span class="o">=</span> <span class="n">pooch</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span>
+    <span class="s2">&quot;https://coclico.blob.core.windows.net/coastal-dynamics/2_wind_waves_tides/Scheveningen_GESLA.pkl&quot;</span><span class="p">,</span>
+    <span class="n">known_hash</span><span class="o">=</span><span class="s2">&quot;90355584803ddcdf88b01fcf02546c4d8201a3fa6f63355ecfdb8ab6a07d1e38&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">tide_gauge</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="n">tide_gauge_fp</span><span class="p">)</span>
+
+<span class="c1">## Load FES2014 amplitude and phase data and calculate the signal</span>
+<span class="c1"># see the commented script at the bottom of the notebook if you want to know how to load FES2014 amplitude and phase data</span>
+
+<span class="n">tide</span> <span class="o">=</span> <span class="p">{};</span> <span class="n">amplitudes</span> <span class="o">=</span> <span class="p">{};</span> <span class="n">phases</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">comps</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;EPS2&#39;</span><span class="p">,</span> <span class="s1">&#39;J1&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K2&#39;</span><span class="p">,</span> <span class="s1">&#39;L2&#39;</span><span class="p">,</span> <span class="s1">&#39;LAMBDA2&#39;</span><span class="p">,</span> <span class="s1">&#39;M2&#39;</span><span class="p">,</span> <span class="s1">&#39;M3&#39;</span><span class="p">,</span> <span class="s1">&#39;M4&#39;</span><span class="p">,</span> <span class="s1">&#39;M6&#39;</span><span class="p">,</span> <span class="s1">&#39;M8&#39;</span><span class="p">,</span> <span class="s1">&#39;MF&#39;</span><span class="p">,</span> <span class="s1">&#39;MKS2&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;MM&#39;</span><span class="p">,</span> <span class="s1">&#39;MN4&#39;</span><span class="p">,</span> <span class="s1">&#39;MS4&#39;</span><span class="p">,</span> <span class="s1">&#39;MSF&#39;</span><span class="p">,</span> <span class="s1">&#39;MSQM&#39;</span><span class="p">,</span> <span class="s1">&#39;MTM&#39;</span><span class="p">,</span> <span class="s1">&#39;MU2&#39;</span><span class="p">,</span> <span class="s1">&#39;N2&#39;</span><span class="p">,</span> <span class="s1">&#39;N4&#39;</span><span class="p">,</span> <span class="s1">&#39;NU2&#39;</span><span class="p">,</span> <span class="s1">&#39;O1&#39;</span><span class="p">,</span> <span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="s1">&#39;Q1&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;R2&#39;</span><span class="p">,</span> <span class="s1">&#39;S1&#39;</span><span class="p">,</span> <span class="s1">&#39;S2&#39;</span><span class="p">,</span> <span class="s1">&#39;S4&#39;</span><span class="p">,</span> <span class="s1">&#39;SA&#39;</span><span class="p">,</span> <span class="s1">&#39;SSA&#39;</span><span class="p">,</span> <span class="s1">&#39;T2&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="n">comps</span><span class="p">:</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">DATA_DIR</span> <span class="o">/</span> <span class="s2">&quot;fes2014_amp_ph&quot;</span> <span class="o">/</span> <span class="p">(</span><span class="s2">&quot;02_&quot;</span> <span class="o">+</span> <span class="n">comp</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.p&quot;</span><span class="p">)</span>
+    <span class="n">tide</span><span class="p">[</span><span class="n">comp</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+    <span class="n">amplitudes</span><span class="p">[</span><span class="n">comp</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">=</span> <span class="n">tide</span><span class="p">[</span><span class="n">comp</span><span class="o">.</span><span class="n">lower</span><span class="p">()][</span><span class="s1">&#39;amplitude&#39;</span><span class="p">][</span><span class="s1">&#39;scheveningen&#39;</span><span class="p">]</span>
+    <span class="n">phases</span><span class="p">[</span><span class="n">comp</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">=</span> <span class="n">tide</span><span class="p">[</span><span class="n">comp</span><span class="o">.</span><span class="n">lower</span><span class="p">()][</span><span class="s1">&#39;phase&#39;</span><span class="p">][</span><span class="s1">&#39;scheveningen&#39;</span><span class="p">]</span>
+
+<span class="c1"># Choose th initial time for calculating the tidal signal (has to be between 1977-2017)</span>
+<span class="n">initial_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">1977</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">tidal_signal</span> <span class="o">=</span> <span class="n">uptide</span><span class="o">.</span><span class="n">Tides</span><span class="p">(</span><span class="n">comps</span><span class="p">)</span>  <span class="c1"># select which constituents to use, we will use all</span>
+<span class="n">tidal_signal</span><span class="o">.</span><span class="n">set_initial_time</span><span class="p">(</span><span class="n">initial_time</span><span class="p">)</span>  <span class="c1"># set t=0 at 1 Jan 1977, UTC 12:00, arbitrary choice</span>
+<span class="n">amp</span> <span class="o">=</span> <span class="p">[</span><span class="n">amplitudes</span><span class="p">[</span><span class="n">comp</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="n">comps</span><span class="p">]</span>
+<span class="n">pha</span> <span class="o">=</span> <span class="p">[</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">phases</span><span class="p">[</span><span class="n">comp</span><span class="o">.</span><span class="n">lower</span><span class="p">()])</span> <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="n">comps</span><span class="p">]</span> <span class="c1"># phase (in radians!)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">365</span><span class="o">*</span><span class="mi">40</span><span class="o">*</span><span class="mi">24</span><span class="o">*</span><span class="mi">3600</span><span class="p">,</span> <span class="mi">900</span><span class="p">)</span> <span class="c1"># seconds since initial time, 40 years since 1977, 15min frequency</span>
+<span class="n">dates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">initial_time</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">t</span><span class="p">])</span> <span class="c1"># so that we have datetime on x-axis</span>
+<span class="n">eta</span> <span class="o">=</span> <span class="n">tidal_signal</span><span class="o">.</span><span class="n">from_amplitude_phase</span><span class="p">(</span><span class="n">amp</span><span class="p">,</span> <span class="n">pha</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="c1"># calculate the signal</span>
+<span class="n">eta_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;eta&#39;</span><span class="p">:</span> <span class="n">eta</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="n">dates</span><span class="p">)</span>
+
+<span class="c1">## Plot</span>
+<span class="c1"># Choose a time window to plot (has to be between 1977 - 2017)</span>
+<span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2015-05-01 00:00&#39;</span> 
+<span class="n">end_date</span> <span class="o">=</span> <span class="s1">&#39;2015-05-20 00:00&#39;</span>
+
+<span class="n">filtered_gauge</span> <span class="o">=</span> <span class="n">tide_gauge</span><span class="p">[</span><span class="n">start_date</span><span class="p">:</span><span class="n">end_date</span><span class="p">]</span>
+<span class="n">filtered_tide</span> <span class="o">=</span> <span class="n">eta_df</span><span class="p">[</span><span class="n">start_date</span><span class="p">:</span><span class="n">end_date</span><span class="p">]</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">filtered_tide</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">filtered_tide</span><span class="p">[</span><span class="s1">&#39;eta&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">100</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> 
+        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Tidal signal&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">filtered_gauge</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">filtered_gauge</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> 
+        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Observed sea level&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Sea level [m]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Scheveningen&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><br><br><br>
+What if we don’t use all 34 tidal constituents?
+Below is an interactive plot in which you can adjust the plotted time range using the slider (from 1 day to 1 year). You can select which tidal constituents should be plotted with the tick boxes. This way you can play around with different constituents and see what kind of signal you get and how close it is to the total tidal signal.</p>
+<p>The plot displays the individual tidal components (upper plot), their combined tidal signal (second plot), the combined tidal signal against the total tidal signal (third plot), and the observed sea level with the total tidal signal and the combined signal (fourth plot).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We choose one year to plot, 2000-2001</span>
+
+<span class="c1">## Download and load previously calculated tidal signal per constituent</span>
+<span class="n">scheveningen_fp</span> <span class="o">=</span> <span class="n">pooch</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span>
+    <span class="s2">&quot;https://coclico.blob.core.windows.net/coastal-dynamics/2_wind_waves_tides/tide_scheveningen.p&quot;</span><span class="p">,</span>
+    <span class="n">known_hash</span><span class="o">=</span><span class="s2">&quot;4ebac210fc0893e52655cbc3c9501a6c805e3537f327fed7edb9e7dbfe7fa06a&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">scheveningen_fp</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">pickle_file</span><span class="p">:</span>
+    <span class="n">scheveningen</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pickle_file</span><span class="p">)</span>
+
+<span class="c1">## Plot</span>
+<span class="n">plot_timeseries_with_interactive_controls</span><span class="p">(</span><span class="n">tide_gauge</span><span class="p">,</span> <span class="n">eta_df</span><span class="p">,</span> <span class="n">scheveningen</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><br><br>
+Now we focus on the interplay between some of the main semi-diurnal and diurnal components. Use the interactive plot above and try to answer the questions below. Give your numeric answer with at least three significant figures.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Write your code here to get the answer to the questions. Use the table of principal constituents and equation 3.24b from the textbook</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Run this cell to get questions</span>
+
+<span class="n">questions_2d</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><br><br><br></p>
+</section>
+<section id="tidal-amplitudes">
+<h2>Tidal Amplitudes<a class="headerlink" href="#tidal-amplitudes" title="Link to this heading">#</a></h2>
+<p>Figure 3.27 in the textbook shows a spectrum of equilibrium tides. Let’s now look at the amplitudes of the tidal constituents at Scheveningen, obtained from FES2014, in a similar way.</p>
+<ul class="simple">
+<li><p>What are the main constituents?</p></li>
+<li><p>What are their frequencies (compared to the periods in Table 1)?</p></li>
+<li><p>Can you recognize the tides near twice a day and near once a day?</p></li>
+<li><p>How do the diurnal and semi-diurnal constituents that we used above relate to this larger set?</p></li>
+<li><p>How do the longer-period constituents that we used above relate to this larger set?</p></li>
+<li><p>Can you recognize the non-linear shallow water tides and longer-period tides?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Load FES2014 amplitudes</span>
+<span class="n">data_dir_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;../data/fes2014_amp_ph/&quot;</span><span class="p">)</span>
+<span class="n">tide</span> <span class="o">=</span> <span class="p">{};</span> <span class="n">amplitudes</span> <span class="o">=</span> <span class="p">{};</span>
+
+<span class="c1"># This time we will include more constituents:</span>
+<span class="n">comps</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;eps2&#39;</span><span class="p">,</span> <span class="s1">&#39;j1&#39;</span><span class="p">,</span> <span class="s1">&#39;k1&#39;</span><span class="p">,</span> <span class="s1">&#39;k2&#39;</span><span class="p">,</span> <span class="s1">&#39;l2&#39;</span><span class="p">,</span> <span class="s1">&#39;lambda2&#39;</span><span class="p">,</span> <span class="s1">&#39;m2&#39;</span><span class="p">,</span> <span class="s1">&#39;m3&#39;</span><span class="p">,</span> <span class="s1">&#39;m4&#39;</span><span class="p">,</span> <span class="s1">&#39;m6&#39;</span><span class="p">,</span> <span class="s1">&#39;m8&#39;</span><span class="p">,</span> <span class="s1">&#39;mf&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;mm&#39;</span><span class="p">,</span> <span class="s1">&#39;mn4&#39;</span><span class="p">,</span> <span class="s1">&#39;ms4&#39;</span><span class="p">,</span> <span class="s1">&#39;msf&#39;</span><span class="p">,</span> <span class="s1">&#39;mtm&#39;</span><span class="p">,</span> <span class="s1">&#39;mu2&#39;</span><span class="p">,</span> <span class="s1">&#39;n2&#39;</span><span class="p">,</span> <span class="s1">&#39;nu2&#39;</span><span class="p">,</span> <span class="s1">&#39;o1&#39;</span><span class="p">,</span> <span class="s1">&#39;p1&#39;</span><span class="p">,</span> <span class="s1">&#39;q1&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;r2&#39;</span><span class="p">,</span> <span class="s1">&#39;s1&#39;</span><span class="p">,</span> <span class="s1">&#39;s2&#39;</span><span class="p">,</span> <span class="s1">&#39;s4&#39;</span><span class="p">,</span> <span class="s1">&#39;sa&#39;</span><span class="p">,</span> <span class="s1">&#39;ssa&#39;</span><span class="p">,</span> <span class="s1">&#39;t2&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="n">comps</span><span class="p">:</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">data_dir_path</span> <span class="o">/</span> <span class="p">(</span><span class="s2">&quot;02_&quot;</span> <span class="o">+</span> <span class="n">comp</span> <span class="o">+</span> <span class="s2">&quot;.p&quot;</span><span class="p">)</span>
+    <span class="n">tide</span><span class="p">[</span><span class="n">comp</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+    <span class="n">amplitudes</span><span class="p">[</span><span class="n">comp</span><span class="p">]</span> <span class="o">=</span> <span class="n">tide</span><span class="p">[</span><span class="n">comp</span><span class="p">][</span><span class="s1">&#39;amplitude&#39;</span><span class="p">][</span><span class="s1">&#39;scheveningen&#39;</span><span class="p">]</span>
+    
+<span class="n">component_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">amplitudes</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">component_names_upper</span> <span class="o">=</span> <span class="p">[</span><span class="n">comp</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="n">component_names</span><span class="p">]</span>  <span class="c1"># Convert to uppercase</span>
+<span class="n">amplitude_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span> <span class="o">/</span> <span class="mi">100</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">amplitudes</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span> 
+
+<span class="n">periods</span> <span class="o">=</span> <span class="p">[</span><span class="mf">13.13</span><span class="p">,</span> <span class="mf">23.09848146</span><span class="p">,</span> <span class="mf">23.93447213</span><span class="p">,</span> <span class="mf">11.96723606</span><span class="p">,</span> <span class="mf">12.19162085</span><span class="p">,</span> <span class="mf">12.22177348</span><span class="p">,</span> 
+           <span class="mf">12.4206012</span><span class="p">,</span> <span class="mf">8.280400802</span><span class="p">,</span> <span class="mf">6.210300601</span><span class="p">,</span> <span class="mf">4.140200401</span><span class="p">,</span> <span class="mf">3.105150301</span><span class="p">,</span> <span class="mf">327.8599387</span><span class="p">,</span> 
+           <span class="mf">661.3111655</span><span class="p">,</span> <span class="mf">6.269173724</span><span class="p">,</span> <span class="mf">6.103339275</span><span class="p">,</span> <span class="mf">354.3670666</span><span class="p">,</span> <span class="mi">219</span><span class="p">,</span> <span class="mf">12.8717576</span><span class="p">,</span> <span class="mf">12.65834751</span><span class="p">,</span> 
+           <span class="mf">12.62600509</span> <span class="p">,</span> <span class="mf">25.81933871</span><span class="p">,</span> <span class="mf">24.06588766</span><span class="p">,</span> <span class="mf">26.868350</span><span class="p">,</span>
+          <span class="mf">11.98359564</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">8766.15265</span><span class="p">,</span> <span class="mf">4383.076325</span><span class="p">,</span> <span class="mf">12.01644934</span><span class="p">]</span> <span class="c1"># in [h]</span>
+
+<span class="n">frequency</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">period</span><span class="o">/</span><span class="mi">24</span><span class="p">)</span> <span class="k">for</span> <span class="n">period</span> <span class="ow">in</span> <span class="n">periods</span><span class="p">]</span> <span class="c1"># in [1/days]</span>
+
+<span class="n">semidiurnal</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;m2&#39;</span><span class="p">,</span> <span class="s1">&#39;s2&#39;</span><span class="p">,</span> <span class="s1">&#39;n2&#39;</span><span class="p">,</span> <span class="s1">&#39;k2&#39;</span><span class="p">]</span>
+<span class="n">diurnal</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;k1&#39;</span><span class="p">,</span> <span class="s1">&#39;o1&#39;</span><span class="p">,</span> <span class="s1">&#39;p1&#39;</span><span class="p">,</span> <span class="s1">&#39;q1&#39;</span><span class="p">]</span>
+
+<span class="c1">## Bar plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">bar_width</span> <span class="o">=</span> <span class="mf">0.025</span>  <span class="c1"># Using a small width for better visualization</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">freq</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">frequency</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">amplitude_values</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">bar_width</span><span class="p">)</span>
+
+    <span class="c1"># Plot semi-diurnal components in orange</span>
+    <span class="k">if</span> <span class="n">component_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">semidiurnal</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">amplitude_values</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">bar_width</span><span class="p">)</span>
+
+    <span class="c1"># Plot diurnal components in red</span>
+    <span class="k">if</span> <span class="n">component_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">diurnal</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">amplitude_values</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">bar_width</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">amplitude_values</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> 
+                <span class="n">component_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency [1/days]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude [m]&#39;</span><span class="p">)</span>
+<span class="n">ticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">frequency</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="n">ticks</span><span class="p">)</span>  
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">frequency</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">])</span>
+<span class="n">legend_elements</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Semi-diurnal&#39;</span><span class="p">),</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Diurnal&#39;</span><span class="p">)</span>
+<span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">legend_elements</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span> <span class="c1"># comment this line to see the differences better</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><br><br><br></p>
+</section>
+<section id="tidal-propagation">
+<h2>Tidal Propagation<a class="headerlink" href="#tidal-propagation" title="Link to this heading">#</a></h2>
+<p>In chapter 3.8 of the textbook, you learned that the propagation of the tide is influenced by the Coriolis acceleration and friction and resonances determined by the shapes and depths of the ocean basins and marginal seas.</p>
+<p>This propagation can be visualised  by mapping the lines of simultaneous high water (co-tidal or co-phase lines) and the lines of equal tidal range (co-range lines), as in the figure below. Examine the M2 amplitude and phase pattern along the Atlantic, computed from the FES2014 data. What insights does this pattern provide? Why are the co-tidal (co-phase) lines not equally spaced? Can you link the amplitudes and phases to the Figure 3.30 from the textbook?</p>
+<br>
+<p><img alt="image" src="../_images/02_M2_amplitude_phase.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Script for loading FES2014 data (phase and amplitudes)</span>
+
+<span class="c1"># import xarray as xr</span>
+<span class="c1"># from os.path import join</span>
+<span class="c1"># import pandas as pd</span>
+
+<span class="c1"># path = &#39;.../ocean_tide_extrapolated/&#39; # Your path to data</span>
+
+<span class="c1"># # Rename la2 to lambda2 if you plan on using uptide</span>
+<span class="c1"># comps = [&#39;eps2&#39;, &#39;j1&#39;, &#39;k1&#39;, &#39;k2&#39;, &#39;l2&#39;, &#39;la2&#39;, &#39;m2&#39;, &#39;m3&#39;, &#39;m4&#39;, &#39;m6&#39;, &#39;m8&#39;, &#39;mf&#39;, &#39;mks2&#39;,</span>
+<span class="c1">#          &#39;mm&#39;, &#39;mn4&#39;, &#39;ms4&#39;, &#39;msf&#39;, &#39;msqm&#39;, &#39;mtm&#39;, &#39;mu2&#39;, &#39;n2&#39;, &#39;n4&#39;, &#39;nu2&#39;, &#39;o1&#39;, &#39;p1&#39;, &#39;q1&#39;,</span>
+<span class="c1">#          &#39;r2&#39;, &#39;s1&#39;, &#39;s2&#39;, &#39;s4&#39;, &#39;sa&#39;, &#39;ssa&#39;, &#39;t2&#39;]</span>
+
+<span class="c1"># # Resolution of fes2014 is 0.0625x0.0625 (lat,lon), we choose a few </span>
+<span class="c1"># # locations and the closest model points</span>
+
+<span class="c1"># locs = {</span>
+<span class="c1">#     &#39;scheveningen&#39;  :   [52.125, 4.25], #lat, lon</span>
+<span class="c1">#     &#39;galveston&#39;     :   [29.25, -94.6875],</span>
+<span class="c1">#     &#39;valparaiso&#39;    :   [-33, -71.625],</span>
+<span class="c1">#     &#39;jakarta&#39;       :   [-6.0625, 106.8125]</span>
+<span class="c1"># }</span>
+
+<span class="c1"># tide = {}</span>
+
+<span class="c1">## Extract constituents from FES2014 and store pickle files</span>
+<span class="c1"># for comp in comps:</span>
+<span class="c1">#     data = xr.open_dataset(join(path, comp + &#39;.nc&#39;))</span>
+<span class="c1">#     data.coords[&#39;lon&#39;] = (data.coords[&#39;lon&#39;] + 180) % 360 - 180 #lon=[0,360]</span>
+<span class="c1">#     temp = {}</span>
+
+<span class="c1">#     for loc in locs.keys():</span>
+<span class="c1">#         temp[loc] = (data.sel(lat=locs[loc][0],lon=locs[loc][1])</span>
+<span class="c1">#         .to_dataframe()</span>
+<span class="c1">#         .drop([&#39;lat_bnds&#39;, &#39;lon_bnds&#39;, &#39;crs&#39;], axis=1)</span>
+<span class="c1">#         .drop(1)</span>
+<span class="c1">#         .assign(place=loc)</span>
+<span class="c1">#         .set_index(&#39;place&#39;, drop=True)</span>
+<span class="c1">#     )</span>
+
+<span class="c1">#     tide[comp] = pd.concat(temp.values()) </span>
+<span class="c1">#     tide[comp].to_pickle(&#39;path/02_%s.p&#39; % comp) # Choose your path</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-of-astronomical-constituents">Visualisation of Astronomical Constituents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tidal-amplitudes">Tidal Amplitudes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tidal-propagation">Tidal Propagation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Floris Calkoen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
