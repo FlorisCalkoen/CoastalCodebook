@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/2d_tidal_constituents';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Coastal Systems Notebook 2c: Theory Equilibrium tide" href="2c_theory_equilibrium_tide.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -120,8 +121,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -197,8 +196,12 @@
 <li class="toctree-l1"><a class="reference internal" href="1_coastal_classification.html">Characterization of Coastal Systems</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2a_pre_knowledge_waves.html">Week 2a: Pre-knowledge waves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2b_wave_dispersion_and_grouping.html">Answered version</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="2c_theory_equilibrium_tide.html">Coastal Systems Notebook 2c: Theory Equilibrium tide</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Coastal Systems Notebook 2d: Tidal Constituents</a></li>
 </ul>
 
     </div>
@@ -500,27 +503,30 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Before running, install &#39;uptide&#39; in the coastal environment as &#39;pip install uptide&#39;</span>
 <span class="c1"># Run this to import modules</span>
 
+<span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">pathlib</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
 <span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">filterwarnings</span>
+
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">cartopy.feature</span> <span class="k">as</span> <span class="nn">cfeature</span>
 <span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
 <span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
-<span class="kn">import</span> <span class="nn">cartopy.feature</span> <span class="k">as</span> <span class="nn">cfeature</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Image</span>
-<span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
 <span class="kn">import</span> <span class="nn">pooch</span>
 <span class="kn">import</span> <span class="nn">uptide</span>
-<span class="kn">import</span> <span class="nn">pickle</span>
-
-<span class="kn">from</span> <span class="nn">initialize.Tide_Initialize</span> <span class="kn">import</span> <span class="n">plot_timeseries_with_interactive_controls</span><span class="p">,</span> <span class="n">questions_2d</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">from</span> <span class="nn">initialize.Tide_Initialize</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">plot_timeseries_with_interactive_controls</span><span class="p">,</span>
+    <span class="n">questions_2d</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
 
 <span class="n">cwd</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">()</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
 <span class="n">proj_dir</span> <span class="o">=</span> <span class="n">cwd</span><span class="o">.</span><span class="n">parent</span>  <span class="c1"># this is the root of the CoastalCodeBook</span>
@@ -531,12 +537,15 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">21</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">import</span> <span class="nn">pooch</span>
-<span class="ne">---&gt; </span><span class="mi">21</span> <span class="kn">import</span> <span class="nn">uptide</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">import</span> <span class="nn">pickle</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="kn">from</span> <span class="nn">initialize.Tide_Initialize</span> <span class="kn">import</span> <span class="n">plot_timeseries_with_interactive_controls</span><span class="p">,</span> <span class="n">questions_2d</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">20</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="kn">import</span> <span class="nn">pooch</span>
+<span class="ne">---&gt; </span><span class="mi">20</span> <span class="kn">import</span> <span class="nn">uptide</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">from</span> <span class="nn">initialize.Tide_Initialize</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="n">plot_timeseries_with_interactive_controls</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="n">questions_2d</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="p">)</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;uptide&#39;
 </pre></div>
@@ -566,44 +575,94 @@ document.write(`
 <span class="c1">## Load FES2014 amplitude and phase data and calculate the signal</span>
 <span class="c1"># see the commented script at the bottom of the notebook if you want to know how to load FES2014 amplitude and phase data</span>
 
-<span class="n">tide</span> <span class="o">=</span> <span class="p">{};</span> <span class="n">amplitudes</span> <span class="o">=</span> <span class="p">{};</span> <span class="n">phases</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">comps</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;EPS2&#39;</span><span class="p">,</span> <span class="s1">&#39;J1&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K2&#39;</span><span class="p">,</span> <span class="s1">&#39;L2&#39;</span><span class="p">,</span> <span class="s1">&#39;LAMBDA2&#39;</span><span class="p">,</span> <span class="s1">&#39;M2&#39;</span><span class="p">,</span> <span class="s1">&#39;M3&#39;</span><span class="p">,</span> <span class="s1">&#39;M4&#39;</span><span class="p">,</span> <span class="s1">&#39;M6&#39;</span><span class="p">,</span> <span class="s1">&#39;M8&#39;</span><span class="p">,</span> <span class="s1">&#39;MF&#39;</span><span class="p">,</span> <span class="s1">&#39;MKS2&#39;</span><span class="p">,</span>
-         <span class="s1">&#39;MM&#39;</span><span class="p">,</span> <span class="s1">&#39;MN4&#39;</span><span class="p">,</span> <span class="s1">&#39;MS4&#39;</span><span class="p">,</span> <span class="s1">&#39;MSF&#39;</span><span class="p">,</span> <span class="s1">&#39;MSQM&#39;</span><span class="p">,</span> <span class="s1">&#39;MTM&#39;</span><span class="p">,</span> <span class="s1">&#39;MU2&#39;</span><span class="p">,</span> <span class="s1">&#39;N2&#39;</span><span class="p">,</span> <span class="s1">&#39;N4&#39;</span><span class="p">,</span> <span class="s1">&#39;NU2&#39;</span><span class="p">,</span> <span class="s1">&#39;O1&#39;</span><span class="p">,</span> <span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="s1">&#39;Q1&#39;</span><span class="p">,</span>
-         <span class="s1">&#39;R2&#39;</span><span class="p">,</span> <span class="s1">&#39;S1&#39;</span><span class="p">,</span> <span class="s1">&#39;S2&#39;</span><span class="p">,</span> <span class="s1">&#39;S4&#39;</span><span class="p">,</span> <span class="s1">&#39;SA&#39;</span><span class="p">,</span> <span class="s1">&#39;SSA&#39;</span><span class="p">,</span> <span class="s1">&#39;T2&#39;</span><span class="p">]</span>
+<span class="n">tide</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">amplitudes</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">phases</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">comps</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;EPS2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;J1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;K1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;K2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;L2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;LAMBDA2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;M2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;M3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;M4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;M6&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;M8&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MF&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MKS2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MM&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MN4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MS4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MSF&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MSQM&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MTM&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MU2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;N2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;N4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;NU2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;O1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;P1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Q1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;R2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;S1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;S2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;S4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SA&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SSA&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;T2&quot;</span><span class="p">,</span>
+<span class="p">]</span>
 
 <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="n">comps</span><span class="p">:</span>
     <span class="n">fp</span> <span class="o">=</span> <span class="n">DATA_DIR</span> <span class="o">/</span> <span class="s2">&quot;fes2014_amp_ph&quot;</span> <span class="o">/</span> <span class="p">(</span><span class="s2">&quot;02_&quot;</span> <span class="o">+</span> <span class="n">comp</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.p&quot;</span><span class="p">)</span>
     <span class="n">tide</span><span class="p">[</span><span class="n">comp</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
-    <span class="n">amplitudes</span><span class="p">[</span><span class="n">comp</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">=</span> <span class="n">tide</span><span class="p">[</span><span class="n">comp</span><span class="o">.</span><span class="n">lower</span><span class="p">()][</span><span class="s1">&#39;amplitude&#39;</span><span class="p">][</span><span class="s1">&#39;scheveningen&#39;</span><span class="p">]</span>
-    <span class="n">phases</span><span class="p">[</span><span class="n">comp</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">=</span> <span class="n">tide</span><span class="p">[</span><span class="n">comp</span><span class="o">.</span><span class="n">lower</span><span class="p">()][</span><span class="s1">&#39;phase&#39;</span><span class="p">][</span><span class="s1">&#39;scheveningen&#39;</span><span class="p">]</span>
+    <span class="n">amplitudes</span><span class="p">[</span><span class="n">comp</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">=</span> <span class="n">tide</span><span class="p">[</span><span class="n">comp</span><span class="o">.</span><span class="n">lower</span><span class="p">()][</span><span class="s2">&quot;amplitude&quot;</span><span class="p">][</span><span class="s2">&quot;scheveningen&quot;</span><span class="p">]</span>
+    <span class="n">phases</span><span class="p">[</span><span class="n">comp</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">=</span> <span class="n">tide</span><span class="p">[</span><span class="n">comp</span><span class="o">.</span><span class="n">lower</span><span class="p">()][</span><span class="s2">&quot;phase&quot;</span><span class="p">][</span><span class="s2">&quot;scheveningen&quot;</span><span class="p">]</span>
 
 <span class="c1"># Choose th initial time for calculating the tidal signal (has to be between 1977-2017)</span>
 <span class="n">initial_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">1977</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
 <span class="n">tidal_signal</span> <span class="o">=</span> <span class="n">uptide</span><span class="o">.</span><span class="n">Tides</span><span class="p">(</span><span class="n">comps</span><span class="p">)</span>  <span class="c1"># select which constituents to use, we will use all</span>
-<span class="n">tidal_signal</span><span class="o">.</span><span class="n">set_initial_time</span><span class="p">(</span><span class="n">initial_time</span><span class="p">)</span>  <span class="c1"># set t=0 at 1 Jan 1977, UTC 12:00, arbitrary choice</span>
+<span class="n">tidal_signal</span><span class="o">.</span><span class="n">set_initial_time</span><span class="p">(</span>
+    <span class="n">initial_time</span>
+<span class="p">)</span>  <span class="c1"># set t=0 at 1 Jan 1977, UTC 12:00, arbitrary choice</span>
 <span class="n">amp</span> <span class="o">=</span> <span class="p">[</span><span class="n">amplitudes</span><span class="p">[</span><span class="n">comp</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="n">comps</span><span class="p">]</span>
-<span class="n">pha</span> <span class="o">=</span> <span class="p">[</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">phases</span><span class="p">[</span><span class="n">comp</span><span class="o">.</span><span class="n">lower</span><span class="p">()])</span> <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="n">comps</span><span class="p">]</span> <span class="c1"># phase (in radians!)</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">365</span><span class="o">*</span><span class="mi">40</span><span class="o">*</span><span class="mi">24</span><span class="o">*</span><span class="mi">3600</span><span class="p">,</span> <span class="mi">900</span><span class="p">)</span> <span class="c1"># seconds since initial time, 40 years since 1977, 15min frequency</span>
-<span class="n">dates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">initial_time</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">t</span><span class="p">])</span> <span class="c1"># so that we have datetime on x-axis</span>
-<span class="n">eta</span> <span class="o">=</span> <span class="n">tidal_signal</span><span class="o">.</span><span class="n">from_amplitude_phase</span><span class="p">(</span><span class="n">amp</span><span class="p">,</span> <span class="n">pha</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="c1"># calculate the signal</span>
-<span class="n">eta_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;eta&#39;</span><span class="p">:</span> <span class="n">eta</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="n">dates</span><span class="p">)</span>
+<span class="n">pha</span> <span class="o">=</span> <span class="p">[</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">phases</span><span class="p">[</span><span class="n">comp</span><span class="o">.</span><span class="n">lower</span><span class="p">()])</span> <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="n">comps</span><span class="p">]</span>  <span class="c1"># phase (in radians!)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span>
+    <span class="mi">0</span><span class="p">,</span> <span class="mi">365</span> <span class="o">*</span> <span class="mi">40</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span><span class="p">,</span> <span class="mi">900</span>
+<span class="p">)</span>  <span class="c1"># seconds since initial time, 40 years since 1977, 15min frequency</span>
+<span class="n">dates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">initial_time</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">t</span><span class="p">]</span>
+<span class="p">)</span>  <span class="c1"># so that we have datetime on x-axis</span>
+<span class="n">eta</span> <span class="o">=</span> <span class="n">tidal_signal</span><span class="o">.</span><span class="n">from_amplitude_phase</span><span class="p">(</span><span class="n">amp</span><span class="p">,</span> <span class="n">pha</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>  <span class="c1"># calculate the signal</span>
+<span class="n">eta_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;eta&quot;</span><span class="p">:</span> <span class="n">eta</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="n">dates</span><span class="p">)</span>
 
 <span class="c1">## Plot</span>
 <span class="c1"># Choose a time window to plot (has to be between 1977 - 2017)</span>
-<span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2015-05-01 00:00&#39;</span> 
-<span class="n">end_date</span> <span class="o">=</span> <span class="s1">&#39;2015-05-20 00:00&#39;</span>
+<span class="n">start_date</span> <span class="o">=</span> <span class="s2">&quot;2015-05-01 00:00&quot;</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="s2">&quot;2015-05-20 00:00&quot;</span>
 
 <span class="n">filtered_gauge</span> <span class="o">=</span> <span class="n">tide_gauge</span><span class="p">[</span><span class="n">start_date</span><span class="p">:</span><span class="n">end_date</span><span class="p">]</span>
 <span class="n">filtered_tide</span> <span class="o">=</span> <span class="n">eta_df</span><span class="p">[</span><span class="n">start_date</span><span class="p">:</span><span class="n">end_date</span><span class="p">]</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">filtered_tide</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">filtered_tide</span><span class="p">[</span><span class="s1">&#39;eta&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">100</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> 
-        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Tidal signal&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">filtered_gauge</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">filtered_gauge</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> 
-        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Observed sea level&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Sea level [m]&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Scheveningen&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">filtered_tide</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+    <span class="n">filtered_tide</span><span class="p">[</span><span class="s2">&quot;eta&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Tidal signal&quot;</span><span class="p">,</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">filtered_gauge</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+    <span class="n">filtered_gauge</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Observed sea level&quot;</span><span class="p">,</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Sea level [m]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Scheveningen&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -624,7 +683,7 @@ Below is an interactive plot in which you can adjust the plotted time range usin
     <span class="s2">&quot;https://coclico.blob.core.windows.net/coastal-dynamics/2_wind_waves_tides/tide_scheveningen.p&quot;</span><span class="p">,</span>
     <span class="n">known_hash</span><span class="o">=</span><span class="s2">&quot;4ebac210fc0893e52655cbc3c9501a6c805e3537f327fed7edb9e7dbfe7fa06a&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">scheveningen_fp</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">pickle_file</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">scheveningen_fp</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">pickle_file</span><span class="p">:</span>
     <span class="n">scheveningen</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pickle_file</span><span class="p">)</span>
 
 <span class="c1">## Plot</span>
@@ -668,32 +727,91 @@ Now we focus on the interplay between some of the main semi-diurnal and diurnal 
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Load FES2014 amplitudes</span>
 <span class="n">data_dir_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;../data/fes2014_amp_ph/&quot;</span><span class="p">)</span>
-<span class="n">tide</span> <span class="o">=</span> <span class="p">{};</span> <span class="n">amplitudes</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="n">tide</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">amplitudes</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="c1"># This time we will include more constituents:</span>
-<span class="n">comps</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;eps2&#39;</span><span class="p">,</span> <span class="s1">&#39;j1&#39;</span><span class="p">,</span> <span class="s1">&#39;k1&#39;</span><span class="p">,</span> <span class="s1">&#39;k2&#39;</span><span class="p">,</span> <span class="s1">&#39;l2&#39;</span><span class="p">,</span> <span class="s1">&#39;lambda2&#39;</span><span class="p">,</span> <span class="s1">&#39;m2&#39;</span><span class="p">,</span> <span class="s1">&#39;m3&#39;</span><span class="p">,</span> <span class="s1">&#39;m4&#39;</span><span class="p">,</span> <span class="s1">&#39;m6&#39;</span><span class="p">,</span> <span class="s1">&#39;m8&#39;</span><span class="p">,</span> <span class="s1">&#39;mf&#39;</span><span class="p">,</span>
-         <span class="s1">&#39;mm&#39;</span><span class="p">,</span> <span class="s1">&#39;mn4&#39;</span><span class="p">,</span> <span class="s1">&#39;ms4&#39;</span><span class="p">,</span> <span class="s1">&#39;msf&#39;</span><span class="p">,</span> <span class="s1">&#39;mtm&#39;</span><span class="p">,</span> <span class="s1">&#39;mu2&#39;</span><span class="p">,</span> <span class="s1">&#39;n2&#39;</span><span class="p">,</span> <span class="s1">&#39;nu2&#39;</span><span class="p">,</span> <span class="s1">&#39;o1&#39;</span><span class="p">,</span> <span class="s1">&#39;p1&#39;</span><span class="p">,</span> <span class="s1">&#39;q1&#39;</span><span class="p">,</span>
-         <span class="s1">&#39;r2&#39;</span><span class="p">,</span> <span class="s1">&#39;s1&#39;</span><span class="p">,</span> <span class="s1">&#39;s2&#39;</span><span class="p">,</span> <span class="s1">&#39;s4&#39;</span><span class="p">,</span> <span class="s1">&#39;sa&#39;</span><span class="p">,</span> <span class="s1">&#39;ssa&#39;</span><span class="p">,</span> <span class="s1">&#39;t2&#39;</span><span class="p">]</span>
+<span class="n">comps</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;eps2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;j1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;k1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;k2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;l2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lambda2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;m2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;m3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;m4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;m6&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;m8&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mf&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mm&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mn4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ms4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;msf&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mtm&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mu2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;n2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;nu2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;o1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;p1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;q1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;r2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;s1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;s2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;s4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sa&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ssa&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;t2&quot;</span><span class="p">,</span>
+<span class="p">]</span>
 
 <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="n">comps</span><span class="p">:</span>
     <span class="n">fp</span> <span class="o">=</span> <span class="n">data_dir_path</span> <span class="o">/</span> <span class="p">(</span><span class="s2">&quot;02_&quot;</span> <span class="o">+</span> <span class="n">comp</span> <span class="o">+</span> <span class="s2">&quot;.p&quot;</span><span class="p">)</span>
     <span class="n">tide</span><span class="p">[</span><span class="n">comp</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
-    <span class="n">amplitudes</span><span class="p">[</span><span class="n">comp</span><span class="p">]</span> <span class="o">=</span> <span class="n">tide</span><span class="p">[</span><span class="n">comp</span><span class="p">][</span><span class="s1">&#39;amplitude&#39;</span><span class="p">][</span><span class="s1">&#39;scheveningen&#39;</span><span class="p">]</span>
-    
+    <span class="n">amplitudes</span><span class="p">[</span><span class="n">comp</span><span class="p">]</span> <span class="o">=</span> <span class="n">tide</span><span class="p">[</span><span class="n">comp</span><span class="p">][</span><span class="s2">&quot;amplitude&quot;</span><span class="p">][</span><span class="s2">&quot;scheveningen&quot;</span><span class="p">]</span>
+
 <span class="n">component_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">amplitudes</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-<span class="n">component_names_upper</span> <span class="o">=</span> <span class="p">[</span><span class="n">comp</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="n">component_names</span><span class="p">]</span>  <span class="c1"># Convert to uppercase</span>
-<span class="n">amplitude_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span> <span class="o">/</span> <span class="mi">100</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">amplitudes</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span> 
+<span class="n">component_names_upper</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">comp</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="n">component_names</span>
+<span class="p">]</span>  <span class="c1"># Convert to uppercase</span>
+<span class="n">amplitude_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span> <span class="o">/</span> <span class="mi">100</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">amplitudes</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
 
-<span class="n">periods</span> <span class="o">=</span> <span class="p">[</span><span class="mf">13.13</span><span class="p">,</span> <span class="mf">23.09848146</span><span class="p">,</span> <span class="mf">23.93447213</span><span class="p">,</span> <span class="mf">11.96723606</span><span class="p">,</span> <span class="mf">12.19162085</span><span class="p">,</span> <span class="mf">12.22177348</span><span class="p">,</span> 
-           <span class="mf">12.4206012</span><span class="p">,</span> <span class="mf">8.280400802</span><span class="p">,</span> <span class="mf">6.210300601</span><span class="p">,</span> <span class="mf">4.140200401</span><span class="p">,</span> <span class="mf">3.105150301</span><span class="p">,</span> <span class="mf">327.8599387</span><span class="p">,</span> 
-           <span class="mf">661.3111655</span><span class="p">,</span> <span class="mf">6.269173724</span><span class="p">,</span> <span class="mf">6.103339275</span><span class="p">,</span> <span class="mf">354.3670666</span><span class="p">,</span> <span class="mi">219</span><span class="p">,</span> <span class="mf">12.8717576</span><span class="p">,</span> <span class="mf">12.65834751</span><span class="p">,</span> 
-           <span class="mf">12.62600509</span> <span class="p">,</span> <span class="mf">25.81933871</span><span class="p">,</span> <span class="mf">24.06588766</span><span class="p">,</span> <span class="mf">26.868350</span><span class="p">,</span>
-          <span class="mf">11.98359564</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">8766.15265</span><span class="p">,</span> <span class="mf">4383.076325</span><span class="p">,</span> <span class="mf">12.01644934</span><span class="p">]</span> <span class="c1"># in [h]</span>
+<span class="n">periods</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mf">13.13</span><span class="p">,</span>
+    <span class="mf">23.09848146</span><span class="p">,</span>
+    <span class="mf">23.93447213</span><span class="p">,</span>
+    <span class="mf">11.96723606</span><span class="p">,</span>
+    <span class="mf">12.19162085</span><span class="p">,</span>
+    <span class="mf">12.22177348</span><span class="p">,</span>
+    <span class="mf">12.4206012</span><span class="p">,</span>
+    <span class="mf">8.280400802</span><span class="p">,</span>
+    <span class="mf">6.210300601</span><span class="p">,</span>
+    <span class="mf">4.140200401</span><span class="p">,</span>
+    <span class="mf">3.105150301</span><span class="p">,</span>
+    <span class="mf">327.8599387</span><span class="p">,</span>
+    <span class="mf">661.3111655</span><span class="p">,</span>
+    <span class="mf">6.269173724</span><span class="p">,</span>
+    <span class="mf">6.103339275</span><span class="p">,</span>
+    <span class="mf">354.3670666</span><span class="p">,</span>
+    <span class="mi">219</span><span class="p">,</span>
+    <span class="mf">12.8717576</span><span class="p">,</span>
+    <span class="mf">12.65834751</span><span class="p">,</span>
+    <span class="mf">12.62600509</span><span class="p">,</span>
+    <span class="mf">25.81933871</span><span class="p">,</span>
+    <span class="mf">24.06588766</span><span class="p">,</span>
+    <span class="mf">26.868350</span><span class="p">,</span>
+    <span class="mf">11.98359564</span><span class="p">,</span>
+    <span class="mi">24</span><span class="p">,</span>
+    <span class="mi">12</span><span class="p">,</span>
+    <span class="mi">6</span><span class="p">,</span>
+    <span class="mf">8766.15265</span><span class="p">,</span>
+    <span class="mf">4383.076325</span><span class="p">,</span>
+    <span class="mf">12.01644934</span><span class="p">,</span>
+<span class="p">]</span>  <span class="c1"># in [h]</span>
 
-<span class="n">frequency</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">period</span><span class="o">/</span><span class="mi">24</span><span class="p">)</span> <span class="k">for</span> <span class="n">period</span> <span class="ow">in</span> <span class="n">periods</span><span class="p">]</span> <span class="c1"># in [1/days]</span>
+<span class="n">frequency</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">period</span> <span class="o">/</span> <span class="mi">24</span><span class="p">)</span> <span class="k">for</span> <span class="n">period</span> <span class="ow">in</span> <span class="n">periods</span><span class="p">]</span>  <span class="c1"># in [1/days]</span>
 
-<span class="n">semidiurnal</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;m2&#39;</span><span class="p">,</span> <span class="s1">&#39;s2&#39;</span><span class="p">,</span> <span class="s1">&#39;n2&#39;</span><span class="p">,</span> <span class="s1">&#39;k2&#39;</span><span class="p">]</span>
-<span class="n">diurnal</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;k1&#39;</span><span class="p">,</span> <span class="s1">&#39;o1&#39;</span><span class="p">,</span> <span class="s1">&#39;p1&#39;</span><span class="p">,</span> <span class="s1">&#39;q1&#39;</span><span class="p">]</span>
+<span class="n">semidiurnal</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;m2&quot;</span><span class="p">,</span> <span class="s2">&quot;s2&quot;</span><span class="p">,</span> <span class="s2">&quot;n2&quot;</span><span class="p">,</span> <span class="s2">&quot;k2&quot;</span><span class="p">]</span>
+<span class="n">diurnal</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;k1&quot;</span><span class="p">,</span> <span class="s2">&quot;o1&quot;</span><span class="p">,</span> <span class="s2">&quot;p1&quot;</span><span class="p">,</span> <span class="s2">&quot;q1&quot;</span><span class="p">]</span>
 
 <span class="c1">## Bar plot</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -701,30 +819,52 @@ Now we focus on the interplay between some of the main semi-diurnal and diurnal 
 <span class="n">bar_width</span> <span class="o">=</span> <span class="mf">0.025</span>  <span class="c1"># Using a small width for better visualization</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">freq</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">frequency</span><span class="p">):</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">amplitude_values</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">bar_width</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">amplitude_values</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;skyblue&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">bar_width</span><span class="p">)</span>
 
     <span class="c1"># Plot semi-diurnal components in orange</span>
     <span class="k">if</span> <span class="n">component_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">semidiurnal</span><span class="p">:</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">amplitude_values</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">bar_width</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">amplitude_values</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">bar_width</span><span class="p">)</span>
 
     <span class="c1"># Plot diurnal components in red</span>
     <span class="k">if</span> <span class="n">component_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">diurnal</span><span class="p">:</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">amplitude_values</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">bar_width</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">amplitude_values</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">bar_width</span><span class="p">)</span>
 
-    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">amplitude_values</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> 
-                <span class="n">component_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+        <span class="n">freq</span><span class="p">,</span>
+        <span class="n">amplitude_values</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+        <span class="n">component_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span>
+        <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+        <span class="n">va</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+        <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency [1/days]&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude [m]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Frequency [1/days]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Amplitude [m]&quot;</span><span class="p">)</span>
 <span class="n">ticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">frequency</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="n">ticks</span><span class="p">)</span>  
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="n">ticks</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">frequency</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">])</span>
 <span class="n">legend_elements</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Semi-diurnal&#39;</span><span class="p">),</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Diurnal&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">Line2D</span><span class="p">(</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span>
+        <span class="n">markerfacecolor</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span>
+        <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Semi-diurnal&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">Line2D</span><span class="p">(</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span>
+        <span class="n">markerfacecolor</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+        <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Diurnal&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
 <span class="p">]</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">legend_elements</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span> <span class="c1"># comment this line to see the differences better</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>  <span class="c1"># comment this line to see the differences better</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -753,7 +893,7 @@ Now we focus on the interplay between some of the main semi-diurnal and diurnal 
 <span class="c1">#          &#39;mm&#39;, &#39;mn4&#39;, &#39;ms4&#39;, &#39;msf&#39;, &#39;msqm&#39;, &#39;mtm&#39;, &#39;mu2&#39;, &#39;n2&#39;, &#39;n4&#39;, &#39;nu2&#39;, &#39;o1&#39;, &#39;p1&#39;, &#39;q1&#39;,</span>
 <span class="c1">#          &#39;r2&#39;, &#39;s1&#39;, &#39;s2&#39;, &#39;s4&#39;, &#39;sa&#39;, &#39;ssa&#39;, &#39;t2&#39;]</span>
 
-<span class="c1"># # Resolution of fes2014 is 0.0625x0.0625 (lat,lon), we choose a few </span>
+<span class="c1"># # Resolution of fes2014 is 0.0625x0.0625 (lat,lon), we choose a few</span>
 <span class="c1"># # locations and the closest model points</span>
 
 <span class="c1"># locs = {</span>
@@ -780,7 +920,7 @@ Now we focus on the interplay between some of the main semi-diurnal and diurnal 
 <span class="c1">#         .set_index(&#39;place&#39;, drop=True)</span>
 <span class="c1">#     )</span>
 
-<span class="c1">#     tide[comp] = pd.concat(temp.values()) </span>
+<span class="c1">#     tide[comp] = pd.concat(temp.values())</span>
 <span class="c1">#     tide[comp].to_pickle(&#39;path/02_%s.p&#39; % comp) # Choose your path</span>
 </pre></div>
 </div>
@@ -819,6 +959,15 @@ Now we focus on the interplay between some of the main semi-diurnal and diurnal 
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="2c_theory_equilibrium_tide.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Coastal Systems Notebook 2c: Theory Equilibrium tide</p>
+      </div>
+    </a>
 </div>
                 </footer>
               

@@ -1,0 +1,957 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Answered version &#8212; CoastalCodeBook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/2b_wave_dispersion_and_grouping';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Coastal Systems Notebook 2c: Theory Equilibrium tide" href="2c_theory_equilibrium_tide.html" />
+    <link rel="prev" title="Week 2a: Pre-knowledge waves" href="2a_pre_knowledge_waves.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="CoastalCodeBook - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="CoastalCodeBook - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to Coastal Codebook
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About this book</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../about/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/structure.html">Course structure</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../about/acknowledgements.html">Acknowledgements</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../usage/installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/contributing.html">Contributing (Advanced)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1_coastal_classification.html">Characterization of Coastal Systems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2a_pre_knowledge_waves.html">Week 2a: Pre-knowledge waves</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Answered version</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="2c_theory_equilibrium_tide.html">Coastal Systems Notebook 2c: Theory Equilibrium tide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2d_tidal_constituents.html">Coastal Systems Notebook 2d: Tidal Constituents</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/floriscalkoen/CoastalCodeBook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/floriscalkoen/CoastalCodeBook/issues/new?title=Issue%20on%20page%20%2Fnotebooks/2b_wave_dispersion_and_grouping.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/2b_wave_dispersion_and_grouping.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Answered version</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Answered version</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#week-2b-wave-dispersion-and-grouping">Week 2b: Wave dispersion and grouping</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dispersion-relation-for-tsunami-waves">1) Dispersion relation for tsunami waves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dispersion-relation-in-the-cross-shore-direction">2) Dispersion relation in the cross-shore direction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wave-groups">3) Wave groups</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#waves-with-same-wave-amplitude">3.1) Waves with same wave amplitude</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-of-water-elevation">3.1.1) Time series of water elevation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-distribution-of-the-water-elevation">3.1.2) Spatial distribution of the water elevation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theory-question">3.1.3) Theory question</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#waves-with-diffent-wave-amplitude">3.2) Waves with diffent wave amplitude</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <figure>
+  <IMG SRC="https://raw.githubusercontent.com/mbakker7/exploratory_computing_with_python/master/tudelft_logo.png" WIDTH=250 ALIGN="right">
+</figure><section id="answered-version">
+<h1>Answered version<a class="headerlink" href="#answered-version" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="week-2b-wave-dispersion-and-grouping">
+<h1>Week 2b: Wave dispersion and grouping<a class="headerlink" href="#week-2b-wave-dispersion-and-grouping" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> Initialize/init_2b.ipynb
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
+<span class="nn">File ~/micromamba/envs/coastal/lib/python3.11/site-packages/IPython/core/magics/execution.py:716,</span> in <span class="ni">ExecutionMagics.run</span><span class="nt">(self, parameter_s, runner, file_finder)</span>
+<span class="g g-Whitespace">    </span><span class="mi">715</span>     <span class="n">fpath</span> <span class="o">=</span> <span class="n">arg_lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">716</span>     <span class="n">filename</span> <span class="o">=</span> <span class="n">file_finder</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">717</span> <span class="k">except</span> <span class="ne">IndexError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="nn">File ~/micromamba/envs/coastal/lib/python3.11/site-packages/IPython/utils/path.py:91,</span> in <span class="ni">get_py_filename</span><span class="nt">(name)</span>
+<span class="g g-Whitespace">     </span><span class="mi">90</span>         <span class="k">return</span> <span class="n">py_name</span>
+<span class="ne">---&gt; </span><span class="mi">91</span> <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s2">&quot;File `</span><span class="si">%r</span><span class="s2">` not found.&quot;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+
+<span class="ne">OSError</span>: File `&#39;Initialize/init_2b.ipynb&#39;` not found.
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">Exception</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="s1">&#39;Initialize/init_2b.ipynb&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~/micromamba/envs/coastal/lib/python3.11/site-packages/IPython/core/interactiveshell.py:2480,</span> in <span class="ni">InteractiveShell.run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2478</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2479</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2480</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2482</span> <span class="c1"># The code below prevents the output from being displayed</span>
+<span class="g g-Whitespace">   </span><span class="mi">2483</span> <span class="c1"># when using magics with decorator @output_can_be_silenced</span>
+<span class="g g-Whitespace">   </span><span class="mi">2484</span> <span class="c1"># when the last Python token in the expression is a &#39;;&#39;.</span>
+<span class="g g-Whitespace">   </span><span class="mi">2485</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">magic</span><span class="o">.</span><span class="n">MAGIC_OUTPUT_CAN_BE_SILENCED</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+
+<span class="nn">File ~/micromamba/envs/coastal/lib/python3.11/site-packages/IPython/core/magics/execution.py:727,</span> in <span class="ni">ExecutionMagics.run</span><span class="nt">(self, parameter_s, runner, file_finder)</span>
+<span class="g g-Whitespace">    </span><span class="mi">725</span>     <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;nt&#39;</span> <span class="ow">and</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^&#39;.*&#39;$&quot;</span><span class="p">,</span><span class="n">fpath</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">726</span>         <span class="n">warn</span><span class="p">(</span><span class="s1">&#39;For Windows, use double quotes to wrap a filename: </span><span class="si">%r</span><span class="s1">un &quot;mypath</span><span class="se">\\</span><span class="s1">myfile.py&quot;&#39;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">727</span>     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+<span class="g g-Whitespace">    </span><span class="mi">728</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">729</span>     <span class="k">if</span> <span class="n">fpath</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">meta_path</span><span class="p">:</span>
+
+<span class="ne">Exception</span>: File `&#39;Initialize/init_2b.ipynb&#39;` not found.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wind-generated and tidal waves can travel great distances until they finally reach the coast. In this section, we discuss the propagation of both individual waves and the behaviour of a group of waves together. It is recommended to read chapter 3 of the book Coastal Dynamics when studying this codebook.</p>
+<section id="dispersion-relation-for-tsunami-waves">
+<h2>1) Dispersion relation for tsunami waves<a class="headerlink" href="#dispersion-relation-for-tsunami-waves" title="Link to this heading">#</a></h2>
+<p>The dispersion relation can be used for all kinds of waves, including tsunami waves. Can you assess the characteristics of tsunami waves at various water depth classifications? The questions are equivalent to the question in footnote 2 on page 114 of the textbook. You can use previously created functions and the cell below for answering.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W2_Q6</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can use this cell to answer the question</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="mi">4000</span>
+<span class="n">T1</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">60</span> <span class="c1"># 5 min</span>
+<span class="n">T4</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="c1"># 60 min</span>
+
+<span class="n">Q0</span> <span class="o">=</span> <span class="s1">&#39;Between which periods are tsunami waves at intermediate depth, according to the dispersion relationship?&#39;</span>
+<span class="n">L_lower</span> <span class="o">=</span> <span class="n">h</span><span class="o">/</span><span class="mf">0.5</span>
+<span class="n">k_lower</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L_lower</span>
+<span class="n">w_lower</span> <span class="o">=</span> <span class="p">(</span><span class="mf">9.81</span><span class="o">*</span><span class="n">k_lower</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">k_lower</span><span class="o">*</span><span class="n">h</span><span class="p">))</span><span class="o">**</span><span class="mf">0.5</span> <span class="c1"># dispersion relationship</span>
+<span class="n">T_lower</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">w_lower</span>
+<span class="n">L_up</span> <span class="o">=</span> <span class="n">h</span><span class="o">/</span><span class="mf">0.05</span>
+<span class="n">k_up</span> <span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L_up</span>
+<span class="n">w_up</span> <span class="o">=</span> <span class="p">(</span><span class="mf">9.81</span><span class="o">*</span><span class="n">k_up</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">k_up</span><span class="o">*</span><span class="n">h</span><span class="p">))</span><span class="o">**</span><span class="mf">0.5</span>
+<span class="n">T_up</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">w_up</span>
+<span class="n">answer0</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">T_up</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">T_lower</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Q0</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">answer0</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">Q1</span> <span class="o">=</span> <span class="s2">&quot;What is the wavelength of the tsunami wave at those 4 points?&quot;</span>
+<span class="n">L1</span> <span class="o">=</span> <span class="n">wave_length</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">T1</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="n">h</span> <span class="o">/</span> <span class="mf">0.5</span>
+<span class="n">L3</span> <span class="o">=</span> <span class="n">h</span> <span class="o">/</span> <span class="mf">0.05</span>
+<span class="n">L4</span> <span class="o">=</span> <span class="n">wave_length</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">T4</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+<span class="n">Q1_answers</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">L1</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">L2</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">L3</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">L4</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Q1</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">Q1_answers</span><span class="p">,</span> <span class="s1">&#39;km&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">Q2</span> <span class="o">=</span> <span class="s2">&quot;What is the wave period of the tsunami wave at those 4 points?&quot;</span>
+<span class="n">w1</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">T1</span>
+<span class="n">w2</span> <span class="o">=</span> <span class="n">dispersion</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L2</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+<span class="n">w3</span> <span class="o">=</span> <span class="n">dispersion</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L3</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+<span class="n">w4</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">T4</span>
+<span class="n">T2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">w2</span>
+<span class="n">T3</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">w3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Q2</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">T1</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">T2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">T3</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">T4</span> <span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">Q3</span> <span class="o">=</span> <span class="s2">&quot;What is the wave celerity (c) of the tsunami wave at those 4 points?&quot;</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="n">L1</span> <span class="o">/</span> <span class="n">T1</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="n">L2</span> <span class="o">/</span> <span class="n">T2</span>
+<span class="n">c3</span> <span class="o">=</span> <span class="n">L3</span> <span class="o">/</span> <span class="n">T3</span>
+<span class="n">c4</span> <span class="o">=</span> <span class="n">L4</span> <span class="o">/</span> <span class="n">T4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Q3</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">c2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">c3</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">c4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">,</span> <span class="s1">&#39;m/s&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">Q4</span> <span class="o">=</span> <span class="s2">&quot;What is the wave group velocity (cg) of the tsunami at those 4 points?&quot;</span>
+<span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">L1</span>
+<span class="n">k2</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">L2</span>
+<span class="n">k3</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">L3</span>
+<span class="n">k4</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">L4</span>
+
+<span class="n">n1</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="n">k1</span> <span class="o">*</span> <span class="n">h</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">k1</span> <span class="o">*</span> <span class="n">h</span><span class="p">)</span>
+<span class="n">n2</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="n">k2</span> <span class="o">*</span> <span class="n">h</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">k2</span> <span class="o">*</span> <span class="n">h</span><span class="p">)</span>
+<span class="n">n3</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="n">k3</span> <span class="o">*</span> <span class="n">h</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">k3</span> <span class="o">*</span> <span class="n">h</span><span class="p">)</span>
+<span class="n">n4</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="n">k4</span> <span class="o">*</span> <span class="n">h</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">k4</span> <span class="o">*</span> <span class="n">h</span><span class="p">)</span>
+
+<span class="n">cg1</span> <span class="o">=</span> <span class="n">c1</span> <span class="o">*</span> <span class="n">n1</span>
+<span class="n">cg2</span> <span class="o">=</span> <span class="n">c2</span> <span class="o">*</span> <span class="n">n2</span>
+<span class="n">cg3</span> <span class="o">=</span> <span class="n">c3</span> <span class="o">*</span> <span class="n">n3</span>
+<span class="n">cg4</span> <span class="o">=</span> <span class="n">c4</span> <span class="o">*</span> <span class="n">n4</span>
+<span class="n">Q4_answers</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">cg1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">cg2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">cg3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">cg4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Q4</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">Q4_answers</span><span class="p">,</span> <span class="s1">&#39;m/s&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dispersion-relation-in-the-cross-shore-direction">
+<h2>2) Dispersion relation in the cross-shore direction<a class="headerlink" href="#dispersion-relation-in-the-cross-shore-direction" title="Link to this heading">#</a></h2>
+<p>Both the water depth and the wave period influence the wave propagation speed, as we have seen in the previous question. In deep water, the depth is so large relative to the wavelength that the orbital velocities of the wave do not reach the bottom and no interaction between the waves and the bed is possible. In this case, the wave celerity is only affected by the wave period. The other extreme is in shallow water, where only the water depth influences the wave celerity, and the wave period is irrelevant (non-dispersive waves). Thus, two waves of different periods but at the same location have the same celerity if both waves meet the requirements for shallow water conditions. Only if the water depth for one or both of these waves is classified as intermediate or deep water, the waves have a different celerity.</p>
+<p>The wave celerity and the wavelength change when waves propagate in the cross-shore direction. In the interactive graph below you can study the impact of changing the bed slope (1:x) and the water depth (at the most seaward point) on the three waves (components). Here you will see that waves might have a different water depth classification (deep/intermediate/shallow) at the same time and location. Below the graph are a few practical questions that assess the effect of wave period, depth, and bathymetry on the wavelength and period.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W2_Q7</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can use this cell for computations</span>
+
+<span class="c1"># No computations are needed, the line is straight in deep water and overlapping in shallow water. </span>
+<span class="n">answer1</span> <span class="o">=</span> <span class="s1">&#39;wave1&#39;</span> <span class="o">+</span> <span class="s1">&#39;wave2&#39;</span>
+<span class="n">answer2</span> <span class="o">=</span> <span class="s1">&#39;wave2&#39;</span> <span class="o">+</span> <span class="s1">&#39;wave3&#39;</span>
+<span class="n">answer3</span> <span class="o">=</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="wave-groups">
+<h2>3) Wave groups<a class="headerlink" href="#wave-groups" title="Link to this heading">#</a></h2>
+<p>Multiple waves (components) can coexist, influencing the sea surface elevation, currents, etc. The sea surface elevation can be described by substituting the harmonic components, as expressed in formula 1.</p>
+<p>\begin{equation}
+\tag{1}
+\eta = a_1 sin(w_1t-k_1x) + a_2 sin(w_2t-k_2x)
+\end{equation}</p>
+<p>This can be rewritten to formula 2, when <span class="math notranslate nohighlight">\(a_1 = a_2 = a\)</span>.</p>
+<p>\begin{equation}
+\tag{2}
+\eta = 2a sin(\frac{\omega_2+\omega_1}{2}t - \frac{k_2+k_1}{2}x)cos(\frac{\omega_2-\omega_1}{2}t-\frac{k_2-k_1}{2}x)
+\end{equation}</p>
+<p>Which can be expressed in terms of differences (<span class="math notranslate nohighlight">\(\Delta\)</span>) and averaged values (indicated with a bar) for the radial frequency and wave number, resulting in:</p>
+<p>\begin{equation}
+\tag{3}
+\eta = 2a sin(\bar\omega t - \bar k x)cos(\frac{\Delta\omega}{2}t - \frac{\Delta k}{2}x)
+\end{equation}</p>
+<p>This formula consists of two parts, a slowly varying amplitude with <span class="math notranslate nohighlight">\(2a cos(\frac{\Delta\omega}{2}t - \frac{\Delta k}{2}x)\)</span> and a carrier wave through <span class="math notranslate nohighlight">\(sin(\bar\omega t - \bar k x)\)</span>. Which contains the group length through <span class="math notranslate nohighlight">\(\Delta k = 2 \pi/L_{group}\)</span> and the group period from <span class="math notranslate nohighlight">\(\Delta \omega = 2 \pi/T_{group}\)</span>.</p>
+<section id="waves-with-same-wave-amplitude">
+<h3>3.1) Waves with same wave amplitude<a class="headerlink" href="#waves-with-same-wave-amplitude" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W2_Q9</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="time-series-of-water-elevation">
+<h3>3.1.1) Time series of water elevation<a class="headerlink" href="#time-series-of-water-elevation" title="Link to this heading">#</a></h3>
+<p>Below is the beginning of three functions, to calculate the water elevation at a single point in space, and the corresponding varying amplitude and wave envelope. The outcome of these functions will be plotted when you run the cell below. The top graph will check the outcome of eta_t(), and the bottom graph will show you all three functions on top of each other.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span>
+<span class="k">def</span> <span class="nf">eta_t</span><span class="p">():</span>
+    <span class="o">...</span>
+    <span class="k">return</span> <span class="n">eta</span>
+
+<span class="k">def</span> <span class="nf">varying_amplitude_t</span><span class="p">():</span>
+    <span class="o">...</span>
+    <span class="k">return</span> <span class="o">...</span>
+
+<span class="k">def</span> <span class="nf">envelope_t</span><span class="p">():</span>
+    <span class="o">...</span>
+    <span class="k">return</span> <span class="o">...</span>
+
+<span class="n">Show_Q9A</span><span class="p">()</span>
+
+<span class="c1"># possible answer</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Start output of the answer.&#39;</span><span class="p">)</span>
+
+<span class="c1"># This is only for here, students have to define them manually</span>
+<span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">L_group</span><span class="p">,</span> <span class="n">T_group</span> <span class="o">=</span> <span class="n">W2_Q9_param</span>
+
+<span class="k">def</span> <span class="nf">eta_t</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">T1</span><span class="p">,</span><span class="n">T2</span><span class="p">,</span><span class="n">L1</span><span class="p">,</span><span class="n">L2</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">xp</span><span class="p">):</span>
+    <span class="n">eta1_T</span> <span class="o">=</span> <span class="n">a1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T1</span><span class="o">*</span><span class="n">t</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L1</span><span class="o">*</span><span class="n">xp</span><span class="p">)</span>
+    <span class="n">eta2_T</span> <span class="o">=</span> <span class="n">a2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T2</span><span class="o">*</span><span class="n">t</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L2</span><span class="o">*</span><span class="n">xp</span><span class="p">)</span>
+    <span class="n">eta_T</span> <span class="o">=</span> <span class="n">eta1_T</span> <span class="o">+</span> <span class="n">eta2_T</span>
+    <span class="k">return</span> <span class="n">eta_T</span>
+
+<span class="k">def</span> <span class="nf">varying_amplitude_t</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">T1</span><span class="p">,</span><span class="n">T2</span><span class="p">,</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">xp</span><span class="p">):</span>
+    <span class="n">w1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T1</span>
+    <span class="n">w2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T2</span>
+    <span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L1</span>
+    <span class="n">k2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L2</span>
+    <span class="n">Delta_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">w1</span><span class="o">-</span><span class="n">w2</span><span class="p">)</span>
+    <span class="n">Delta_k</span> <span class="o">=</span> <span class="n">k2</span> <span class="o">-</span> <span class="n">k1</span>
+    <span class="n">var_amp</span> <span class="o">=</span> <span class="p">(</span><span class="n">a1</span> <span class="o">+</span> <span class="n">a2</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">Delta_w</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">Delta_k</span><span class="o">*</span><span class="n">xp</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">var_amp</span>
+
+<span class="k">def</span> <span class="nf">envelope_t</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">T1</span><span class="p">,</span><span class="n">T2</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">envelope</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span> <span class="n">varying_amplitude_t</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">T1</span><span class="p">,</span><span class="n">T2</span><span class="p">,</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">xp</span><span class="p">)</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="n">envelope</span>
+
+<span class="n">Show_Q9A</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="spatial-distribution-of-the-water-elevation">
+<h3>3.1.2) Spatial distribution of the water elevation<a class="headerlink" href="#spatial-distribution-of-the-water-elevation" title="Link to this heading">#</a></h3>
+<p>Use this code to make a plot to make a spatial distribution of the water elevation. The structure of this question is similarly as that one for the timeseries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">eta_x</span><span class="p">():</span>
+    <span class="o">...</span>
+    <span class="k">return</span> <span class="n">eta</span>
+
+<span class="k">def</span> <span class="nf">varying_amplitude_x</span><span class="p">():</span>
+    <span class="o">...</span>
+    <span class="k">return</span> <span class="o">...</span>
+
+<span class="k">def</span> <span class="nf">envelope_x</span><span class="p">():</span>
+    <span class="o">...</span>
+    <span class="k">return</span> <span class="o">...</span>
+
+<span class="n">Show_Q9B</span><span class="p">()</span>
+
+<span class="c1"># possible answer</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Start output of the answer.&#39;</span><span class="p">)</span>
+
+<span class="c1"># This is only for here, students have to define them</span>
+<span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">L_group</span><span class="p">,</span> <span class="n">T_group</span> <span class="o">=</span> <span class="n">W2_Q9_param</span>
+
+<span class="k">def</span> <span class="nf">eta_x</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">T1</span><span class="p">,</span><span class="n">T2</span><span class="p">,</span><span class="n">L1</span><span class="p">,</span><span class="n">L2</span><span class="p">,</span><span class="n">tp</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">eta1_X</span> <span class="o">=</span> <span class="n">a1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T1</span><span class="o">*</span><span class="n">tp</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L1</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">eta2_X</span> <span class="o">=</span> <span class="n">a2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T2</span><span class="o">*</span><span class="n">tp</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">eta_X</span> <span class="o">=</span> <span class="n">eta1_X</span> <span class="o">+</span> <span class="n">eta2_X</span>
+    <span class="k">return</span> <span class="n">eta_X</span>
+
+<span class="k">def</span> <span class="nf">varying_amplitude_x</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">T1</span><span class="p">,</span><span class="n">T2</span><span class="p">,</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">w1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T1</span>
+    <span class="n">w2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T2</span>
+    <span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L1</span>
+    <span class="n">k2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L2</span>
+    <span class="n">Delta_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">w1</span><span class="o">-</span><span class="n">w2</span><span class="p">)</span>
+    <span class="n">Delta_k</span> <span class="o">=</span> <span class="n">k2</span> <span class="o">-</span> <span class="n">k1</span>
+    <span class="n">var_amp</span> <span class="o">=</span> <span class="p">(</span><span class="n">a1</span> <span class="o">+</span> <span class="n">a2</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">Delta_w</span><span class="o">*</span><span class="n">tp</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">Delta_k</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">var_amp</span>
+
+<span class="k">def</span> <span class="nf">envelope_x</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">T1</span><span class="p">,</span><span class="n">T2</span><span class="p">,</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">envelope</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span> <span class="n">varying_amplitude_x</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">T1</span><span class="p">,</span><span class="n">T2</span><span class="p">,</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="n">envelope</span>
+
+<span class="n">Show_Q9B</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="theory-question">
+<h3>3.1.3) Theory question<a class="headerlink" href="#theory-question" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q10</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="waves-with-diffent-wave-amplitude">
+<h3>3.2) Waves with diffent wave amplitude<a class="headerlink" href="#waves-with-diffent-wave-amplitude" title="Link to this heading">#</a></h3>
+<p>The variable amplitude shows a sinusoidal pattern when the wave amplitudes are equal. The amplitude does not go to zero when different wave amplitudes are used, since they don’t cancel each other out at the nodes. The Hilbert Transform can calculate the wave amplitude when <span class="math notranslate nohighlight">\(a_1\)</span> and <span class="math notranslate nohighlight">\(a_2\)</span> differ. This transformation goes beyond the content of this course but is applied in the interactive graph below which shows the temporal and spatial signal for two different wave components. Feel free to use this graph to analyse the wave signals for various conditions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W2_wave_groups</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q11</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W2_Q12</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T1</span> <span class="o">=</span> <span class="mi">7</span>    <span class="c1"># Wave period 1 [s]</span>
+<span class="n">T2</span> <span class="o">=</span> <span class="mf">6.2</span>  <span class="c1"># Wave period 1 [s]</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mi">20</span>    <span class="c1"># water depth [m]</span>
+
+<span class="n">Delta_k</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">Delta_w</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="n">Check_W2_Q12A</span><span class="p">()</span>
+
+<span class="c1">#### begin answer</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> Begin output of the answer&#39;</span><span class="p">)</span>
+<span class="n">T1</span> <span class="o">=</span> <span class="mi">7</span>    <span class="c1"># Wave period 1 [s]</span>
+<span class="n">T2</span> <span class="o">=</span> <span class="mf">6.2</span>  <span class="c1"># Wave period 1 [s]</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mi">20</span>    <span class="c1"># water depth [m]</span>
+
+<span class="c1"># The calculation</span>
+<span class="n">L1</span> <span class="o">=</span> <span class="n">wave_length</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span> <span class="n">h</span>
+                <span class="p">)</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="n">wave_length</span><span class="p">(</span><span class="n">T2</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+<span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L1</span>
+<span class="n">k2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">L2</span>
+<span class="n">w1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T1</span>
+<span class="n">w2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T2</span>
+
+<span class="n">Delta_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">k2</span><span class="o">-</span><span class="n">k1</span><span class="p">)</span>
+<span class="n">Delta_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">w2</span><span class="o">-</span><span class="n">w1</span><span class="p">)</span>
+
+<span class="n">Check_W2_Q12A</span><span class="p">()</span>
+<span class="c1"># The answers are given after 3 attempts, the counter resets when running W2_Q12()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Can you also calculate the group velocity (c_group), the wave group length (L_group), and the wave group period (T_group)?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c_group</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">L_group</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">T_group</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="n">Check_W2_Q12B</span><span class="p">()</span>
+<span class="c1">#### begin answer</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> Begin output of the answer&#39;</span><span class="p">)</span>
+
+<span class="n">c_group</span> <span class="o">=</span> <span class="n">Delta_w</span><span class="o">/</span><span class="n">Delta_k</span>
+<span class="n">L_group</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">Delta_k</span>
+<span class="n">T_group</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">Delta_w</span>
+
+<span class="n">Check_W2_Q12B</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here are some follow-up questions,</p>
+<ul class="simple">
+<li><p>How many waves are there (approximately) in the wave group in space and in time?</p></li>
+<li><p>Can you set the graph above such that the number of waves in the group in space and time are equal?</p></li>
+<li><p>When is the difference between the number of waves in a group for space and time about a factor of 2?</p></li>
+</ul>
+<p>Below is a graph that shows two wave components propagating. You can define the amplitude and period of two wave components and set the water depth. (Not the wavelength) You can zoom in and out to obtain a specific number of waves of the wave group on the x-axis by setting “n_waves group”. The Hilbert Transform is applied to show the variable wave amplitude.</p>
+<p>Can you find out when the waves are dispersive and when not? How is this visible on the graph? <br>
+Unfortunately is the graph very computationally demanding, resulting in low frames per second, so it is a challenge to see the action, but you might think of the correct reasoning.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W2_Wave_animation</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-env-coastal-py"
+        },
+        kernelOptions: {
+            name: "conda-env-coastal-py",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-coastal-py'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2a_pre_knowledge_waves.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 2a: Pre-knowledge waves</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="2c_theory_equilibrium_tide.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Coastal Systems Notebook 2c: Theory Equilibrium tide</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Answered version</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#week-2b-wave-dispersion-and-grouping">Week 2b: Wave dispersion and grouping</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dispersion-relation-for-tsunami-waves">1) Dispersion relation for tsunami waves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dispersion-relation-in-the-cross-shore-direction">2) Dispersion relation in the cross-shore direction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wave-groups">3) Wave groups</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#waves-with-same-wave-amplitude">3.1) Waves with same wave amplitude</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-of-water-elevation">3.1.1) Time series of water elevation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-distribution-of-the-water-elevation">3.1.2) Spatial distribution of the water elevation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theory-question">3.1.3) Theory question</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#waves-with-diffent-wave-amplitude">3.2) Waves with diffent wave amplitude</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Floris Calkoen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

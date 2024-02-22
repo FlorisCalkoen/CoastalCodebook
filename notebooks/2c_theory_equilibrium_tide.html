@@ -62,7 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/2c_theory_equilibrium_tide';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Characterization of Coastal Systems" href="1_coastal_classification.html" />
+    <link rel="next" title="Coastal Systems Notebook 2d: Tidal Constituents" href="2d_tidal_constituents.html" />
+    <link rel="prev" title="Answered version" href="2b_wave_dispersion_and_grouping.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -199,7 +200,11 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2</span></p>
 <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2a_pre_knowledge_waves.html">Week 2a: Pre-knowledge waves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2b_wave_dispersion_and_grouping.html">Answered version</a></li>
+
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Coastal Systems Notebook 2c: Theory Equilibrium tide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2d_tidal_constituents.html">Coastal Systems Notebook 2d: Tidal Constituents</a></li>
 </ul>
 
     </div>
@@ -406,6 +411,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pathlib</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">filterwarnings</span>
+
 <span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
 <span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -436,12 +442,12 @@ document.write(`
 <span class="sd">    g_pull (float): the gravitational pull between the two bodies in g</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">G</span> <span class="o">=</span> <span class="mf">6.67408e-11</span>                 <span class="c1"># universal gravitational constant</span>
-    <span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>                        <span class="c1"># gravitational acceleration on the Earth</span>
-    <span class="n">g_pull</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="p">(</span><span class="n">m1</span> <span class="o">*</span> <span class="n">m2</span><span class="p">)</span> <span class="o">/</span> <span class="n">d</span><span class="o">**</span><span class="mi">2</span>   <span class="c1"># gravitational pull between two bodies</span>
-    
+    <span class="n">G</span> <span class="o">=</span> <span class="mf">6.67408e-11</span>  <span class="c1"># universal gravitational constant</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>  <span class="c1"># gravitational acceleration on the Earth</span>
+    <span class="n">g_pull</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="p">(</span><span class="n">m1</span> <span class="o">*</span> <span class="n">m2</span><span class="p">)</span> <span class="o">/</span> <span class="n">d</span><span class="o">**</span><span class="mi">2</span>  <span class="c1"># gravitational pull between two bodies</span>
+
     <span class="c1"># we divide the GP by g, so we get the gravitational pull in terms of g</span>
-    <span class="k">return</span> <span class="n">g_pull</span> <span class="o">/</span> <span class="n">g</span> 
+    <span class="k">return</span> <span class="n">g_pull</span> <span class="o">/</span> <span class="n">g</span>
 </pre></div>
 </div>
 </div>
@@ -452,12 +458,12 @@ For this notebook, we will compute the forces that are working on 1kg of Earth m
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Properties of Earth, Moon, and Sun</span>
-<span class="n">m_earth</span> <span class="o">=</span> <span class="mi">1</span>         <span class="c1"># mass of the earth in kg (we use 1 to compute the gravitational pull per kg of earth mass)</span>
-<span class="n">m_sun</span> <span class="o">=</span> <span class="mf">1.99e30</span>     <span class="c1"># mass of the sun in kg</span>
-<span class="n">m_moon</span> <span class="o">=</span> <span class="mf">7.35e22</span>    <span class="c1"># mass of the moon in kg</span>
-<span class="n">d_sun</span> <span class="o">=</span> <span class="mf">1.5e11</span>      <span class="c1"># distance between the centers of the sun and earth in meters</span>
-<span class="n">d_moon</span> <span class="o">=</span> <span class="mf">3.84e8</span>     <span class="c1"># distance between the centers of the moon and earth in meters</span>
-<span class="n">r</span> <span class="o">=</span> <span class="mf">6.37e6</span>          <span class="c1"># radius of the Earth in meters</span>
+<span class="n">m_earth</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># mass of the earth in kg (we use 1 to compute the gravitational pull per kg of earth mass)</span>
+<span class="n">m_sun</span> <span class="o">=</span> <span class="mf">1.99e30</span>  <span class="c1"># mass of the sun in kg</span>
+<span class="n">m_moon</span> <span class="o">=</span> <span class="mf">7.35e22</span>  <span class="c1"># mass of the moon in kg</span>
+<span class="n">d_sun</span> <span class="o">=</span> <span class="mf">1.5e11</span>  <span class="c1"># distance between the centers of the sun and earth in meters</span>
+<span class="n">d_moon</span> <span class="o">=</span> <span class="mf">3.84e8</span>  <span class="c1"># distance between the centers of the moon and earth in meters</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">6.37e6</span>  <span class="c1"># radius of the Earth in meters</span>
 
 <span class="c1"># Now we compute the gravitational pull and print them</span>
 <span class="n">gp_sun</span> <span class="o">=</span> <span class="n">grav_pull</span><span class="p">(</span><span class="n">m_earth</span><span class="p">,</span> <span class="n">m_sun</span><span class="p">,</span> <span class="n">d_sun</span><span class="p">)</span>
@@ -512,7 +518,7 @@ As we can see, the gravitational pull of the sun is about two orders of magnitud
 <span class="n">gp</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="n">distances</span><span class="p">:</span>
     <span class="n">gp</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">grav_pull</span><span class="p">(</span><span class="n">m_earth</span><span class="p">,</span> <span class="n">m_sun</span><span class="p">,</span> <span class="n">distances</span><span class="p">[</span><span class="n">pos</span><span class="p">])</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gravitational pull at position </span><span class="si">%s</span><span class="s2">: </span><span class="si">%.5E</span><span class="s2"> g&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">gp</span><span class="p">[</span><span class="n">pos</span><span class="p">])</span> <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gravitational pull at position </span><span class="si">%s</span><span class="s2">: </span><span class="si">%.5E</span><span class="s2"> g&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">gp</span><span class="p">[</span><span class="n">pos</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -601,8 +607,8 @@ Now we can see that the differential pull is actually larger for the Moon than f
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note: the figure only plots the correct total tide for intervals of 90 degrees (0, 90, 180, or 270 degrees)</span>
 
-<span class="n">angle_moon</span> <span class="o">=</span> <span class="mi">180</span> <span class="c1"># Adjust here the position of the moon</span>
-<span class="n">angle_sun</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Fixed at 0, dont change</span>
+<span class="n">angle_moon</span> <span class="o">=</span> <span class="mi">180</span>  <span class="c1"># Adjust here the position of the moon</span>
+<span class="n">angle_sun</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Fixed at 0, dont change</span>
 
 <span class="kn">from</span> <span class="nn">initialize.Tide_Initialize</span> <span class="kn">import</span> <span class="n">plot_tide_diagram</span>
 
@@ -648,13 +654,22 @@ Now we can see that the differential pull is actually larger for the Moon than f
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="1_coastal_classification.html"
+       href="2b_wave_dispersion_and_grouping.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Characterization of Coastal Systems</p>
+        <p class="prev-next-title">Answered version</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="2d_tidal_constituents.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Coastal Systems Notebook 2d: Tidal Constituents</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
