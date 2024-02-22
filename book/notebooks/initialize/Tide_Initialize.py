@@ -163,16 +163,25 @@ def plot_grav_pull():
 import matplotlib.pyplot as plt
 import ipywidgets as widgets
 import pickle
+from datetime import datetime, timedelta
 
 
-def plot_timeseries_with_interactive_controls(dates, scheveningen, tide_gauge, eta_df):
+def plot_timeseries_with_interactive_controls(tide_gauge, eta_df, scheveningen):
     # Define a list of checkboxes for component selection and put them in one row
-    comps = ["m2", "s2", "n2", "k2", "k1", "o1", "p1", "q1", "mm", "mf", "ssa"]
+
+    dates = np.array(
+        [
+            datetime(2000, 1, 1, 0, 0, 0) + timedelta(seconds=item * 3600)
+            for item in range(24 * 365)  # 1 year
+        ]
+    )
+
+    comps = ["M2", "S2", "N2", "K2", "K1", "O1", "P1", "Q1", "MM", "MF", "SSA"]
     checkboxes = [
         widgets.Checkbox(
-            value=True, description=comp, layout=widgets.Layout(width="auto")
+            value=(comp == "M2"), description=comp, layout=widgets.Layout(width="auto")
         )
-        for comp in comps[:-4]
+        for comp in comps
     ]
     checkbox_row = widgets.HBox(
         checkboxes, layout=widgets.Layout(display="flex", flex_flow="row wrap")
@@ -180,7 +189,7 @@ def plot_timeseries_with_interactive_controls(dates, scheveningen, tide_gauge, e
 
     # Plot with interactive slider and checkboxes
     date_range_selector = widgets.SelectionRangeSlider(
-        options=[(date.strftime("%d-%m-%Y %H:%M"), date) for date in dates],
+        options=[(date.strftime("%d/%m %Hh"), date) for date in dates],
         index=(0, len(dates) - 1),
         description="Dates",
         orientation="horizontal",
@@ -201,13 +210,20 @@ def plot_timeseries_with_interactive_controls(dates, scheveningen, tide_gauge, e
         )
         for comp in selected_components:
             axes[0].plot(
-                scheveningen[comp][start_date:end_date] / 100, label=comp, linewidth=0.5
+                scheveningen[comp.lower()][start_date:end_date] / 100,
+                label=comp,
+                linewidth=0.5,
             )
-        axes[0].legend(fontsize="small", loc="upper right")
+            l = axes[0].legend(
+                fontsize="small", loc="upper right", bbox_to_anchor=(1, 1.2), ncol=11
+            )
+            for line in l.get_lines():
+                line.set_linewidth(3)
 
         # Calculate and plot the sum on axes[1]
         sum_values = sum(
-            scheveningen[comp][start_date:end_date] for comp in selected_components
+            scheveningen[comp.lower()][start_date:end_date]
+            for comp in selected_components
         )
         axes[1].plot(
             sum_values.index,
@@ -216,7 +232,11 @@ def plot_timeseries_with_interactive_controls(dates, scheveningen, tide_gauge, e
             label="Sum of selected components",
             linewidth=0.5,
         )
-        axes[1].legend(fontsize="small", loc="upper right")
+        l = axes[1].legend(
+            fontsize="small", loc="upper right", bbox_to_anchor=(1, 1.2), ncol=1
+        )
+        for line in l.get_lines():
+            line.set_linewidth(3)
 
         # Plot total tidal signal and the obtained sum on axes [2]
 
@@ -233,7 +253,11 @@ def plot_timeseries_with_interactive_controls(dates, scheveningen, tide_gauge, e
             label="Sum of selected components",
             linewidth=0.5,
         )
-        axes[2].legend(fontsize="small", loc="upper right")
+        l = axes[2].legend(
+            fontsize="small", loc="upper right", bbox_to_anchor=(1, 1.2), ncol=2
+        )
+        for line in l.get_lines():
+            line.set_linewidth(3)
 
         # Plot total tidal signal, sum, and observed sea level on axes [3]
         axes[3].plot(
@@ -256,7 +280,11 @@ def plot_timeseries_with_interactive_controls(dates, scheveningen, tide_gauge, e
             label="Sum of selected components",
             linewidth=0.5,
         )
-        axes[3].legend(fontsize="small", loc="upper right")
+        l = axes[3].legend(
+            fontsize="small", loc="upper right", bbox_to_anchor=(1, 1.2), ncol=3
+        )
+        for line in l.get_lines():
+            line.set_linewidth(3)
 
         # Set labels and legend
         fig.text(
@@ -312,12 +340,11 @@ def questions_2d():
             description="Check",
         )
 
-        output_widget = widgets.Text(
+        output_widget = widgets.HTML(
             value="",
             placeholder="",
-            description="Feedback:",
             disabled=False,
-            layout=widgets.Layout(width="500px"),
+            layout=widgets.Layout(width="500px", border="none"),
             overflow="hidden",
         )
         # output_widget.add_class('Broad_widget')
@@ -336,13 +363,13 @@ def questions_2d():
             response = value_widget.value
             if isinstance(answer[0], float):
                 if response >= answer[0] and response <= answer[1]:
-                    output_widget.value = str("Correct! Well done.")
+                    output_widget.value = '<span style="color: green;margin-left: 8px;">Correct! Well done.</span>'
                 else:
-                    output_widget.value = str("Incorrect, please try again.")
+                    output_widget.value = '<span style="color: red;margin-left: 8px;">Incorrect, please try again.</span>'
             elif response.lower() == answer:  # if the answer is correct
-                output_widget.value = str("Correct! Well done.")
+                output_widget.value = '<span style="color: green;margin-left: 8px;">Correct! Well done.</span>'
             else:  # the answer is wrong
-                output_widget.value = str("Incorrect, please try again.")
+                output_widget.value = '<span style="color: red;margin-left: 8px;">Incorrect, please try again.</span>'
 
         submit_button.on_click(check_answers)
 
@@ -367,68 +394,74 @@ def questions_2d():
 # %% Questions in 3a_tidal_environments - tidal characters
 
 
-def questions_3a():
+def questions_3a1():
     import numpy as np
     import ipywidgets as widgets
 
     Q1_text = "Scheveningen"
     Q2_text = "Galveston"
-    Q3_text = "Valparaiso"
-    Q4_text = "Jakarta"
-    Answer1 = "semidiurnal"
-    Answer2 = "mixed, mainly diurnal"
-    Answer3 = "mixed, mainly semidiurnal"
-    Answer4 = "diurnal"
+    Q3_text = "Jakarta"
+    Q4_text = "Valparaiso"
+    Answer1 = "Semi-diurnal"
+    Answer2 = "Mixed, mainly diurnal"
+    Answer3 = "Diurnal"
+    Answer4 = "Mixed, mainly semi-diurnal"
 
-    def question_body(Question, answer):
-        # makes the widgets
+    options = [
+        "Semi-diurnal",
+        "Mixed, mainly semi-diurnal",
+        "Mixed, mainly diurnal",
+        "Diurnal",
+    ]
+
+    def question_body(Question, answer, options):
         question_widget = widgets.Label(value=Question)
         unit_widget = widgets.Label(
             value="Answer:", layout=widgets.Layout(width="50px")
         )
-        value_widget = widgets.Text(
-            value="", disabled=False, layout=widgets.Layout(width="80px")
+
+        # Use a dropdown menu instead of a text widget
+        value_widget = widgets.Dropdown(
+            options=options,
+            value=None,
+            disabled=False,
+            layout=widgets.Layout(width="200px"),
         )
 
         submit_button = widgets.Button(
             description="Check",
         )
 
-        output_widget = widgets.Text(
+        output_widget = widgets.HTML(
             value="",
             placeholder="",
-            description="Feedback:",
             disabled=False,
-            layout=widgets.Layout(width="500px"),
+            layout=widgets.Layout(width="500px", border="none"),
             overflow="hidden",
         )
-        # output_widget.add_class('Broad_widget')
 
         HBox1 = widgets.HBox([unit_widget, value_widget, output_widget])
-        # HBox.layout.justify_content = 'flex-start' # dont adjust the layout on the window
 
-        # place all the horizontal boxes in one vertical box, and display it.
         quiz_widget = widgets.VBox([question_widget] + [HBox1] + [submit_button])
         quiz_widget.layout.flex = "none"
 
         display(quiz_widget)
 
         def check_answers(button, answer=answer):
-            # get value from widget and check if this corresponds with the answer
             response = value_widget.value
-            if response.lower() == answer:  # if the answer is correct
-                output_widget.value = str("Correct! Well done.")
-            else:  # the answer is wrong
-                output_widget.value = str("Incorrect, please try again.")
+            if response == answer:
+                output_widget.value = '<span style="color: green;margin-left: 8px;">Correct! Well done.</span>'
+            else:
+                output_widget.value = '<span style="color: red;margin-left: 8px;">Incorrect, please try again.</span>'
 
         submit_button.on_click(check_answers)
 
-    # organise the questions, units, and answers
+    # Organize the questions, units, and answers
     questions = [Q1_text, Q2_text, Q3_text, Q4_text]
     Answers = [Answer1, Answer2, Answer3, Answer4]
 
     for Question, answer in zip(questions, Answers):
-        question_body(Question, answer)
+        question_body(Question, answer, options)
 
     return None
 
@@ -443,11 +476,15 @@ import ipywidgets as widgets
 from warnings import filterwarnings
 
 
-def plot_4timeseries_with_interactive_controls(comps, dates, tide_fes, locs):
+def plot_4timeseries_with_interactive_controls(comps, dates, tide):
+    locs = ["Scheveningen", "Valparaiso", "Jakarta", "Galveston"]
+
     # Define a list of checkboxes for component selection and put them in one row
     checkboxes = [
         widgets.Checkbox(
-            value=True, description=comp, layout=widgets.Layout(width="auto")
+            value=(comp in ["M2", "S2", "N2", "K2", "K1", "O1", "P1", "Q1"]),
+            description=comp,
+            layout=widgets.Layout(width="auto"),
         )
         for comp in comps
     ]
@@ -457,7 +494,7 @@ def plot_4timeseries_with_interactive_controls(comps, dates, tide_fes, locs):
 
     # Plot with interactive slider and checkboxes
     date_range_selector = widgets.SelectionRangeSlider(
-        options=[(date.strftime("%d-%m-%Y %H:%M"), date) for date in dates],
+        options=[(date.strftime("%d/%m %Hh"), date) for date in dates],
         index=(0, len(dates) - 1),
         description="Dates",
         orientation="horizontal",
@@ -474,33 +511,46 @@ def plot_4timeseries_with_interactive_controls(comps, dates, tide_fes, locs):
 
         # Plot selected components
         fig, axes = plt.subplots(
-            nrows=4, ncols=2, figsize=(10, 8), sharex=True, constrained_layout=False
+            nrows=4, ncols=2, figsize=(12, 10), sharex=True, constrained_layout=False
         )
 
         for comp in selected_components:
             axes[0, 0].plot(
-                tide_fes[comp][locs[0]][start_date:end_date], label=comp, linewidth=0.5
+                tide[locs[0]][comp.lower()][start_date:end_date],
+                label=comp,
+                linewidth=0.5,
             )
             axes[0, 1].plot(
-                tide_fes[comp][locs[1]][start_date:end_date], label=comp, linewidth=0.5
+                tide[locs[1]][comp.lower()][start_date:end_date],
+                label=comp,
+                linewidth=0.5,
             )
             axes[2, 0].plot(
-                tide_fes[comp][locs[2]][start_date:end_date], label=comp, linewidth=0.5
+                tide[locs[2]][comp.lower()][start_date:end_date],
+                label=comp,
+                linewidth=0.5,
             )
             axes[2, 1].plot(
-                tide_fes[comp][locs[3]][start_date:end_date], label=comp, linewidth=0.5
+                tide[locs[3]][comp.lower()][start_date:end_date],
+                label=comp,
+                linewidth=0.5,
             )
-        axes[0, 1].legend(fontsize="small", loc="upper right", bbox_to_anchor=(1.3, 1))
-        axes[0, 0].set_title(f"{locs[0].capitalize()}", fontweight="bold")
-        axes[0, 1].set_title(f"{locs[1].capitalize()}", fontweight="bold")
-        axes[2, 0].set_title(f"{locs[2].capitalize()}", fontweight="bold")
-        axes[2, 1].set_title(f"{locs[3].capitalize()}", fontweight="bold")
+        l = axes[0, 1].legend(
+            fontsize="small", loc="upper right", bbox_to_anchor=(1.3, 1)
+        )
+        for line in l.get_lines():
+            line.set_linewidth(3)
+        axes[0, 0].set_title(f"{locs[0]}", fontweight="bold")
+        axes[0, 1].set_title(f"{locs[1]}", fontweight="bold")
+        axes[2, 0].set_title(f"{locs[2]}", fontweight="bold")
+        axes[2, 1].set_title(f"{locs[3]}", fontweight="bold")
 
         # Calculate and plot the sum
         sum_values = [0] * len(locs)
         for i, loc in enumerate(locs):
             sum_values[i] = sum(
-                tide_fes[comp][loc][start_date:end_date] for comp in selected_components
+                tide[loc][comp.lower()][start_date:end_date]
+                for comp in selected_components
             )
 
         axes[1, 0].plot(
@@ -536,7 +586,7 @@ def plot_4timeseries_with_interactive_controls(comps, dates, tide_fes, locs):
         for ax in axes.flat:
             ax.tick_params(axis="x", rotation=30)
         fig.text(
-            0.05, 0.5, "Sea level [m]", va="center", rotation="vertical", fontsize=14
+            0.05, 0.5, "Sea level [cm]", va="center", rotation="vertical", fontsize=14
         )
         fig.text(0.5, 0.05, "Time", ha="center", va="center", fontsize=14)
         plt.show()
@@ -554,3 +604,127 @@ def plot_4timeseries_with_interactive_controls(comps, dates, tide_fes, locs):
     controls = widgets.VBox([figure.children[0], checkbox_row, figure.children[-1]])
     controls.layout.height = "100%"
     display(controls)
+
+
+# %% Questions in 3a_tidal_environments - tidal beating
+
+
+def questions_3a2():
+    import numpy as np
+    import ipywidgets as widgets
+
+    Q11_text = "A"
+    Q12_text = "B"
+    Q13_text = "N"
+    Answer11 = ["m2", "s2"]
+    Answer12 = Answer11
+    Answer13 = [14.752, 14.8]
+
+    Q21_text = "C"
+    Q22_text = "D"
+    Q23_text = "M"
+    Answer21 = ["k1", "o1"]
+    Answer22 = Answer21
+    Answer23 = [13.659, 13.7]
+
+    Q31_text = "M1"
+    Q32_text = "M2"
+    Q33_text = "E"
+    Q34_text = "F"
+    Answer31 = ["march", "september"]
+    Answer32 = Answer31
+    Answer33 = ["s2", "k2"]
+    Answer34 = Answer33
+
+    Q41_text = "M3"
+    Q42_text = "M4"
+    Q43_text = "G"
+    Q44_text = "H"
+    Answer41 = ["june", "december"]
+    Answer42 = Answer41
+    Answer43 = ["k1", "p1"]
+    Answer44 = Answer43
+
+    def Numerical_question_body(Question, answer):
+        # makes the widgets
+        question_widget = widgets.Label(value=Question)
+        unit_widget = widgets.Label(
+            value="Answer:", layout=widgets.Layout(width="50px")
+        )
+        if isinstance(answer[0], str):
+            value_widget = widgets.Text(
+                value="", disabled=False, layout=widgets.Layout(width="80px")
+            )
+        else:
+            value_widget = widgets.FloatText(
+                value=0, disabled=False, step=0.01, layout=widgets.Layout(width="80px")
+            )
+
+        submit_button = widgets.Button(
+            description="Check",
+        )
+
+        output_widget = widgets.HTML(
+            value="",
+            placeholder="",
+            disabled=False,
+            layout=widgets.Layout(width="500px", border="none"),
+            overflow="hidden",
+        )
+
+        HBox1 = widgets.HBox([unit_widget, value_widget, output_widget])
+        # HBox.layout.justify_content = 'flex-start' # dont adjust the layout on the window
+
+        # place all the horizontal boxes in one vertical box, and display it.
+        quiz_widget = widgets.VBox([question_widget] + [HBox1] + [submit_button])
+        quiz_widget.layout.flex = "none"
+
+        display(quiz_widget)
+
+        def check_answers(button, answer=answer):
+            # get value from widget and check if this corresponds with the answer
+            response = value_widget.value
+            if isinstance(answer[0], float):
+                if response >= answer[0] and response <= answer[1]:
+                    output_widget.value = '<span style="color: green;margin-left: 8px;">Correct! Well done.</span>'
+                else:
+                    output_widget.value = '<span style="color: red;margin-left: 8px;">Incorrect, please try again.</span>'
+            elif response.lower() in answer:  # if the answer is correct
+                output_widget.value = '<span style="color: green;margin-left: 8px;">Correct! Well done.</span>'
+            else:  # the answer is wrong
+                output_widget.value = '<span style="color: red;margin-left: 8px;">Incorrect, please try again.</span>'
+
+        submit_button.on_click(check_answers)
+
+    # organise the questions, units, and answers
+    questions = [
+        [Q11_text, Q12_text, Q13_text],
+        [Q21_text, Q22_text, Q23_text],
+        [Q31_text, Q32_text, Q33_text, Q34_text],
+        [Q41_text, Q42_text, Q43_text, Q44_text],
+    ]
+    Answers = [
+        [Answer11, Answer12, Answer13],
+        [Answer21, Answer22, Answer23],
+        [Answer31, Answer32, Answer33, Answer34],
+        [Answer41, Answer42, Answer43, Answer44],
+    ]
+
+    # make and display the questions
+    general_question4 = [
+        "1. In a semi-diurnal environment, spring tide occurs for tidal constituents A and B every N days. Set the time range to around 30 days, which phenomenon can you detect when looking at the combined signal of these two constituents?",
+        "2. In a diurnal environment, spring tide occurs for tidal constituents C and D every M days. What is the main difference to the signal from question 1?",
+        "3. Strongest semi-diurnal tides are in the months M1 and M2, as can be seen from adding constituents E and F.",
+        "4. Strongest diurnal tides are in the months M3 and M4, as can be seen from adding constituents G and H.",
+    ]
+    for i, g in enumerate(general_question4):
+        print("\n\n\033[1m" + g + "\033[0m")
+        for Question, answer in zip(questions[i], Answers[i]):
+            Numerical_question_body(Question, answer)
+
+    return None
+
+
+## Missing a condition that A!=B, ..
+
+# %%
