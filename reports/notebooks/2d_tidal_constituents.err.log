@@ -18,51 +18,157 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# Before running, install 'uptide' in the coastal environment as 'pip install uptide'
-# Run this to import modules
+## Download GESLA tide gauge data for Scheveningen
 
-import math
-import pathlib
-import pickle
-import sys
-from datetime import datetime, timedelta
-from pathlib import Path
-from warnings import filterwarnings
-
-import cartopy.crs as ccrs
-import cartopy.feature as cfeature
-import ipywidgets as widgets
-import matplotlib.patches as mpatches
-import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
-import pooch
-import uptide
-import xarray as xr
-from initialize.Tide_Initialize import (
-    plot_timeseries_with_interactive_controls,
-    questions_2d,
+tide_gauge_fp = pooch.retrieve(
+    "https://coclico.blob.core.windows.net/coastal-dynamics/2_wind_waves_tides/Scheveningen_GESLA.pkl",
+    known_hash="90355584803ddcdf88b01fcf02546c4d8201a3fa6f63355ecfdb8ab6a07d1e38",
 )
-from IPython.display import Image, display
-from ipywidgets import interact
+tide_gauge = pd.read_pickle(tide_gauge_fp)
 
-cwd = pathlib.Path().resolve()
-proj_dir = cwd.parent  # this is the root of the CoastalCodeBook
-DATA_DIR = proj_dir / "data"
+## Load FES2014 amplitude and phase data and calculate the signal
+# see the commented script at the bottom of the notebook if you want to know how to load FES2014 amplitude and phase data
+
+tide = {}
+amplitudes = {}
+phases = {}
+comps = [
+    "EPS2",
+    "J1",
+    "K1",
+    "K2",
+    "L2",
+    "LAMBDA2",
+    "M2",
+    "M3",
+    "M4",
+    "M6",
+    "M8",
+    "MF",
+    "MKS2",
+    "MM",
+    "MN4",
+    "MS4",
+    "MSF",
+    "MSQM",
+    "MTM",
+    "MU2",
+    "N2",
+    "N4",
+    "NU2",
+    "O1",
+    "P1",
+    "Q1",
+    "R2",
+    "S1",
+    "S2",
+    "S4",
+    "SA",
+    "SSA",
+    "T2",
+]
+
+for comp in comps:
+    fp = DATA_DIR / "fes2014_amp_ph" / ("02_" + comp.lower() + ".p")
+    tide[comp.lower()] = pd.read_pickle(fp)
+    amplitudes[comp.lower()] = tide[comp.lower()]["amplitude"]["scheveningen"]
+    phases[comp.lower()] = tide[comp.lower()]["phase"]["scheveningen"]
+
+# Choose th initial time for calculating the tidal signal (has to be between 1977-2017)
+initial_time = datetime(1977, 1, 1, 12, 0, 0)
+
+tidal_signal = uptide.Tides(comps)  # select which constituents to use, we will use all
+tidal_signal.set_initial_time(
+    initial_time
+)  # set t=0 at 1 Jan 1977, UTC 12:00, arbitrary choice
+amp = [amplitudes[comp.lower()] for comp in comps]
+pha = [math.radians(phases[comp.lower()]) for comp in comps]  # phase (in radians!)
+t = np.arange(
+    0, 365 * 40 * 24 * 3600, 900
+)  # seconds since initial time, 40 years since 1977, 15min frequency
+dates = np.array(
+    [initial_time + timedelta(seconds=int(s)) for s in t]
+)  # so that we have datetime on x-axis
+eta = tidal_signal.from_amplitude_phase(amp, pha, t)  # calculate the signal
+eta_df = pd.DataFrame({"eta": eta}, index=dates)
+
+## Plot
+# Choose a time window to plot (has to be between 1977 - 2017)
+start_date = "2015-05-01 00:00"
+end_date = "2015-05-20 00:00"
+
+filtered_gauge = tide_gauge[start_date:end_date]
+filtered_tide = eta_df[start_date:end_date]
+fig, ax = plt.subplots(figsize=(10, 6))
+ax.plot(
+    filtered_tide.index,
+    filtered_tide["eta"] / 100,
+    color="blue",
+    label="Tidal signal",
+    linewidth=0.7,
+)
+ax.plot(
+    filtered_gauge.index,
+    filtered_gauge,
+    color="black",
+    label="Observed sea level",
+    linewidth=0.7,
+)
+ax.set_xlabel("Time")
+ax.set_ylabel("Sea level [m]")
+ax.set_title("Scheveningen")
+ax.legend()
+plt.tight_layout()
+plt.show()
 ------------------
 
+----- stderr -----
+Downloading data from 'https://coclico.blob.core.windows.net/coastal-dynamics/2_wind_waves_tides/Scheveningen_GESLA.pkl' to file '/home/runner/.cache/pooch/178ff95a007d3ed66d9e4b40f241fe43-Scheveningen_GESLA.pkl'.
+------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[1], line 20[0m
-[1;32m     18[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
-[1;32m     19[0m [38;5;28;01mimport[39;00m [38;5;21;01mpooch[39;00m
-[0;32m---> 20[0m [38;5;28;01mimport[39;00m [38;5;21;01muptide[39;00m
-[1;32m     21[0m [38;5;28;01mimport[39;00m [38;5;21;01mxarray[39;00m [38;5;28;01mas[39;00m [38;5;21;01mxr[39;00m
-[1;32m     22[0m [38;5;28;01mfrom[39;00m [38;5;21;01minitialize[39;00m[38;5;21;01m.[39;00m[38;5;21;01mTide_Initialize[39;00m [38;5;28;01mimport[39;00m (
-[1;32m     23[0m     plot_timeseries_with_interactive_controls,
-[1;32m     24[0m     questions_2d,
-[1;32m     25[0m )
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+Cell [0;32mIn[2], line 53[0m
+[1;32m     51[0m [38;5;28;01mfor[39;00m comp [38;5;129;01min[39;00m comps:
+[1;32m     52[0m     fp [38;5;241m=[39m DATA_DIR [38;5;241m/[39m [38;5;124m"[39m[38;5;124mfes2014_amp_ph[39m[38;5;124m"[39m [38;5;241m/[39m ([38;5;124m"[39m[38;5;124m02_[39m[38;5;124m"[39m [38;5;241m+[39m comp[38;5;241m.[39mlower() [38;5;241m+[39m [38;5;124m"[39m[38;5;124m.p[39m[38;5;124m"[39m)
+[0;32m---> 53[0m     tide[comp[38;5;241m.[39mlower()] [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mread_pickle[49m[43m([49m[43mfp[49m[43m)[49m
+[1;32m     54[0m     amplitudes[comp[38;5;241m.[39mlower()] [38;5;241m=[39m tide[comp[38;5;241m.[39mlower()][[38;5;124m"[39m[38;5;124mamplitude[39m[38;5;124m"[39m][[38;5;124m"[39m[38;5;124mscheveningen[39m[38;5;124m"[39m]
+[1;32m     55[0m     phases[comp[38;5;241m.[39mlower()] [38;5;241m=[39m tide[comp[38;5;241m.[39mlower()][[38;5;124m"[39m[38;5;124mphase[39m[38;5;124m"[39m][[38;5;124m"[39m[38;5;124mscheveningen[39m[38;5;124m"[39m]
 
-[0;31mModuleNotFoundError[0m: No module named 'uptide'
+File [0;32m~/micromamba/envs/coastal/lib/python3.11/site-packages/pandas/io/pickle.py:185[0m, in [0;36mread_pickle[0;34m(filepath_or_buffer, compression, storage_options)[0m
+[1;32m    123[0m [38;5;250m[39m[38;5;124;03m"""[39;00m
+[1;32m    124[0m [38;5;124;03mLoad pickled pandas object (or any object) from file.[39;00m
+[1;32m    125[0m 
+[0;32m   (...)[0m
+[1;32m    182[0m [38;5;124;03m4    4    9[39;00m
+[1;32m    183[0m [38;5;124;03m"""[39;00m
+[1;32m    184[0m excs_to_catch [38;5;241m=[39m ([38;5;167;01mAttributeError[39;00m, [38;5;167;01mImportError[39;00m, [38;5;167;01mModuleNotFoundError[39;00m, [38;5;167;01mTypeError[39;00m)
+[0;32m--> 185[0m [38;5;28;01mwith[39;00m [43mget_handle[49m[43m([49m
+[1;32m    186[0m [43m    [49m[43mfilepath_or_buffer[49m[43m,[49m
+[1;32m    187[0m [43m    [49m[38;5;124;43m"[39;49m[38;5;124;43mrb[39;49m[38;5;124;43m"[39;49m[43m,[49m
+[1;32m    188[0m [43m    [49m[43mcompression[49m[38;5;241;43m=[39;49m[43mcompression[49m[43m,[49m
+[1;32m    189[0m [43m    [49m[43mis_text[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m,[49m
+[1;32m    190[0m [43m    [49m[43mstorage_options[49m[38;5;241;43m=[39;49m[43mstorage_options[49m[43m,[49m
+[1;32m    191[0m [43m[49m[43m)[49m [38;5;28;01mas[39;00m handles:
+[1;32m    192[0m     [38;5;66;03m# 1) try standard library Pickle[39;00m
+[1;32m    193[0m     [38;5;66;03m# 2) try pickle_compat (older pandas version) to handle subclass changes[39;00m
+[1;32m    194[0m     [38;5;66;03m# 3) try pickle_compat with latin-1 encoding upon a UnicodeDecodeError[39;00m
+[1;32m    196[0m     [38;5;28;01mtry[39;00m:
+[1;32m    197[0m         [38;5;66;03m# TypeError for Cython complaints about object.__new__ vs Tick.__new__[39;00m
+[1;32m    198[0m         [38;5;28;01mtry[39;00m:
+
+File [0;32m~/micromamba/envs/coastal/lib/python3.11/site-packages/pandas/io/common.py:882[0m, in [0;36mget_handle[0;34m(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)[0m
+[1;32m    873[0m         handle [38;5;241m=[39m [38;5;28mopen[39m(
+[1;32m    874[0m             handle,
+[1;32m    875[0m             ioargs[38;5;241m.[39mmode,
+[0;32m   (...)[0m
+[1;32m    878[0m             newline[38;5;241m=[39m[38;5;124m"[39m[38;5;124m"[39m,
+[1;32m    879[0m         )
+[1;32m    880[0m     [38;5;28;01melse[39;00m:
+[1;32m    881[0m         [38;5;66;03m# Binary mode[39;00m
+[0;32m--> 882[0m         handle [38;5;241m=[39m [38;5;28;43mopen[39;49m[43m([49m[43mhandle[49m[43m,[49m[43m [49m[43mioargs[49m[38;5;241;43m.[39;49m[43mmode[49m[43m)[49m
+[1;32m    883[0m     handles[38;5;241m.[39mappend(handle)
+[1;32m    885[0m [38;5;66;03m# Convert BytesIO or file objects passed with an encoding[39;00m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/home/runner/work/CoastalCodebook/CoastalCodebook/book/data/fes2014_amp_ph/02_eps2.p'
 
