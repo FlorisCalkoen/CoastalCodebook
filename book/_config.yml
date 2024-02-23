@@ -35,6 +35,5 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
-
-exclude_patterns:
-  - "notebooks/initialize/*"
+# exclude_patterns:
+#   - "notebooks/initialize/*"
