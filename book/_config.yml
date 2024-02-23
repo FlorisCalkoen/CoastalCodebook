@@ -35,14 +35,5 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
-
-exclude_patterns:
-  - "notebooks/initialize/*"
-  - "notebooks/02_the_tide.ipynb"
-  - "notebooks/2a_pre_knowledge_waves.ipynb"
-  - "notebooks/2b_wave_dispersion_and_grouping.ipynb"
-  - "notebooks/03_pacific_basin.ipynb"
-  - "notebooks/04_escoffier_curve.ipynb"
-  - "notebooks/week_08.ipynb"
-  - "markdown-notebooks.md"
-  - "markdown.md"
+# exclude_patterns:
+#   - "notebooks/initialize/*"

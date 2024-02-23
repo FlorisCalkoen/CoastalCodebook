@@ -51,4 +51,5 @@ dependencies:
   - xarray
 
   - pip:
-      - coastal_dynamics
+      - coastal-dynamics
+      - uptide
