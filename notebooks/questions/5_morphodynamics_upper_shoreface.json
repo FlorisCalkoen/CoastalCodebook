@@ -4,14 +4,14 @@
         "type": "multiple_choice",
         "question": "Which of the considered provinces is subject to the highest mean tidal range?",
         "options": {
-            "a": "Pará",
-            "b": "Maranhão",
+            "a": "Para",
+            "b": "Maranhao",
             "c": "Rio de Janeiro",
             "d": "Santa Catarina"
         },
         "answer": "a",
         "feedback": {
-            "correct": "Correct, the Pará beaches indeed experience the largest tidal range.",
+            "correct": "Correct, the Para beaches indeed experience the largest tidal range.",
             "incorrect": "Incorrect. Go through the different 'Beach select' options. To which province does the beach with the highest mean tidal range belong?"
         }
     },
@@ -20,8 +20,8 @@
         "type": "multiple_choice",
         "question": "In which province is the beach subject to the highest significant wave height located?",
         "options": {
-            "a": "Pará",
-            "b": "Maranhão",
+            "a": "Para",
+            "b": "Maranhao",
             "c": "Rio de Janeiro",
             "d": "Santa Catarina"
         },
@@ -81,7 +81,11 @@
             "c": "Presence of vegetation",
             "d": "Close to an inlet"
         },
-        "answer": [ "b", "c", "d" ],
+        "answer": [
+            "b",
+            "c",
+            "d"
+        ],
         "feedback": {
             "correct": "Correct, these are indeed characteristics of a tide-dominated system.",
             "incorrect": "Incorrect. Remember that wave-dominated systems are quite energetic, whereas tide-dominated systems are usually suitable for more complex ecosystems."
@@ -90,14 +94,16 @@
     "Q5-7": {
         "name": "Q5-7",
         "type": "multiple_selection",
-        "question": "Have a look at the São Luís beach. The significant wave height is higher in comparison to the Do Ubatuba beach. Still, we consider the former to be tide-dominated, and the latter to be wave-dominated. Why? You can select multiple answers.",
+        "question": "Have a look at the Sao Luis beach. The significant wave height is higher in comparison to the Do Ubatuba beach. Still, we consider the former to be tide-dominated, and the latter to be wave-dominated. Why? You can select multiple answers.",
         "options": {
             "a": "Differences in sediment size",
-            "b": "The São Luís beach is located in a more urbanized area, meaning it is likely better protected from waves",
+            "b": "The Sao Luis beach is located in a more urbanized area, meaning it is likely better protected from waves",
             "c": "We classify based on relative importance of tides and waves",
             "d": "The Do Ubatuba beach is protected by barrier islands"
         },
-        "answer": [ "c" ],
+        "answer": [
+            "c"
+        ],
         "feedback": {
             "correct": "Correct. Looking at figure 4.13 from the book, it becomes apparent that both tides and waves influence classification.",
             "incorrect": "Incorrect. Have a look at 4.13. How is it possible that a system with higher waves can still be classified as tide-dominated?"
@@ -152,11 +158,11 @@
     "Q5-11": {
         "name": "Q5-11",
         "type": "multiple_choice",
-        "question": "Consider the following beach systems: Balneário Camboriú, Laguna, Praia do Moçambique, and Marambaia. Which has the lowest dimensionless fall velocity?",
+        "question": "Consider the following beach systems: Balneario Camboriu, Laguna, Praia do Mocambique, and Marambaia. Which has the lowest dimensionless fall velocity?",
         "options": {
-            "a": "Balneário Camboriú",
+            "a": "Balneario Camboriu",
             "b": "Laguna",
-            "c": "Praia do Moçambique",
+            "c": "Praia do Mocambique",
             "d": "Marambaia"
         },
         "answer": "d",
@@ -223,7 +229,7 @@
     },
     "Q5-16": {
         "name": "Q5-16",
-        "type": "multiple_choice",
+        "type": "numeric",
         "question": "The Enseada de Pinheira system consists of a nice pocket beach. Of all the beaches along the Santa Catarina coast considered in this notebook, this beach is in fact the most dissipative, at least according to the dimensionless fall velocity. What is the value of the dimensionless fall velocity for this beach? Round your answer to two decimals.",
         "answer": 4.56,
         "precision": 1,
@@ -235,14 +241,17 @@
     "Q5-17": {
         "name": "Q5-17",
         "type": "multiple_selection",
-        "question": "Which characteristics of a reflective beach do we see in the sattelite image for the Balneário Camboriú beach system? You can select multiple answers.",
+        "question": "Which characteristics of a reflective beach do we see in the sattelite image for the Balneario Camboriu beach system? You can select multiple answers.",
         "options": {
             "a": "Narrow beach",
             "b": "Wide surf zone",
             "c": "Single breaking line",
             "d": "Beach vegetation"
         },
-        "answer": [ "a", "c" ],
+        "answer": [
+            "a",
+            "c"
+        ],
         "feedback": {
             "correct": "Correct. These are indeed characteristics of a reflective beach which can be seen in the sattelite image.",
             "incorrect": "Incorrect. Read the part on 'Reflective beaches' from section 7.3.2 from the book. Which characteristics of a reflective beach can also be seen in the sattelite image?"
@@ -272,12 +281,12 @@
             "a": "Campo Bom",
             "b": "Laguna",
             "c": "Enseada de Pinheira",
-            "d": "Praia do Moçambique",
+            "d": "Praia do Mocambique",
             "e": "Tijucas",
-            "f": "Balneário Camboriú",
+            "f": "Balneario Camboriu",
             "g": "Do Ubatuba",
             "h": "Barra Velha",
-            "i": "São Luís",
+            "i": "Sao Luis",
             "j": "Princesa",
             "k": "Atalaia",
             "l": "Ajuruteua",
