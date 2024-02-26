@@ -35,7 +35,7 @@
         "name": "Q5-2",
         "type": "text",
         "question": "The Marambaia beach is part of a very nice coastal feature. What is the name of this feature?",
-        "answer": "spit",
+        "answer": "Spit",
         "feedback": {
             "correct": "Correct, this is indeed called a 'spit'",
             "incorrect": "Incorrect. This feature is called a spit. You will learn more about this in chapter 8 of the book!"
