@@ -28,16 +28,9 @@ parts:
       - file: notebooks/2c_theory_equilibrium_tide
       - file: notebooks/2d_tidal_constituents
 
-  # - caption: Week 2
-  #   chapters:
-  #     - file: assignments/2a_pre_knowledge_waves
-  #     - file: assignments/2b_wave_dispersion_and_grouping
-  #     - file: assignments/2c_theory_equilibrium_tide
-  #     - file: assignments/2d_tidal_constituents
-
-  # - caption: Week 3
-  #   chapters:
-  #     - file: assignments/3a_tidal_environments
+  - caption: Week 3
+    chapters:
+      - file: assignments/3a_tidal_environments
   #     - file: assignments/3b_wave_transformation
 
   # - caption: Week 4

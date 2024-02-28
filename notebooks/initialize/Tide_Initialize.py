@@ -1,4 +1,4 @@
-# %% plot_tide_diagram - from 2c
+# %% plot_tide_diagram -  from 2c
 
 
 def plot_tide_diagram(angle_sun, angle_moon):
