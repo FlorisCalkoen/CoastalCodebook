@@ -411,21 +411,21 @@ document.write(`
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">single_multiple_choice</span><span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="n">choices</span><span class="p">,</span>  <span class="n">answer</span><span class="p">,</span> <span class="n">hint</span><span class="p">,</span> <span class="n">comment</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">single_multiple_choice</span><span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="n">choices</span><span class="p">,</span> <span class="n">answer</span><span class="p">,</span> <span class="n">hint</span><span class="p">,</span> <span class="n">comment</span><span class="p">):</span>
     <span class="c1"># Make the required widgets</span>
     <span class="n">question_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">question</span><span class="p">)</span>
     <span class="n">choices_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">Select</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">choices</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
     <span class="n">submit_button</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Check&quot;</span><span class="p">)</span>
     <span class="n">feedback_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
 
-    <span class="c1"># Build the structure by aligning the widgets</span>
+    <span class="c1"># Build the s tructure by aligning the widgets</span>
     <span class="n">submit_row</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span><span class="n">submit_button</span><span class="p">,</span> <span class="n">feedback_widget</span><span class="p">)</span>
     <span class="n">quiz_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">question_widget</span><span class="p">,</span> <span class="n">choices_widget</span><span class="p">,</span> <span class="n">submit_row</span><span class="p">)</span>
     <span class="n">display</span><span class="p">(</span><span class="n">quiz_widget</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">check_answers</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
         <span class="n">chosen_answer</span> <span class="o">=</span> <span class="n">choices_widget</span><span class="o">.</span><span class="n">value</span>
-    
+
         <span class="k">if</span> <span class="n">chosen_answer</span> <span class="o">==</span> <span class="n">answer</span><span class="p">:</span>
             <span class="n">feedback_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">comment</span>
         <span class="k">else</span><span class="p">:</span>
@@ -449,66 +449,70 @@ document.write(`
 
     <span class="c1"># For visualization, the maximum length/width of the question, with a minimum width of 200</span>
     <span class="n">max_length</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">correct_statements</span> <span class="o">+</span> <span class="n">false_statements</span><span class="p">)</span>
-    <span class="n">width_statement</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="n">max_length</span><span class="o">*</span><span class="mi">7</span><span class="p">)</span>
-    
+    <span class="n">width_statement</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="n">max_length</span> <span class="o">*</span> <span class="mi">7</span><span class="p">)</span>
+
     <span class="c1"># An empty list for visualization to store the HBoxes that contain the widgets, one statement and the corresponding checkbox</span>
     <span class="n">all_widgets</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="k">for</span> <span class="n">statement</span> <span class="ow">in</span> <span class="n">correct_statements</span> <span class="o">+</span> <span class="n">false_statements</span><span class="p">:</span>
-        <span class="n">add_statement</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">statement</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">width_statement</span><span class="p">)</span>
+        <span class="n">add_statement</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">statement</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width_statement</span><span class="p">)</span>
         <span class="n">check_box_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">Checkbox</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
         <span class="n">HBox1</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span><span class="n">add_statement</span><span class="p">,</span> <span class="n">check_box_widget</span><span class="p">)</span>
-    
+
         <span class="n">all_statements</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">add_statement</span><span class="p">)</span>
         <span class="n">check_boxes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">check_box_widget</span><span class="p">)</span>
         <span class="n">all_widgets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">HBox1</span><span class="p">)</span>
-    
+
     <span class="c1"># randomize the order of statements</span>
     <span class="n">shuffle</span><span class="p">(</span><span class="n">all_widgets</span><span class="p">)</span>
-    
+
     <span class="c1"># add submit button and output, which come on the bottom</span>
-    <span class="n">submit_button</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Check&#39;</span><span class="p">)</span>
-    <span class="n">output_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">placeholder</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    
+    <span class="n">submit_button</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Check&quot;</span><span class="p">)</span>
+    <span class="n">output_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">placeholder</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
     <span class="c1"># make an additional HBox for aligning the submit button and the output widget</span>
     <span class="n">HBox2</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span><span class="n">submit_button</span><span class="p">,</span> <span class="n">output_widget</span><span class="p">)</span>
     <span class="n">all_widgets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">HBox2</span><span class="p">)</span>
-    
+
     <span class="c1"># align all the HBoxes beneath each other (oldest below if not randomized) and display them.</span>
     <span class="n">quiz_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">question_widget</span><span class="p">,</span> <span class="o">*</span><span class="n">all_widgets</span><span class="p">)</span>
-    
+
     <span class="c1"># Check the checkbox for each statement and calculate the score.</span>
     <span class="k">def</span> <span class="nf">check_answers</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
         <span class="n">score</span> <span class="o">=</span> <span class="mi">0</span>
-    
+
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">check_boxes</span><span class="p">)):</span>
             <span class="n">check_box</span> <span class="o">=</span> <span class="n">check_boxes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
             <span class="n">statement</span> <span class="o">=</span> <span class="n">all_statements</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
-    
+
             <span class="k">if</span> <span class="n">statement</span> <span class="ow">in</span> <span class="n">correct_statements</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">check_box</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
                     <span class="n">score</span> <span class="o">+=</span> <span class="mi">1</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">score</span> <span class="o">-=</span> <span class="mi">0</span>
-    
+
             <span class="k">if</span> <span class="n">statement</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">correct_statements</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">check_box</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
                     <span class="n">score</span> <span class="o">-=</span> <span class="mi">1</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">score</span> <span class="o">-=</span> <span class="mi">0</span>
-    
+
         <span class="n">score</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">([</span><span class="n">score</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-        <span class="n">output_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;You have: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">score</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">correct_statements</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s1">% of the points&#39;</span>
-    
+        <span class="n">output_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;You have: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">score</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">correct_statements</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">% of the points&quot;</span>
+        <span class="p">)</span>
+
     <span class="n">submit_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">check_answers</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">quiz_widget</span> <span class="c1"># This is similar to .serve(), it can also be done through: display(quiz_widget)</span>
+    <span class="k">return</span> <span class="n">quiz_widget</span>  <span class="c1"># This is similar to .serve(), it can also be done through: display(quiz_widget)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nummeric_question_body</span><span class="p">(</span><span class="n">questions</span><span class="p">,</span> <span class="n">units</span><span class="p">,</span> <span class="n">answers</span><span class="p">,</span> <span class="n">FB_good</span><span class="p">,</span> <span class="n">FB_wrong</span><span class="p">,</span> <span class="n">random_order</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">f_margin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nummeric_question_body</span><span class="p">(</span>
+    <span class="n">questions</span><span class="p">,</span> <span class="n">units</span><span class="p">,</span> <span class="n">answers</span><span class="p">,</span> <span class="n">FB_good</span><span class="p">,</span> <span class="n">FB_wrong</span><span class="p">,</span> <span class="n">random_order</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">f_margin</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">):</span>
     <span class="n">all_widgets</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">attempts</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -517,16 +521,22 @@ document.write(`
         <span class="n">shuffle</span><span class="p">(</span><span class="n">order</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">order</span><span class="p">):</span>
-        <span class="n">question</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">answer</span><span class="p">,</span> <span class="n">Q_FB_G</span><span class="p">,</span> <span class="n">Q_FB_W</span> <span class="o">=</span> <span class="n">questions</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">units</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">answers</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">FB_good</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">FB_wrong</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-        <span class="nb">id</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span> 
-        <span class="n">question_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">question</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">750</span><span class="p">)</span>
-        <span class="n">unit_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">unit</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">40</span><span class="p">)</span>
-        <span class="n">num_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">FloatInput</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
-        <span class="c1">#feedback_widget = pn.widgets.TextInput(value=&quot;&quot;, name=&quot;&quot;, width=500)</span>
+        <span class="n">question</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">answer</span><span class="p">,</span> <span class="n">Q_FB_G</span><span class="p">,</span> <span class="n">Q_FB_W</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">questions</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+            <span class="n">units</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+            <span class="n">answers</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+            <span class="n">FB_good</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+            <span class="n">FB_wrong</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+        <span class="p">)</span>
+        <span class="nb">id</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">question_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">question</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">750</span><span class="p">)</span>
+        <span class="n">unit_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">unit</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+        <span class="n">num_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">FloatInput</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+        <span class="c1"># feedback_widget = pn.widgets.TextInput(value=&quot;&quot;, name=&quot;&quot;, width=500)</span>
         <span class="n">feedback_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
-        <span class="n">submit_button</span> <span class="o">=</span>  <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Check&quot;</span><span class="p">)</span>
-        
-        <span class="n">Hbox</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span><span class="n">num_widget</span><span class="p">,</span> <span class="n">unit_widget</span><span class="p">,</span> <span class="n">submit_button</span><span class="p">,</span> <span class="n">feedback_widget</span><span class="p">)</span>       
+        <span class="n">submit_button</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Check&quot;</span><span class="p">)</span>
+
+        <span class="n">Hbox</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span><span class="n">num_widget</span><span class="p">,</span> <span class="n">unit_widget</span><span class="p">,</span> <span class="n">submit_button</span><span class="p">,</span> <span class="n">feedback_widget</span><span class="p">)</span>
         <span class="n">quiz_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">question_widget</span><span class="p">,</span> <span class="n">Hbox</span><span class="p">)</span>
 
         <span class="n">all_widgets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">quiz_widget</span><span class="p">)</span>
@@ -534,8 +544,20 @@ document.write(`
         <span class="c1"># the values for the submit button are determined at the moment these are created.</span>
         <span class="n">attempt</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">FloatInput</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">attempts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">attempt</span><span class="p">)</span>
-        <span class="n">submit_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">check_nummeric_answers</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">answer</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">Q_FB_G</span><span class="p">,</span> <span class="n">Q_FB_W</span><span class="p">,</span> <span class="n">num_widget</span><span class="p">,</span> <span class="n">feedback_widget</span><span class="p">,</span> <span class="n">attempt</span><span class="p">,</span> <span class="n">f_margin</span><span class="p">))</span>
-        
+        <span class="n">submit_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span>
+            <span class="n">check_nummeric_answers</span><span class="p">(</span>
+                <span class="nb">id</span><span class="p">,</span>
+                <span class="n">answer</span><span class="p">,</span>
+                <span class="n">unit</span><span class="p">,</span>
+                <span class="n">Q_FB_G</span><span class="p">,</span>
+                <span class="n">Q_FB_W</span><span class="p">,</span>
+                <span class="n">num_widget</span><span class="p">,</span>
+                <span class="n">feedback_widget</span><span class="p">,</span>
+                <span class="n">attempt</span><span class="p">,</span>
+                <span class="n">f_margin</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
     <span class="k">return</span> <span class="n">all_widgets</span>
 </pre></div>
 </div>
@@ -543,52 +565,59 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">limit_answer</span><span class="p">(</span><span class="n">answer</span><span class="p">,</span> <span class="n">f_margin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">limit_answer</span><span class="p">(</span><span class="n">answer</span><span class="p">,</span> <span class="n">f_margin</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="c1"># if no margin is given, adding additional decimals are counted correctly.</span>
     <span class="c1"># if a margin if given, the answer should be within a range from the correct answer.</span>
     <span class="c1"># The maximal deviation is determined with the factor (f_margin)</span>
     <span class="n">s</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">f_margin</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
+    <span class="k">if</span> <span class="n">f_margin</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="c1"># inspired by: https://stackoverflow.com/questions/35585950/find-the-number-of-digits-after-the-decimal-point</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="s1">&#39;.&#39;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="s2">&quot;.&quot;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
             <span class="n">n_decimal</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">n_decimal</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">-</span> <span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-    
-        <span class="nb">range</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="mi">10</span><span class="o">**-</span><span class="p">(</span><span class="n">n_decimal</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">n_decimal</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">-</span> <span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+        <span class="nb">range</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="o">-</span><span class="p">(</span><span class="n">n_decimal</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">f_margin</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
         <span class="nb">range</span> <span class="o">=</span> <span class="n">f_margin</span> <span class="o">*</span> <span class="n">answer</span>
 
     <span class="k">return</span> <span class="nb">range</span>
 
-<span class="k">def</span> <span class="nf">check_nummeric_answers</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">answer</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">FB_G</span><span class="p">,</span> <span class="n">FB_W</span><span class="p">,</span> <span class="n">num_widget</span><span class="p">,</span> <span class="n">feedback_widget</span><span class="p">,</span> <span class="n">attempt</span><span class="p">,</span> <span class="n">f_margin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
-    
+
+<span class="k">def</span> <span class="nf">check_nummeric_answers</span><span class="p">(</span>
+    <span class="nb">id</span><span class="p">,</span> <span class="n">answer</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">FB_G</span><span class="p">,</span> <span class="n">FB_W</span><span class="p">,</span> <span class="n">num_widget</span><span class="p">,</span> <span class="n">feedback_widget</span><span class="p">,</span> <span class="n">attempt</span><span class="p">,</span> <span class="n">f_margin</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">):</span>
+
     <span class="k">def</span> <span class="nf">button_callback</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
         <span class="n">attempt</span><span class="o">.</span><span class="n">value</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="c1">#print(&quot;debug question:&quot;, id, &#39;attempt&#39;, attempt.value ,&#39;, response:&#39; ,num_widget.value, &#39;, answer:&#39;,answer)</span>
+        <span class="c1"># print(&quot;debug question:&quot;, id, &#39;attempt&#39;, attempt.value ,&#39;, response:&#39; ,num_widget.value, &#39;, answer:&#39;,answer)</span>
 
         <span class="c1"># the answer is within the boundaries, print positive feedback</span>
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">answer</span> <span class="o">-</span> <span class="n">num_widget</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">limit_answer</span><span class="p">(</span><span class="n">answer</span><span class="p">,</span> <span class="n">f_margin</span><span class="p">):</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">FB_G</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="n">feedback_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">FB_G</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">feedback_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;Well done, this is correct!&#39;</span>
+                <span class="n">feedback_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;Well done, this is correct!&quot;</span>
 
         <span class="c1"># the answer is NOT within boundaries, provide feedback based on the number of attempts</span>
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">answer</span> <span class="o">-</span> <span class="n">num_widget</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">limit_answer</span><span class="p">(</span><span class="n">answer</span><span class="p">,</span> <span class="n">f_margin</span><span class="p">):</span>
 
             <span class="k">if</span> <span class="n">attempt</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">FB_W</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="n">feedback_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">FB_W</span>
-                
-            <span class="k">if</span> <span class="n">attempt</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">FB_W</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">feedback_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;Oops, there seems to be a mistake&#39;</span>
-                
-            <span class="k">if</span> <span class="n">attempt</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
-                <span class="n">feedback_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;The correct answer is &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span>
 
-    <span class="k">return</span> <span class="n">button_callback</span>  <span class="c1"># otherwise gives TypeError: &#39;NoneType&#39; object is not callable</span>
+            <span class="k">if</span> <span class="n">attempt</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">FB_W</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">feedback_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;Oops, there seems to be a mistake&quot;</span>
+
+            <span class="k">if</span> <span class="n">attempt</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">feedback_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s2">&quot;The correct answer is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span>
+                <span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">button_callback</span>  <span class="c1"># otherwise gives TypeError: &#39;NoneType&#39; object is not callable</span>
+    <span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -599,98 +628,108 @@ document.write(`
     <span class="k">def</span> <span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">classify_variables</span><span class="p">(</span><span class="nb">locals</span><span class="p">,</span> <span class="n">max_size_MB</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
-    <span class="n">max_size</span> <span class="o">=</span> <span class="n">max_size_MB</span> <span class="o">*</span> <span class="mi">1024</span><span class="o">*</span><span class="mi">1024</span>
+
+<span class="k">def</span> <span class="nf">classify_variables</span><span class="p">(</span><span class="nb">locals</span><span class="p">,</span> <span class="n">max_size_MB</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">max_size</span> <span class="o">=</span> <span class="n">max_size_MB</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span>
     <span class="n">FV</span> <span class="o">=</span> <span class="n">class_variables</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span>  <span class="p">{</span><span class="o">**</span><span class="nb">globals</span><span class="p">(),</span> <span class="o">**</span><span class="nb">locals</span><span class="p">}</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">{</span><span class="o">**</span><span class="nb">globals</span><span class="p">(),</span> <span class="o">**</span><span class="nb">locals</span><span class="p">}</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">max_size</span> <span class="ow">or</span> <span class="n">max_size</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">FV</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">FV</span>
 
-<span class="k">def</span> <span class="nf">add_local_variables_to</span><span class="p">(</span><span class="n">FV</span><span class="p">,</span><span class="nb">locals</span><span class="p">,</span> <span class="n">max_size_MB</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
-    <span class="n">max_size</span> <span class="o">=</span> <span class="n">max_size_MB</span> <span class="o">*</span> <span class="mi">1024</span><span class="o">*</span><span class="mi">1024</span>
-    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span>  <span class="nb">locals</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">add_local_variables_to</span><span class="p">(</span><span class="n">FV</span><span class="p">,</span> <span class="nb">locals</span><span class="p">,</span> <span class="n">max_size_MB</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">max_size</span> <span class="o">=</span> <span class="n">max_size_MB</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">locals</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">max_size</span> <span class="ow">or</span> <span class="n">max_size</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">FV</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">FV</span>
+
 
 <span class="k">def</span> <span class="nf">check_code_values</span><span class="p">(</span><span class="n">IV</span><span class="p">):</span>
     <span class="c1"># The function variable (FV) is now defined as Input Variable (IV) (= arguments)</span>
     <span class="c1"># The input variable and the newly defined local variable will be merged to FV</span>
 
-    
-    <span class="k">def</span> <span class="nf">get_coded_values</span><span class="p">(</span><span class="n">FV</span><span class="p">,</span><span class="n">GV</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_coded_values</span><span class="p">(</span><span class="n">FV</span><span class="p">,</span> <span class="n">GV</span><span class="p">):</span>
         <span class="k">def</span> <span class="nf">button_callback</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">param</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">FV</span><span class="o">.</span><span class="n">check_parameters</span><span class="p">):</span>
-    
+
                     <span class="c1"># get the value that students gave</span>
                     <span class="n">response</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">GV</span><span class="p">,</span> <span class="n">param</span><span class="p">)</span>
-    
-                    <span class="c1">#store them in the widget</span>
+
+                    <span class="c1"># store them in the widget</span>
                     <span class="n">FV</span><span class="o">.</span><span class="n">all_parameter_widgets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">response</span>
-                    
-                <span class="n">FV</span><span class="o">.</span><span class="n">debug_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+                <span class="n">FV</span><span class="o">.</span><span class="n">debug_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
             <span class="k">except</span><span class="p">:</span>
-                <span class="n">FV</span><span class="o">.</span><span class="n">debug_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;&lt;b&gt; Careful, not all parameters are defined! &lt;/b&gt;&#39;</span>
-    
+                <span class="n">FV</span><span class="o">.</span><span class="n">debug_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s2">&quot;&lt;b&gt; Careful, not all parameters are defined! &lt;/b&gt;&quot;</span>
+                <span class="p">)</span>
+
         <span class="k">return</span> <span class="n">button_callback</span>
 
-    <span class="k">def</span> <span class="nf">check_coded_values</span><span class="p">(</span><span class="n">FV</span><span class="p">,</span><span class="n">GV</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">check_coded_values</span><span class="p">(</span><span class="n">FV</span><span class="p">,</span> <span class="n">GV</span><span class="p">):</span>
         <span class="k">def</span> <span class="nf">button_callback</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
             <span class="n">FV</span><span class="o">.</span><span class="n">attempt</span><span class="o">.</span><span class="n">value</span> <span class="o">+=</span> <span class="mi">1</span>
-            
+
             <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">param</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">FV</span><span class="o">.</span><span class="n">check_parameters</span><span class="p">):</span>
-                <span class="c1">#response = getattr(GV, param)</span>
+                <span class="c1"># response = getattr(GV, param)</span>
                 <span class="n">response</span> <span class="o">=</span> <span class="n">FV</span><span class="o">.</span><span class="n">all_parameter_widgets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
                 <span class="n">answer</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">FV</span><span class="p">,</span> <span class="n">param</span><span class="p">)</span>
-    
+
                 <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">response</span> <span class="o">-</span> <span class="n">answer</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">FV</span><span class="o">.</span><span class="n">f_margin</span> <span class="o">*</span> <span class="n">answer</span><span class="p">:</span>
-                    <span class="n">FV</span><span class="o">.</span><span class="n">all_feedback_widgets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;Nice, this is good!&#39;</span>
-    
+                    <span class="n">FV</span><span class="o">.</span><span class="n">all_feedback_widgets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;Nice, this is good!&quot;</span>
+
                 <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">response</span> <span class="o">-</span> <span class="n">answer</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">FV</span><span class="o">.</span><span class="n">f_margin</span> <span class="o">*</span> <span class="n">answer</span><span class="p">:</span>
                     <span class="k">if</span> <span class="n">FV</span><span class="o">.</span><span class="n">attempt</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
-                        <span class="n">FV</span><span class="o">.</span><span class="n">all_feedback_widgets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;This one is incorrect, try again!&#39;</span>
+                        <span class="n">FV</span><span class="o">.</span><span class="n">all_feedback_widgets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="p">(</span>
+                            <span class="s2">&quot;This one is incorrect, try again!&quot;</span>
+                        <span class="p">)</span>
                     <span class="k">if</span> <span class="n">FV</span><span class="o">.</span><span class="n">attempt</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
-                        <span class="n">FV</span><span class="o">.</span><span class="n">all_feedback_widgets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;This one is incorrect, the answer should be &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">answer</span><span class="p">,</span><span class="n">FV</span><span class="o">.</span><span class="n">n_decimals</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span>
-                
-                <span class="c1">#print(&#39;Debug: &#39;, param, response, answer)</span>
-    
+                        <span class="n">FV</span><span class="o">.</span><span class="n">all_feedback_widgets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="p">(</span>
+                            <span class="s2">&quot;This one is incorrect, the answer should be &quot;</span>
+                            <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">answer</span><span class="p">,</span> <span class="n">FV</span><span class="o">.</span><span class="n">n_decimals</span><span class="p">))</span>
+                            <span class="o">+</span> <span class="s2">&quot;.&quot;</span>
+                        <span class="p">)</span>
+
+                <span class="c1"># print(&#39;Debug: &#39;, param, response, answer)</span>
+
         <span class="k">return</span> <span class="n">button_callback</span>
 
     <span class="n">all_parameter_widgets</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">info_widgets</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">all_feedback_widgets</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">param</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">IV</span><span class="o">.</span><span class="n">name_parameters</span><span class="p">,</span> <span class="n">IV</span><span class="o">.</span><span class="n">check_parameters</span><span class="p">):</span>
-        <span class="n">symbol_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span> <span class="n">name</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
-        <span class="n">parameter_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">FloatInput</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
-        <span class="n">feedback_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-        
+        <span class="n">symbol_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">parameter_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">FloatInput</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">feedback_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
         <span class="n">all_parameter_widgets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">parameter_widget</span><span class="p">)</span>
         <span class="n">all_feedback_widgets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">feedback_widget</span><span class="p">)</span>
-        
+
         <span class="n">new_row</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span><span class="n">symbol_widget</span><span class="p">,</span> <span class="n">parameter_widget</span><span class="p">,</span> <span class="n">feedback_widget</span><span class="p">)</span>
         <span class="n">info_widgets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_row</span><span class="p">)</span>
 
-    <span class="n">debug_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-    <span class="c1">#attempt = pn.widgets.FloatInput(value=0)</span>
-                                 
-    <span class="n">get_values_button</span> <span class="o">=</span>  <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Load values&quot;</span><span class="p">)</span>
-    <span class="n">check_values_button</span> <span class="o">=</span>  <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Check loaded values&quot;</span><span class="p">)</span>
+    <span class="n">debug_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="c1"># attempt = pn.widgets.FloatInput(value=0)</span>
+
+    <span class="n">get_values_button</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Load values&quot;</span><span class="p">)</span>
+    <span class="n">check_values_button</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Check loaded values&quot;</span><span class="p">)</span>
 
     <span class="n">GV</span> <span class="o">=</span> <span class="n">classify_variables</span><span class="p">(</span><span class="nb">globals</span><span class="p">())</span>
-    <span class="n">FV</span> <span class="o">=</span> <span class="n">add_local_variables_to</span><span class="p">(</span><span class="n">IV</span><span class="p">,</span><span class="nb">locals</span><span class="p">())</span>
+    <span class="n">FV</span> <span class="o">=</span> <span class="n">add_local_variables_to</span><span class="p">(</span><span class="n">IV</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
 
     <span class="c1"># The error margin is set at 0.01% if it is not defined</span>
-    <span class="k">if</span> <span class="s1">&#39;f_margin&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">FV</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">:</span>
-        <span class="n">FV</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="s1">&#39;f_margin&#39;</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;f_margin&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">FV</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">:</span>
+        <span class="n">FV</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="s2">&quot;f_margin&quot;</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="s1">&#39;n_decimals&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">FV</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">:</span>
-        <span class="n">FV</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="s1">&#39;n_decimals&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-    
+    <span class="k">if</span> <span class="s2">&quot;n_decimals&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">FV</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">:</span>
+        <span class="n">FV</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="s2">&quot;n_decimals&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
     <span class="n">get_values_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">get_coded_values</span><span class="p">(</span><span class="n">FV</span><span class="p">,</span> <span class="n">GV</span><span class="p">))</span>
     <span class="n">check_values_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">check_coded_values</span><span class="p">(</span><span class="n">FV</span><span class="p">,</span> <span class="n">GV</span><span class="p">))</span>
-    
+
     <span class="n">row_buttons</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span><span class="n">get_values_button</span><span class="p">,</span> <span class="n">check_values_button</span><span class="p">,</span> <span class="n">debug_widget</span><span class="p">)</span>
     <span class="n">Input_col</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">row_buttons</span><span class="p">,</span> <span class="o">*</span><span class="n">info_widgets</span><span class="p">)</span>
     <span class="n">display</span><span class="p">(</span><span class="n">Input_col</span><span class="p">)</span>
@@ -700,13 +739,15 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check_code_function</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">horizontal_axis</span><span class="p">,</span> <span class="n">function_name</span><span class="p">,</span> <span class="n">correct_function</span><span class="p">,</span> <span class="n">par_x_axis</span><span class="p">,</span> <span class="n">f_margin</span> <span class="o">=</span> <span class="mf">0.005</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check_code_function</span><span class="p">(</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">horizontal_axis</span><span class="p">,</span> <span class="n">function_name</span><span class="p">,</span> <span class="n">correct_function</span><span class="p">,</span> <span class="n">par_x_axis</span><span class="p">,</span> <span class="n">f_margin</span><span class="o">=</span><span class="mf">0.005</span>
+<span class="p">):</span>
     <span class="c1"># The error margin (f_margin) is set at 0.1% if it is not defined</span>
 
     <span class="c1"># make the graph and show the correct answer</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
     <span class="n">pane</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">Matplotlib</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-    
+
     <span class="c1">#  Plot the answer if the student function is found</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="c1"># Load the student-made function from globals</span>
@@ -715,50 +756,74 @@ document.write(`
         <span class="c1"># Add the arguments to the name of the function, for eval()</span>
         <span class="c1"># + Replace the argument on the x-axis so that it can be assessed with list comprehension.</span>
         <span class="c1"># https://docs.python.org/3/library/inspect.html</span>
-        <span class="c1"># https://peps.python.org/pep-0362/    </span>
+        <span class="c1"># https://peps.python.org/pep-0362/</span>
         <span class="n">sig</span> <span class="o">=</span> <span class="n">signature</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
-        <span class="n">sig_function</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">sig</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">par_x_axis</span><span class="p">,</span> <span class="s1">&#39;par_x_axis&#39;</span><span class="p">)</span>
+        <span class="n">sig_function</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">sig</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">par_x_axis</span><span class="p">,</span> <span class="s2">&quot;par_x_axis&quot;</span><span class="p">)</span>
         <span class="n">function</span> <span class="o">=</span> <span class="n">function_name</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sig_function</span><span class="p">)</span>
         <span class="n">title</span> <span class="o">=</span> <span class="n">function_name</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sig</span><span class="p">)</span>
-        <span class="n">title</span> <span class="o">=</span> <span class="n">title</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="n">title</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
 
-        <span class="n">sig</span> <span class="o">=</span> <span class="n">signature</span><span class="p">(</span><span class="n">correct_function</span><span class="p">)</span>    
-        <span class="n">sig_function</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">sig</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">par_x_axis</span><span class="p">,</span> <span class="s1">&#39;par_x_axis&#39;</span><span class="p">)</span>
+        <span class="n">sig</span> <span class="o">=</span> <span class="n">signature</span><span class="p">(</span><span class="n">correct_function</span><span class="p">)</span>
+        <span class="n">sig_function</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">sig</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">par_x_axis</span><span class="p">,</span> <span class="s2">&quot;par_x_axis&quot;</span><span class="p">)</span>
         <span class="n">correct_function2</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">correct_function</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span> <span class="o">+</span> <span class="n">sig_function</span>
 
         <span class="c1"># calculate the student&#39;s answer through eval()</span>
         <span class="n">student_answer</span> <span class="o">=</span> <span class="p">[</span><span class="nb">eval</span><span class="p">(</span><span class="n">function</span><span class="p">)</span> <span class="k">for</span> <span class="n">par_x_axis</span> <span class="ow">in</span> <span class="n">horizontal_axis</span><span class="p">]</span>
 
-        <span class="c1">#calculate the correct answer</span>
+        <span class="c1"># calculate the correct answer</span>
         <span class="n">correct_answer</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">par_x_axis</span> <span class="ow">in</span> <span class="n">horizontal_axis</span><span class="p">:</span>
             <span class="n">correct_answer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">correct_function2</span><span class="p">))</span>
         <span class="c1"># This code should work, but it does not</span>
-        <span class="c1">#correct_answer = [eval(correct_function2) for par_x_axis in horizontal_axis]</span>
+        <span class="c1"># correct_answer = [eval(correct_function2) for par_x_axis in horizontal_axis]</span>
 
         <span class="c1"># check if the answer is correct and plot it before/below lines</span>
         <span class="n">changes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">student_answer</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">correct_answer</span><span class="p">)</span>
-        <span class="n">inaccuracy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">correct_answer</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">student_answer</span><span class="p">))</span>
-        
+        <span class="n">inaccuracy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">correct_answer</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">student_answer</span><span class="p">))</span>
+
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">changes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">y_loc</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">correct_answer</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">correct_answer</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
-            <span class="n">text</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">horizontal_axis</span><span class="p">]),</span> <span class="n">y_loc</span><span class="p">,</span> <span class="s1">&#39;Perfect!&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;#1b5a00&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+            <span class="n">y_loc</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">correct_answer</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">correct_answer</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">horizontal_axis</span><span class="p">]),</span>
+                <span class="n">y_loc</span><span class="p">,</span>
+                <span class="s2">&quot;Perfect!&quot;</span><span class="p">,</span>
+                <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+                <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#1b5a00&quot;</span><span class="p">,</span>
+                <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
 
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">changes</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">inaccuracy</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">f_margin</span><span class="p">:</span>
-            <span class="n">y_loc</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">correct_answer</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">correct_answer</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
-            <span class="n">text</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">horizontal_axis</span><span class="p">]),</span> <span class="n">y_loc</span><span class="p">,</span> <span class="s1">&#39;Good!&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;#1b5a00&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
-        
+            <span class="n">y_loc</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">correct_answer</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">correct_answer</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">horizontal_axis</span><span class="p">]),</span>
+                <span class="n">y_loc</span><span class="p">,</span>
+                <span class="s2">&quot;Good!&quot;</span><span class="p">,</span>
+                <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+                <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#1b5a00&quot;</span><span class="p">,</span>
+                <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+
         <span class="c1"># plot the answers</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">horizontal_axis</span><span class="p">,</span> <span class="n">student_answer</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Your answer&#39;</span><span class="p">)</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">horizontal_axis</span><span class="p">,</span> <span class="n">correct_answer</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Correct answer&#39;</span><span class="p">)</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">horizontal_axis</span><span class="p">,</span> <span class="n">student_answer</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Your answer&quot;</span><span class="p">)</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">horizontal_axis</span><span class="p">,</span> <span class="n">correct_answer</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Correct answer&quot;</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-           
+
     <span class="k">except</span><span class="p">:</span>
-        <span class="n">text_failed</span> <span class="o">=</span> <span class="s1">&#39;Almost there, </span><span class="se">\n</span><span class="s1"> your function can not be plotted, </span><span class="se">\n</span><span class="s1"> please try to fix the bug&#39;</span>
+        <span class="n">text_failed</span> <span class="o">=</span> <span class="s2">&quot;Almost there, </span><span class="se">\n</span><span class="s2"> your function can not be plotted, </span><span class="se">\n</span><span class="s2"> please try to fix the bug&quot;</span>
         <span class="n">x_ticks</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xticks</span><span class="p">()</span>
         <span class="n">y_ticks</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_yticks</span><span class="p">()</span>
-        <span class="n">text</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">y_ticks</span><span class="p">),</span> <span class="n">text_failed</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">),</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">y_ticks</span><span class="p">),</span>
+            <span class="n">text_failed</span><span class="p">,</span>
+            <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span>
+            <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+            <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
 
     <span class="c1"># update the graph</span>
     <span class="n">display</span><span class="p">(</span><span class="n">pane</span><span class="p">)</span>
@@ -769,7 +834,19 @@ document.write(`
 <p>The code below repplaces the previous version. The function will be rewritten.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check_code_function</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">horizontal_axis</span><span class="p">,</span> <span class="n">function_name</span><span class="p">,</span> <span class="n">correct_function</span><span class="p">,</span> <span class="n">par_x_axis</span><span class="p">,</span> <span class="n">f_margin</span> <span class="o">=</span> <span class="mf">0.005</span><span class="p">,</span> <span class="n">new_graph</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">pane</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">xlabel</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ylabel</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check_code_function</span><span class="p">(</span>
+    <span class="n">fig</span><span class="p">,</span>
+    <span class="n">horizontal_axis</span><span class="p">,</span>
+    <span class="n">function_name</span><span class="p">,</span>
+    <span class="n">correct_function</span><span class="p">,</span>
+    <span class="n">par_x_axis</span><span class="p">,</span>
+    <span class="n">f_margin</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span>
+    <span class="n">new_graph</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">pane</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
 
     <span class="k">if</span> <span class="n">new_graph</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
         <span class="n">pane</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">Matplotlib</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
@@ -781,8 +858,8 @@ document.write(`
 
     <span class="k">if</span> <span class="n">ylabel</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">)</span>
-        <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>   
-        
+        <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+
     <span class="c1">#  Plot the answer if the student function is found</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="c1"># Load the student-made function from globals</span>
@@ -791,77 +868,106 @@ document.write(`
         <span class="c1"># Add the arguments to the name of the function, for eval()</span>
         <span class="c1"># + Replace the argument on the x-axis so that it can be assessed with list comprehension.</span>
         <span class="c1"># https://docs.python.org/3/library/inspect.html</span>
-        <span class="c1"># https://peps.python.org/pep-0362/    </span>
+        <span class="c1"># https://peps.python.org/pep-0362/</span>
         <span class="n">sig</span> <span class="o">=</span> <span class="n">signature</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
-        <span class="n">sig_function</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">sig</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">par_x_axis</span><span class="p">,</span> <span class="s1">&#39;par_x_axis&#39;</span><span class="p">)</span>
+        <span class="n">sig_function</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">sig</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">par_x_axis</span><span class="p">,</span> <span class="s2">&quot;par_x_axis&quot;</span><span class="p">)</span>
         <span class="n">function</span> <span class="o">=</span> <span class="n">function_name</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sig_function</span><span class="p">)</span>
         <span class="n">title</span> <span class="o">=</span> <span class="n">function_name</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sig</span><span class="p">)</span>
-        <span class="n">title</span> <span class="o">=</span> <span class="n">title</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
-        
-        <span class="n">sig</span> <span class="o">=</span> <span class="n">signature</span><span class="p">(</span><span class="n">correct_function</span><span class="p">)</span>    
-        <span class="n">sig_function</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">sig</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">par_x_axis</span><span class="p">,</span> <span class="s1">&#39;par_x_axis&#39;</span><span class="p">)</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="n">title</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+
+        <span class="n">sig</span> <span class="o">=</span> <span class="n">signature</span><span class="p">(</span><span class="n">correct_function</span><span class="p">)</span>
+        <span class="n">sig_function</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">sig</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">par_x_axis</span><span class="p">,</span> <span class="s2">&quot;par_x_axis&quot;</span><span class="p">)</span>
         <span class="n">correct_function2</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">correct_function</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span> <span class="o">+</span> <span class="n">sig_function</span>
 
         <span class="c1"># calculate the student&#39;s answer through eval()</span>
         <span class="n">student_answer</span> <span class="o">=</span> <span class="p">[</span><span class="nb">eval</span><span class="p">(</span><span class="n">function</span><span class="p">)</span> <span class="k">for</span> <span class="n">par_x_axis</span> <span class="ow">in</span> <span class="n">horizontal_axis</span><span class="p">]</span>
 
-        <span class="c1">#calculate the correct answer</span>
+        <span class="c1"># calculate the correct answer</span>
         <span class="n">correct_answer</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">par_x_axis</span> <span class="ow">in</span> <span class="n">horizontal_axis</span><span class="p">:</span>
             <span class="n">correct_answer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">correct_function2</span><span class="p">))</span>
         <span class="c1"># This code should work, but it does not</span>
-        <span class="c1">#correct_answer = [eval(correct_function2) for par_x_axis in horizontal_axis]</span>
+        <span class="c1"># correct_answer = [eval(correct_function2) for par_x_axis in horizontal_axis]</span>
 
         <span class="c1"># check if the answer is correct and plot it before/below lines</span>
         <span class="n">changes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">student_answer</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">correct_answer</span><span class="p">)</span>
         <span class="n">student_answer</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1e-99</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">student_answer</span><span class="p">]</span>
-        <span class="n">inaccuracy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">correct_answer</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">student_answer</span><span class="p">))</span>
+        <span class="n">inaccuracy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">correct_answer</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">student_answer</span><span class="p">))</span>
 
         <span class="c1"># Check if the answer is correct and provide textual feedback</span>
-        <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Inaccurate&#39;</span>
-        <span class="n">y_loc</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">correct_answer</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">correct_answer</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Inaccurate&quot;</span>
+        <span class="n">y_loc</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">correct_answer</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">correct_answer</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span>
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">changes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Perfect!&#39;</span>
-            
+            <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Perfect!&quot;</span>
+
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">changes</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">inaccuracy</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">f_margin</span><span class="p">:</span>
-            <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Good!&#39;</span>
-        <span class="k">if</span> <span class="n">new_graph</span> <span class="o">==</span> <span class="kc">True</span> <span class="ow">and</span> <span class="n">label</span> <span class="o">!=</span> <span class="s1">&#39;Inaccurate&#39;</span><span class="p">:</span>
-            <span class="n">text</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">horizontal_axis</span><span class="p">]),</span> <span class="n">y_loc</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;#1b5a00&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
-        
+            <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Good!&quot;</span>
+        <span class="k">if</span> <span class="n">new_graph</span> <span class="o">==</span> <span class="kc">True</span> <span class="ow">and</span> <span class="n">label</span> <span class="o">!=</span> <span class="s2">&quot;Inaccurate&quot;</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">horizontal_axis</span><span class="p">]),</span>
+                <span class="n">y_loc</span><span class="p">,</span>
+                <span class="n">label</span><span class="p">,</span>
+                <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span>
+                <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#1b5a00&quot;</span><span class="p">,</span>
+                <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+
         <span class="c1"># plot the answers</span>
         <span class="k">if</span> <span class="n">new_graph</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="n">line</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">horizontal_axis</span><span class="p">,</span> <span class="n">student_answer</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Your answer&#39;</span><span class="p">)</span>
-            <span class="n">line</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">horizontal_axis</span><span class="p">,</span> <span class="n">correct_answer</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Correct answer&#39;</span><span class="p">)</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">horizontal_axis</span><span class="p">,</span> <span class="n">student_answer</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Your answer&quot;</span><span class="p">)</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">horizontal_axis</span><span class="p">,</span> <span class="n">correct_answer</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Correct answer&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">function_name_spaces</span> <span class="o">=</span> <span class="n">function_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
-            <span class="n">line</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">horizontal_axis</span><span class="p">,</span> <span class="n">student_answer</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">function_name_spaces</span> <span class="o">+</span> <span class="s1">&#39; (&#39;</span> <span class="o">+</span> <span class="n">label</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">)</span>
+            <span class="n">function_name_spaces</span> <span class="o">=</span> <span class="n">function_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+                <span class="n">horizontal_axis</span><span class="p">,</span>
+                <span class="n">student_answer</span><span class="p">,</span>
+                <span class="n">label</span><span class="o">=</span><span class="n">function_name_spaces</span> <span class="o">+</span> <span class="s2">&quot; (&quot;</span> <span class="o">+</span> <span class="n">label</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">,</span>
+                <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span>
+            <span class="p">)</span>
 
         <span class="c1"># set the legend</span>
         <span class="k">if</span> <span class="n">new_graph</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;best&#39;</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.02</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower left&quot;</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower left&quot;</span><span class="p">)</span>
 
         <span class="c1"># Set title and show the result if this is a new figure</span>
         <span class="k">if</span> <span class="n">new_graph</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
             <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-            <span class="n">display</span><span class="p">(</span><span class="n">pane</span><span class="p">)</span><span class="c1"># update the graph</span>
-           
-    <span class="k">except</span><span class="p">:</span> <span class="c1"># if the graph can not be plotted</span>
+            <span class="n">display</span><span class="p">(</span><span class="n">pane</span><span class="p">)</span>  <span class="c1"># update the graph</span>
+
+    <span class="k">except</span><span class="p">:</span>  <span class="c1"># if the graph can not be plotted</span>
         <span class="k">if</span> <span class="n">function_name</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">():</span>
 
             <span class="k">if</span> <span class="n">new_graph</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
-                <span class="n">text_failed</span> <span class="o">=</span> <span class="s1">&#39;Almost there, </span><span class="se">\n</span><span class="s1"> your function </span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">function_name</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> can not be plotted, </span><span class="se">\n</span><span class="s1"> please try to fix the bug.&#39;</span>
+                <span class="n">text_failed</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s2">&quot;Almost there, </span><span class="se">\n</span><span class="s2"> your function </span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">function_name</span><span class="p">)</span>
+                    <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> can not be plotted, </span><span class="se">\n</span><span class="s2"> please try to fix the bug.&quot;</span>
+                <span class="p">)</span>
                 <span class="n">x_ticks</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xticks</span><span class="p">()</span>
                 <span class="n">y_ticks</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_yticks</span><span class="p">()</span>
-                <span class="c1">#text = ax.text(np.average(x_ticks),np.average(y_ticks), text_failed, fontsize=12, color = &#39;r&#39;, ha=&#39;center&#39;, va=&#39;center&#39;)</span>
-                <span class="n">text</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">text_failed</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>           
-                <span class="n">display</span><span class="p">(</span><span class="n">pane</span><span class="p">)</span><span class="c1"># update the graph</span>
+                <span class="c1"># text = ax.text(np.average(x_ticks),np.average(y_ticks), text_failed, fontsize=12, color = &#39;r&#39;, ha=&#39;center&#39;, va=&#39;center&#39;)</span>
+                <span class="n">text</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+                    <span class="mf">0.5</span><span class="p">,</span>
+                    <span class="mf">0.5</span><span class="p">,</span>
+                    <span class="n">text_failed</span><span class="p">,</span>
+                    <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+                    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span>
+                    <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                    <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">display</span><span class="p">(</span><span class="n">pane</span><span class="p">)</span>  <span class="c1"># update the graph</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Almost there, your function &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">function_name</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; can not be plotted, please try to fix the bug.&#39;</span><span class="p">)</span>
-                
+                <span class="nb">print</span><span class="p">(</span>
+                    <span class="s2">&quot;Almost there, your function &quot;</span>
+                    <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">function_name</span><span class="p">)</span>
+                    <span class="o">+</span> <span class="s2">&quot; can not be plotted, please try to fix the bug.&quot;</span>
+                <span class="p">)</span>
+
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Careful! The function &#39;</span> <span class="o">+</span> <span class="n">function_name</span> <span class="o">+</span> <span class="s1">&#39; is not defined.&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Careful! The function &quot;</span> <span class="o">+</span> <span class="n">function_name</span> <span class="o">+</span> <span class="s2">&quot; is not defined.&quot;</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">pane</span><span class="p">,</span> <span class="n">ax</span>
 </pre></div>
@@ -870,36 +976,44 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nummerical_subquestions</span><span class="p">(</span><span class="n">Questions</span><span class="p">,</span> <span class="n">answer_question</span><span class="p">,</span> <span class="n">label_question</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Unit_question</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">FB_G_question</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">FB_W_question</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nummerical_subquestions</span><span class="p">(</span>
+    <span class="n">Questions</span><span class="p">,</span>
+    <span class="n">answer_question</span><span class="p">,</span>
+    <span class="n">label_question</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">Unit_question</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">FB_G_question</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">FB_W_question</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
 
     <span class="k">if</span> <span class="n">label_question</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">label_question</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">Questions</span><span class="p">)]</span><span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">answer_question</span><span class="p">)</span>
+        <span class="n">label_question</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">Questions</span><span class="p">)]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">answer_question</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">Unit_question</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">Unit_question</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">Questions</span><span class="p">)</span>
+        <span class="n">Unit_question</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">Questions</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">FB_G_question</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">FB_G_question</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">Questions</span><span class="p">)</span>
+        <span class="n">FB_G_question</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">Questions</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">FB_W_question</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">FB_W_question</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">Questions</span><span class="p">)</span>
+        <span class="n">FB_W_question</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">Questions</span><span class="p">)</span>
 
     <span class="n">FV</span> <span class="o">=</span> <span class="n">classify_variables</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
     <span class="n">output</span> <span class="o">=</span> <span class="n">nummeric_subquestion_body</span><span class="p">(</span><span class="n">FV</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">output</span>
+
 
 <span class="k">def</span> <span class="nf">check_answers_nummeric_subquestion</span><span class="p">(</span><span class="n">AV</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">button_callback</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
         <span class="n">AV</span><span class="o">.</span><span class="n">attempt</span><span class="o">.</span><span class="n">value</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="n">score</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="c1">#print(&#39;Debug: id:&#39;, FV.id, &#39; value: &#39;, FV.attempt.value)</span>
-        
+        <span class="c1"># print(&#39;Debug: id:&#39;, FV.id, &#39; value: &#39;, FV.attempt.value)</span>
+
         <span class="n">responses</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">AV</span><span class="o">.</span><span class="n">answers</span><span class="p">)):</span>
             <span class="n">num_widget</span> <span class="o">=</span> <span class="n">AV</span><span class="o">.</span><span class="n">num_widgets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
             <span class="n">feedback_widget</span> <span class="o">=</span> <span class="n">AV</span><span class="o">.</span><span class="n">feedback_widgets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-            
+
             <span class="n">answer</span> <span class="o">=</span> <span class="n">AV</span><span class="o">.</span><span class="n">answers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
             <span class="n">response</span> <span class="o">=</span> <span class="n">AV</span><span class="o">.</span><span class="n">num_widgets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
 
@@ -909,67 +1023,85 @@ document.write(`
                 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">AV</span><span class="o">.</span><span class="n">FB_G</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
                     <span class="n">feedback_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">AV</span><span class="o">.</span><span class="n">FB_G</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">feedback_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;Well done, this is correct!&#39;</span>
-        
+                    <span class="n">feedback_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;Well done, this is correct!&quot;</span>
+
             <span class="c1"># the answer is NOT within boundaries, provide feedback based on the number of attempts</span>
             <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">answer</span> <span class="o">-</span> <span class="n">num_widget</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">limit_answer</span><span class="p">(</span><span class="n">answer</span><span class="p">):</span>
-    
+
                 <span class="k">if</span> <span class="n">AV</span><span class="o">.</span><span class="n">attempt</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">AV</span><span class="o">.</span><span class="n">FB_W</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                     <span class="n">feedback_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">FB_W</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-                    
-                <span class="k">if</span> <span class="n">AV</span><span class="o">.</span><span class="n">attempt</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">AV</span><span class="o">.</span><span class="n">FB_W</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                    <span class="n">feedback_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;Oops, there seems to be a mistake&#39;</span>
-                    
-                <span class="k">if</span> <span class="n">AV</span><span class="o">.</span><span class="n">attempt</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
-                    <span class="n">feedback_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;The correct answer is &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">AV</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span>
 
-        <span class="n">AV</span><span class="o">.</span><span class="n">final_score_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">score</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">AV</span><span class="o">.</span><span class="n">answers</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">AV</span><span class="o">.</span><span class="n">attempt</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">AV</span><span class="o">.</span><span class="n">FB_W</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">feedback_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;Oops, there seems to be a mistake&quot;</span>
+
+                <span class="k">if</span> <span class="n">AV</span><span class="o">.</span><span class="n">attempt</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+                    <span class="n">feedback_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="s2">&quot;The correct answer is &quot;</span>
+                        <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+                        <span class="o">+</span> <span class="s2">&quot; &quot;</span>
+                        <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">AV</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
+                        <span class="o">+</span> <span class="s2">&quot;.&quot;</span>
+                    <span class="p">)</span>
+
+        <span class="n">AV</span><span class="o">.</span><span class="n">final_score_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">score</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">AV</span><span class="o">.</span><span class="n">answers</span><span class="p">))</span>
 
     <span class="k">return</span> <span class="n">button_callback</span>  <span class="c1"># otherwise returns TypeError: &#39;NoneType&#39; object is not callable</span>
-    
+
 
 <span class="k">def</span> <span class="nf">nummeric_subquestion_body</span><span class="p">(</span><span class="n">FV</span><span class="p">):</span>
     <span class="n">all_question_widgets</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">all_answers</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">attempts</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># widgets only used for counting how many times the submit button is pressed</span>
-    <span class="nb">id</span> <span class="o">=</span> <span class="mi">0</span>  
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">answers</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">FB_G</span><span class="p">,</span> <span class="n">FB_W</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">FV</span><span class="o">.</span><span class="n">Questions</span><span class="p">,</span> <span class="n">FV</span><span class="o">.</span><span class="n">Unit_question</span><span class="p">,</span> <span class="n">FV</span><span class="o">.</span><span class="n">answer_question</span><span class="p">,</span> <span class="n">FV</span><span class="o">.</span><span class="n">label_question</span><span class="p">,</span> <span class="n">FV</span><span class="o">.</span><span class="n">FB_G_question</span><span class="p">,</span> <span class="n">FV</span><span class="o">.</span><span class="n">FB_W_question</span><span class="p">)):</span>
+    <span class="n">attempts</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">[]</span>
+    <span class="p">)</span>  <span class="c1"># widgets only used for counting how many times the submit button is pressed</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">answers</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">FB_G</span><span class="p">,</span> <span class="n">FB_W</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
+        <span class="nb">zip</span><span class="p">(</span>
+            <span class="n">FV</span><span class="o">.</span><span class="n">Questions</span><span class="p">,</span>
+            <span class="n">FV</span><span class="o">.</span><span class="n">Unit_question</span><span class="p">,</span>
+            <span class="n">FV</span><span class="o">.</span><span class="n">answer_question</span><span class="p">,</span>
+            <span class="n">FV</span><span class="o">.</span><span class="n">label_question</span><span class="p">,</span>
+            <span class="n">FV</span><span class="o">.</span><span class="n">FB_G_question</span><span class="p">,</span>
+            <span class="n">FV</span><span class="o">.</span><span class="n">FB_W_question</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">):</span>
         <span class="nb">id</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">question_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">question</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">750</span><span class="p">)</span>
+        <span class="n">question_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">question</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">750</span><span class="p">)</span>
 
         <span class="c1"># Add the subquestions, which come underneath each other</span>
         <span class="n">Rows_answer</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">num_widgets</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">feedback_widgets</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">number</span><span class="p">,</span><span class="n">answer</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">answers</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">number</span><span class="p">,</span> <span class="n">answer</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">answers</span><span class="p">):</span>
 
             <span class="c1"># set subquestion/label on the left side</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">number</span><span class="p">:</span>
                 <span class="n">label</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">number</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">label</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="s1">&#39;)&#39;</span><span class="p">)</span>
+                <span class="n">label</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="s2">&quot;)&quot;</span><span class="p">)</span>
 
-            
             <span class="n">max_length</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">)</span>
 
             <span class="c1"># make the widgets</span>
-            <span class="n">number_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">label</span><span class="p">),</span> <span class="n">width</span> <span class="o">=</span> <span class="n">max_length</span><span class="o">*</span><span class="mi">8</span><span class="p">)</span>
-            <span class="n">unit_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">unit</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span>
-            <span class="n">num_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">FloatInput</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
-            <span class="n">feedback_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="c1">#, width=250)</span>
-    
+            <span class="n">number_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span>
+                <span class="n">value</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">label</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="n">max_length</span> <span class="o">*</span> <span class="mi">8</span>
+            <span class="p">)</span>
+            <span class="n">unit_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">unit</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+            <span class="n">num_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">FloatInput</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+            <span class="n">feedback_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>  <span class="c1"># , width=250)</span>
+
             <span class="n">num_widgets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num_widget</span><span class="p">)</span>
             <span class="n">feedback_widgets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">feedback_widget</span><span class="p">)</span>
-            
+
             <span class="n">Hbox</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span><span class="n">number_widget</span><span class="p">,</span> <span class="n">num_widget</span><span class="p">,</span> <span class="n">unit_widget</span><span class="p">,</span> <span class="n">feedback_widget</span><span class="p">)</span>
             <span class="n">Rows_answer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Hbox</span><span class="p">)</span>
         <span class="n">all_answers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num_widgets</span><span class="p">)</span>
-    
+
         <span class="c1"># Add a submit button with a widget that returns the final score</span>
-        <span class="n">submit_button</span> <span class="o">=</span>  <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Check&quot;</span><span class="p">)</span>
-        <span class="n">submit_text_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;Final score:&#39;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">70</span><span class="p">)</span>
+        <span class="n">submit_button</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Check&quot;</span><span class="p">)</span>
+        <span class="n">submit_text_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;Final score:&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">70</span><span class="p">)</span>
         <span class="n">final_score_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">130</span><span class="p">)</span>
-        <span class="n">row_submit</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span><span class="n">submit_button</span><span class="p">,</span><span class="n">submit_text_widget</span><span class="p">,</span><span class="n">final_score_widget</span><span class="p">)</span>
+        <span class="n">row_submit</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span><span class="n">submit_button</span><span class="p">,</span> <span class="n">submit_text_widget</span><span class="p">,</span> <span class="n">final_score_widget</span><span class="p">)</span>
 
         <span class="c1"># Build the UI (User Interface)</span>
         <span class="n">question_widget</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">question_widget</span><span class="p">,</span> <span class="o">*</span><span class="n">Rows_answer</span><span class="p">,</span> <span class="n">row_submit</span><span class="p">)</span>
@@ -1000,16 +1132,16 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "conda-env-coastal-py"
         },
         kernelOptions: {
-            name: "python3",
+            name: "conda-env-coastal-py",
             path: "./notebooks/initialize"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'conda-env-coastal-py'</script>
 
                 </article>
               

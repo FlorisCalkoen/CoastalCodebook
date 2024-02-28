@@ -22,9 +22,10 @@ import pathlib
 import sys
 
 from PIL import Image
+
 from coastal_dynamics.hidden import *
 
-# make functions for src folder importable
+# make f unctions for src folder importable
 cwd = pathlib.Path().resolve()
 proj_dir = cwd.parent  # this is the notebooks folder
 sys.path.append(str(proj_dir / "src"))
@@ -33,12 +34,12 @@ sys.path.append(str(proj_dir / "src"))
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[2], line 5[0m
+Cell [0;32mIn[2], line 6[0m
 [1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01msys[39;00m
 [1;32m      4[0m [38;5;28;01mfrom[39;00m [38;5;21;01mPIL[39;00m [38;5;28;01mimport[39;00m Image
-[0;32m----> 5[0m [38;5;28;01mfrom[39;00m [38;5;21;01mcoastal_dynamics[39;00m[38;5;21;01m.[39;00m[38;5;21;01mhidden[39;00m [38;5;28;01mimport[39;00m [38;5;241m*[39m
-[1;32m      7[0m [38;5;66;03m# make functions for src folder importable[39;00m
-[1;32m      8[0m cwd [38;5;241m=[39m pathlib[38;5;241m.[39mPath()[38;5;241m.[39mresolve()
+[0;32m----> 6[0m [38;5;28;01mfrom[39;00m [38;5;21;01mcoastal_dynamics[39;00m[38;5;21;01m.[39;00m[38;5;21;01mhidden[39;00m [38;5;28;01mimport[39;00m [38;5;241m*[39m
+[1;32m      8[0m [38;5;66;03m# make f unctions for src folder importable[39;00m
+[1;32m      9[0m cwd [38;5;241m=[39m pathlib[38;5;241m.[39mPath()[38;5;241m.[39mresolve()
 
 [0;31mModuleNotFoundError[0m: No module named 'coastal_dynamics.hidden'
 

@@ -425,20 +425,19 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">shuffle</span><span class="p">,</span> <span class="n">uniform</span>
 
+<span class="kn">import</span> <span class="nn">holoviews</span> <span class="k">as</span> <span class="nn">hv</span>
+<span class="kn">import</span> <span class="nn">hvplot.pandas</span>
 <span class="kn">import</span> <span class="nn">IPython</span>
 <span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
 <span class="kn">import</span> <span class="nn">matplotlib.animation</span> <span class="k">as</span> <span class="nn">animation</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">panel</span> <span class="k">as</span> <span class="nn">pn</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">display</span>
 <span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
 <span class="kn">from</span> <span class="nn">matplotlib.animation</span> <span class="kn">import</span> <span class="n">FuncAnimation</span>
 <span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">MultipleLocator</span>
-
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">hvplot.pandas</span>
-<span class="kn">import</span> <span class="nn">panel</span> <span class="k">as</span> <span class="nn">pn</span>
-<span class="kn">import</span> <span class="nn">holoviews</span> <span class="k">as</span> <span class="nn">hv</span>
 </pre></div>
 </div>
 </div>
@@ -980,9 +979,10 @@ if (window.Jupyter !== undefined) {
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
 <span class="kn">from</span> <span class="nn">coastal_dynamics.hidden</span> <span class="kn">import</span> <span class="o">*</span>
 
-<span class="c1"># make functions for src folder importable</span>
+<span class="c1"># make f unctions for src folder importable</span>
 <span class="n">cwd</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">()</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
 <span class="n">proj_dir</span> <span class="o">=</span> <span class="n">cwd</span><span class="o">.</span><span class="n">parent</span>  <span class="c1"># this is the notebooks folder</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">proj_dir</span> <span class="o">/</span> <span class="s2">&quot;src&quot;</span><span class="p">))</span>
@@ -992,12 +992,12 @@ if (window.Jupyter !== undefined) {
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">sys</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">coastal_dynamics.hidden</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># make functions for src folder importable</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">cwd</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">()</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">coastal_dynamics.hidden</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># make f unctions for src folder importable</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">cwd</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">()</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;coastal_dynamics.hidden&#39;
 </pre></div>
@@ -1018,9 +1018,8 @@ if (window.Jupyter !== undefined) {
 <p>Finally import the imports for the widgets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">interact_manual</span>
-<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
-<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">ipw</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">ipw</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interact_manual</span><span class="p">,</span> <span class="n">interactive</span>
 </pre></div>
 </div>
 </div>
@@ -1067,11 +1066,12 @@ if (window.Jupyter !== undefined) {
         <span class="n">question_text</span><span class="o">=</span><span class="n">question_data</span><span class="p">[</span><span class="s2">&quot;question&quot;</span><span class="p">],</span>
         <span class="n">question_options</span><span class="o">=</span><span class="n">question_data</span><span class="p">[</span><span class="s2">&quot;options&quot;</span><span class="p">],</span>
         <span class="n">question_answer</span><span class="o">=</span><span class="n">question_data</span><span class="p">[</span><span class="s2">&quot;answer&quot;</span><span class="p">],</span>
-        <span class="n">question_feedback</span><span class="o">=</span><span class="n">question_data</span><span class="p">[</span><span class="s2">&quot;feedback&quot;</span><span class="p">]</span>
+        <span class="n">question_feedback</span><span class="o">=</span><span class="n">question_data</span><span class="p">[</span><span class="s2">&quot;feedback&quot;</span><span class="p">],</span>
     <span class="p">)</span>
 
     <span class="n">Q</span><span class="o">.</span><span class="n">create_widgets</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">Q</span><span class="o">.</span><span class="n">serve</span><span class="p">()</span>
+
 
 <span class="k">def</span> <span class="nf">MS</span><span class="p">(</span><span class="n">question_data</span><span class="p">):</span>
     <span class="n">Q</span> <span class="o">=</span> <span class="n">MultipleSelectionQuestion</span><span class="p">(</span>
@@ -1079,10 +1079,11 @@ if (window.Jupyter !== undefined) {
         <span class="n">question_text</span><span class="o">=</span><span class="n">question_data</span><span class="p">[</span><span class="s2">&quot;question&quot;</span><span class="p">],</span>
         <span class="n">question_options</span><span class="o">=</span><span class="n">question_data</span><span class="p">[</span><span class="s2">&quot;options&quot;</span><span class="p">],</span>
         <span class="n">question_answers</span><span class="o">=</span><span class="n">question_data</span><span class="p">[</span><span class="s2">&quot;answers&quot;</span><span class="p">],</span>
-        <span class="n">question_feedback</span><span class="o">=</span><span class="n">question_data</span><span class="p">[</span><span class="s2">&quot;feedback&quot;</span><span class="p">]</span>
+        <span class="n">question_feedback</span><span class="o">=</span><span class="n">question_data</span><span class="p">[</span><span class="s2">&quot;feedback&quot;</span><span class="p">],</span>
     <span class="p">)</span>
     <span class="n">Q</span><span class="o">.</span><span class="n">create_widgets</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">Q</span><span class="o">.</span><span class="n">serve</span><span class="p">()</span>
+
 
 <span class="k">def</span> <span class="nf">num</span><span class="p">(</span><span class="n">question_data</span><span class="p">):</span>
     <span class="n">Q</span> <span class="o">=</span> <span class="n">NumericQuestion</span><span class="p">(</span>
@@ -1090,11 +1091,12 @@ if (window.Jupyter !== undefined) {
         <span class="n">question_text</span><span class="o">=</span><span class="n">question_data</span><span class="p">[</span><span class="s2">&quot;question&quot;</span><span class="p">],</span>
         <span class="n">question_answer</span><span class="o">=</span><span class="n">question_data</span><span class="p">[</span><span class="s2">&quot;answer&quot;</span><span class="p">],</span>
         <span class="n">question_feedback</span><span class="o">=</span><span class="n">question_data</span><span class="p">[</span><span class="s2">&quot;feedback&quot;</span><span class="p">],</span>
-        <span class="n">precision</span><span class="o">=</span><span class="n">question_data</span><span class="p">[</span><span class="s2">&quot;precision&quot;</span><span class="p">]</span>
+        <span class="n">precision</span><span class="o">=</span><span class="n">question_data</span><span class="p">[</span><span class="s2">&quot;precision&quot;</span><span class="p">],</span>
     <span class="p">)</span>
 
     <span class="n">Q</span><span class="o">.</span><span class="n">create_widgets</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">Q</span><span class="o">.</span><span class="n">serve</span><span class="p">()</span>
+
 
 <span class="k">def</span> <span class="nf">text</span><span class="p">(</span><span class="n">question_data</span><span class="p">):</span>
     <span class="n">Q</span> <span class="o">=</span> <span class="n">TextQuestion</span><span class="p">(</span>
@@ -1154,16 +1156,16 @@ if (window.Jupyter !== undefined) {
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "conda-env-coastal-py"
         },
         kernelOptions: {
-            name: "python3",
+            name: "conda-env-coastal-py",
             path: "./notebooks/initialize"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'conda-env-coastal-py'</script>
 
                 </article>
               
