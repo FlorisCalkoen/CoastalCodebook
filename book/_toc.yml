@@ -30,7 +30,7 @@ parts:
 
   - caption: Week 3
     chapters:
-      - file: assignments/3a_tidal_environments
+      - file: notebooks/3a_tidal_environments
   #     - file: assignments/3b_wave_transformation
 
   # - caption: Week 4
