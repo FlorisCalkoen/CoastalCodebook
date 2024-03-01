@@ -28,27 +28,8 @@ parts:
       - file: notebooks/2c_theory_equilibrium_tide
       - file: notebooks/2d_tidal_constituents
 
-  # - caption: Week 2
-  #   chapters:
-  #     - file: assignments/2a_pre_knowledge_waves
-  #     - file: assignments/2b_wave_dispersion_and_grouping
-  #     - file: assignments/2c_theory_equilibrium_tide
-  #     - file: assignments/2d_tidal_constituents
-
-  # - caption: Week 3
-  #   chapters:
-  #     - file: assignments/3a_tidal_environments
-  #     - file: assignments/3b_wave_transformation
-
-  # - caption: Week 4
-  #   chapters:
-  #     - file: assignments/4a_bound_long_wave
-  #     - file: assignments/4b_shallow_water_tides
-
-  # - caption: Week 5
-  #   chapters:
-  #     - file: assignments/5_coastal_impact_beach_states
-
-  # - caption: Week 6
-  #   chapters:
-  #     - file: assignments/6_cross-shore_transport
+  - caption: Week 3
+    chapters:
+      - file: notebooks/3a_tidal_environments
+      - file: notebooks/3b_wave_transformation
+      - file: notebooks/3c_wave_transformation_in_the_nearshore

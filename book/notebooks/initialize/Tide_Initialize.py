@@ -1,4 +1,4 @@
-# %% plot_tide_diagram - from 2c
+# %% plot_tide_diagram -  from 2c
 
 
 def plot_tide_diagram(angle_sun, angle_moon):
@@ -613,33 +613,33 @@ def questions_3a2():
     import numpy as np
     import ipywidgets as widgets
 
-    Q11_text = "A"
-    Q12_text = "B"
-    Q13_text = "N"
+    Q11_text = "TC1"
+    Q12_text = "TC2"
+    Q13_text = "D1"
     Answer11 = ["m2", "s2"]
     Answer12 = Answer11
     Answer13 = [14.752, 14.8]
 
-    Q21_text = "C"
-    Q22_text = "D"
-    Q23_text = "M"
+    Q21_text = "TC3"
+    Q22_text = "TC4"
+    Q23_text = "D2"
     Answer21 = ["k1", "o1"]
     Answer22 = Answer21
     Answer23 = [13.659, 13.7]
 
-    Q31_text = "M1"
-    Q32_text = "M2"
-    Q33_text = "E"
-    Q34_text = "F"
+    Q31_text = "Month1"
+    Q32_text = "Month2"
+    Q33_text = "TC5"
+    Q34_text = "TC6"
     Answer31 = ["march", "september"]
     Answer32 = Answer31
     Answer33 = ["s2", "k2"]
     Answer34 = Answer33
 
-    Q41_text = "M3"
-    Q42_text = "M4"
-    Q43_text = "G"
-    Q44_text = "H"
+    Q41_text = "Month3"
+    Q42_text = "Month4"
+    Q43_text = "TC7"
+    Q44_text = "TC8"
     Answer41 = ["june", "december"]
     Answer42 = Answer41
     Answer43 = ["k1", "p1"]
@@ -712,10 +712,10 @@ def questions_3a2():
 
     # make and display the questions
     general_question4 = [
-        "1. In a semi-diurnal environment, spring tide occurs for tidal constituents A and B every N days. Set the time range to around 30 days, which phenomenon can you detect when looking at the combined signal of these two constituents?",
-        "2. In a diurnal environment, spring tide occurs for tidal constituents C and D every M days. What is the main difference to the signal from question 1?",
-        "3. Strongest semi-diurnal tides are in the months M1 and M2, as can be seen from adding constituents E and F.",
-        "4. Strongest diurnal tides are in the months M3 and M4, as can be seen from adding constituents G and H.",
+        "1. In a semi-diurnal environment, spring tide occurs for tidal constituents TC1 and TC2 every D1 days. Set the time range to around 30 days, which phenomenon can you detect when looking at the combined signal of these two constituents?",
+        "2. In a diurnal environment, spring tide occurs for tidal constituents TC3 and TC4 every D2 days. What is the main difference to the signal from question 1?",
+        "3. Strongest semi-diurnal tides are in the months Month1 and Month2, as can be seen from adding constituents TC5 and TC6.",
+        "4. Strongest diurnal tides are in the months Month3 and Month4, as can be seen from adding constituents TC7 and TC8.",
     ]
     for i, g in enumerate(general_question4):
         print("\n\n\033[1m" + g + "\033[0m")
