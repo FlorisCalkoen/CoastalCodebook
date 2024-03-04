@@ -24,4 +24,14 @@ Week      | Topic of lectures and book chapter (Ch) | Assignments     |
 - 2a_pre_knowledge_waves: to test your knowledge on the dispersion relationship, not needed if you master your Waves course material
 - 2b_wave_dispersion_and_grouping: practice a bit more with wave dispersion and study wave grouping (largely known from Waves, repeated in this week's lectures)
 - 2c_theory_equilibrium_tide: a review of the origin of the tide (differential pull of the sun and moon) as discussed in this week's reading material and lectures, handy if you find this a difficult topic
-- 2d_tidal_constituents: to get to know the tide, tidal propagation and tidal constituents   
+- 2d_tidal_constituents: to get to know the tide, tidal propagation and tidal constituents
+- 3a_tidal_environments: discover the four different tidal environments
+- 3b_wave_asymmetry_and_skewness: recreate the figures in the book about skewed and asymmetric waves
+- 3c_wave_transformation: cross-shore distribution of cross-shore and alongshore wave forces
+- 4a_bound_long_wave
+- 4b_shallow_water_tides
+- 5_coastal_impact_beach_states
+- 6_cross_shore_transport
+- 7_alongshore_transport
+- 8_tidal_basins
+ 
