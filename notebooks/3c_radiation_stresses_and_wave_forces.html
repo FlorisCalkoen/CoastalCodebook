@@ -59,10 +59,9 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/3c_wave_transformation_in_the_nearshore';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/3c_radiation_stresses_and_wave_forces';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Tidal Environments" href="3a_tidal_environments.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -123,6 +122,8 @@
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -205,10 +206,10 @@
 <li class="toctree-l1"><a class="reference internal" href="2d_tidal_constituents.html">Tidal Constituents</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="3a_tidal_environments.html">Tidal Environments</a></li>
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Wave transformation in the near-shore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3c_wave_transformation_in_the_nearshore.html">Wave transformation in the near-shore</a></li>
 </ul>
 
     </div>
@@ -280,7 +281,7 @@
       
       
       
-      <li><a href="https://github.com/floriscalkoen/CoastalCodeBook/issues/new?title=Issue%20on%20page%20%2Fnotebooks/3c_wave_transformation_in_the_nearshore.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/floriscalkoen/CoastalCodeBook/issues/new?title=Issue%20on%20page%20%2Fnotebooks/3c_radiation_stresses_and_wave_forces.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -310,7 +311,7 @@
       
       
       
-      <li><a href="../_sources/notebooks/3c_wave_transformation_in_the_nearshore.ipynb" target="_blank"
+      <li><a href="../_sources/notebooks/3c_radiation_stresses_and_wave_forces.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -492,14 +493,17 @@ document.write(`
 </div>
 <section id="wave-height-h-radiation-stress-sxx-mean-water-level-by-waves-eta-for-normal-incident-waves">
 <h2>1) Wave height (H), radiation stress (Sxx), mean water level by waves (<span class="math notranslate nohighlight">\(\eta\)</span>) for normal incident waves<a class="headerlink" href="#wave-height-h-radiation-stress-sxx-mean-water-level-by-waves-eta-for-normal-incident-waves" title="Link to this heading">#</a></h2>
-<p>In Waves you should have programmed a function to compute the wave height (H), radiation stress (Sxx), and mean water level (<span class="math notranslate nohighlight">\(\eta\)</span>) along the cross-shore for normal incident waves. Can you reproduce/copy these functions below? If not, you can uncomment the content in the cell below and use this to answer the upcoming questions. However, it is highly recommended to make those functions. As inputs (arguments) you should consider the offshore deep-water wave height (H0), the wave period (T), the offshore water depth (h0) and the bed slope (slope). Below is a setup of the environmental conditions, for a a spatial grid that is defined with x_range. The function check_W3_normal_wave_setup will check your answers. You can also ignore RuntimeWarnings, for example, divide by zero encountered in scalar power.</p>
+<p>In Waves (CIEM3000)you should have programmed a function to compute the wave height (H), radiation stress (Sxx), and mean water level (<span class="math notranslate nohighlight">\(\eta\)</span>) along the cross-shore for normal incident waves. Can you reproduce/copy these functions below? If not, you can load the content in the cell below and use this to answer the upcoming questions. However, we recommend to practice making those functions yourself. As inputs (arguments) you should consider the offshore deep-water wave height (H0), the wave period (T), the offshore water depth (h0) and the bed slope (slope). Below is a setup of the environmental conditions, for a spatial grid that is defined with x_range. The function check_W3_normal_wave_setup will check your answers. You can also ignore RuntimeWarnings, for example <em>“divide by zero encountered in scalar power”</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H0</span> <span class="o">=</span> <span class="mf">1.5</span>  <span class="c1"># The offshore wave height [m]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H0</span> <span class="o">=</span> <span class="mf">2.0</span>  <span class="c1"># The offshore wave height [m]</span>
 <span class="n">T</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># The wave period [s]</span>
 <span class="n">h0</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># The largest water depth</span>
-<span class="n">slope</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">30</span>  <span class="c1"># The constant bed slope</span>
-<span class="n">x_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># The cross-shore directed grid, the horizontal axis</span>
+<span class="n">slope</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">100</span>  <span class="c1"># The constant bed slope</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="mi">1025</span>  <span class="c1"># The density of water [kg/m3]</span>
+<span class="n">x_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span>
+    <span class="mi">0</span><span class="p">,</span> <span class="mi">2000</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+<span class="p">)</span>  <span class="c1"># The cross-shore directed grid, the horizontal axis. (stepssize of 1 is required to function properly)</span>
 
 
 <span class="k">def</span> <span class="nf">W3_normal_wave</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span> <span class="n">H0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">h0</span><span class="p">,</span> <span class="n">slope</span><span class="p">):</span>
@@ -519,18 +523,22 @@ document.write(`
     <span class="k">return</span> <span class="n">H</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">Ksh</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">Sxx</span><span class="p">,</span> <span class="n">eta</span>
 
 
-<span class="n">check_W3_normal_wave</span><span class="p">()</span>
+<span class="n">W3_plot_normal_incident_waves</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>If you are not able to make the functions, you can set Load_answers = True (rather than False) to get the values for the offshore wave angle (angle), the wave height (H), the values for n, the shoaling parameter (Ksh), the wave energy (E), the radiant stress (Sxx), and the surface elevation (eta), with mean-sea-level at 0 m.</p>
+<p>If you are not able to make the functions, you can set Load_answers = True (rather than False) to get the values for the wave height (H), for n, the shoaling parameter (Ksh), the wave energy (E), the radiant stress (Sxx), and the surface elevation (eta), with mean-sea-level at 0 m. The parameters list the outcomes of the functions</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Load_answers</span> <span class="o">=</span> <span class="kc">False</span>
 
 <span class="k">if</span> <span class="n">Load_answers</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">angle</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">angle</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># The offshore wave angle</span>
+    <span class="n">H0</span> <span class="o">=</span> <span class="mf">1.5</span>  <span class="c1"># The offshore wave height [m]</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># The wave period [s]</span>
+    <span class="n">h0</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># The largest water depth</span>
+    <span class="n">slope</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">30</span>  <span class="c1"># The constant bed slope</span>
     <span class="n">H</span> <span class="o">=</span> <span class="p">[</span>
         <span class="mf">1.5</span><span class="p">,</span>
         <span class="mf">1.49975468745948</span><span class="p">,</span>
@@ -5961,12 +5969,7 @@ document.write(`
 <p>The influence of refraction should also be considered for waves that approach the shore under an angle. Can you calculate the wave heigth (H), radiation stress (Sxx), and mean water level (eta) for oblique waves by completing the function below? The function W3_plot_oblique_waves(angle1, angle2) will plot these characteristics along the cross-shore for the two given angles. This function will give a runtime warning when the water depth (h) is 0, you may ignore this to keep the code as straightforward as possible.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H0</span> <span class="o">=</span> <span class="mf">1.5</span>  <span class="c1"># The offshore wave height [m]</span>
-<span class="n">T</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># The wave period [s]</span>
-<span class="n">h0</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># The largest water depth</span>
-<span class="n">slope</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">30</span>  <span class="c1"># The constant bed slope</span>
-<span class="n">x_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># The cross-shore directed grid, the horizontal axis</span>
-<span class="n">angle</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># The offshore wave angle</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">angle</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># The offshore wave angle</span>
 
 
 <span class="k">def</span> <span class="nf">W3_wave_setup</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span> <span class="n">H0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">h0</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">angle</span><span class="p">):</span>
@@ -5986,7 +5989,7 @@ document.write(`
     <span class="k">return</span> <span class="n">H</span><span class="p">,</span> <span class="n">Sxx</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">n</span>  <span class="c1"># c and n are useful later on</span>
 
 
-<span class="n">check_W3_wave_setup</span><span class="p">()</span>
+<span class="n">W3_plot_oblique_waves</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -6032,7 +6035,7 @@ document.write(`
 <p>Can you compute the radiation shear stress in y direction (Syx)?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">W3_Syx</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span> <span class="n">H0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">d0</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">angle</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">W3_Syx</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span> <span class="n">H0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">h0</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">angle</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;It is recommended to use the earlier defined function W3_wave_setup()&quot;&quot;&quot;</span>
     <span class="n">H</span><span class="p">,</span> <span class="n">Sxx</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">W3_wave_setup</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span> <span class="n">H0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">h0</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">angle</span><span class="p">)</span>
 
@@ -6049,7 +6052,7 @@ document.write(`
 <p>And can you compute the alongshore force (Fy) for an alongshore uniform coast?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">W3_Fy</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span> <span class="n">H0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">d0</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">angle</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">W3_Fy</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span> <span class="n">H0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">h0</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">angle</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;It is recommended to use the earlier defined function(s)&quot;&quot;&quot;</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x_range</span>
     <span class="o">...</span>
@@ -6072,10 +6075,13 @@ document.write(`
 </section>
 <section id="longshore-current-v">
 <h2>5) Longshore current (V)<a class="headerlink" href="#longshore-current-v" title="Link to this heading">#</a></h2>
-<p>Can you calculate the distribution of the longshore current, when a bottom roughness (r) of 6 cm is used in the friction factor <span class="math notranslate nohighlight">\(c_f\)</span>?</p>
+<p>Can you calculate the distribution of the longshore current, following expression 5.82 in the book. For simplicity we assume that in this equation h is equal to the still water depth, and the friction factor <span class="math notranslate nohighlight">\(c_f\)</span> is 0.01.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">W3_V</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span> <span class="n">H0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">d0</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cf</span> <span class="o">=</span> <span class="mf">0.01</span>
+
+
+<span class="k">def</span> <span class="nf">W3_V</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span> <span class="n">H0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">h0</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">cf</span><span class="p">):</span>
     <span class="c1"># The environmental conditions</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x_range</span>  <span class="c1"># the horizontal axis</span>
     <span class="n">zbed</span> <span class="o">=</span> <span class="o">-</span><span class="n">h0</span> <span class="o">+</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">x</span>  <span class="c1"># bed elevation [m]</span>
@@ -6111,7 +6117,7 @@ document.write(`
 <p>Can you calculate the amplitude of the velocity (u0) near the bed through the linear wave theory?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">W3_u0</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span> <span class="n">H0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">d0</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">angle</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">W3_u0</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span> <span class="n">H0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">h0</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">angle</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;It is recommended to use the earlier defined function W3_wave_setup()&quot;&quot;&quot;</span>
     <span class="n">H</span><span class="p">,</span> <span class="n">Sxx</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">W3_wave_setup</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span> <span class="n">H0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">h0</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">angle</span><span class="p">)</span>
 
@@ -6173,15 +6179,6 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="3a_tidal_environments.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Tidal Environments</p>
-      </div>
-    </a>
 </div>
                 </footer>
               

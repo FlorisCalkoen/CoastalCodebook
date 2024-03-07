@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Wave asymmetry and skewness &#8212; CoastalCodeBook</title>
+    <title>Bound long waves &#8212; CoastalCodeBook</title>
   
   
   
@@ -59,11 +59,9 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/3b_wave_transformation';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/4a_bound_long_wave';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Wave transformation in the near-shore" href="3c_wave_transformation_in_the_nearshore.html" />
-    <link rel="prev" title="Tidal Environments" href="3a_tidal_environments.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,6 +122,8 @@
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -206,10 +206,8 @@
 <li class="toctree-l1"><a class="reference internal" href="2d_tidal_constituents.html">Tidal Constituents</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="3a_tidal_environments.html">Tidal Environments</a></li>
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Wave asymmetry and skewness</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="3c_wave_transformation_in_the_nearshore.html">Wave transformation in the near-shore</a></li>
 </ul>
@@ -283,7 +281,7 @@
       
       
       
-      <li><a href="https://github.com/floriscalkoen/CoastalCodeBook/issues/new?title=Issue%20on%20page%20%2Fnotebooks/3b_wave_transformation.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/floriscalkoen/CoastalCodeBook/issues/new?title=Issue%20on%20page%20%2Fnotebooks/4a_bound_long_wave.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -313,7 +311,7 @@
       
       
       
-      <li><a href="../_sources/notebooks/3b_wave_transformation.ipynb" target="_blank"
+      <li><a href="../_sources/notebooks/4a_bound_long_wave.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -397,7 +395,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Wave asymmetry and skewness</h1>
+    <h1>Bound long waves</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -407,10 +405,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Wave asymmetry and skewness</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1) Wave asymmetry and skewness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wave-envelope">1) Wave Envelope</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fluctuating-wave-energy-e">2) Fluctuating wave energy (E)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fluctuating-radiant-stress-sxx">3) Fluctuating radiant stress (Sxx)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bound-long-wave">4) Bound long wave</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -421,13 +420,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="wave-asymmetry-and-skewness">
-<h1>Wave asymmetry and skewness<a class="headerlink" href="#wave-asymmetry-and-skewness" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="bound-long-waves">
+<h1>Bound long waves<a class="headerlink" href="#bound-long-waves" title="Link to this heading">#</a></h1>
 <figure>
   <IMG SRC="https://raw.githubusercontent.com/mbakker7/exploratory_computing_with_python/master/tudelft_logo.png" WIDTH=250 ALIGN="right">
 </figure><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> Initialize/init_3b.ipynb
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">run</span> <span class="n">Initialize</span><span class="o">/</span><span class="n">init_4a</span><span class="o">.</span><span class="n">ipynb</span>
 </pre></div>
 </div>
 </div>
@@ -443,13 +442,13 @@ document.write(`
 <span class="g g-Whitespace">     </span><span class="mi">90</span>         <span class="k">return</span> <span class="n">py_name</span>
 <span class="ne">---&gt; </span><span class="mi">91</span> <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s2">&quot;File `</span><span class="si">%r</span><span class="s2">` not found.&quot;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
 
-<span class="ne">OSError</span>: File `&#39;Initialize/init_3b.ipynb&#39;` not found.
+<span class="ne">OSError</span>: File `&#39;Initialize/init_4a.ipynb&#39;` not found.
 
 <span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
 
 <span class="ne">Exception</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="s1">&#39;Initialize/init_3b.ipynb&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="s1">&#39;Initialize/init_4a.ipynb&#39;</span><span class="p">)</span>
 
 <span class="nn">File ~/micromamba/envs/coastal/lib/python3.11/site-packages/IPython/core/interactiveshell.py:2480,</span> in <span class="ni">InteractiveShell.run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
 <span class="g g-Whitespace">   </span><span class="mi">2478</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
@@ -467,68 +466,151 @@ document.write(`
 <span class="g g-Whitespace">    </span><span class="mi">728</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">729</span>     <span class="k">if</span> <span class="n">fpath</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">meta_path</span><span class="p">:</span>
 
-<span class="ne">Exception</span>: File `&#39;Initialize/init_3b.ipynb&#39;` not found.
+<span class="ne">Exception</span>: File `&#39;Initialize/init_4a.ipynb&#39;` not found.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Welcome at the first part of week 4, were we use the expression of the wave envelope to compute the fluctuating part of the wave energy, radiation stress, and the bound long wave.</p>
+<section id="wave-envelope">
+<h2>1) Wave Envelope<a class="headerlink" href="#wave-envelope" title="Link to this heading">#</a></h2>
+<p>We discussed the wave envelope in week 2 for two harmonic components with equal amplitude. We will continue here on the functions you made in week 2, for this wave envelope (envelope_t and envelope_x). Can you paste these in the envelope_eta_t and envelope_eta_x below? The envelope_eta_t(t) will describe the time series of the wave envelope, while the envelope_eta_x(x) will be used to calculate the surface elevation along a spatial axis. The function Show_W4_Q1 will check your functions’ returned values and plot them on top of the components’ surface elevation (<span class="math notranslate nohighlight">\(\eta\)</span>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span>
+<span class="n">T1</span><span class="p">,</span> <span class="n">T2</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span>
+<span class="n">tp</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># the time point of interest for a spatial analysis</span>
+<span class="n">xp</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># the spatial location of interest for a time analysis</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="c1"># These can be used to build your function.</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">envelope_eta_t</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">xp</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="k">return</span> <span class="n">eta</span>
+
+
+<span class="k">def</span> <span class="nf">envelope_eta_x</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="o">...</span>
+
+    <span class="k">return</span> <span class="n">eta</span>
+
+
+<span class="n">Show_W4_Q1</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>1) Wave asymmetry and skewness<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>Wave asymmetry and skewness can be demonstrated by using a second order wave, as in equation 1. The phase difference between the wave componets influences the shape of the combined wave. You can assess the impact of phase differences and the amplitudes on the assymetry on skewness in the interactive graph below. The figures 5.13 and 5.16 of the book can be reproduced with this figure, without scaling the y-axis. What are the amplitudes and the phases of wave component 1 and 2 to reproduce these figures? You can check it below the graph.</p>
+<section id="fluctuating-wave-energy-e">
+<h2>2) Fluctuating wave energy (E)<a class="headerlink" href="#fluctuating-wave-energy-e" title="Link to this heading">#</a></h2>
+<p>Can you use the expression of the wave envelope to compute the fluctuating part of the wave energy?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rho</span> <span class="o">=</span> <span class="mi">1025</span>  <span class="c1"># kg/m3</span>
+
+
+<span class="k">def</span> <span class="nf">envelope_E_t</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">rho</span><span class="p">):</span>
+    <span class="n">eta</span> <span class="o">=</span> <span class="n">envelope_eta_t</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">xp</span><span class="p">)</span>
+    <span class="o">...</span>
+    <span class="k">return</span> <span class="n">E</span>
+
+
+<span class="k">def</span> <span class="nf">envelope_E_x</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">rho</span><span class="p">):</span>
+    <span class="n">eta</span> <span class="o">=</span> <span class="n">envelope_eta_x</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="o">...</span>
+    <span class="k">return</span> <span class="n">E</span>
+
+
+<span class="n">Show_W4_Q2</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fluctuating-radiant-stress-sxx">
+<h2>3) Fluctuating radiant stress (Sxx)<a class="headerlink" href="#fluctuating-radiant-stress-sxx" title="Link to this heading">#</a></h2>
+<p>Can you calculate the radiant stress (Sxx) that includes that effect of bound long waves? You may for this bound long wave assume that:</p>
 <p>\begin{equation}
 \tag{1}
-\eta = \eta_1 cos(wt-kx-\phi_1) + \eta_2 cos(2(wt-kx)-\phi_2)
+n = \frac{c_g}{c_{average}}
+\end{equation}</p>
+<p>\begin{equation}
+\tag{2}
+c_{average} =\frac{c_1 + c_2}{2}
 \end{equation}</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">second_order_waves</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">envelope_Sxx_t</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">rho</span><span class="p">):</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="n">envelope_E_t</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">rho</span><span class="p">)</span>
+
+    <span class="o">...</span>
+
+    <span class="n">Sxx</span> <span class="o">=</span> <span class="o">...</span>
+
+    <span class="k">return</span> <span class="n">Sxx</span>
+
+
+<span class="n">envelope_Sxx_t</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">rho</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">envelope_Sxx_x</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">rho</span><span class="p">):</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="n">envelope_E_x</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">rho</span><span class="p">)</span>
+
+    <span class="o">...</span>
+
+    <span class="n">Sxx</span> <span class="o">=</span> <span class="o">...</span>
+
+    <span class="k">return</span> <span class="n">Sxx</span>
+
+
+<span class="n">Show_W4_Q3</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Can you make the left panel of figure 5.15, without scaling to (dividing by)  <span class="math notranslate nohighlight">\(\eta_1\)</span>? You can rewrite equation 1 such that the surface elevation is a function of x/L. You may assume that t=0 to simplify the process. You can put this equation in the formula below to check your outcome, which will automatically be plotted for 3 wave lenghts.</p>
+</section>
+<section id="bound-long-wave">
+<h2>4) Bound long wave<a class="headerlink" href="#bound-long-wave" title="Link to this heading">#</a></h2>
+<p>The bound long wave surface elevation amplitude for this situation was derived by Longuet-Higgens and Stewart (1962). This is expression 3 below, and Eq. 3.134 in Coastal Morphodynamic modelling guide.</p>
+<p>\begin{equation}
+\tag{3}
+\eta_b = \frac{\Delta k^2 ga^2 (2n-0.5)}{\Delta \omega^2-gh\Delta k^2} = \frac{-ga^2(2n-0.5)}{gh-\frac{\Delta \omega^2}{\Delta k^2}} = \frac{-ga^2(2n-0.5)}{gh-c_g^2}
+\end{equation}</p>
+<p>Due to the wave height variations in the group, the wave energy and radiation stresses vary in the group. This also that the set-down in the shoaling zone varies within the group, with the larger set-down under the higher waves in the group. This results in a mean water level fluctuation on the scale of the wave group with the largest depression under the highest waves in the group. This leads to a long wave motion, the so-called bound long wave, which is forced by the group and travels at the speed of this group. For a perfect bound long wave, the phase-shift between the long wave and the short-wave envelope is <span class="math notranslate nohighlight">\(\pi\)</span> ; the wave trough of the bound long waves coincides with the maximum of the wave envelope. This negative correlation changes to a positive correlation as the waves enter the surf zone. This can be understood from intermittent wave-breaking in the group, generating a time-varying set-up. See also section 5.8.2 in the textbook.</p>
+<p>Can you compute the bound long wave surface elevation amplitude? You can check your answer by running the cell and then pressing the button “Check loaded values”. We recommend you write a function for this, which can be used in the follow-up question.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_L</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># The ratio of x/L (an arbitrary value can be usefull to check your code)</span>
-<span class="n">eta1</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">eta2</span> <span class="o">=</span> <span class="o">...</span>
-<span class="n">phi1</span> <span class="o">=</span> <span class="o">...</span>
-<span class="n">phi2</span> <span class="o">=</span> <span class="o">...</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eta_b</span> <span class="o">=</span> <span class="kc">None</span>
 
-
-<span class="k">def</span> <span class="nf">second_order_waves_x_L</span><span class="p">(</span><span class="n">x_L</span><span class="p">,</span> <span class="n">eta1</span><span class="p">,</span> <span class="n">eta2</span><span class="p">,</span> <span class="n">phi1</span><span class="p">,</span> <span class="n">phi2</span><span class="p">):</span>
-    <span class="o">...</span>
+<span class="n">Check_W4_Q4</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Can you calculate the temporal and spatial signals of the bound long wave? Show_W4_Q4() will plot the outcome on top of the surface elevation (<span class="math notranslate nohighlight">\(\eta\)</span>) and the envelope.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">boundwave_eta_t</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">rho</span><span class="p">):</span>
+    <span class="n">eta</span> <span class="o">=</span> <span class="o">...</span>
     <span class="k">return</span> <span class="n">eta</span>
 
-<span class="n">show_second_order_waves_x_L</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Can you rewrite equation 1 now so that the surface elavation is a function of t/T. You may assume that x=0 to simplify the process. You can put this equation in the formula below to check your outcome.
-figuur 5.15 right panel, x-axis etc.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t_T</span> <span class="o">=</span> <span class="mi">1</span><span class="c1"># t/T, an arbitrary value for testing</span>
 
-<span class="k">def</span> <span class="nf">second_order_waves_t_T</span><span class="p">(</span><span class="n">t_T</span><span class="p">,</span> <span class="n">more_arguments</span><span class="p">):</span>
-        <span class="o">...</span>
-        <span class="k">return</span> <span class="n">eta</span>
+<span class="k">def</span> <span class="nf">boundwave_eta_x</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">rho</span><span class="p">):</span>
+    <span class="n">eta</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="k">return</span> <span class="n">eta</span>
 
-<span class="n">show_second_order_waves_t_T</span><span class="p">()</span>
+
+<span class="n">Show_W4_Q4</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Skewed_assymetric_waves</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>A final thought provocing question on this section, what is the influence on the time/space averaged value of <span class="math notranslate nohighlight">\(\eta^3\)</span> when the amplitudes and phases of the wave components change?</p>
+<p>You can see in the figure that the trough of the bound long wave coincides with the highest waves in the group. What would that mean for the direction of the orbital velocities of the bound long wave under the highest waves in the group? We are going to use this in chapter 7 to explain the role of long waves in cross-shore sediment transport.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -540,16 +622,16 @@ figuur 5.15 right panel, x-axis etc.</p>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "conda-env-coastal-py"
+            mode: "python"
         },
         kernelOptions: {
-            name: "conda-env-coastal-py",
+            name: "python3",
             path: "./notebooks"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'conda-env-coastal-py'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -561,24 +643,6 @@ figuur 5.15 right panel, x-axis etc.</p>
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="3a_tidal_environments.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Tidal Environments</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="3c_wave_transformation_in_the_nearshore.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Wave transformation in the near-shore</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -595,10 +659,11 @@ figuur 5.15 right panel, x-axis etc.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Wave asymmetry and skewness</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1) Wave asymmetry and skewness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wave-envelope">1) Wave Envelope</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fluctuating-wave-energy-e">2) Fluctuating wave energy (E)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fluctuating-radiant-stress-sxx">3) Fluctuating radiant stress (Sxx)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bound-long-wave">4) Bound long wave</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
