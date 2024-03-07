@@ -644,25 +644,23 @@ def questions_4b():
     import numpy as np
     import ipywidgets as widgets
     
-    options12 = ['M3', 'M4', 'M6', 'M8', 'S4']
+    options2 = ['M3', 'M4', 'M6', 'M8', 'S4']
     
-    options3 = ['M2', 'S2', 'N2', 'K2',  #semi-diurnal
+    options1 = ['M2', 'S2', 'N2', 'K2',  #semi-diurnal
          'K1', 'O1', 'P1', 'Q1',  #diurnal
          'M3', 'M4', 'M6', 'M8', 'S4', 'MN4', 'MS4'] #short period (overtides)
     
-    options = [options12, options12, options3]
+    options = [options1, options2]
     
-    Answer1 = ['M4', 'M8', 'S4']
-    Answer2 = ['M3', 'M6']
-    Answer3 = ['M4', 'MS4', 'MN4', 'S4']
+    Answer2 = ['M6']
+    Answer1 = ['M4', 'MS4', 'MN4', 'S4']
     
-    answers = [Answer1, Answer2, Answer3]
+    answers = [Answer1, Answer2]
     
-    Q1 = "a) Continuity"
-    Q2 = "b) Bottom friction"
-    Q3 = " "
+    Q1 = " "
+    Q2 = " "
 
-    questions = [Q1, Q2, Q3]
+    questions = [Q1, Q2]
     
     def multiple_choice_question_body(Question, options, answer):
         question_widget = widgets.Label(value=Question, layout=widgets.Layout(width='500px'))
@@ -689,12 +687,13 @@ def questions_4b():
         submit_button.on_click(check_answers)
     
     # make and display the questions
-    general_question1 = """1. Two important sources for non-linearity in the tidal propagation equations are bottom friction and continuity.
+
+    general_question1 = "1. Select components whose period is around 6 hours. Validate your choice with the spectral plot from notebook 2d_tidal_constituents (Tidal Amplitudes chapter)."
+    
+    general_question2 = """2. Two important sources for non-linearity in the tidal propagation equations are bottom friction and continuity.
     - Compare the periods of M2 and M3, M4, M6, and M8.
     - Compare the periods of S2 and S4.
-    How were these higher harmonics generated? Tick the constituents that are due to:"""
-
-    general_question2 = "2. Select components whose period is around 6 hours. Validate your choice with the spectral plot from notebook 2d_tidal_constituents (Tidal Amplitudes chapter)."
+    How were these higher harmonics generated? What is the main overtide that is generated as a consequence of the friction depending non-linearly on the tidal velocity?"""
     
     general_question34 = """3. Select components M2 and M4.
     - Are the two constituents in phase? What do you notice in the combined signal?
@@ -703,13 +702,10 @@ def questions_4b():
 4. Select the main tidal constituents and compare the resulting combined signal (second plot) to the total tidal signal, which includes the overtides (third plot). What contribution do the overtides have to the total tidal signal?"""
 
 
-    
-    
     print("\n\n\033[1m" + general_question1 + "\033[0m")
-    multiple_choice_question_body(questions[0], options12, answers[0])
-    multiple_choice_question_body(questions[1],options12, answers[1])
+    multiple_choice_question_body(questions[0], options1, answers[0])
     print("\n\n\033[1m" + general_question2 + "\033[0m")
-    multiple_choice_question_body(questions[2], options3, answers[2])
+    multiple_choice_question_body(questions[1], options2, answers[1])
     print("\n\n\033[1m" + general_question34 + "\033[0m")
     
 
