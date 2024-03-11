@@ -1,11 +1,11 @@
 Course structure
 =======================
 
-# Brightspace 
+## Brightspace 
 
 The course structure of CIEM3110-U1 is explained in detail in the Syllabus and weekly information on Brightspace. Below you will find a brief summary of the weekly textbook content and assignments. The full schedule is on Brightspace. 
 
-# Weekly assignment schedule 
+## Weekly assignment schedule 
 
 Week      | Topic of lectures and book chapter (Ch) | Assignments     |
 | :---        |    :----   |          :--- |
@@ -18,7 +18,7 @@ Week      | Topic of lectures and book chapter (Ch) | Assignments     |
 | 7   | Longshore transport and coastline changes (Ch8), Coastal protection (Ch10)    | Trial exam Humboldt Bay, Mock exam Tangier, Möbius Ch8 and Ch10, Notebook week 7   |
 | 8   | Coastal inlets and tidal basins (Ch9)   | Trial exam Dutch basins, Mock exam Zuiderzee, Möbius Ch9, Notebook week 8  |
 
-# Notebook overview
+## Notebook overview
 
 - 1_coastal_classification: on tectonic and process-based classification of coasts
 - 2a_pre_knowledge_waves: to test your knowledge on the dispersion relationship, not needed if you master your Waves course material
