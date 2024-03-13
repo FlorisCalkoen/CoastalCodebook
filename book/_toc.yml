@@ -31,5 +31,10 @@ parts:
   - caption: Week 3
     chapters:
       - file: notebooks/3a_tidal_environments
-      - file: notebooks/3b_wave_transformation
-      - file: notebooks/3c_wave_transformation_in_the_nearshore
+      - file: notebooks/3b_wave_asymmetry_and_skewness
+      - file: notebooks/3c_radiation_stresses_and_wave_forces
+
+  - caption: Week 4
+    chapters:
+      - file: notebooks/4a_bound_long_wave
+      - file: notebooks/4b_shallow_water_tides
