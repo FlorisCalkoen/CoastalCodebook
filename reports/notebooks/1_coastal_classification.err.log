@@ -18,28 +18,21 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import pathlib
-import sys
+q1 = cd.QuestionFactory(questions["Q1-1"]).serve()
+q2 = cd.QuestionFactory(questions["Q1-2"]).serve()
+q3 = cd.QuestionFactory(questions["Q1-3"]).serve()
 
-from PIL import Image
 
-from coastal_dynamics.hidden import *
-
-# make f unctions for src folder importable
-cwd = pathlib.Path().resolve()
-proj_dir = cwd.parent  # this is the notebooks folder
-sys.path.append(str(proj_dir / "src"))
+pn.Column(q1, q2, q3)
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[2], line 6[0m
-[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01msys[39;00m
-[1;32m      4[0m [38;5;28;01mfrom[39;00m [38;5;21;01mPIL[39;00m [38;5;28;01mimport[39;00m Image
-[0;32m----> 6[0m [38;5;28;01mfrom[39;00m [38;5;21;01mcoastal_dynamics[39;00m[38;5;21;01m.[39;00m[38;5;21;01mhidden[39;00m [38;5;28;01mimport[39;00m [38;5;241m*[39m
-[1;32m      8[0m [38;5;66;03m# make f unctions for src folder importable[39;00m
-[1;32m      9[0m cwd [38;5;241m=[39m pathlib[38;5;241m.[39mPath()[38;5;241m.[39mresolve()
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+Cell [0;32mIn[6], line 1[0m
+[0;32m----> 1[0m q1 [38;5;241m=[39m cd[38;5;241m.[39mQuestionFactory([43mquestions[49m[43m[[49m[38;5;124;43m"[39;49m[38;5;124;43mQ1-1[39;49m[38;5;124;43m"[39;49m[43m][49m)[38;5;241m.[39mserve()
+[1;32m      2[0m q2 [38;5;241m=[39m cd[38;5;241m.[39mQuestionFactory(questions[[38;5;124m"[39m[38;5;124mQ1-2[39m[38;5;124m"[39m])[38;5;241m.[39mserve()
+[1;32m      3[0m q3 [38;5;241m=[39m cd[38;5;241m.[39mQuestionFactory(questions[[38;5;124m"[39m[38;5;124mQ1-3[39m[38;5;124m"[39m])[38;5;241m.[39mserve()
 
-[0;31mModuleNotFoundError[0m: No module named 'coastal_dynamics.hidden'
+[0;31mKeyError[0m: 'Q1-1'
 
