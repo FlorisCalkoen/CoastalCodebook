@@ -31,7 +31,7 @@ def load_environment():
     """Load environment variables."""
     dotenv.load_dotenv(override=True)
     sas_token = os.getenv("AZURE_STORAGE_SAS_TOKEN")
-    storage_account_name = os.getenv("AZURE_STORAGE_ACCOUNT")
+    storage_account_name = os.getenv("AZURE_STORAGE_ACCOUNT_NAME")
     if not all([sas_token, storage_account_name]):
         logging.error("Environment variables for Azure storage are not properly set.")
         sys.exit(1)
