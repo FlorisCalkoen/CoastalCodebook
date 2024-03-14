@@ -1,0 +1,99 @@
+{
+    "Q6-1": {
+        "name": "Q6-1",
+        "type": "multiple_choice",
+        "question": "What is the direction of the net transport?",
+        "options": {
+            "a": "offshore",
+            "b": "onshore",
+            "c": "depends on the distance from the shore"
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-2": {
+        "name": "Q6-2",
+        "type": "multiple_choice",
+        "question": "What is the direction of the transport by undertow?",
+        "options": {
+            "a": "offshore",
+            "b": "onshore",
+            "c": "depends on the distance from the shore"
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-3": {
+        "name": "Q6-3",
+        "type": "multiple_choice",
+        "question": "What is the direction of the transport by skewness?",
+        "options": {
+            "a": "offshore",
+            "b": "onshore",
+            "c": "depends on the distance from the shore"
+        },
+        "answer": "b",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-4": {
+        "name": "Q6-4",
+        "type": "multiple_choice",
+        "question": "What is the direction of the transport by long waves?",
+        "options": {
+            "a": "offshore",
+            "b": "onshore",
+            "c": "depends on the distance from the shore"
+        },
+        "answer": "c",
+        "feedback": {
+            "correct": "Correct. Can you explain the direction of the transport due to long waves from the correlation between the bound long waves and the wave group? Have look at Figure 7.20 and read Section 5.8.2 in the textbook.",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-5": {
+        "name": "Q6-5",
+        "type": "multiple_choice",
+        "question": "For what conditions is Figure 7.21 representative?",
+        "options": {
+            "a": "storm conditions",
+            "b": "calm conditions"
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-6": {
+        "name": "Q6-6",
+        "type": "multiple_selection",
+        "question": "What morphological response can be expected?",
+        "options": {
+            "a": "erosion higher in the profile",
+            "b": "erosion lower in the profile",
+            "c": "sedimentation lower in the profile",
+            "d": "sedimentation higher in the profile",
+            "e": "profile flattens",
+            "f": "profile steepens"
+        },
+        "answer": [
+            "a",
+            "c",
+            "e"
+        ],
+            "feedback": {
+                "correct": "Correct, ...",
+                "incorrect": "Incorrect. ..."
+            }
+    }
+
+}
