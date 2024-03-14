@@ -35,10 +35,10 @@ def load_environment():
 
 def upload_file(file_path, cloud_href, storage_options):
     """Upload a JSON file to the specified cloud storage container."""
-    with fsspec.open(file_path, "r") as src_file:
+    with fsspec.open(file_path, "rb") as src_file:
         json_data = src_file.read()
 
-    with fsspec.open(cloud_href, "w", **storage_options) as f:
+    with fsspec.open(cloud_href, "wb", **storage_options) as f:
         f.write(json_data)
 
 
