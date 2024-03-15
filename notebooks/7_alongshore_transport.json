@@ -1,0 +1,18 @@
+{
+    "Q1-1": {
+        "name": "Q1-1",
+        "type": "multiple_choice",
+        "question": "At what depth do earthquakes along divergent boundaries generally occur?",
+        "options": {
+            "a": "less than 33 km",
+            "b": "between 33 km and 74 km",
+            "c": "between 74 km and 140 km",
+            "d": "more than 140 km "
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, earthquakes at diverging boundaries typically occur at shallower depths",
+            "incorrect": "Incorrect. Note that at diverging boundaries the tectonic plates move away from each other. Magma wells up to (relatively) shallow depths in order to fill the gap. This may cause earthquakes. Where are these earthquakes likeliest to occur?"
+        }
+    }
+}
