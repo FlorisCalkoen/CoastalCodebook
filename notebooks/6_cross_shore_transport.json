@@ -90,10 +90,397 @@
             "c",
             "e"
         ],
-            "feedback": {
-                "correct": "Correct, ...",
-                "incorrect": "Incorrect. ..."
-            }
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-7": {
+        "name": "Q6-7",
+        "type": "multiple_choice",
+        "question": "The unit of transport used in the plot is kg/m/s. Question about this?",
+        "options": {
+            "a": "...",
+            "b": "..."
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-8": {
+        "name": "Q6-8",
+        "type": "multiple_choice",
+        "question": "Do you expect accretion or erosion for the situation described above?",
+        "options": {
+            "a": "accretion",
+            "b": "erosion"
+        },
+        "answer": "b",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-9": {
+        "name": "Q6-9",
+        "type": "multiple_choice",
+        "question": "How wide is the surf zone approximately?",
+        "options": {
+            "a": "...",
+            "b": "..."
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-10": {
+        "name": "Q6-10",
+        "type": "multiple_choice",
+        "question": "What is the direction of transport due to waves? And due to undertow?",
+        "options": {
+            "a": "oshore, onshore",
+            "b": "onshore, offshore",
+            "c": "offshore, onshore",
+            "d": "offshore, offshore"
+        },
+        "answer": "b",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-11": {
+        "name": "Q6-11",
+        "type": "multiple_choice",
+        "question": "Where do we expect onshore transport (h/h_b)?",
+        "options": {
+            "a": "...",
+            "b": "..."
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-12": {
+        "name": "Q6-12",
+        "type": "multiple_choice",
+        "question": "Where do we expect offshore transport (h/h_b)?",
+        "options": {
+            "a": "...",
+            "b": "..."
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-13": {
+        "name": "Q6-13",
+        "type": "multiple_choice",
+        "question": "What is the net direction of the total transport (h/h_b)?",
+        "options": {
+            "a": "...",
+            "b": "..."
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-14": {
+        "name": "Q6-14",
+        "type": "multiple_selection",
+        "question": "Compare this result with Figure 7.21 from the book. This figure also represents storm conditions. What differences do you observe?",
+        "options": {
+            "a": "...",
+            "b": "..."
+        },
+        "answer": [
+            "a"
+        ],
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-15": {
+        "name": "Q6-15",
+        "type": "multiple_choice",
+        "question": "Do you expect accretion or erosion for the situation described above?",
+        "options": {
+            "a": "accretion",
+            "b": "erosion"
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-16": {
+        "name": "Q6-16",
+        "type": "multiple_choice",
+        "question": "How wide is the surf zone approximately",
+        "options": {
+            "a": "...",
+            "b": "..."
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-17": {
+        "name": "Q6-17",
+        "type": "multiple_choice",
+        "question": "What is the direction of transport due to waves? And due to undertow?",
+        "options": {
+            "a": "oshore, onshore",
+            "b": "onshore, offshore",
+            "c": "offshore, onshore",
+            "d": "offshore, offshore"
+        },
+        "answer": "b",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-18": {
+        "name": "Q6-18",
+        "type": "multiple_choice",
+        "question": "Where do we expect onshore transport (h/h_b)?",
+        "options": {
+            "a": "...",
+            "b": "..."
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-19": {
+        "name": "Q6-19",
+        "type": "multiple_choice",
+        "question": "Where do we expect offshore transport (h/h_b)?",
+        "options": {
+            "a": "...",
+            "b": "..."
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-20": {
+        "name": "Q6-20",
+        "type": "multiple_choice",
+        "question": "What is the net direction of the total transport (h/h_b)?",
+        "options": {
+            "a": "...",
+            "b": "..."
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-21": {
+        "name": "Q6-21",
+        "type": "multiple_choice",
+        "question": "Reflective question 1",
+        "options": {
+            "a": "...",
+            "b": "..."
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-22": {
+        "name": "Q6-22",
+        "type": "multiple_choice",
+        "question": "Reflective question 2",
+        "options": {
+            "a": "...",
+            "b": "..."
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-23": {
+        "name": "Q6-23",
+        "type": "multiple_choice",
+        "question": "Reflective question 3",
+        "options": {
+            "a": "...",
+            "b": "..."
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-24": {
+        "name": "Q6-24",
+        "type": "multiple_choice",
+        "question": "For what range of values for h_b do you expect erosive conditions for the Dutch profile?",
+        "options": {
+            "a": "...",
+            "b": "..."
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-25": {
+        "name": "Q6-25",
+        "type": "multiple_choice",
+        "question": "For what range of values for h_b do you expect accretive conditions for the Dutch profile?",
+        "options": {
+            "a": "...",
+            "b": "..."
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-26": {
+        "name": "Q6-26",
+        "type": "multiple_selection",
+        "question": "What differences do you observe between the UK and the Dutch profile?",
+        "options": {
+            "a": "...",
+            "b": "..."
+        },
+        "answer": [
+            "a"
+        ],
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-27": {
+        "name": "Q6-27",
+        "type": "multiple_choice",
+        "question": "What similarities do you observe between the UK and the Dutch profile?",
+        "options": {
+            "a": "...",
+            "b": "..."
+        },
+        "answer": [
+            "a"
+        ],
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-28": {
+        "name": "Q6-28",
+        "type": "multiple_choice",
+        "question": "Reflective question 1",
+        "options": {
+            "a": "...",
+            "b": "..."
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-29": {
+        "name": "Q6-29",
+        "type": "multiple_choice",
+        "question": "Reflective question 2",
+        "options": {
+            "a": "...",
+            "b": "..."
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-30": {
+        "name": "Q6-30",
+        "type": "multiple_choice",
+        "question": "Reflective question 3",
+        "options": {
+            "a": "...",
+            "b": "..."
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-31": {
+        "name": "Q6-31",
+        "type": "multiple_choice",
+        "question": "Reflective question 1",
+        "options": {
+            "a": "...",
+            "b": "..."
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-32": {
+        "name": "Q6-32",
+        "type": "multiple_choice",
+        "question": "Reflective question 2",
+        "options": {
+            "a": "...",
+            "b": "..."
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },
+    "Q6-33": {
+        "name": "Q6-33",
+        "type": "multiple_choice",
+        "question": "Reflective question 3",
+        "options": {
+            "a": "...",
+            "b": "..."
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
     }
-
 }
