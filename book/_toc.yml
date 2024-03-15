@@ -38,3 +38,7 @@ parts:
     chapters:
       - file: notebooks/4a_bound_long_wave
       - file: notebooks/4b_shallow_water_tides
+
+  - caption: Week 5
+    chapters:
+      - file: notebooks/5_coastal_impact_beach_states
