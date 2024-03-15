@@ -40,5 +40,5 @@ parts:
       - file: notebooks/4b_shallow_water_tides
 
   - caption: Week 5
-    chapter: 
+    chapters: 
       - file: notebooks/coastal_impact_beach_states
