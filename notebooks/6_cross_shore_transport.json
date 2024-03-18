@@ -2,7 +2,7 @@
     "Q6-1": {
         "name": "Q6-1",
         "type": "multiple_choice",
-        "question": "What is the direction of the net transport?",
+        "question": "What is the direction of the net transport (total flux)?",
         "options": {
             "a": "offshore",
             "b": "onshore",
@@ -10,14 +10,14 @@
         },
         "answer": "a",
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct, the total measured velocity moments are negative everywhere in the profile.",
+            "incorrect": "Incorrect. Which symbols indicate the total measured third odd and fourth odd velocity moments and what is their sign?"
         }
     },
     "Q6-2": {
         "name": "Q6-2",
         "type": "multiple_choice",
-        "question": "What is the direction of the transport by undertow?",
+        "question": "What is the direction of the transport by the calculated undertow or return flow (mean flux)?",
         "options": {
             "a": "offshore",
             "b": "onshore",
@@ -25,14 +25,14 @@
         },
         "answer": "a",
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct, the dash-dot line represents this mean flux.",
+            "incorrect": "Incorrect. Which line represents the undertow or return flow?"
         }
     },
     "Q6-3": {
         "name": "Q6-3",
         "type": "multiple_choice",
-        "question": "What is the direction of the transport by skewness?",
+        "question": "What is the direction of the transport by skewness (short-wave flux)?",
         "options": {
             "a": "offshore",
             "b": "onshore",
@@ -40,14 +40,14 @@
         },
         "answer": "b",
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct, the diamonds indicate the short-wave contribution and are positive in the entire profile",
+            "incorrect": "Incorrect. Which symbols indicate the short-wave contribution to the third fourth odd velocity moments and what is its sign?"
         }
     },
     "Q6-4": {
         "name": "Q6-4",
         "type": "multiple_choice",
-        "question": "What is the direction of the transport by long waves?",
+        "question": "What is the direction of the transport by long waves (long-wave flux)?",
         "options": {
             "a": "offshore",
             "b": "onshore",
@@ -56,7 +56,7 @@
         "answer": "c",
         "feedback": {
             "correct": "Correct. Can you explain the direction of the transport due to long waves from the correlation between the bound long waves and the wave group? Have look at Figure 7.20 and read Section 5.8.2 in the textbook.",
-            "incorrect": "Incorrect. ..."
+            "incorrect": "Incorrect. Have a look at the dashed line. What is the sign of this line in the shoaling zone and in the (inner) surf zone?"
         }
     },
     "Q6-5": {
@@ -69,8 +69,8 @@
         },
         "answer": "a",
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct, for storm conditions the offshore flux due to undertow is the dominant transport mechanism, resulting in an offshore transport in the surf zone.",
+            "incorrect": "Incorrect. For calm conditions the onshore flux due to waves will be dominant over the offshore transport by undertow."
         }
     },
     "Q6-6": {
@@ -91,42 +91,51 @@
             "e"
         ],
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct, during a storm sediment will be transported in offshore direction. Hence, right after a storm, the profile is flatter and more dissipative than before the storm.",
+            "incorrect": "Incorrect. Remember that the net offshore transport implies that sediment will be moved to deeper portion in the profile."
         }
     },
     "Q6-7": {
         "name": "Q6-7",
         "type": "multiple_choice",
-        "question": "The unit of transport used in the plot is kg/m/s. Question about this?",
+        "question": "The unit of transport used in the plot is kg/m/s. How can this be understood?",
         "options": {
-            "a": "...",
-            "b": "..."
+            "a": "We are considering sediment mass flux c*u integrated over depth hence the unit is [kg/m^3*m/s*m].",
+            "b": "We are considering sediment mass flux c*u integrated over the surf zone hence the unit is [kg/m^3*m/s*m].",
+            "c": "We are considering sediment mass flux c*u per meter coastline length integrated over the surf zone hence the unit is [kg/m^3*m/s*m]."     
         },
         "answer": "a",
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct, the measured concentrations are in kg/m^3, the velocities in m/s and the sediment flux c*u is integrated over the bottom 15 cm.",
+            "incorrect": "Incorrect. Incorrect, there is no integration over the surf zone or in alongshore direction."
         }
     },
     "Q6-8": {
         "name": "Q6-8",
-        "type": "multiple_choice",
-        "question": "Do you expect accretion or erosion for the situation described above?",
+        "type": "multiple_selection",
+        "question": "What morphological response can be expected?",
         "options": {
-            "a": "accretion",
-            "b": "erosion"
+            "a": "erosion higher in the profile",
+            "b": "erosion lower in the profile",
+            "c": "sedimentation lower in the profile",
+            "d": "sedimentation higher in the profile",
+            "e": "profile flattens",
+            "f": "profile steepens"
         },
-        "answer": "b",
+        "answer": [
+            "a",
+            "c",
+            "e"
+        ],
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct, in that sense this situation is comparable with the type of conditions of figure 7.21.",
+            "incorrect": "Incorrect. Compare this situation to the situation of Q6"
         }
     },
     "Q6-9": {
         "name": "Q6-9",
         "type": "multiple_choice",
-        "question": "How wide is the surf zone approximately?",
+        "question": "How wide is the surf zone approximately? Kevin, can we convert this to a numeric question?",
         "options": {
             "a": "...",
             "b": "..."
@@ -142,7 +151,7 @@
         "type": "multiple_choice",
         "question": "What is the direction of transport due to waves? And due to undertow?",
         "options": {
-            "a": "oshore, onshore",
+            "a": "onshore, onshore",
             "b": "onshore, offshore",
             "c": "offshore, onshore",
             "d": "offshore, offshore"
@@ -156,38 +165,42 @@
     "Q6-11": {
         "name": "Q6-11",
         "type": "multiple_choice",
-        "question": "Where do we expect onshore transport (h/h_b)?",
+        "question": "Where do we see onshore transport due to waves (h/h_b)?",
         "options": {
-            "a": "...",
-            "b": "..."
+            "a": "In the shoaling zone and surf zone (the entire range of h/h_b)",
+            "b": "In the shoaling zone only",
+            "c": "In the surf zone only"
         },
         "answer": "a",
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct, we see that the transport due to waves increases in the shoaling zone to a maximum in the surf zone and then decreases to zero at the water line. Can you explain this?",
+            "incorrect": "Incorrect. Consider the yellow line and identify the shoaling zone and surf zone."
         }
     },
     "Q6-12": {
         "name": "Q6-12",
         "type": "multiple_choice",
-        "question": "Where do we expect offshore transport (h/h_b)?",
+        "question": "Where do we see offshore transport due to undertow (h/h_b)?",
         "options": {
-            "a": "...",
-            "b": "..."
+            "a": "In the shoaling zone and surf zone (the entire range of h/h_b)",
+            "b": "In the shoaling zone only (h/h_b > 1)",
+            "c": "In the surf zone only (h/h_b < 1)"
         },
-        "answer": "a",
+        "answer": "c",
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct, the undertow is found in the surf zone",
+            "incorrect": "Incorrect. Is there an undertow in the shoaling zone?"
         }
     },
     "Q6-13": {
         "name": "Q6-13",
         "type": "multiple_choice",
-        "question": "What is the net direction of the total transport (h/h_b)?",
+        "question": "What is the direction of the total transport (in terms of h/h_b)?",
         "options": {
-            "a": "...",
-            "b": "..."
+            "a": "Onshore for h/h_b > 1, offshore for h/h_b < 1",
+            "b": "Onshore for h/h_b > 1, onshore for h/h_b < 1",
+            "c": "Offshore for h/h_b > 1, onshore for h/h_b < 1",
+            "d": "Offhore for h/h_b > 1, offshore for h/h_b < 1"
         },
         "answer": "a",
         "feedback": {
@@ -198,7 +211,7 @@
     "Q6-14": {
         "name": "Q6-14",
         "type": "multiple_selection",
-        "question": "Compare this result with Figure 7.21 from the book. This figure also represents storm conditions. What differences do you observe?",
+        "question": "Compare this result with Figure 7.21 from the book. This figure also represents storm conditions. What differences do you observe? HIER GEBLEVEN",
         "options": {
             "a": "...",
             "b": "..."
