@@ -134,13 +134,10 @@
     },
     "Q6-9": {
         "name": "Q6-9",
-        "type": "multiple_choice",
-        "question": "How wide is the surf zone approximately? Kevin, can we convert this to a numeric question?",
-        "options": {
-            "a": "...",
-            "b": "..."
-        },
-        "answer": "a",
+        "type": "numeric",
+        "question": "How wide is the surf zone approximately? Give your answer in meters, rounded to the nearest multiple of 10.",
+        "answer": 1,
+        "precision": 0,
         "feedback": {
             "correct": "Correct, ...",
             "incorrect": "Incorrect. ..."
@@ -240,13 +237,10 @@
     },
     "Q6-16": {
         "name": "Q6-16",
-        "type": "multiple_choice",
-        "question": "How wide is the surf zone approximately",
-        "options": {
-            "a": "...",
-            "b": "..."
-        },
-        "answer": "a",
+        "type": "numeric",
+        "question": "How wide is the surf zone approximately? Give your answer in meters, rounded to the nearest multiple of 10.",
+        "answer": 1,
+        "precision": 0,
         "feedback": {
             "correct": "Correct, ...",
             "incorrect": "Incorrect. ..."
