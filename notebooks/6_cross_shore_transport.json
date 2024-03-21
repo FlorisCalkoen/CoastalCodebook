@@ -2,7 +2,7 @@
     "Q6-1": {
         "name": "Q6-1",
         "type": "multiple_choice",
-        "question": "What is the direction of the net transport (total flux)?",
+        "question": "What is the direction of the net transport due to all contributions combined (total flux)?",
         "options": {
             "a": "offshore",
             "b": "onshore",
@@ -62,6 +62,23 @@
     "Q6-5": {
         "name": "Q6-5",
         "type": "multiple_choice",
+        "question": "Make an estimate for the seaward limit of the surf zone (the position of the breakpoint). How far is the breakpoint from the shoreline (approximately)?",
+        "options": {
+            "a": "0-5 m",
+            "b": "5-10 m",
+            "c": "10-15 m",
+            "d": "15-20 m",
+            "e": "15-25 m"
+         },
+        "answer": "c",
+        "feedback": {
+            "correct": "Correct. We can estimate this from the following facts. First, both the onshore directed short-wave term and the offshore directed long-wave term increase until breaking. Second, the undertow contribution is grosso modo restricted to the surf zone.",
+            "incorrect": "Incorrect. What do you know of the direction of each of the mean, short-wave and long-wave transport contributions in the surf zone and shoaling zone?"
+        }
+    }, 
+    "Q6-6": {
+        "name": "Q6-6",
+        "type": "multiple_choice",
         "question": "For what conditions is Figure 7.21 representative?",
         "options": {
             "a": "storm conditions",
@@ -69,12 +86,12 @@
         },
         "answer": "a",
         "feedback": {
-            "correct": "Correct, for storm conditions the offshore flux due to undertow is the dominant transport mechanism, resulting in an offshore transport in the surf zone.",
-            "incorrect": "Incorrect. For calm conditions the onshore flux due to waves will be dominant over the offshore transport by undertow."
+            "correct": "Correct, for storm conditions the offshore flux due to (mainly) undertow is dominant transport mechanism over the onshore flux due to waves, resulting in an offshore transport in the surf zone.",
+            "incorrect": "Incorrect. For calm conditions the onshore flux due to waves will be dominant over the offshore transport by (mainly) undertow."
         }
     },
-    "Q6-6": {
-        "name": "Q6-6",
+    "Q6-7": {
+        "name": "Q6-7",
         "type": "multiple_selection",
         "question": "What morphological response can be expected?",
         "options": {
@@ -95,14 +112,14 @@
             "incorrect": "Incorrect. Remember that the net offshore transport implies that sediment will be moved to deeper portion in the profile."
         }
     },
-    "Q6-7": {
-        "name": "Q6-7",
+    "Q6-8": {
+        "name": "Q6-8",
         "type": "multiple_choice",
         "question": "The unit of transport used in the plot is kg/m/s. How can this be understood?",
         "options": {
             "a": "We are considering sediment mass flux c*u integrated over depth hence the unit is [kg/m^3*m/s*m].",
             "b": "We are considering sediment mass flux c*u integrated over the surf zone hence the unit is [kg/m^3*m/s*m].",
-            "c": "We are considering sediment mass flux c*u per meter coastline length integrated over the surf zone hence the unit is [kg/m^3*m/s*m]."     
+            "c": "We are considering sediment mass flux c*u per meter coastline length hence the unit is [kg/m^3*m/s*m]."     
         },
         "answer": "a",
         "feedback": {
@@ -110,10 +127,10 @@
             "incorrect": "Incorrect. Incorrect, there is no integration over the surf zone or in alongshore direction."
         }
     },
-    "Q6-8": {
-        "name": "Q6-8",
+    "Q6-15": {
+        "name": "Q6-15",
         "type": "multiple_selection",
-        "question": "What morphological response can be expected?",
+        "question": "What morphological response can be expected? First focus on the surf zone where the changes are largest.",
         "options": {
             "a": "erosion higher in the profile",
             "b": "erosion lower in the profile",
@@ -128,19 +145,19 @@
             "e"
         ],
         "feedback": {
-            "correct": "Correct, in that sense this situation is comparable with the type of conditions of figure 7.21.",
-            "incorrect": "Incorrect. Compare this situation to the situation of Q6"
+            "correct": "Correct, in that sense this situation is comparable with the type of conditions of figure 7.21. Check for yourself the transport gradients of the total transport in the surf zone. These point towards erosion closer to the shore and accretion further from the shore (but still in the surf zone.",
+            "incorrect": "Incorrect. Compare this situation to the situation of Q6. Check the transport gradients in the total transport line and draw conclusions about the bed changes to be expected."
         }
     },
     "Q6-9": {
         "name": "Q6-9",
         "type": "numeric",
-        "question": "How wide is the surf zone approximately? Give your answer in meters, rounded to the nearest multiple of 10.",
-        "answer": 1,
+        "question": "How wide is the surf zone approximately? Give your answer in meters, rounded to the nearest multiple of 5.",
+        "answer": 35,
         "precision": 0,
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct. You could now also compute the average profile slope in the surf zone to check the above statement that this is a quite steep profile.",
+            "incorrect": "Incorrect. Measure the approximate distance from the waterline to the breakpoint."
         }
     },
     "Q6-10": {
@@ -155,18 +172,18 @@
         },
         "answer": "b",
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct, it is onshore directed and first increases when the waves approach the shore and then decreases to zero at the waterline",
+            "incorrect": "Incorrect. Find the line in the second panel representing the oscillatory transport."
         }
     },
     "Q6-11": {
         "name": "Q6-11",
         "type": "multiple_choice",
-        "question": "Where do we see onshore transport due to waves (h/h_b)?",
+        "question": "Where do we see onshore transport due to waves (for which values of h/h_b)?",
         "options": {
-            "a": "In the shoaling zone and surf zone (the entire range of h/h_b)",
-            "b": "In the shoaling zone only",
-            "c": "In the surf zone only"
+            "a": "In the shoaling zone and surf zone (so the entire range of h/h_b)",
+            "b": "In the shoaling zone only (h/h_b > 1)",
+            "c": "In the surf zone only (h/h_b < 1)"
         },
         "answer": "a",
         "feedback": {
@@ -177,66 +194,71 @@
     "Q6-12": {
         "name": "Q6-12",
         "type": "multiple_choice",
-        "question": "Where do we see offshore transport due to undertow (h/h_b)?",
+        "question": "Where do we see offshore transport due to undertow (for which values of h/h_b)?",
         "options": {
             "a": "In the shoaling zone and surf zone (the entire range of h/h_b)",
-            "b": "In the shoaling zone only (h/h_b > 1)",
-            "c": "In the surf zone only (h/h_b < 1)"
+            "b": "Mainly in the shoaling zone only (h/h_b > 1)",
+            "c": "Mainly in the surf zone only (h/h_b < 1)"
         },
         "answer": "c",
         "feedback": {
-            "correct": "Correct, the undertow is found in the surf zone",
+            "correct": "Correct, the offshore transport due to undertow is restricted to the surf zone",
             "incorrect": "Incorrect. Is there an undertow in the shoaling zone?"
         }
     },
     "Q6-13": {
         "name": "Q6-13",
         "type": "multiple_choice",
-        "question": "What is the direction of the total transport (in terms of h/h_b)?",
+        "question": "For these high-energy conditions, how does the direction of the total transport vary with h/h_b?",
         "options": {
-            "a": "Onshore for h/h_b > 1, offshore for h/h_b < 1",
-            "b": "Onshore for h/h_b > 1, onshore for h/h_b < 1",
-            "c": "Offshore for h/h_b > 1, onshore for h/h_b < 1",
-            "d": "Offhore for h/h_b > 1, offshore for h/h_b < 1"
+            "a": "Onshore for h/h_b < 1, offshore for h/h_b > 1",
+            "b": "Offshore for h/h_b < 1, onshore for h/h_b > 1",
+            "c": "Onshore for h/h_b < 0.6, offshore for h/h_b > 0.6",
+            "d": "Offshore for h/h_b < 0.6, onshore for h/h_b > 0.6",
+            "e": "Onshore for h/h_b < 0.8, offshore for h/h_b > 0.6",
+            "f": "Offshore for h/h_b < 0.8, onshore for h/h_b > 0.6"
         },
-        "answer": "a",
+        "answer": "d",
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct. Under high-energy condition the shape function predicts an onshore transport in the shoaling zone and the outer part of the surf zone and an onshore in the inner part of the surf zone.",
+            "incorrect": "Incorrect. Select the total surf/shoaling transport (grey line). For which h/h_b does this transport reverse direction?"
         }
     },
     "Q6-14": {
         "name": "Q6-14",
-        "type": "multiple_selection",
-        "question": "Compare this result with Figure 7.21 from the book. This figure also represents storm conditions. What differences do you observe? HIER GEBLEVEN",
-        "options": {
-            "a": "...",
-            "b": "..."
-        },
-        "answer": [
-            "a"
-        ],
-        "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
-        }
-    },
-    "Q6-15": {
-        "name": "Q6-15",
         "type": "multiple_choice",
-        "question": "Do you expect accretion or erosion for the situation described above?",
+        "question": "Compare the above findings for Sennen Cove with Figure 7.21 from the book. This figure also represents storm conditions. Which transport component is much larger according to the shape functions than according to Figure 7.21?",
         "options": {
-            "a": "accretion",
-            "b": "erosion"
+            "a": "The offshore transport due to undertow in the surf zone",
+            "b": "The onshore transport due to waves in the shoaling zone",
+            "c": "The onshore transport due to waves in the surf zone",
+            "d": "The offshore transport due to undertow in the shoaling zone"
         },
-        "answer": "a",
+        "answer": 
+            "b",
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct. Note that this leads to a net onshore transport in the shoaling zone and also in the outer part of the surf zone. But keep in mind that under high-energy conditions data beyond the breakpoint were limited, which introduces uncertainty in the shape functions under these conditions.",
+            "incorrect": "Incorrect. Compare the oscillatory transports and the total transports of Figure 7.21 and Sennen Cove."
         }
     },
     "Q6-16": {
         "name": "Q6-16",
+        "type": "multiple_choice",
+        "question": "Now look at the shoaling zone and outer part of the surf zone. Based on the shape functions, what would be morphodynamice response here?",
+        "options": {
+            "a": "Erosion seaward of the breakpoint and erosion landward of it.",
+            "b": "Sedimentation seaward of the breakpoint and sedimentation landward of it.",
+            "c": "Erosion seaward of the breakpoint and sedimentation landward of it.",
+            "d": "Sedimentation seaward of the breakpoint and erosion landward of it."
+         },
+        "answer": "c",
+        "feedback": {
+            "correct": "Correct. Going in onshore direction, the onshore transport increases (positive gradient) until slightly offshore of the breakpoint and then starts to decrease. This implies first erosion and then accretion.",
+            "incorrect": "Incorrect. Select the total surf/zone transport and determine the transport gradients in the direction of the postive transport."
+        }
+    },
+    "Q6-17a": {
+        "name": "Q6-17a",
         "type": "numeric",
         "question": "How wide is the surf zone approximately? Give your answer in meters, rounded to the nearest multiple of 10.",
         "answer": 1,
@@ -246,6 +268,22 @@
             "incorrect": "Incorrect. ..."
         }
     },
+    "Q6-17b": {
+        "name": "Q6-17b",
+        "type": "multiple_choice",
+        "question": "What is the direction of transport due to waves? And due to undertow?",
+        "options": {
+            "a": "oshore, onshore",
+            "b": "onshore, offshore",
+            "c": "offshore, onshore",
+            "d": "offshore, offshore"
+        },
+        "answer": "b",
+        "feedback": {
+            "correct": "Correct, ...",
+            "incorrect": "Incorrect. ..."
+        }
+    },    
     "Q6-17": {
         "name": "Q6-17",
         "type": "multiple_choice",
