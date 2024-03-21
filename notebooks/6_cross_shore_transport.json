@@ -72,7 +72,7 @@
          },
         "answer": "c",
         "feedback": {
-            "correct": "Correct. We can estimate this from the following facts. First, both the onshore directed short-wave term and the offshore directed long-wave term increase until breaking. Second, the undertow contribution is grosso modo restricted to the surf zone.",
+            "correct": "Correct. We can estimate this from the following facts. First, both the onshore directed short-wave term and the offshore directed long-wave term increase when the waves are shoaling until around the breakpoint. Second, the undertow contribution is more or less restricted to the surf zone.",
             "incorrect": "Incorrect. What do you know of the direction of each of the mean, short-wave and long-wave transport contributions in the surf zone and shoaling zone?"
         }
     }, 
@@ -127,28 +127,6 @@
             "incorrect": "Incorrect. Incorrect, there is no integration over the surf zone or in alongshore direction."
         }
     },
-    "Q6-15": {
-        "name": "Q6-15",
-        "type": "multiple_selection",
-        "question": "What morphological response can be expected? First focus on the surf zone where the changes are largest.",
-        "options": {
-            "a": "erosion higher in the profile",
-            "b": "erosion lower in the profile",
-            "c": "sedimentation lower in the profile",
-            "d": "sedimentation higher in the profile",
-            "e": "profile flattens",
-            "f": "profile steepens"
-        },
-        "answer": [
-            "a",
-            "c",
-            "e"
-        ],
-        "feedback": {
-            "correct": "Correct, in that sense this situation is comparable with the type of conditions of figure 7.21. Check for yourself the transport gradients of the total transport in the surf zone. These point towards erosion closer to the shore and accretion further from the shore (but still in the surf zone.",
-            "incorrect": "Incorrect. Compare this situation to the situation of Q6. Check the transport gradients in the total transport line and draw conclusions about the bed changes to be expected."
-        }
-    },
     "Q6-9": {
         "name": "Q6-9",
         "type": "numeric",
@@ -198,11 +176,11 @@
         "options": {
             "a": "In the shoaling zone and surf zone (the entire range of h/h_b)",
             "b": "Mainly in the shoaling zone only (h/h_b > 1)",
-            "c": "Mainly in the surf zone only (h/h_b < 1)"
+            "c": "Mainly in the surf zone (h/h_b < 1), but also a little bit outside"
         },
         "answer": "c",
         "feedback": {
-            "correct": "Correct, the offshore transport due to undertow is restricted to the surf zone",
+            "correct": "Correct, the offshore transport due to undertow is (more or less) restricted to the surf zone",
             "incorrect": "Incorrect. Is there an undertow in the shoaling zone?"
         }
     },
@@ -215,12 +193,12 @@
             "b": "Offshore for h/h_b < 1, onshore for h/h_b > 1",
             "c": "Onshore for h/h_b < 0.6, offshore for h/h_b > 0.6",
             "d": "Offshore for h/h_b < 0.6, onshore for h/h_b > 0.6",
-            "e": "Onshore for h/h_b < 0.8, offshore for h/h_b > 0.6",
-            "f": "Offshore for h/h_b < 0.8, onshore for h/h_b > 0.6"
+            "e": "Onshore for h/h_b < 0.75, offshore for h/h_b > 0.75",
+            "f": "Offshore for h/h_b < 0.75, onshore for h/h_b > 0.75"
         },
-        "answer": "d",
+        "answer": "f",
         "feedback": {
-            "correct": "Correct. Under high-energy condition the shape function predicts an onshore transport in the shoaling zone and the outer part of the surf zone and an onshore in the inner part of the surf zone.",
+            "correct": "Correct. Under high-energy condition the shape function predicts an onshore transport in the shoaling zone and the outer part of the surf zone and an offshore transport in the inner part of the surf zone.",
             "incorrect": "Incorrect. Select the total surf/shoaling transport (grey line). For which h/h_b does this transport reverse direction?"
         }
     },
@@ -237,10 +215,32 @@
         "answer": 
             "b",
         "feedback": {
-            "correct": "Correct. Note that this leads to a net onshore transport in the shoaling zone and also in the outer part of the surf zone. But keep in mind that under high-energy conditions data beyond the breakpoint were limited, which introduces uncertainty in the shape functions under these conditions.",
+            "correct": "Correct. Note that this leads to a net onshore transport in the shoaling zone and also in the outer part of the surf zone. But keep in mind that under high-energy conditions data beyond the breakpoint were limited, which introduces uncertainty in the shape functions.",
             "incorrect": "Incorrect. Compare the oscillatory transports and the total transports of Figure 7.21 and Sennen Cove."
         }
     },
+    "Q6-15": {
+        "name": "Q6-15",
+        "type": "multiple_selection",
+        "question": "What morphological response can be expected? First focus on the surf zone where the changes are largest.",
+        "options": {
+            "a": "erosion higher in the profile",
+            "b": "erosion lower in the profile",
+            "c": "sedimentation lower in the profile",
+            "d": "sedimentation higher in the profile",
+            "e": "profile flattens",
+            "f": "profile steepens"
+        },
+        "answer": [
+            "a",
+            "c",
+            "e"
+        ],
+        "feedback": {
+            "correct": "Correct, in that sense this situation is comparable with the type of conditions of figure 7.21. Check for yourself the transport gradients of the total transport in the surf zone. These point towards erosion closer to the shore and accretion further from the shore (but still in the surf zone.",
+            "incorrect": "Incorrect. Compare this situation to the situation of Q6. Check the transport gradients in the total transport line and draw conclusions about the bed changes to be expected."
+        }
+    },    
     "Q6-16": {
         "name": "Q6-16",
         "type": "multiple_choice",
@@ -253,118 +253,111 @@
          },
         "answer": "c",
         "feedback": {
-            "correct": "Correct. Going in onshore direction, the onshore transport increases (positive gradient) until slightly offshore of the breakpoint and then starts to decrease. This implies first erosion and then accretion.",
+            "correct": "Correct. Going in onshore direction, the onshore directed total transport increases (positive gradient) until slightly offshore of the breakpoint and then starts to decrease. This implies first erosion and then accretion.",
             "incorrect": "Incorrect. Select the total surf/zone transport and determine the transport gradients in the direction of the postive transport."
         }
     },
-    "Q6-17a": {
-        "name": "Q6-17a",
-        "type": "numeric",
-        "question": "How wide is the surf zone approximately? Give your answer in meters, rounded to the nearest multiple of 10.",
-        "answer": 1,
-        "precision": 0,
-        "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
-        }
-    },
-    "Q6-17b": {
-        "name": "Q6-17b",
-        "type": "multiple_choice",
-        "question": "What is the direction of transport due to waves? And due to undertow?",
-        "options": {
-            "a": "oshore, onshore",
-            "b": "onshore, offshore",
-            "c": "offshore, onshore",
-            "d": "offshore, offshore"
-        },
-        "answer": "b",
-        "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
-        }
-    },    
     "Q6-17": {
         "name": "Q6-17",
-        "type": "multiple_choice",
-        "question": "What is the direction of transport due to waves? And due to undertow?",
-        "options": {
-            "a": "oshore, onshore",
-            "b": "onshore, offshore",
-            "c": "offshore, onshore",
-            "d": "offshore, offshore"
-        },
-        "answer": "b",
+        "type": "numeric",
+        "question": "How wide is the surf zone approximately? Give your answer in meters, rounded to the nearest multiple of 10.",
+        "answer": 10,
+        "precision": 0,
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct. This is a much narrower surf zone than for the high-energy conditions.",
+            "incorrect": "Incorrect. Measure the approximate distance from the waterline to the breakpoint."
         }
     },
     "Q6-18": {
         "name": "Q6-18",
         "type": "multiple_choice",
-        "question": "Where do we expect onshore transport (h/h_b)?",
+        "question": "What is the direction of transport due to waves? And due to undertow?",
         "options": {
-            "a": "...",
-            "b": "..."
+            "a": "onshore in the shoaling zone and surf zone, offshore in the surf zone",
+            "b": "onshore in the shoaling zone, offshore in the surf zone",
+            "c": "offshore in the shoaling zone and surf zone, onshore in the surf zone",
+            "d": "onshore in the shoaling zone, offshore in the surf zone"
         },
         "answer": "a",
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct. Also check the position of the offshore and onshore maximum. The onshore maximum is closer to the breakpoint and the offshore maximum closer to the shore.",
+            "incorrect": "Incorrect. Find the lines in the second panel representing the mean and oscillatory transport."
         }
     },
     "Q6-19": {
         "name": "Q6-19",
-        "type": "multiple_choice",
-        "question": "Where do we expect offshore transport (h/h_b)?",
+        "type": "multiple_selection",
+        "question": "The correct answer to the previous question is the same for low-energy and high-energy conditions. What then is different for lower-energy conditions as compared to higher-energy conditions?",
         "options": {
-            "a": "...",
-            "b": "..."
+            "a": "The mean and oscillatory transport magnitudes are much lower",
+            "b": "The oscillatory transport magnitude is much lower, the mean transport is comparable in magnitude",
+            "c": "The transport is confined to a narrower zone",
+            "d": "The total transport now is offshore directed in surf zone and shoaling zone",
+            "e": "The total transport now is onshore directed in surf zone and shoaling zone",
+            "f": "The transport is now maximum just inside the surf zone",
+            "g": "The transport is now maximum just outside the surf zone"            
         },
-        "answer": "a",
+        "answer": [
+            "a",
+            "c",
+            "e",
+            "f"            
+        ],
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct, we see that the total transport is now dominated by the onshore oscillatory transport. It overshadow the offshore directed mean transport. The smaller wave heights lead to lower transport rates and a narrower surf zone.",
+            "incorrect": "Incorrect. Consider the three components in the surf/shoaling zone: mean, oscillatory and total. Vary h_b to see what the effect is."
         }
     },
     "Q6-20": {
         "name": "Q6-20",
-        "type": "multiple_choice",
-        "question": "What is the net direction of the total transport (h/h_b)?",
+        "type": "multiple_selection",
+        "question": "We have seen that the transports are onshore and the transport maximum is found just inside the surf zone. What is the expected morphodynamic response?",
         "options": {
-            "a": "...",
-            "b": "..."
+            "a": "sedimentation shoreward of the transport maximum",
+            "b": "erosion shoreward of the transport maximum",
+            "c": "sedimentation seaward of the transport maximum",
+            "d": "erosion seaward of the transport maximum",
+            "e": "profile flattens",
+            "f": "profile steepens"            
         },
-        "answer": "a",
+        "answer": [
+            "a",
+            "d",
+            "f"            
+        ],
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct, the smaller waves restore the profile by bringing sediment onshore.",
+            "incorrect": "Incorrect. Remember that the smaller waves can restore a profile after a storm."
         }
     },
     "Q6-21": {
         "name": "Q6-21",
         "type": "multiple_choice",
-        "question": "Reflective question 1",
+        "question": "Consider the total (net) transport. For which value of h_b is the onshore transport peak equal in magnitude as the offshore transport peak?",
         "options": {
-            "a": "...",
-            "b": "..."
-        },
-        "answer": "a",
+            "a": "approx. 0.7 m",
+            "b": "approx. 1.2 m",
+            "c": "approx. 1.7 m",
+            "d": "approx. 2.2 m",
+            "e": "approx. 2.7 m"
+         },
+        "answer": "c",
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct.. Note that an h_b of 1.7 m represents an offshore significant wave height of around 0.8 m",
+            "incorrect": "Incorrect. Study the total surf/shoal transport pattern for all of the above h_b values."
         }
     },
     "Q6-22": {
         "name": "Q6-22",
-        "type": "multiple_choice",
-        "question": "Reflective question 2",
+        "type": "multiple_selection",
+        "question": "What differences do you observe between the UK and the Dutch profiles?",
         "options": {
             "a": "...",
             "b": "..."
         },
-        "answer": "a",
+        "answer": [
+            "a"
+        ],
         "feedback": {
             "correct": "Correct, ...",
             "incorrect": "Incorrect. ..."
@@ -373,12 +366,14 @@
     "Q6-23": {
         "name": "Q6-23",
         "type": "multiple_choice",
-        "question": "Reflective question 3",
+        "question": "What similarities do you observe between the UK and the Dutch profiles?",
         "options": {
             "a": "...",
             "b": "..."
         },
-        "answer": "a",
+        "answer": [
+            "a"
+        ],
         "feedback": {
             "correct": "Correct, ...",
             "incorrect": "Incorrect. ..."
@@ -387,7 +382,7 @@
     "Q6-24": {
         "name": "Q6-24",
         "type": "multiple_choice",
-        "question": "For what range of values for h_b do you expect erosive conditions for the Dutch profile?",
+        "question": "Reflective question 1",
         "options": {
             "a": "...",
             "b": "..."
@@ -401,7 +396,7 @@
     "Q6-25": {
         "name": "Q6-25",
         "type": "multiple_choice",
-        "question": "For what range of values for h_b do you expect accretive conditions for the Dutch profile?",
+        "question": "Reflective question 2",
         "options": {
             "a": "...",
             "b": "..."
@@ -414,66 +409,6 @@
     },
     "Q6-26": {
         "name": "Q6-26",
-        "type": "multiple_selection",
-        "question": "What differences do you observe between the UK and the Dutch profile?",
-        "options": {
-            "a": "...",
-            "b": "..."
-        },
-        "answer": [
-            "a"
-        ],
-        "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
-        }
-    },
-    "Q6-27": {
-        "name": "Q6-27",
-        "type": "multiple_choice",
-        "question": "What similarities do you observe between the UK and the Dutch profile?",
-        "options": {
-            "a": "...",
-            "b": "..."
-        },
-        "answer": [
-            "a"
-        ],
-        "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
-        }
-    },
-    "Q6-28": {
-        "name": "Q6-28",
-        "type": "multiple_choice",
-        "question": "Reflective question 1",
-        "options": {
-            "a": "...",
-            "b": "..."
-        },
-        "answer": "a",
-        "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
-        }
-    },
-    "Q6-29": {
-        "name": "Q6-29",
-        "type": "multiple_choice",
-        "question": "Reflective question 2",
-        "options": {
-            "a": "...",
-            "b": "..."
-        },
-        "answer": "a",
-        "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
-        }
-    },
-    "Q6-30": {
-        "name": "Q6-30",
         "type": "multiple_choice",
         "question": "Reflective question 3",
         "options": {
@@ -486,8 +421,8 @@
             "incorrect": "Incorrect. ..."
         }
     },
-    "Q6-31": {
-        "name": "Q6-31",
+    "Q6-27": {
+        "name": "Q6-27",
         "type": "multiple_choice",
         "question": "Reflective question 1",
         "options": {
@@ -500,8 +435,8 @@
             "incorrect": "Incorrect. ..."
         }
     },
-    "Q6-32": {
-        "name": "Q6-32",
+    "Q6-28": {
+        "name": "Q6-28",
         "type": "multiple_choice",
         "question": "Reflective question 2",
         "options": {
@@ -514,8 +449,8 @@
             "incorrect": "Incorrect. ..."
         }
     },
-    "Q6-33": {
-        "name": "Q6-33",
+    "Q6-29": {
+        "name": "Q6-29",
         "type": "multiple_choice",
         "question": "Reflective question 3",
         "options": {
