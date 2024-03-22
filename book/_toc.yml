@@ -42,3 +42,7 @@ parts:
   - caption: Week 5
     chapters:
       - file: notebooks/5_coastal_impact_beach_states
+
+  - caption: Week 6
+    chapters:
+      - file: notebooks/6_cross_shore_transport
