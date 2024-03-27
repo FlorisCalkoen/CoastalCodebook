@@ -6,8 +6,8 @@
         "answer": 0.70,
         "precision": 2,
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct.",
+            "incorrect": "Incorrect."
         }
     },
     "Q7-2": {
@@ -17,19 +17,19 @@
         "answer": 0.002766,
         "precision": 4,
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct.",
+            "incorrect": "Incorrect."
         }
     },
     "Q7-3": {
         "name": "Q7-3",
         "type": "numeric",
-        "question": "Change the offshore wave height back to 2 m. For what angle of incidence phi (in degrees) is the transport maximum? Round your answer to the nearest integer.",
+        "question": "Change the offshore wave height back to 2 m. For what deep water angle of incidence phi (in degrees) is the transport maximum? Round your answer to the nearest integer. Give a positive angle.",
         "answer": 42,
         "precision": 0,
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct. The maximum transport is found for a value slightly smaller than 45 degrees.",
+            "incorrect": "Incorrect. Note that the value is slightly different than what is mentioned in Example 8.1 in the book."
         }
     },
     "Q7-4": {
@@ -49,42 +49,42 @@
             "d"
         ],
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct. Can you explain why porosity is part of the CERC formula? And what the effect is of a longer wave period?",
+            "incorrect": "Incorrect. Verify the effect of all variables from the CERC equation and the code."
         }
     },
     "Q7-5": {
         "name": "Q7-5",
         "type": "multiple_choice",
-        "question": "After how many years does the accretion first surpass the breakwater length?",
+        "question": "After how many years is the outward growth of the shoreline at the breakwater equal to 150 m?",
         "options": {
-            "a": "7",
-            "b": "9",
-            "c": "11",
-            "d": "13"
+            "a": "3",
+            "b": "5",
+            "c": "7",
+            "d": "9"
         },
-        "answer": "c",
+        "answer": "b",
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct.",
+            "incorrect": "Incorrect. Check this in the plot of L(t)."
         }
     },
     "Q7-6": {
         "name": "Q7-6",
         "type": "numeric",
-        "question": "The angle of the coastline just beside the breakwater seems constant throughout the years, especially as we move to the later years. Using the (S,phi)-curve, determine this angle. Round your answer to the nearest integer.",
-        "answer": 15,
+        "question": "The angle of the coastline just beside the breakwater seems constant throughout the years. Determine this angle. Round your answer to the nearest integer.",
+        "answer": 10,
         "precision": 0,
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct.",
+            "incorrect": "Incorrect. You can estimate it from the figure and verify from the S-phi plot."
         }
     },
     "Q7-7": {
         "name": "Q7-7",
         "type": "numeric",
-        "question": "Determine the expected yearly transport for a zero degree angle. Hint: we have seen this value before! Round your answer to the nearest integer.",
-        "answer": 204961,
+        "question": "How large is the yearly transport (m3/yr) in the region where the coastline orientation has not changed yet. Hint: we have seen this value before! Round your answer to the nearest integer.",
+        "answer": 138817,
         "precision": 0,
         "feedback": {
             "correct": "Correct, ...",
@@ -94,23 +94,23 @@
     "Q7-8": {
         "name": "Q7-8",
         "type": "multiple_choice",
-        "question": "Imagine we increase the depth of closure (DOC) from 7 m to 12 m. What would change with respect to the evolution of the coastal morphology? Hint: If you are stuck you can change the value of the DOC in the code. You will have to rerun the model in its entirety though.",
+        "question": "Imagine the depth of closure (DOC) is 9 m instead of 7 m. What would change with respect to the evolution of the coastal morphology? Hint: If you are stuck you can change the value of the DOC in the code. You will have to rerun the model in its entirety though.",
         "options": {
             "a": "The shoreline angle close to the breakwater will increase.",
             "b": "The accretion will extend further updrift.",
             "c": "The accretion will reach the tip of the breakwater faster.",
-            "d": "The accretion profile will look similar but will develop slower."
+            "d": "The accretion shape will look similar but will develop slower."
         },
         "answer": "d",
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct.",
+            "incorrect": "Incorrect."
         }
     },
     "Q7-9": {
         "name": "Q7-9",
         "type": "multiple_selection",
-        "question": "Say we want to include shadow effects in our numerical model. Select the appropriate strategies from the options below.",
+        "question": "Say we want to include waves from other directions also, including wave directions for which the breakwater introduces shadow effects. How could we mimick shadow effects in our numerical model? Select the appropriate strategies from the options below.",
         "options": {
             "a": "reduce wave height for part of the grid depending on the angle of incidence",
             "b": "increase depth of closure close to the breakwater",
@@ -119,8 +119,8 @@
         },
         "answer": "a",
         "feedback": {
-            "correct": "Correct, ...",
-            "incorrect": "Incorrect. ..."
+            "correct": "Correct.",
+            "incorrect": "Incorrect."
         }
     },
     "Q7-10": {
@@ -128,7 +128,7 @@
         "type": "multiple_selection",
         "question": "Say we want to include bypass effects in our numerical model, e.g. when the accretion reaches the tip of the breakwater. Select the appropriate strategies from the options below.",
         "options": {
-            "a": "use a conditional boundary conditions which changes after accretion at the breakwater has reached a certain length",
+            "a": "use a conditional boundary condition which changes after accretion at the breakwater has reached a certain length",
             "b": "use a nonzero transport at the breakwater, depending on its assumed permeability",
             "c": "implicitly include bypass effects by including shadow zone effects",
             "d": "calculate the transport twice (with and without breakwater), and use some form of averaging to compute transport"
