@@ -46,3 +46,7 @@ parts:
   - caption: Week 6
     chapters:
       - file: notebooks/6_cross_shore_transport
+
+  - caption: Week 7
+    chapters:
+      - file: notebooks/7_alongshore_transport
