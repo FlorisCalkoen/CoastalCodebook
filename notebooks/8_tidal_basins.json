@@ -1,0 +1,166 @@
+{
+    "Q7-1": {
+        "name": "Q7-1",
+        "type": "numeric",
+        "question": "Rerun the code for an offshore wave height of 0.5 m (still with a period of 7 s and an incident angle of 5 degrees). What is the new predicted wave height at breaking (in meters)? Round your answer to 2 decimals.",
+        "answer": 0.70,
+        "precision": 2,
+        "feedback": {
+            "correct": "Correct.",
+            "incorrect": "Incorrect."
+        }
+    },
+    "Q7-2": {
+        "name": "Q7-2",
+        "type": "numeric",
+        "question": "And for this same wave height of 0.5 m, what is the value for the transport S [m3/s]? Either compute your answer, or read it from the plot. Round your answer to 4 decimal spaces.",
+        "answer": 0.0028,
+        "precision": 4,
+        "feedback": {
+            "correct": "Correct.",
+            "incorrect": "Incorrect."
+        }
+    },
+    "Q7-3": {
+        "name": "Q7-3",
+        "type": "numeric",
+        "question": "Change the offshore wave height back to 2 m. For what deep water angle of incidence phi (in degrees) is the transport maximum? Round your answer to the nearest integer. Give a positive angle.",
+        "answer": 42.0,
+        "precision": 1,
+        "feedback": {
+            "correct": "Correct. The maximum transport is found for a value slightly smaller than 45 degrees.",
+            "incorrect": "Incorrect. Note that the value is slightly different than what is mentioned in Example 8.1 in the book."
+        }
+    },
+    "Q7-4": {
+        "name": "Q7-4",
+        "type": "multiple_selection",
+        "question": "For which circumstances would the alongshore transport increase?",
+        "options": {
+            "a": "Increased porosity",
+            "b": "Increased sediment density",
+            "c": "Increased offshore wave height",
+            "d": "Increased wave period",
+            "e": "Angle of incidence increases from 20 to 80 degrees"
+        },
+        "answer": [
+            "a",
+            "c",
+            "d"
+        ],
+        "feedback": {
+            "correct": "Correct. Can you explain why porosity is part of the CERC formula? And what the effect is of a longer wave period?",
+            "incorrect": "Incorrect. Verify the effect of all variables from the CERC equation and the code."
+        }
+    },
+    "Q7-5": {
+        "name": "Q7-5",
+        "type": "multiple_choice",
+        "question": "After how many years is the outward growth of the shoreline at the breakwater for the first time equal to more than 150 m?",
+        "options": {
+            "a": "4",
+            "b": "6",
+            "c": "8",
+            "d": "10"
+        },
+        "answer": "b",
+        "feedback": {
+            "correct": "Correct.",
+            "incorrect": "Incorrect. Check this in the plot of L(t)."
+        }
+    },
+    "Q7-6": {
+        "name": "Q7-6",
+        "type": "numeric",
+        "question": "The angle of the coastline just beside the breakwater seems constant throughout the years. Determine this angle. Round your answer to the nearest integer.",
+        "answer": 10.0,
+        "precision": 1,
+        "feedback": {
+            "correct": "Correct.",
+            "incorrect": "Incorrect. You can estimate it from the figure and verify from the S-phi plot."
+        }
+    },
+    "Q7-7": {
+        "name": "Q7-7",
+        "type": "numeric",
+        "question": "How large is the yearly transport (m3/yr) in the region where the coastline orientation has not changed yet. Hint: we have seen this value before! Round your answer to the nearest integer.",
+        "answer": 138817.0,
+        "precision": 1,
+        "feedback": {
+            "correct": "Correct.",
+            "incorrect": "Incorrect."
+        }
+    },
+    "Q7-8": {
+        "name": "Q7-8",
+        "type": "multiple_choice",
+        "question": "Imagine the depth of closure (DOC) is 9 m instead of 7 m. What would change with respect to the evolution of the coastal morphology? Hint: If you are stuck you can change the value of the DOC in the code. You will have to rerun the model in its entirety though.",
+        "options": {
+            "a": "The shoreline angle close to the breakwater will increase.",
+            "b": "The accretion will extend further updrift.",
+            "c": "The accretion will reach the tip of the breakwater faster.",
+            "d": "The accretion shape will look similar but will develop slower."
+        },
+        "answer": "d",
+        "feedback": {
+            "correct": "Correct.",
+            "incorrect": "Incorrect."
+        }
+    },
+    "Q7-9": {
+        "name": "Q7-9",
+        "type": "multiple_selection",
+        "question": "Say we want to include waves from other directions also, including wave directions for which the breakwater introduces shadow effects. How could we mimick shadow effects in our numerical model? Select the appropriate strategies from the options below.",
+        "options": {
+            "a": "reduce wave height for part of the grid depending on the angle of incidence",
+            "b": "increase depth of closure close to the breakwater",
+            "c": "manually decrease transport values close to the breakwater irrespective of the angle of incidence",
+            "d": "reduce wave height for the entire grid"
+        },
+        "answer": "a",
+        "feedback": {
+            "correct": "Correct.",
+            "incorrect": "Incorrect."
+        }
+    },
+    "Q7-10": {
+        "name": "Q7-10",
+        "type": "multiple_selection",
+        "question": "Say we want to include bypass effects in our numerical model, e.g. when the accretion reaches the tip of the breakwater. Select the appropriate strategies from the options below.",
+        "options": {
+            "a": "use a conditional boundary condition which changes after accretion at the breakwater has reached a certain length",
+            "b": "mirror the updrift solution and use that as a downdrift solution",
+            "c": "implicitly include bypass effects by including shadow zone effects",
+            "d": "calculate the transport twice (with and without breakwater), and use the average value for transport at the breakwater"
+        },
+        "answer": [
+            "a"
+        ],
+        "feedback": {
+            "correct": "Correct.",
+            "incorrect": "Incorrect."
+        }
+    },
+    "Q7-11": {
+        "name": "Q7-11",
+        "type": "numeric",
+        "question": "What is the yearly transport for the initial or reference coastline orientation? Round your answer to the nearest integer.",
+        "answer": 465937.0,
+        "precision": 1,
+        "feedback": {
+            "correct": "Correct.",
+            "incorrect": "Incorrect."
+        }
+    },
+    "Q7-12": {
+        "name": "Q7-12",
+        "type": "numeric",
+        "question": "What is the angle over which the coast has to rotate for the transport to become zero? Round your answer to the nearest integer.",
+        "answer": 14.0,
+        "precision": 1,
+        "feedback": {
+            "correct": "Correct.",
+            "incorrect": "Incorrect."
+        }
+    }
+}
