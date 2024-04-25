@@ -24,7 +24,7 @@ class NumericQuestion(Question):
         self,
         question_name: str,
         question_text: str,
-        question_answer: float,
+        question_answer: str,
         question_feedback: dict[Literal["correct", "incorrect"], str],
         sig_figs: int | None = None,
     ):
@@ -48,7 +48,7 @@ class NumericQuestion(Question):
             if self.sig_figs:
                 user_answer = np.format_float_positional(user_answer, precision=self.sig_figs, unique=False, fractional=False, trim='k')
 
-            if self.hash_answer(user_answer, "numeric") == self.correct_answer:
+            if self.hash_answer(user_answer, "numeric", sig_figs=self.sig_figs) == self.correct_answer:
                 self.feedback_widget.value = self.feedback["correct"]
 
             else:
@@ -70,7 +70,7 @@ class NumericQuestion(Question):
 if __name__ == "__main__":
     question_data = {
         "question": "What is the relative importance of S2 vs M2?",
-        "answer": 0.33,
+        "answer": 35,
         "sig_figs": 2,
     }
 
@@ -78,7 +78,7 @@ if __name__ == "__main__":
         question_name="Q3: Simple numeric question",
         question_text=question_data["question"],
         question_answer=cd.hash_answer(
-            round(float(question_data["answer"]), question_data["sig_figs"]), "numeric"
+            np.format_float_positional(float(question_data["answer"]),precision=question_data["sig_figs"], unique=False, fractional=False, trim='k'), "numeric",
         ),
         question_feedback={
             "correct": "Correct!...",
