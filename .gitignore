@@ -146,3 +146,6 @@ dist*
 
 # don't add ruff cache
 *.ruff_cache*
+
+# don't add questions to public github
+questions/*.json

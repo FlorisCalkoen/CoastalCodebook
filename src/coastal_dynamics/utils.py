@@ -14,7 +14,7 @@ def hash_answer(answer, question_type, sig_figs=None):
         return hashlib.sha256(str(answer).encode()).hexdigest()
     elif question_type == "numeric":
         if sig_figs:
-            answer = np.format_float_positional(answer, precision=sig_figs, unique=False, fractional=False, trim='k')
+            answer = np.format_float_positional(float(answer), precision=sig_figs, unique=False, fractional=False, trim='k')
         return hashlib.sha256(str(answer).encode()).hexdigest()
     else:
         msg = f"Unsupported question type: {question_type}"
