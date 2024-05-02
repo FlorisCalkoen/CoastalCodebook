@@ -39,7 +39,7 @@ class NumericQuestion(Question):
         super().create_widgets()
         self.answer_input = pn.widgets.FloatInput(name="Your Answer")
         self.submit_button.on_click(self.check_answer)
-    
+
     def check_answer(self, event) -> None:
         """Check the submitted answer against the correct answer."""
         try:
@@ -47,11 +47,17 @@ class NumericQuestion(Question):
 
             if self.sig_figs:
                 user_answer = np.format_float_positional(
-                    user_answer, precision=self.sig_figs, unique=False, fractional=False, trim='k'
-                    )
-                
-            hashed_user_answer = self.hash_answer(user_answer, "numeric", sig_figs=self.sig_figs)
-            
+                    user_answer,
+                    precision=self.sig_figs,
+                    unique=False,
+                    fractional=False,
+                    trim="k",
+                )
+
+            hashed_user_answer = self.hash_answer(
+                user_answer, "numeric", sig_figs=self.sig_figs
+            )
+
             if hashed_user_answer == self.correct_answer:
                 self.feedback_widget.value = self.feedback["correct"]
 
@@ -84,11 +90,11 @@ if __name__ == "__main__":
         question_answer=cd.hash_answer(
             np.format_float_positional(
                 float(question_data["answer"]),
-                precision=question_data["sig_figs"], 
-                unique=False, 
-                fractional=False, 
-                trim='k')
-            , 
+                precision=question_data["sig_figs"],
+                unique=False,
+                fractional=False,
+                trim="k",
+            ),
             "numeric",
         ),
         question_feedback={

@@ -15,7 +15,7 @@ def process_questions(questions):
         print(1)
         q_data["answer"] = cd.hash_answer(
             q_data.get("answer"), q_data.get("type"), sig_figs=q_data.get("sig_figs")
-            )
+        )
         print(2)
     return questions
 
