@@ -1,6 +1,6 @@
 from typing import Literal
 
-import  numpy as np
+import numpy as np
 import panel as pn
 
 import coastal_dynamics as cd
@@ -46,9 +46,13 @@ class NumericQuestion(Question):
             user_answer = float(self.answer_input.value)
 
             if self.sig_figs:
-                user_answer = np.format_float_positional(user_answer, precision=self.sig_figs, unique=False, fractional=False, trim='k')
-
-            if self.hash_answer(user_answer, "numeric", sig_figs=self.sig_figs) == self.correct_answer:
+                user_answer = np.format_float_positional(
+                    user_answer, precision=self.sig_figs, unique=False, fractional=False, trim='k'
+                    )
+                
+            hashed_user_answer = self.hash_answer(user_answer, "numeric", sig_figs=self.sig_figs)
+            
+            if hashed_user_answer == self.correct_answer:
                 self.feedback_widget.value = self.feedback["correct"]
 
             else:
@@ -78,7 +82,14 @@ if __name__ == "__main__":
         question_name="Q3: Simple numeric question",
         question_text=question_data["question"],
         question_answer=cd.hash_answer(
-            np.format_float_positional(float(question_data["answer"]),precision=question_data["sig_figs"], unique=False, fractional=False, trim='k'), "numeric",
+            np.format_float_positional(
+                float(question_data["answer"]),
+                precision=question_data["sig_figs"], 
+                unique=False, 
+                fractional=False, 
+                trim='k')
+            , 
+            "numeric",
         ),
         question_feedback={
             "correct": "Correct!...",

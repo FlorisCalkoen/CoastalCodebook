@@ -13,7 +13,9 @@ def process_questions(questions):
     """Process and hash answers within the questions dictionary based on question type."""
     for _, q_data in questions.items():
         print(1)
-        q_data["answer"] = cd.hash_answer(q_data.get("answer"), q_data.get("type"), sig_figs=q_data.get("sig_figs"))
+        q_data["answer"] = cd.hash_answer(
+            q_data.get("answer"), q_data.get("type"), sig_figs=q_data.get("sig_figs")
+            )
         print(2)
     return questions
 
