@@ -32,6 +32,10 @@ pip install coastal-dynamics
 ```
 ### Architecture
 
+#### Components
+![architecture](https://github.com/FlorisCalkoen/CoastalCodebook/assets/44444001/3f3948ec-c74b-4989-82c3-1ca7da98b535)
+
+#### User usage 
 ![image](https://github.com/FlorisCalkoen/CoastalCodebook/assets/44444001/40a5112d-e830-42cf-9448-63c6d37fb147)
 
 
