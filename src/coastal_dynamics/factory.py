@@ -73,8 +73,8 @@ class QuestionFactory:
             question_text=self.question_data["question"],
             question_answer=self.question_data["answer"],
             question_feedback=self.question_data["feedback"],
-            precision=self.question_data.get(
-                "precision", 0
+            sig_figs=self.question_data.get(
+                "sig_figs", 0
             ),  # Handle precision as optional
         )
 

@@ -46,6 +46,6 @@ class Question:
         msg = "This method should be implemented by subclasses"
         raise NotImplementedError(msg)
 
-    def hash_answer(self, answer, question_type):
+    def hash_answer(self, answer, question_type, sig_figs=None):
         """Delegate the hashing of an answer to the coastal_dynamics module."""
-        return cd.hash_answer(answer, question_type)
+        return cd.hash_answer(answer, question_type, sig_figs=sig_figs)
