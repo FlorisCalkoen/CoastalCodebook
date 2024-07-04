@@ -106,5 +106,5 @@ dependencies:
   - zarr
 
   - pip:
-      - coastal-dynamics
+      - -e .
       - uptide
