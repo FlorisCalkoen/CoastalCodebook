@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "coastal-dynamics"
-version = "0.0.6"
+version = "0.0.7"
 description = "Jupyterbook for Delft Technical University Coastal Systems"
 authors = ["Floris Calkoen"]
 license = "MIT"
