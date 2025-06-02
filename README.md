@@ -1,6 +1,22 @@
 ![](https://github.com/FlorisCalkoen/CoastalCodebook/blob/main/coastalcodebook/imgs/waves_angola.jpeg)
-# Coastal Dynamics Open Codebook
 
+# [ARCHIVED] Coastal Dynamics Open Codebook
+
+**This repository is archived and no longer maintained.**
+
+The project has been adopted by the [Coastal Dynamics organization](https://github.com/Coastal-Dynamics), and its components are now maintained separately:
+
+-  The latest **Coastal Codebook** (JupyterBook):
+    https://github.com/Coastal-Dynamics/CoastalCodebook
+
+- The **coastal-dynamics Python package**:
+    https://github.com/Coastal-Dynamics/coastal-dynamics
+
+Please use the updated repositories for the most recent code, documentation, and issue tracking.
+
+---
+
+## Legacy Content (for reference)
 Welcome to the [Coastal Dynamics Open
 Codebook](https://floriscalkoen.github.io/CoastalCodebook/intro.html)! This project contains
 interactive exercises that
@@ -36,7 +52,7 @@ pip install coastal-dynamics
 ![architecture](https://github.com/FlorisCalkoen/CoastalCodebook/assets/44444001/47942d0d-e1aa-406d-9242-613333490427)
 
 
-#### User usage 
+#### User usage
 ![image](https://github.com/FlorisCalkoen/CoastalCodebook/assets/44444001/40a5112d-e830-42cf-9448-63c6d37fb147)
 
 
